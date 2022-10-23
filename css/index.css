@@ -1,0 +1,192 @@
+.logo {
+    height: auto;
+    width: 300px;
+    float: right;
+    object-fit: contain;
+}
+
+.igitna {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.igitna-logo {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.col-lg-5 h1,
+p {
+    color: aliceblue;
+
+}
+
+.col-lg-5 p {
+    font-size: 20px;
+}
+
+.col-lg-5 h1 {
+    font-weight: bold;
+    font-size: 80px;
+}
+
+.sign-in {
+    background-image: url("../images/wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* the img logo */
+.login {
+    background-color: rgba(253, 248, 243, 0.866);
+    height: 60vh;
+    width: 100%;
+    padding: 0px;
+    border-radius: 15px;
+    overflow: auto;
+}
+
+.browse-pets {
+    text-align: center;
+}
+
+/* This is the container for the logo, title, and the login form */
+.sapin {
+    background-color: rgba(39, 21, 2, 0.649);
+    padding: 30px 30px;
+    border-radius: 25px;
+    width: 80%;
+    margin: auto;
+    overflow: auto;
+}
+
+/* go to bookmarked pet-list id  */
+.browse-button {
+    margin-top: 30px;
+    width: 50%;
+    background-color: rgb(110, 18, 18);
+    border: 0px;
+}
+
+.submit-login {
+    margin-top: 30px;
+    width: 60%;
+    background-color: rgb(110, 18, 18);
+    border: 0px;
+}
+
+/* adjust the 'sign in to your account' caption */
+.login h4 {
+    font-size: 30px;
+    /* font-weight: bolder; */
+}
+
+/* adjust margin and width to email field */
+.lblemail {
+    margin-top: 40px;
+    width: 350px;
+}
+
+.txtemail {
+    margin-bottom: 30px;
+}
+
+/* Browse Pets part */
+.pet-list {
+
+    background-color: rgba(211, 236, 234, 0.879);
+}
+
+/* adjust width to email and password fields */
+/* .txtemail{
+    width:
+} */
+
+
+
+/********** Media Queries *************/
+
+/* center logo when zoomed in */
+@media screen and (max-width: 990px) {
+    .igitna-logo {
+        justify-content: center;
+    }
+
+    .login {
+        background-color: rgba(253, 248, 243, 0.866);
+        width: 50%;
+
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .sapin {
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+/* MQ between 960px and 1580px */
+@media screen and (min-width: 991px) and (max-width: 1580px) {
+    .logo {
+        height: 200px;
+    }
+
+    .col-lg-5 p {
+        font-size: 15px;
+    }
+
+    .col-lg-5 h1 {
+        font-size: 50px;
+    }
+
+    /* adjust the 'sign in to your account' caption */
+    .login h4 {
+        font-size: 30px;
+        /* font-weight: bolder; */
+    }
+
+    /* adjust margin and width to email field */
+    .lblemail {
+        margin-top: 40px;
+        width: 250px;
+    }
+
+    .txtemail {
+        margin-bottom: 30px;
+    }
+}
+
+/* MQ the .logo to make it wider*/
+@media screen and (max-width: 750px) {
+    .login {
+        width: 300px;
+    }
+}
+
+/* adjust title when width = 560px or below */
+@media screen and (max-width: 560px) {
+    .col-lg-5 h1 {
+        font-size: 50px;
+    }
+}
+
+/* make it responsive to Galaxy Fold at 280px */
+@media screen and (max-width: 280px) {
+    .col-lg-5 h1 {
+        font-size: 30px;
+    }
+
+    .col-lg-5 p {
+        font-size: 15px;
+    }
+
+    .logo {
+        height: 100px;
+    }
+
+    /* add the sapin responsive */
+}
