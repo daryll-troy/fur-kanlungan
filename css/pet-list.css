@@ -16,7 +16,10 @@ background-color: rgba(236, 232, 228, 0.99);
     border: 0px;
 }
 
-
+.choose-animal{
+    padding-left: 2em;
+    padding-right: 2em;
+}
 .choose-animal,
 .press-search {
     background-color: rgb(110, 18, 18);
@@ -29,4 +32,21 @@ background-color: rgba(236, 232, 228, 0.99);
 .choose-animal:hover,
 .press-search:hover {
     background-color: rgb(54, 10, 10);
+}
+
+/********** Media Queries *************/
+
+/* Adjust the category and search button */
+@media screen and (max-width: 991px) {
+    .type-search {
+        width: 15em;
+       
+    }
+    .choose-animal{
+       margin-right: 2em;
+      width: 10em;
+    }
+    .filter{
+        overflow: auto;
+    }
 }

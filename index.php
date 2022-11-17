@@ -13,7 +13,10 @@
     <link rel="stylesheet" href="css/css-resets.css">
     <!-- css for index.php -->
     <link rel="stylesheet" href="css/index.css">
-    
+    <!-- css for pet-list.php-->
+    <link rel="stylesheet" href="css/pet-list.css">
+    <!-- css for footer.php -->
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -57,9 +60,9 @@
         </div>
     </section>
 
-   
-    <?php include_once 'pages/pet-list.php';?>
-    <?php include_once 'pages/footer.php';?>
+
+    <?php include_once 'pages/pet-list.php'; ?>
+    <?php include_once 'pages/footer.php'; ?>
 </body>
 
 </html>
