@@ -13,9 +13,11 @@
     <link rel="stylesheet" href="css/css-resets.css">
     <!-- css for index.php -->
     <link rel="stylesheet" href="css/index.css">
+    
 </head>
 
 <body>
+    <!-- Login Section -->
     <section class="sign-in min-vh-100 igitna">
         <div class="container-fluid">
             <div class="sapin">
@@ -54,9 +56,13 @@
             </div>
         </div>
     </section>
+
+    <!-- Browse Pets Section -->
     <section class="pet-list min-vh-100" id="pet-list">
-        <p>hello world</p>
+        
     </section>
+    
+    <?php include_once 'pages/footer.php';?>
 </body>
 
 </html>
