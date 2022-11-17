@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <?php include 'pet-list.php'; ?>
+    <?php include 'pet-list.php';?>
     <?php include 'footer.php'; ?>
 </body>
 
