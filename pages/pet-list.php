@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -12,7 +12,7 @@
         <div class="container d-flex justify-content-between filter">
             <!-- Dropdown to filter the animal category -->
             <div class="dropdown mt-5">
-                <button class="btn btn-secondary dropdown-toggle choose-animal ms-5" type="button" id="dropdownMenuButton1" onclick="colorFunction()" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle choose-animal ms-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     Animal Type
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -32,7 +32,7 @@
             </nav>
         </div>
 
-        <div class="container mt-5 pb-5">
+        <div class="container mt-5 pb-5 pet-container">
             <div class="row g-3">
                 <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
                     <div class="card" style="width: 18rem;">
@@ -60,14 +60,23 @@
                 </div>
             </div>
         </div>
-
+        <!-- Pagination for the list of pets -->
+        <div class="page-number">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination  justify-content-center no-margin-bottom">
+                    <li class="page-item">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </section>
-    <!-- Make the color of the .type-search button according to its :hover background-color-->
-    <script>
-        function colorFunction() {
-            document.getElementById("dropdownMenuButton1").style.backgroundColor = "rgb(54, 10, 10)";
-        }
-    </script>
 </body>
 
 </html>

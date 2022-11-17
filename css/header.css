@@ -1,0 +1,43 @@
+.header {
+    height: 10vh;
+}
+
+.ipantay-nav {
+    height: inherit;
+
+}
+
+.ipantay-cont-fluid {
+    background-color: rgba(117, 62, 3, 0.833);
+    height: inherit;
+}
+
+.logo {
+    width: 3em;
+    height: 3em;
+    background-color: aliceblue;
+    border-radius: 45%;
+    
+}
+.puti-header{
+    color: rgb(249, 249, 249);
+    font-size: 1.4rem;
+    padding-right: 1rem;
+  
+}
+li:hover{
+    background-color: rgba(85, 48, 8, 0.918);
+}
+/* make hover of each navbar item cover the entire height of the header */
+.isagad-hover{
+    height: inherit;
+}
+/********** Media Queries *************/
+
+/* remove the padding-top of navbar */
+@media screen and (max-width: 991px) {
+    .ipantay-nav {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}

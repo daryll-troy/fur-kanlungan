@@ -1,14 +1,14 @@
 /* Browse Pets part */
-.pet-list{
-background-color: rgba(236, 232, 228, 0.99);
+.pet-list {
+    background-color: rgba(236, 232, 228, 0.99);
 }
 
 .type-search {
     width: 30em;
-  height: 2.5em;
-  border: 2px;
-  border-color: rgb(54, 10, 10);
-  border-style: solid;
+    height: 2.5em;
+    border: 2px;
+    border-color: rgb(54, 10, 10);
+    border-style: solid;
 }
 
 .press-search {
@@ -16,22 +16,50 @@ background-color: rgba(236, 232, 228, 0.99);
     border: 0px;
 }
 
-.choose-animal{
+.choose-animal {
     padding-left: 2em;
     padding-right: 2em;
 }
+
 .choose-animal,
 .press-search {
     background-color: rgb(110, 18, 18);
     color: aliceblue;
 }
-.search-nav{
+
+.search-nav {
     padding: 0;
 }
 
 .choose-animal:hover,
 .press-search:hover {
     background-color: rgb(54, 10, 10);
+}
+.choose-animal:focus{
+    background-color: rgb(54, 10, 10);
+}
+.pet-container {
+    height: 30em;
+}
+
+/* Modify the pagination bar */
+.no-margin-bottom li {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.no-margin-bottom li a,
+.no-margin-bottom li a:hover {
+    border-radius: 20%;
+    color: rgba(110, 18, 18, 0.726);
+    border: 2px;
+    border-color: rgb(54, 10, 10);
+    border-style: solid;
+}
+
+.no-margin-bottom li a:active {
+    background-color: rgb(54, 10, 10);
+    color: aliceblue;
 }
 
 /********** Media Queries *************/
@@ -40,13 +68,25 @@ background-color: rgba(236, 232, 228, 0.99);
 @media screen and (max-width: 991px) {
     .type-search {
         width: 15em;
-       
+
     }
-    .choose-animal{
-       margin-right: 2em;
-      width: 10em;
+
+    .choose-animal {
+        margin-right: 2em;
+        width: 10em;
     }
-    .filter{
+
+    .filter {
         overflow: auto;
+    }
+}
+
+@media screen and (max-height: 650px) {
+    .no-margin-bottom {
+        margin-bottom: 0;
+    }
+
+    .page-number {
+        padding-bottom: 2em;
     }
 }

@@ -13,10 +13,13 @@
     <link rel="stylesheet" href="../css/pet-list.css">
     <!-- css for footer.php -->
     <link rel="stylesheet" href="../css/footer.css">
+    <!-- css for header.php -->
+    <link rel="stylesheet" href="../css/header.css">
 </head>
 
 <body>
-    <?php include 'pet-list.php';?>
+    <?php include 'header.php'; ?>
+    <?php include 'pet-list.php'; ?>
     <?php include 'footer.php'; ?>
 </body>
 

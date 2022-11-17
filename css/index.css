@@ -3,6 +3,10 @@
     width: 300px;
     float: right;
     object-fit: contain;
+    /* background-color: aliceblue;
+    border-radius: 60%;
+    border: 0em;
+    border-style: solid; */
 }
 
 .igitna {
@@ -78,7 +82,7 @@ p {
 }
 
 .browse-button:hover,
-.submit-login:hover {
+.submit-login:hover{
     background-color: rgb(54, 10, 10);
 }
 
