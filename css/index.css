@@ -29,7 +29,7 @@ p {
 
 .col-lg-5 h1 {
     font-weight: bold;
-    font-size: 80px; 
+    font-size: 80px;
 }
 
 .sign-in {
@@ -77,6 +77,11 @@ p {
     border: 0px;
 }
 
+.browse-button:hover,
+.submit-login:hover {
+    background-color: rgb(54, 10, 10);
+}
+
 /* adjust the 'sign in to your account' caption */
 .login h4 {
     font-size: 30px;
@@ -91,13 +96,16 @@ p {
 
 .txtemail {
     margin-bottom: 30px;
+
 }
 
-/* Browse Pets part */
-.pet-list {
-
-    background-color: rgba(211, 236, 234, 0.879);
+.txtemail,
+.txtpwd {
+    border: 2px;
+    border-color: rgb(54, 10, 10);
+    border-style: solid;
 }
+
 
 /* adjust width to email and password fields */
 /* .txtemail{
@@ -115,7 +123,7 @@ p {
     }
 
     .login {
-        background-color: rgba(253, 248, 243, 0.866);
+        /* background-color: rgba(253, 248, 243, 0.866); */
         width: 50%;
 
         margin-top: 50px;

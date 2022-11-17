@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="pwd" class="form-label">Password:</label>
-                                    <input type="password" class="form-control " id="pwd" placeholder="Enter password" name="pswd">
+                                    <input type="password" class="form-control txtpwd " id="pwd" placeholder="Enter password" name="pswd">
                                 </div>
                                 <div class="igitna">
                                     <button type="submit" class="btn btn-primary submit-login">Sign in</button>
@@ -57,11 +57,8 @@
         </div>
     </section>
 
-    <!-- Browse Pets Section -->
-    <section class="pet-list min-vh-100" id="pet-list">
-        
-    </section>
-    
+   
+    <?php include_once 'pages/pet-list.php';?>
     <?php include_once 'pages/footer.php';?>
 </body>
 

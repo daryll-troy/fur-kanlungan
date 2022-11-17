@@ -1,0 +1,32 @@
+/* Browse Pets part */
+.pet-list{
+background-color: rgba(236, 232, 228, 0.99);
+}
+
+.type-search {
+    width: 30em;
+  height: 2.5em;
+  border: 2px;
+  border-color: rgb(54, 10, 10);
+  border-style: solid;
+}
+
+.press-search {
+    width: 10em;
+    border: 0px;
+}
+
+
+.choose-animal,
+.press-search {
+    background-color: rgb(110, 18, 18);
+    color: aliceblue;
+}
+.search-nav{
+    padding: 0;
+}
+
+.choose-animal:hover,
+.press-search:hover {
+    background-color: rgb(54, 10, 10);
+}
