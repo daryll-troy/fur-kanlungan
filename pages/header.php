@@ -19,17 +19,12 @@
                         <li class="nav-item isagad-hover">
                             <a class="nav-link isagad-hover" aria-current="page" href="#"> <span class="puti-header">Chats</span></a></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><span class="puti-header">Pet Shops</span></a>
-                        </li>
+                       
                         <li class="nav-item">
                             <a class="nav-link" href="#"><span class="puti-header">Pet Products</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><span class="puti-header">Clinics</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><span class="puti-header">Veterenarians</span></a>
                         </li>
                         <li class="nav-item dropdown ms-auto">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

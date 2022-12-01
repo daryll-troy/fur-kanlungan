@@ -39,7 +39,7 @@
     background-color: rgb(54, 10, 10);
 }
 .pet-container {
-    height: 30em;
+    /* height: 30em; */
 }
 
 /* Modify the pagination bar */
@@ -61,6 +61,11 @@
     background-color: rgb(54, 10, 10);
     color: aliceblue;
 }
+/* adjust the pagination width to overflow: auto */
+.pagination{
+    overflow: auto;
+}
+
 
 /********** Media Queries *************/
 
@@ -88,5 +93,6 @@
 
     .page-number {
         padding-bottom: 2em;
+       ;
     }
 }
