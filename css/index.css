@@ -15,6 +15,7 @@
     align-items: center;
 }
 
+/* Made it separate for the logo to lessen the confusion when adjusting the responsiveness of the logo */
 .igitna-logo {
     display: flex;
     justify-content: right;
@@ -61,7 +62,7 @@ p {
     background-color: rgba(39, 21, 2, 0.649);
     padding: 30px 30px;
     border-radius: 25px;
-    width: 80%;
+    width: 90%;
     margin: auto;
     overflow: auto;
 }
@@ -82,7 +83,7 @@ p {
 }
 
 .browse-button:hover,
-.submit-login:hover{
+.submit-login:hover {
     background-color: rgb(54, 10, 10);
 }
 
@@ -128,7 +129,7 @@ p {
 
     .login {
         /* background-color: rgba(253, 248, 243, 0.866); */
-        width: 50%;
+        width: 80%;
 
         margin-top: 50px;
         margin-bottom: 50px;
@@ -145,6 +146,16 @@ p {
 @media screen and (min-width: 991px) and (max-width: 1580px) {
     .logo {
         height: 200px;
+    }
+
+    /* Added to center the logo @ 991px */
+    .igitna-logo {
+        justify-content: center;
+    }
+
+    /* add margin-bottom to browse-button @ 991px */
+    .browse-button {
+        margin-bottom: 2em;
     }
 
     .col-lg-5 p {
@@ -175,7 +186,7 @@ p {
 /* MQ the .logo to make it wider*/
 @media screen and (max-width: 750px) {
     .login {
-        width: 300px;
+        width: 80%;
     }
 }
 
@@ -183,6 +194,14 @@ p {
 @media screen and (max-width: 560px) {
     .col-lg-5 h1 {
         font-size: 50px;
+    }
+
+}
+
+/* Adjust the size of login form */
+@media screen and (max-width: 600px) {
+    .login {
+        width: 90%;
     }
 }
 
