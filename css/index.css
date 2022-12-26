@@ -53,6 +53,12 @@ p {
     overflow: auto;
 }
 
+/* move .login h4 below to add more space on its top side*/
+.login h4 {
+    position: relative;
+    top: 1em;
+}
+
 .browse-pets {
     text-align: center;
 }
@@ -112,24 +118,28 @@ p {
 }
 
 /* Put in single line the forget password and sign up links*/
-.signup{
-    display:flex;
+.signup {
+    display: flex;
     justify-content: center;
-  
+
 }
+
 /* adjust the font-sizes of forget password and sign up links*/
-.signup p{
+.signup p {
     font-size: 0.8vw;
-   margin-top: 1em;
+    margin-top: 1em;
 }
-  /* remove the underline in the link */
-.signup a{
+
+/* remove the underline in the link */
+.signup a {
     text-decoration: none;
 }
-.signup p:nth-child(1){ 
+
+.signup p:nth-child(1) {
     margin-right: 2em;
 }
-.signup p:nth-child(2){ 
+
+.signup p:nth-child(2) {
     color: black;
 }
 
@@ -155,6 +165,10 @@ p {
         margin-top: 20px;
         margin-bottom: 20px;
     }
+   /* change .login h4 to static again to remove the relative position*/
+    .login h4{
+        position:static;
+         }
 }
 
 /* MQ between 960px and 1580px */
