@@ -121,12 +121,13 @@ p {
 .signup {
     display: flex;
     justify-content: center;
-
+    flex-wrap: wrap;
 }
 
 /* adjust the font-sizes of forget password and sign up links*/
 .signup p {
-    font-size: 0.8vw;
+    font-size: clamp(0.7em, 0.8vw, 1em);
+
     margin-top: 1em;
 }
 
@@ -146,30 +147,6 @@ p {
 
 /********** Media Queries *************/
 
-/* center logo when zoomed in */
-@media screen and (max-width: 991px) {
-    .igitna-logo {
-        justify-content: center;
-    }
-
-    .login {
-        /* background-color: rgba(253, 248, 243, 0.866); */
-        width: 80%;
-
-        margin-top: 50px;
-        margin-bottom: 50px;
-    }
-
-    .sapin {
-        margin: auto;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-   /* change .login h4 to static again to remove the relative position*/
-    .login h4{
-        position:static;
-         }
-}
 
 /* MQ between 960px and 1580px */
 @media screen and (min-width: 991px) and (max-width: 1580px) {
@@ -219,6 +196,41 @@ p {
     }
 }
 
+/* center logo when zoomed in */
+@media screen and (max-width: 991px) {
+    .igitna-logo {
+        justify-content: center;
+    }
+
+    .login {
+        /* background-color: rgba(253, 248, 243, 0.866); */
+        width: 80%;
+
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .sapin {
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* change .login h4 to static again to remove the relative position*/
+    .login h4 {
+        position: static;
+    }
+}
+
+
+
+/* Adjust the size of login form */
+@media screen and (max-width: 600px) {
+    .login {
+        width: 90%;
+    }
+}
+
 /* adjust title when width = 560px or below */
 @media screen and (max-width: 560px) {
     .col-lg-5 h1 {
@@ -233,16 +245,28 @@ p {
     /* adjust the input fields */
     .txtemail,
     .txtpwd {
-        max-width: fit-content;
+        max-width: 15rem;
         margin-left: auto;
         margin-right: auto;
+
+    }
+
+    /* adjust the width of the labels */
+    .lblemail {
+        width: 5em;
     }
 }
 
-/* Adjust the size of login form */
-@media screen and (max-width: 600px) {
-    .login {
-        width: 90%;
+
+@media screen and (max-width: 420px) {
+    /* remove margin top and bottom*/
+    .signup p{
+       margin: 0.5em 0em;
+    }
+    /* add space between the submit button and the signup div */
+    .submit-login {
+        margin-top: 0;
+     margin-bottom: 1.5em;
     }
 }
 
@@ -260,5 +284,5 @@ p {
         height: 100px;
     }
 
-    /* add the sapin responsive */
+
 }
