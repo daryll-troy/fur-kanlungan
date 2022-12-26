@@ -8,7 +8,7 @@
 
 <body>
     <!-- Browse Pets Section -->
-    <section class="pet-list min-vh-100">
+    <section class="pet-list min-vh-100" id="pet-list">
         <div class="container d-flex justify-content-between filter">
             <!-- Dropdown to filter the animal category -->
             <div class="dropdown mt-5">

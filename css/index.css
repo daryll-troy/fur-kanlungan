@@ -111,12 +111,27 @@ p {
     border-style: solid;
 }
 
-
-/* adjust width to email and password fields */
-/* .txtemail{
-    width:
-} */
-
+/* Put in single line the forget password and sign up links*/
+.signup{
+    display:flex;
+    justify-content: center;
+  
+}
+/* adjust the font-sizes of forget password and sign up links*/
+.signup p{
+    font-size: 0.8vw;
+   margin-top: 1em;
+}
+  /* remove the underline in the link */
+.signup a{
+    text-decoration: none;
+}
+.signup p:nth-child(1){ 
+    margin-right: 2em;
+}
+.signup p:nth-child(2){ 
+    color: black;
+}
 
 
 /********** Media Queries *************/
@@ -196,6 +211,18 @@ p {
         font-size: 50px;
     }
 
+    .login h4 {
+        font-size: 1.5rem;
+        float: center;
+    }
+
+    /* adjust the input fields */
+    .txtemail,
+    .txtpwd {
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /* Adjust the size of login form */
