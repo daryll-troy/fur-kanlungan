@@ -180,12 +180,22 @@ p {
 
     /* adjust margin and width to email field */
     .lblemail {
-        margin-top: 40px;
+        /* margin-top: 40px; */
         width: 250px;
     }
 
     .txtemail {
         margin-bottom: 30px;
+    }
+
+    /* change margin top and bottom*/
+    .signup p {
+        margin: 0.5em 0em;
+
+    }
+    /* adjust the margin-top of .submit-login */
+    .submit-login{
+        margin-top:  1em;
     }
 }
 
@@ -259,14 +269,22 @@ p {
 
 
 @media screen and (max-width: 420px) {
-    /* remove margin top and bottom*/
-    .signup p{
-       margin: 0.5em 0em;
+
+    /* change margin top and bottom*/
+    .signup p {
+        margin: 0.5em 0em;
+
     }
+
     /* add space between the submit button and the signup div */
     .submit-login {
         margin-top: 0;
-     margin-bottom: 1.5em;
+        margin-bottom: 1.5em;
+    }
+
+    /* remove the margin-right to center the forget password text */
+    .signup p:nth-child(1) {
+        margin-right: 0em;
     }
 }
 
