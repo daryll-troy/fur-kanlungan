@@ -1,10 +1,14 @@
 .header {
-    height: 10vh;
+    min-height: 10vh;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
-.ipantay-nav {
-    height: inherit;
 
+.ipantay-nav {
+    height:inherit;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .ipantay-cont-fluid {
@@ -17,27 +21,39 @@
     height: 3em;
     background-color: aliceblue;
     border-radius: 45%;
-    
+
 }
-.puti-header{
+
+.puti-header,
+#fur-kanlungan {
     color: rgb(249, 249, 249);
     font-size: 1.4rem;
     padding-right: 1rem;
-  
+
 }
-li:hover{
+
+#fur-kanlungan {
+    font-weight: bold;
+}
+
+li:hover {
     background-color: rgba(85, 48, 8, 0.918);
 }
+
 /* make hover of each navbar item cover the entire height of the header */
-.isagad-hover{
+/* .isagad-hover {
     height: inherit;
-}
+    
+} */
+
 /********** Media Queries *************/
 
 /* remove the padding-top of navbar */
 @media screen and (max-width: 991px) {
-    .ipantay-nav {
+    /* .ipantay-nav {
         padding-top: 0;
         padding-bottom: 0;
-    }
+
+    } */
+
 }

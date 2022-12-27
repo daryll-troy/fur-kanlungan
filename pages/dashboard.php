@@ -15,6 +15,12 @@
     <link rel="stylesheet" href="../css/footer.css">
     <!-- css for header.php -->
     <link rel="stylesheet" href="../css/header.css">
+    <!-- <style>
+        /* to aid the white space in the navbar */
+        body{
+            background-color: rgba(117, 62, 3, 0.833);
+        }
+    </style> -->
 </head>
 
 <body>
