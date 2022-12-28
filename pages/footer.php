@@ -22,7 +22,7 @@
                     <div class="col-6 col-md-2 mb-3 offset-md-6">
                         <h5 class="puti">Contact Us</h5>
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="https://www.facebook.com/kenneth.delrosario.5095" class="nav-link p-0 text-muted "><span class="puti">Facebook</span></a></li>
+                            <li class="nav-item mb-2"><a href="https://www.facebook.com/kenneth.delrosario.5095" target="_blank" class="nav-link p-0 text-muted "><span class="puti">Facebook</span></a></li>
                         </ul>
                     </div>
 
