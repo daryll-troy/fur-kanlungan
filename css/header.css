@@ -62,8 +62,6 @@ li:hover {
     .isagad-hover {
         margin-top: 1em;
         background-color: rgba(85, 49, 11, 0.918);
-        border-bottom: 10px;
-        border-color: rgba(15, 9, 2, 0.918);;
     }
     .isagad-hover ul li span{
         display: flex;
@@ -71,7 +69,27 @@ li:hover {
     }
     .isagad-hover ul{
         width: 100%;
-      
     }
-
+    .isagad-hover ul li span a{
+        border-style: solid;
+        border-bottom: 10px;
+        border-color: rgba(15, 9, 2, 0.918);;
+    }
+    /* remove the padding on the sides when hamburger is on */
+    .ipantay-cont-fluid{
+       padding-left: 0;
+       padding-right: 0;
+       padding-bottom: 0;
+    }
+    /* adjust the paddings of the logo and hamburger button */
+    .ipantay-cont-fluid a:nth-child(1){
+        margin-left: 0.6em;
+     }
+     .ipantay-cont-fluid button{
+        margin-right: 0.6em;
+     }
+     /* darken the hover color */
+     li:hover {
+        background-color: rgba(43, 24, 4, 0.918);
+    }
 }

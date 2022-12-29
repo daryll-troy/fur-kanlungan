@@ -53,7 +53,7 @@
                                     <button type="submit" class="btn btn-primary submit-login">Sign in</button>
                                 </div>
                                 <div class="signup">
-                                    <p><a href="">Forgot Password</a></p>
+                                    <p><a href="">Forgot Password&nbsp</a></p>
                                     <p>Don't have an account? <span><a href="">Sign Up</a> </span></p>
                                 </div>
                             </form>

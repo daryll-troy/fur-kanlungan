@@ -46,8 +46,9 @@ p {
 /* the img logo */
 .login {
     background-color: rgba(253, 248, 243, 0.866);
-    height: 60vh;
+    min-height: 35rem;
     width: 100%;
+    min-width: 17rem;
     padding: 0px;
     border-radius: 15px;
     overflow: auto;
