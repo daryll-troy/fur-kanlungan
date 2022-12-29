@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="../js/remove-classes.js"></script> -->
 </head>
 
 <body>
     <!-- Browse Pets Section -->
     <section class="pet-list min-vh-100" id="pet-list">
-        <div class="container d-flex justify-content-between filter">
+        <div class="container flex-wrap filter wrap-search">
             <!-- Dropdown to filter the animal category -->
-            <div class="dropdown mt-5">
-                <button class="btn btn-secondary dropdown-toggle choose-animal ms-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="dropdown mt-5 d-flex justify-content-center ">
+                <button class="btn btn-secondary dropdown-toggle choose-animal " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     Animal Type
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -22,9 +23,9 @@
                 </ul>
             </div>
             <!-- Search the name of the animal -->
-            <nav class="navbar navbar-light bg-light mt-5 me-5 search-nav ">
+            <nav class="navbar navbar-light bg-light mt-5 search-nav">
                 <div class="container-fluid search-nav">
-                    <form class="d-flex">
+                    <form class="d-flex flex-wrap justify-content-center pet-list">
                         <input class="form-control me-2 type-search " type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success press-search" type="submit">Search</button>
                     </form>
@@ -63,13 +64,17 @@
         <!-- Pagination for the list of pets -->
         <div class="page-number">
             <nav aria-label="Page navigation example">
-                <ul class="pagination  justify-content-center no-margin-bottom">
+                <ul class="pagination d-flex flex-wrap justify-content-center no-margin-bottom">
                     <li class="page-item">
                         <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
                     </li>
                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">...</a></li>
+                    <li class="page-item"><a class="page-link" href="#">30</a></li>
                     <li class="page-item">
                         <a class="page-link" href="#">Next</a>
                     </li>

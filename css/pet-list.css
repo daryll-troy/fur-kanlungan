@@ -35,11 +35,9 @@
 .press-search:hover {
     background-color: rgb(54, 10, 10);
 }
-.choose-animal:focus{
+
+.choose-animal:focus {
     background-color: rgb(54, 10, 10);
-}
-.pet-container {
-    /* height: 30em; */
 }
 
 /* Modify the pagination bar */
@@ -61,11 +59,17 @@
     background-color: rgb(54, 10, 10);
     color: aliceblue;
 }
+
 /* adjust the pagination width to overflow: auto */
-.pagination{
+.pagination {
     overflow: auto;
 }
 
+/* set to justify-content: between the .wrap-search div */
+.wrap-search {
+    display: flex;
+    justify-content: space-between;
+}
 
 /********** Media Queries *************/
 
@@ -77,7 +81,6 @@
     }
 
     .choose-animal {
-        margin-right: 2em;
         width: 10em;
     }
 
@@ -93,6 +96,20 @@
 
     .page-number {
         padding-bottom: 2em;
-       ;
+    }
+}
+
+/* add space to search button from the search bar */
+@media screen and (max-width: 480px) {
+    .press-search {
+        margin-top: 1em;
+    }
+}
+
+/* center the animal type and search form once they flex-wrap together */
+@media screen and (max-width: 767px) {
+    .wrap-search {
+        display: flex;
+        justify-content: center;
     }
 }

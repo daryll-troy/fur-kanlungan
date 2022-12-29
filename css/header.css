@@ -1,19 +1,19 @@
 .header {
-    min-height: 10vh;
-    padding-top: 0;
-    padding-bottom: 0;
+    min-height: 5vh;
 }
 
 
 .ipantay-nav {
-    height:inherit;
+    height: inherit;
     padding-top: 0;
     padding-bottom: 0;
+
 }
 
 .ipantay-cont-fluid {
     background-color: rgba(117, 62, 3, 0.833);
     height: inherit;
+    padding: 0.5vh 1.5vh;
 }
 
 .logo {
@@ -24,36 +24,54 @@
 
 }
 
-.puti-header,
-#fur-kanlungan {
+.puti-header {
     color: rgb(249, 249, 249);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     padding-right: 1rem;
 
 }
 
 #fur-kanlungan {
     font-weight: bold;
+    font-size: 1.5rem;
+    color: rgb(249, 249, 249);
 }
+
+/* remove blue underlines on links */
+.ipantay-cont-fluid a {
+    text-decoration: none;
+}
+
+
 
 li:hover {
     background-color: rgba(85, 48, 8, 0.918);
 }
 
 /* make hover of each navbar item cover the entire height of the header */
-/* .isagad-hover {
-    height: inherit;
-    
-} */
+.isagad-hover {
+    display: flex;
+    justify-content: end;
+  
+}
 
 /********** Media Queries *************/
 
 /* remove the padding-top of navbar */
 @media screen and (max-width: 991px) {
-    /* .ipantay-nav {
-        padding-top: 0;
-        padding-bottom: 0;
-
-    } */
+    .isagad-hover {
+        margin-top: 1em;
+        background-color: rgba(85, 49, 11, 0.918);
+        border-bottom: 10px;
+        border-color: rgba(15, 9, 2, 0.918);;
+    }
+    .isagad-hover ul li span{
+        display: flex;
+        justify-content: center;
+    }
+    .isagad-hover ul{
+        width: 100%;
+      
+    }
 
 }
