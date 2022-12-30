@@ -46,7 +46,7 @@ p {
 /* the img logo */
 .login {
     background-color: rgba(253, 248, 243, 0.866);
-    min-height: 35rem;
+    min-height: 30rem;
     width: 100%;
     min-width: 17rem;
     padding: 0px;
@@ -194,9 +194,10 @@ p {
         margin: 0.5em 0em;
 
     }
+
     /* adjust the margin-top of .submit-login */
-    .submit-login{
-        margin-top:  1em;
+    .submit-login {
+        margin-top: 1em;
     }
 }
 

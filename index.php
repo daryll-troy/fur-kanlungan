@@ -40,7 +40,7 @@
                     <div class="col-lg-4 igitna">
                         <div class="login igitna">
                             <form action="">
-                                <h4>Sign in to your account</h4>
+                                <h4 style="text-align: center;">Sign in to your account</h4>
                                 <div class="mb-3 mt-3">
                                     <label for="email" class="form-label lblemail">Email:</label>
                                     <input type="email" class="form-control txtemail" id="email" placeholder="Enter email" name="email">

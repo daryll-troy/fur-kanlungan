@@ -12,24 +12,33 @@
     <link rel="stylesheet" href="../../css/admin/admin-login.css">
 </head>
 
-<body>
-    <div class="adm-log container">
-        <div class="row">
-            <div class="col">
-                <form action="" class="frm-adm-login">
-                    <h4>Sign in as Administrator</h4>
-                    <div class="mb-3 mt-3">
-                        <label for="email" class="form-label lblemail">Email:</label>
-                        <input type="email" class="form-control txtemail" id="email" placeholder="Enter email" name="email">
+<body class="igitna">
+    <div class="form-container">
+        <div class="admin-login container igitna">
+            <div class="row">
+                <div class="col">
+                    <div class="display-logo">
+                        <img src="../../images/logo.gif" alt="logo" class="logo">
                     </div>
-                    <div class="mb-3">
-                        <label for="pwd" class="form-label">Password:</label>
-                        <input type="password" class="form-control txtpwd " id="pwd" placeholder="Enter password" name="pswd">
-                    </div>
-                    <div class="igitna">
-                        <button type="submit" class="btn btn-primary submit-login">Sign in</button>
-                    </div>
-               </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h4 class="mb-4 sign-in-as-admin">Sign in as Administrator</h4>
+                    <form action="" class="frm-admin-login">
+                        <div class="mb-3 mt-3">
+                            <label for="email" class="form-label lblemail">Email:</label>
+                            <input type="email" class="form-control txtemail" id="email" placeholder="Enter email" name="email">
+                        </div>
+                        <div class="mb-4">
+                            <label for="pwd" class="form-label">Password:</label>
+                            <input type="password" class="form-control txtpwd " id="pwd" placeholder="Enter password" name="pswd">
+                        </div>
+                        <div class="igitna">
+                            <button type="submit" class="btn btn-primary submit-login">Sign in</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

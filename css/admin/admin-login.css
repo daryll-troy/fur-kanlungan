@@ -1,8 +1,61 @@
-body{
-    background-image: url("../../images/wallpaper.jpg");
+*{
+    box-sizing: border-box;
 }
-.adm-log{
+body {
+    background-image: url("../../images/wallpaper.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h4{
+    font-size: 30px;
+}
+/* resuable class for centering elements in a div */
+.igitna {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container {
+    width: 90%;
+
+}
+
+.logo {
+    height: auto;
+    width: 8rem;
+    float: right;
+    object-fit: contain;
+    margin-bottom: 2em;
+}
+.admin-login {
     min-height: 70vh;
     max-width: 60vh;
-    background-color: rgba(253, 248, 243, 0.866);
+    background-color: rgba(253, 248, 243, 0.91);
+    border-radius: 1em;
+    flex-direction: column;
+}
+/* widen the textboxes width */
+/* .admin-login .row:nth-child(2){
+    width: 100%;
+} */
+/* center the sign in as administrator text */
+.sign-in-as-admin {
+    text-align: center;
+}
+
+.submit-login {
+    background-color: rgb(110, 18, 18);
+    border: 0;
+    color: aliceblue;
+    padding: 0.3em 2em;
+}
+.submit-login:hover {
+    background-color: rgb(54, 10, 10);
+}
+
+.txtemail,
+.txtpwd {
+    width: 100%;
 }
