@@ -65,8 +65,8 @@
     </section>
 
 
-    <?php include_once 'pages/pet-list.php'; ?>
-    <?php include_once 'pages/footer.php'; ?>
+    <?php //include_once 'pages/pet-list.php'; ?>
+    <?php //include_once 'pages/footer.php'; ?>
     
     
 </body>

@@ -3,10 +3,6 @@
     width: 300px;
     float: right;
     object-fit: contain;
-    /* background-color: aliceblue;
-    border-radius: 60%;
-    border: 0em;
-    border-style: solid; */
 }
 
 .igitna {
@@ -48,7 +44,7 @@ p {
     background-color: rgba(253, 248, 243, 0.866);
     min-height: 30rem;
     width: 100%;
-    min-width: 17rem;
+    min-width: 16rem;
     padding: 0px;
     border-radius: 15px;
     overflow: auto;
