@@ -27,6 +27,9 @@
     <?php include 'header.php'; ?>
     <?php include 'pet-list.php'; ?>
     <?php include 'footer.php'; ?>
+
+     <!-- javascript -->
+     <script src="../js/hover.js"></script>
 </body>
 
 </html>
