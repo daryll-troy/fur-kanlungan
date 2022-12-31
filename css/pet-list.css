@@ -1,6 +1,7 @@
-body{
+body {
     background-color: rgba(236, 232, 228, 0.99);
 }
+
 /* Browse Pets part */
 .pet-list {
     background-color: rgba(236, 232, 228, 0.99);
@@ -74,6 +75,16 @@ body{
     justify-content: space-between;
 }
 
+/* uniform size for dog pics in card display */
+.card img{
+    height: 15em;
+    width: 18em;
+    object-fit: cover;
+}
+.ipa-grey{
+    background-color: rgb(58, 57, 57);
+}
+
 /********** Media Queries *************/
 
 /* Adjust the category and search button */
@@ -102,6 +113,7 @@ body{
     }
 }
 
+
 /* add space to search button from the search bar */
 @media screen and (max-width: 480px) {
     .press-search {
@@ -110,7 +122,7 @@ body{
 }
 
 /* center the animal type and search form once they flex-wrap together */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     .wrap-search {
         display: flex;
         justify-content: center;

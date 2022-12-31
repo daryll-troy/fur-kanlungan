@@ -34,31 +34,32 @@
         </div>
         <!-- card containers of pets -->
         <div class="container mt-5 pb-5 pet-container">
-            <div class="row g-3">
-                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
                     <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="image">
+                        <div class="d-flex justify-content-center ipa-grey">
+                            <img src="https://hips.hearstapps.com/hmg-prod/images/cute-dog-captions-1563456568.jpg?crop=0.668xw:1.00xh;0.241xw,0&resize=480:*" class="card-img-top img-fluid" alt="image">
+                        </div>
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text"><span style="font-weight: bold;">Name: </span>Totoy Brown</p>
+                            <p class="card-text"><span style="font-weight: bold;">Age: </span>3 yrs.</p>
+                            <p class="card-text"><span style="font-weight: bold;">Breed: </span>Golden Retriever</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+                <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
                     <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="image">
+                        <div class="d-flex justify-content-center ipa-grey">
+                            <img src="https://hips.hearstapps.com/hmg-prod/images/funny-dog-captions-1563456605.jpg?crop=0.748xw:1.00xh;0.0897xw,0&resize=1200:*" class="card-img-top img-fluid" alt="image">
+                        </div>
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text"><span style="font-weight: bold;">Name: </span>Totoy Brown</p>
+                            <p class="card-text"><span style="font-weight: bold;">Age: </span>3 yrs.</p>
+                            <p class="card-text"><span style="font-weight: bold;">Breed: </span>Golden Retriever</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="image">
-                        <div class="card-body">
-                            <p class="card-text"> Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <!-- Pagination for the list of pets -->
@@ -82,6 +83,9 @@
             </nav>
         </div>
     </section>
+
+    <!-- javascript -->
+    <script src="../js/hover.js"></script>
 </body>
 
 </html>
