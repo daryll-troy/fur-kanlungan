@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script src="../js/remove-classes.js"></script> -->
 </head>
 
 <body>
@@ -59,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
         <!-- Pagination for the list of pets -->
@@ -84,7 +83,8 @@
         </div>
     </section>
 
-   
+    <!-- javascript -->
+    <script src="../js/hover.js"></script>
 </body>
 
 </html>

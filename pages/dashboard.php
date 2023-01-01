@@ -10,26 +10,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- css reset -->
     <link rel="stylesheet" href="../css/css-resets.css">
+    <!-- css for pet-list.php-->
     <link rel="stylesheet" href="../css/pet-list.css">
     <!-- css for footer.php -->
     <link rel="stylesheet" href="../css/footer.css">
     <!-- css for header.php -->
     <link rel="stylesheet" href="../css/header.css">
-    <!-- <style>
-        /* to aid the white space in the navbar */
-        body{
-            background-color: rgba(117, 62, 3, 0.833);
-        }
-    </style> -->
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
-    <?php include 'pet-list.php'; ?>
-    <?php include 'footer.php'; ?>
+    <?php include_once 'header.php'; ?>
+    <?php include_once 'pet-list.php'; ?>
+    <?php include_once 'footer.php'; ?>
 
-     <!-- javascript -->
-     <script src="../js/hover.js"></script>
+   
 </body>
 
 </html>

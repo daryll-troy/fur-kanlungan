@@ -302,3 +302,28 @@ p {
 
 
 }
+
+/* =========================================Sign Up Form */
+/* make the signup form background the same as the login form background */
+.sign-up {
+    background-color: rgba(253, 248, 243, 0.866);
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* make the names in a single row */
+.names-in-row {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.add-margin-sides{
+    margin: 0 1em;
+}
+#reg-firstname,
+#reg-lastname {
+    width: 48%;
+    border: 2px;
+    border-color: rgb(54, 10, 10);
+    border-style: solid;
+}

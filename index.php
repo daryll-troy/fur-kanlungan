@@ -63,12 +63,23 @@
             </div>
         </div>
     </section>
-
+    
+    <!-- signup form -->
+    <div class="sign-up">
+        <form action="">
+            <span class="label-create"> Create a Fur-Kanlungan account </span>
+            <div class="mb-3 mt-3 add-margin-sides">
+                <label for="reg-email" class="form-label lblemail">Full Name</label>
+                <div class="names-in-row">
+                    <input type="reg-firstname" class="form-control" id="reg-firstname" placeholder="Enter First Name" name="reg-firstname">
+                    <input type="reg-lastname" class="form-control" id="reg-lastname" placeholder="Enter Last Name" name="reg-lastname">
+                </div>
+            </div>
+        </form>
+    </div>
 
     <?php include_once 'pages/pet-list.php'; ?>
     <?php include_once 'pages/footer.php'; ?>
-    
-    
 </body>
 
 </html>

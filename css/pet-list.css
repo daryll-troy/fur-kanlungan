@@ -114,17 +114,22 @@ body {
 }
 
 
-/* add space to search button from the search bar */
-@media screen and (max-width: 480px) {
-    .press-search {
-        margin-top: 1em;
-    }
-}
-
 /* center the animal type and search form once they flex-wrap together */
 @media screen and (max-width: 768px) {
     .wrap-search {
         display: flex;
         justify-content: center;
+    }
+}
+/* no margin to align the search button and textbox */
+@media screen and (min-width: 432px) and (max-width: 480px){
+    .press-search{
+        margin-top: 0;
+    }
+}
+/* bring the margin top back @ < 432px */
+@media screen and (max-width: 431px){
+    .press-search{
+        margin-top: 1em;
     }
 }
