@@ -19,11 +19,15 @@
                     <li><a class="dropdown-item" href="#">Dogs</a></li>
                     <li><a class="dropdown-item" href="#">Cats</a></li>
                     <li><a class="dropdown-item" href="#">Hamsters</a></li>
+                    <li><a class="dropdown-item" href="#">Hamsters</a></li>
+                    <li><a class="dropdown-item" href="#">Hamsters</a></li>
+                    <li><a class="dropdown-item" href="#">Hamsters</a></li>
+                    <li><a class="dropdown-item" href="#">Hamsters</a></li>
                 </ul>
             </div>
             <!-- Search the name of the animal -->
             <nav class="navbar navbar-light bg-light mt-5 search-nav">
-                <div class="container-fluid search-nav">
+                <div class="container-fluid search-nav middle-search">
                     <form class="d-flex flex-wrap justify-content-center pet-list">
                         <input class="form-control me-2 type-search " type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success press-search" type="submit">Search</button>

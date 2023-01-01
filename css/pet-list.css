@@ -76,12 +76,13 @@ body {
 }
 
 /* uniform size for dog pics in card display */
-.card img{
+.card img {
     height: 15em;
     width: 18em;
     object-fit: cover;
 }
-.ipa-grey{
+
+.ipa-grey {
     background-color: rgb(58, 57, 57);
 }
 
@@ -101,6 +102,10 @@ body {
     .filter {
         overflow: auto;
     }
+    /* make the dropdown content appear */
+    .wrap-search{
+        overflow: visible;
+    }
 }
 
 @media screen and (max-height: 650px) {
@@ -119,17 +124,26 @@ body {
     .wrap-search {
         display: flex;
         justify-content: center;
-    }
+        /* flex-direction: column; */
+     }
+    /* .middle-search{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    } */
+
 }
+
 /* no margin to align the search button and textbox */
-@media screen and (min-width: 432px) and (max-width: 480px){
-    .press-search{
+@media screen and (min-width: 432px) and (max-width: 480px) {
+    .press-search {
         margin-top: 0;
     }
 }
+
 /* bring the margin top back @ < 432px */
-@media screen and (max-width: 431px){
-    .press-search{
+@media screen and (max-width: 431px) {
+    .press-search {
         margin-top: 1em;
     }
 }
