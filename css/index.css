@@ -197,13 +197,6 @@ p {
     }
 }
 
-/* MQ the .logo to make it wider*/
-@media screen and (max-width: 750px) {
-    .login {
-        width: 80%;
-    }
-}
-
 /* center logo when zoomed in */
 @media screen and (max-width: 991px) {
     .igitna-logo {
@@ -229,6 +222,15 @@ p {
         position: static;
     }
 }
+
+/* MQ the .logo to make it wider*/
+@media screen and (max-width: 750px) {
+    .login {
+        width: 80%;
+    }
+}
+
+
 
 
 
@@ -303,27 +305,88 @@ p {
 
 }
 
-/* =========================================Sign Up Form */
+/* ========================================= Sign Up Form ====================================== */
+
 /* make the signup form background the same as the login form background */
-.sign-up {
-    background-color: rgba(253, 248, 243, 0.866);
-    width: 30%;
+.register {
+    background-color: rgb(229, 224, 221);
+    width: 26%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* display: none; */
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 23.5%;
+    right: 37%;
+    z-index: 1;
+   opacity: 0.99;
+   border-radius: 15px;
 }
 
 /* make the names in a single row */
 .names-in-row {
     display: flex;
     justify-content: space-between;
-    
+
 }
-.add-margin-sides{
-    margin: 0 1em;
-}
+
+
+/* style the border and the width of Name*/
 #reg-firstname,
 #reg-lastname {
     width: 48%;
     border: 2px;
     border-color: rgb(54, 10, 10);
+    border-style: solid;    
+}
+#reg-email,
+#reg-password,
+#reg-conf-password{
+    border: 2px;
+    border-color: rgb(54, 10, 10);
     border-style: solid;
+}
+
+/* add more space towards the buttom of the form */
+#reg-conf-password {
+    margin-bottom: 3em;
+
+}
+
+/* align to center the 'create an account' phrase */
+.label-create {
+    text-align: center;
+    margin: 2em 0 1em;
+    font-weight: 500;
+    font-size: clamp(1.7rem, 2.5vw, 2rem);
+}
+/* add padding to the form container*/
+.add-padding{
+    padding: 0 2rem;
+}
+/* Media Queries */
+
+/* adjust the width of .register */
+@media screen and (max-width:1200px){    
+    .register{
+        width: 30%;
+    }
+}
+@media screen and (max-width:991px){    
+    .register{
+        width: 40%;
+        right: 30%;
+    }
+}
+@media screen and (max-width:750px){    
+    .register{
+        width: 60%;
+        right: 20%;
+    }
+}
+@media screen and (max-width:450px){    
+    .register{
+        width: 80%;
+        right: 10%;
+    }
 }

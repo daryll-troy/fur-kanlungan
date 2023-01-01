@@ -45,12 +45,12 @@
                                 <span class="puti-header">Menu</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">History</a></li>
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#" style="margin-left: 0;">History</a></li>
+                                <li><a class="dropdown-item" href="#"  style="margin-left: 0;">Profile</a></li>
                                 <li>
                                     <hr class="dropdown-divider" style="color: black;">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Sign Out</a></li>
+                                <li><a class="dropdown-item" href="#" style="margin-left: 0;">Sign Out</a></li>
                             </ul>
                         </li>
                     </ul>

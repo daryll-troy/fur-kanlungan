@@ -40,7 +40,7 @@
                     <div class="col-lg-4 igitna">
                         <div class="login igitna">
                             <form action="">
-                                <h4 style="text-align: center;">Sign in to your account</h4>
+                                <h4 style="text-align: center;">Sign In to your Account</h4>
                                 <div class="mb-3 mt-3">
                                     <label for="email" class="form-label lblemail">Email:</label>
                                     <input type="email" class="form-control txtemail" id="email" placeholder="Enter email" name="email">
@@ -63,20 +63,31 @@
             </div>
         </div>
     </section>
-    
+
     <!-- signup form -->
-    <div class="sign-up">
-        <form action="">
-            <span class="label-create"> Create a Fur-Kanlungan account </span>
-            <div class="mb-3 mt-3 add-margin-sides">
-                <label for="reg-email" class="form-label lblemail">Full Name</label>
-                <div class="names-in-row">
-                    <input type="reg-firstname" class="form-control" id="reg-firstname" placeholder="Enter First Name" name="reg-firstname">
-                    <input type="reg-lastname" class="form-control" id="reg-lastname" placeholder="Enter Last Name" name="reg-lastname">
+  
+    <!-- <div class="igitna"> -->
+        <div class="register">
+            <form action="">
+                <div class="label-create">Create Account</div>
+                <div class="mb-3 mt-3 add-padding">
+                    <label for="reg-firstname" class="form-label  mt-2">Name</label>
+                    <div class="names-in-row">
+                        <input type="text" class="form-control" id="reg-firstname" placeholder="Enter First Name" name="reg-firstname">
+                        <input type="text" class="form-control" id="reg-lastname" placeholder="Enter Last Name" name="reg-lastname">
+                    </div>
+                    <label for="reg-email" class="form-label mt-2 ">Email</label>
+                    <input type="email" class="form-control" id="reg-email" placeholder="Enter Email" name="reg-email">
+                    <label for="reg-password" class="form-label mt-2">Password</label>
+                    <input type="password" class="form-control" id="reg-password" placeholder="Enter Password" name="reg-password">
+                    <label for="reg-conf-password" class="form-label mt-2">Confirm Password</label>
+                    <input type="password" class="form-control" id="reg-conf-password" placeholder="Confirm Password" name="reg-conf-password">
                 </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
+    <!-- </div> -->
+   
+
 
     <?php include_once 'pages/pet-list.php'; ?>
     <?php include_once 'pages/footer.php'; ?>

@@ -46,6 +46,7 @@
 
 li:hover {
     background-color: rgba(85, 48, 8, 0.918);
+    opacity: 9.5;
 }
 
 /* make hover of each navbar item cover the entire height of the header */
@@ -92,4 +93,5 @@ li:hover {
      li:hover {
         background-color: rgba(43, 24, 4, 0.918);
     }
+   
 }
