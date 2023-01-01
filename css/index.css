@@ -315,8 +315,8 @@ p {
     /* display: none; */
     display: flex;
     justify-content: center;
-    position: fixed;
-    top: 23.5%;
+    position: absolute;
+    top: 11%;
     right: 37%;
     z-index: 1;
    opacity: 0.99;
@@ -327,7 +327,6 @@ p {
 .names-in-row {
     display: flex;
     justify-content: space-between;
-
 }
 
 
@@ -347,11 +346,7 @@ p {
     border-style: solid;
 }
 
-/* add more space towards the buttom of the form */
-#reg-conf-password {
-    margin-bottom: 3em;
 
-}
 
 /* align to center the 'create an account' phrase */
 .label-create {
@@ -370,6 +365,7 @@ p {
 @media screen and (max-width:1200px){    
     .register{
         width: 30%;
+        right: 35%;
     }
 }
 @media screen and (max-width:991px){    
@@ -386,7 +382,14 @@ p {
 }
 @media screen and (max-width:450px){    
     .register{
-        width: 80%;
-        right: 10%;
+        width: 95%;
+        right: 2.5%;
     }
 }
+/* @media screen and (max-height:600px){    
+    .register{
+        position: absolute;
+        top:0;
+        
+    }
+} */

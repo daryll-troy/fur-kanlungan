@@ -20,6 +20,42 @@
 </head>
 
 <body>
+    <!-- signup form -->
+
+    <!-- <div class="igitna"> -->
+    <div class="register">
+        <form action="">
+            <div class="label-create">Create Account</div>
+            <div class="mb-3 mt-3 add-padding">
+                <label for="reg-firstname" class="form-label  mt-2">Name</label>
+                <div class="names-in-row">
+                    <input type="text" class="form-control" id="reg-firstname" placeholder="Enter First Name" name="reg-firstname">
+                    <input type="text" class="form-control" id="reg-lastname" placeholder="Enter Last Name" name="reg-lastname">
+                </div>
+                <label for="reg-email" class="form-label mt-2 ">Email</label>
+                <input type="email" class="form-control" id="reg-email" placeholder="Enter Email" name="reg-email">
+                <label for="reg-password" class="form-label mt-2">Password</label>
+                <input type="password" class="form-control" id="reg-password" placeholder="Enter Password" name="reg-password">
+                <label for="reg-conf-password" class="form-label mt-2">Confirm Password</label>
+                <input type="password" class="form-control" id="reg-conf-password" placeholder="Confirm Password" name="reg-conf-password">
+                <div class="mb-4">
+                    <label for="formFile" class="form-label">Valid I.D.</label>
+                    <input class="form-control" type="file" id="formFile">
+                </div>
+                <div class="back-to-signin igitna">
+                    <p>Already have an account? <span><a href="">Sign In</a> </span></p>
+                </div>
+                <div class="igitna mb-2">
+                    <button type="submit" class="btn btn-primary submit-reg">Sign in</button>
+                </div>
+                <div class="back-to-signin igitna">
+                    <p>Already have an account? <span><a href="">Sign In</a> </span></p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- </div> -->
+
     <!-- Login Section -->
     <section class="sign-in min-vh-100 igitna">
         <div class="container-fluid">
@@ -64,29 +100,7 @@
         </div>
     </section>
 
-    <!-- signup form -->
-  
-    <!-- <div class="igitna"> -->
-        <div class="register">
-            <form action="">
-                <div class="label-create">Create Account</div>
-                <div class="mb-3 mt-3 add-padding">
-                    <label for="reg-firstname" class="form-label  mt-2">Name</label>
-                    <div class="names-in-row">
-                        <input type="text" class="form-control" id="reg-firstname" placeholder="Enter First Name" name="reg-firstname">
-                        <input type="text" class="form-control" id="reg-lastname" placeholder="Enter Last Name" name="reg-lastname">
-                    </div>
-                    <label for="reg-email" class="form-label mt-2 ">Email</label>
-                    <input type="email" class="form-control" id="reg-email" placeholder="Enter Email" name="reg-email">
-                    <label for="reg-password" class="form-label mt-2">Password</label>
-                    <input type="password" class="form-control" id="reg-password" placeholder="Enter Password" name="reg-password">
-                    <label for="reg-conf-password" class="form-label mt-2">Confirm Password</label>
-                    <input type="password" class="form-control" id="reg-conf-password" placeholder="Confirm Password" name="reg-conf-password">
-                </div>
-            </form>
-        </div>
-    <!-- </div> -->
-   
+
 
 
     <?php include_once 'pages/pet-list.php'; ?>
