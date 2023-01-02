@@ -307,22 +307,55 @@ p {
 
 /* ========================================= Sign Up Form ====================================== */
 
+/* for fading popup animation of sign-up form */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* blur background  when sign up form is open*/
+.blur-sapin {
+    display: none;
+    background-color: rgba(63, 60, 54, 0.649);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* animation: fadeIn 0.3s; */
+}
+
 /* make the signup form background the same as the login form background */
+
+
 .register {
     background-color: rgb(229, 224, 221);
     width: 26%;
-    min-height: 30rem;
+    /* animation: fadeIn 0.3s; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     display: none;
-    /* display: flex;
-    justify-content: center; */
     position: absolute;
-    top: 10.5%;
+    top: 1%;
     right: 37%;
     z-index: 9999;
-    opacity: 0.99;
+    opacity: 0.96;
     border-radius: 15px;
-    
+
 }
 
 /* make the names in a single row */
@@ -344,7 +377,8 @@ p {
 #reg-email,
 #reg-password,
 #reg-conf-password,
-.reg-id {
+.reg-id,
+#reg-username {
     border: 2px;
     border-color: rgb(54, 10, 10);
     border-style: solid;
@@ -391,10 +425,34 @@ p {
     cursor: pointer;
 }
 
+/* municipality dropdown */
+.municipality {
+    margin-top: 30px;
+    width: 20%;
+    background-color: rgb(94, 83, 83);
+    border: 0px;
+}
+
+.municipality:hover {
+    background-color: rgb(54, 10, 10);
+}
+
+/* contain the menu item to a fixed height and enable scrolling */
+.muni-cont ul {
+    max-height: 20rem;
+    overflow: auto;
+}
+
+/* remove the underline of terms and conditions link */
+.terms_and_cond {
+    text-decoration: none;
+}
 
 
 
-/* Media Queries */
+
+/* ===================================== Media Queries ========================================= */
+
 
 /* adjust the width of .register */
 @media screen and (max-width:1200px) {

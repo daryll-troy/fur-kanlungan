@@ -20,42 +20,46 @@
 </head>
 
 <body>
-    <!-- signup form -->
+    <!-- Login Section -->
+    <section class="sign-in min-vh-100 igitna" id="sign-in">
+        <!-- signup form -->
+        <div class="blur-sapin igitna" id="blur-sapin"> </div>
 
-    <!-- <div class="igitna"> -->
-    <div class="register" id="register">
-        <form action="sign-up.php" method="post" enctype="multipart/form-data">
-            <div class="label-create">Create Account</div>
-            <div class=" add-padding">
-                <label for="reg-firstname" class="form-label  mt-2">Name</label>
-                <div class="names-in-row">
-                    <input type="text" class="form-control" id="reg-firstname" placeholder="Enter First Name" name="reg-firstname">
-                    <input type="text" class="form-control" id="reg-lastname" placeholder="Enter Last Name" name="reg-lastname">
-                </div>
-                <label for="reg-email" class="form-label mt-2 ">Email</label>
-                <input type="email" class="form-control" id="reg-email" placeholder="Enter Email" name="reg-email">
-                <label for="reg-username" class="form-label mt-2">Username</label>
-                <input type="password" class="form-control" id="reg-username" placeholder="Enter Username" name="reg-username">
-                <label for="reg-password" class="form-label mt-2">Password</label>
-                <input type="password" class="form-control" id="reg-password" placeholder="Enter Password" name="reg-password">
-                <label for="reg-conf-password" class="form-label mt-2">Confirm Password</label>
-                <input type="password" class="form-control" id="reg-conf-password" placeholder="Confirm Password" name="reg-conf-password">
-                <div class="btn-group">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                       Municipality
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                        <li><a class="dropdown-item" href="#">Menu item</a></li>
-                        <li><a class="dropdown-item" href="#">Menu item</a></li>
-                        <li><a class="dropdown-item" href="#">Menu item</a></li>
-                    </ul>
-                </div>
+        <div class="register" id="register">
+            <form action="sign-up.php" method="post" enctype="multipart/form-data">
+                <div class="label-create">Create Account</div>
+                <div class=" add-padding">
+                    <label for="reg-firstname" class="form-label  mt-2">Name</label>
+                    <div class="names-in-row">
+                        <input type="text" class="form-control" id="reg-firstname" placeholder="Enter First Name" name="reg-firstname">
+                        <input type="text" class="form-control" id="reg-lastname" placeholder="Enter Last Name" name="reg-lastname">
+                    </div>
+                    <label for="reg-email" class="form-label mt-2 ">Email</label>
+                    <input type="email" class="form-control" id="reg-email" placeholder="Enter Email" name="reg-email">
+                    <label for="reg-username" class="form-label mt-2">Username</label>
+                    <input type="password" class="form-control" id="reg-username" placeholder="Enter Username" name="reg-username">
+                    <label for="reg-password" class="form-label mt-2">Password</label>
+                    <input type="password" class="form-control" id="reg-password" placeholder="Enter Password" name="reg-password">
+                    <label for="reg-conf-password" class="form-label mt-2">Confirm Password</label>
+                    <input type="password" class="form-control" id="reg-conf-password" placeholder="Confirm Password" name="reg-conf-password">
 
-                <label for="formFile" class="form-label" ">Valid I.D.</label>
+
+                    <label for="formFile" class="form-label">Valid I.D.</label>
                     <input class=" form-control reg-id" type="file" id="formFile">
+                    <!-- Default dropup button -->
+                    <div class="btn-group dropup muni-cont">
+                        <button type="button" class="btn btn-secondary dropdown-toggle municipality" data-bs-toggle="dropdown" aria-expanded="false">
+                            Municipality
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Menu item</a></li>
+                            <li><a class="dropdown-item" href="#">Menu item</a></li>
+                            <li><a class="dropdown-item" href="#">Menu item</a></li>
 
+                        </ul>
+                    </div>
                     <div class="back-to-signin igitna">
-                        <p>By clicking sign up, you agree to the <span><a href="">Terms and Conditions</a> </span></p>
+                        <p>By clicking sign up, you agree to the <span><a href="" class="terms_and_cond">Terms and Conditions</a> </span></p>
                     </div>
                     <div class="igitna mb-2">
                         <button type="submit" class="btn btn-primary submit-reg">Sign Up</button>
@@ -63,13 +67,13 @@
                     <div class="back-to-signin igitna">
                         <p>Already have an account? <span id="link-signup" onclick="closeForm()">Sign In </span></p>
                     </div>
-            </div>
-        </form>
-    </div>
-    <!-- </div> -->
 
-    <!-- Login Section -->
-    <section class="sign-in min-vh-100 igitna">
+                </div>
+            </form>
+        </div>
+
+
+        <!-- sign in -->
         <div class="container-fluid">
             <div class="sapin">
                 <div class="row">
@@ -89,20 +93,22 @@
                         <div class="login igitna">
                             <form action="">
                                 <h4 style="text-align: center;">Sign In to your Account</h4>
-                                <div class="mb-3 mt-3">
-                                    <label for="email" class="form-label lblemail">Email:</label>
-                                    <input type="email" class="form-control txtemail" id="email" placeholder="Enter email" name="email">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="pwd" class="form-label">Password:</label>
-                                    <input type="password" class="form-control txtpwd " id="pwd" placeholder="Enter password" name="pswd">
-                                </div>
-                                <div class="igitna">
-                                    <button type="submit" class="btn btn-primary submit-login">Sign in</button>
-                                </div>
-                                <div class="signup">
-                                    <p><a href="">Forgot Password&nbsp</a></p>
-                                    <p>Don't have an account? <span onclick="openForm()" id="link-signup">Sign Up </span></p>
+                                <div class="add-padding">
+                                    <div class="mb-3 mt-3">
+                                        <label for="email" class="form-label lblemail">Email:</label>
+                                        <input type="email" class="form-control txtemail" id="email" placeholder="Enter email" name="email">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="pwd" class="form-label">Password:</label>
+                                        <input type="password" class="form-control txtpwd " id="pwd" placeholder="Enter password" name="pswd">
+                                    </div>
+                                    <div class="igitna">
+                                        <button type="submit" class="btn btn-primary submit-login">Sign in</button>
+                                    </div>
+                                    <div class="signup">
+                                        <p><a href="">Forgot Password&nbsp</a></p>
+                                        <p>Don't have an account? <span onclick="openForm()" id="link-signup">Sign Up </span></p>
+                                    </div>
                                 </div>
                             </form>
                         </div>
