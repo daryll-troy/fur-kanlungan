@@ -23,10 +23,10 @@
     <!-- signup form -->
 
     <!-- <div class="igitna"> -->
-    <div class="register">
-        <form action="">
+    <div class="register" id="register">
+        <form action="sign-up.php" method="post" enctype="multipart/form-data">
             <div class="label-create">Create Account</div>
-            <div class="mb-3 mt-3 add-padding">
+            <div class=" add-padding">
                 <label for="reg-firstname" class="form-label  mt-2">Name</label>
                 <div class="names-in-row">
                     <input type="text" class="form-control" id="reg-firstname" placeholder="Enter First Name" name="reg-firstname">
@@ -34,23 +34,35 @@
                 </div>
                 <label for="reg-email" class="form-label mt-2 ">Email</label>
                 <input type="email" class="form-control" id="reg-email" placeholder="Enter Email" name="reg-email">
+                <label for="reg-username" class="form-label mt-2">Username</label>
+                <input type="password" class="form-control" id="reg-username" placeholder="Enter Username" name="reg-username">
                 <label for="reg-password" class="form-label mt-2">Password</label>
                 <input type="password" class="form-control" id="reg-password" placeholder="Enter Password" name="reg-password">
                 <label for="reg-conf-password" class="form-label mt-2">Confirm Password</label>
                 <input type="password" class="form-control" id="reg-conf-password" placeholder="Confirm Password" name="reg-conf-password">
-                <div class="mb-4">
-                    <label for="formFile" class="form-label">Valid I.D.</label>
-                    <input class="form-control" type="file" id="formFile">
+                <div class="btn-group">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                       Municipality
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                    </ul>
                 </div>
-                <div class="back-to-signin igitna">
-                    <p>Already have an account? <span><a href="">Sign In</a> </span></p>
-                </div>
-                <div class="igitna mb-2">
-                    <button type="submit" class="btn btn-primary submit-reg">Sign in</button>
-                </div>
-                <div class="back-to-signin igitna">
-                    <p>Already have an account? <span><a href="">Sign In</a> </span></p>
-                </div>
+
+                <label for="formFile" class="form-label" ">Valid I.D.</label>
+                    <input class=" form-control reg-id" type="file" id="formFile">
+
+                    <div class="back-to-signin igitna">
+                        <p>By clicking sign up, you agree to the <span><a href="">Terms and Conditions</a> </span></p>
+                    </div>
+                    <div class="igitna mb-2">
+                        <button type="submit" class="btn btn-primary submit-reg">Sign Up</button>
+                    </div>
+                    <div class="back-to-signin igitna">
+                        <p>Already have an account? <span id="link-signup" onclick="closeForm()">Sign In </span></p>
+                    </div>
             </div>
         </form>
     </div>
@@ -90,7 +102,7 @@
                                 </div>
                                 <div class="signup">
                                     <p><a href="">Forgot Password&nbsp</a></p>
-                                    <p>Don't have an account? <span><a href="">Sign Up</a> </span></p>
+                                    <p>Don't have an account? <span onclick="openForm()" id="link-signup">Sign Up </span></p>
                                 </div>
                             </form>
                         </div>
@@ -105,6 +117,8 @@
 
     <?php include_once 'pages/pet-list.php'; ?>
     <?php include_once 'pages/footer.php'; ?>
+
+    <script src="js/pop-up-sign-up.js"></script>
 </body>
 
 </html>
