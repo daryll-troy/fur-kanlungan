@@ -47,9 +47,10 @@ blurry.addEventListener("click", () => {
   setTimeout(() => {
     blurry.style.display = "none";
     container.style.display = "none";
+    window.scrollTo(0, 0);
   }, 300);
   
-  window.scrollTo(0, 0);
+  
 });
 
 
