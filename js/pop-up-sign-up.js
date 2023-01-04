@@ -1,13 +1,13 @@
-const container = document.getElementById("register");
-const blurry = document.getElementById("blur-sapin");
+ const container = document.getElementById("register");
+ const blurry = document.getElementById("blur-sapin");
 
 // open the sign up form
-function openForm() {
+ function openForm() {
   container.style.display = "block";
   blurry.style.display = "block";
   container.style.animation = "fadeIn 0.3s";
   blurry.style.animation = "fadeIn 0.3s";
-  
+
   // add the height of .blur-sapin
   const limit = Math.max(document.body.scrollHeight, document.body.offsetHeight,
     document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
@@ -25,33 +25,23 @@ function openForm() {
 
   window.scrollTo(0, 0);
 }
+
 // close the signup form when the sign in link is clicked
-function closeForm() {
-  // fadeout animation when sign in link is clicked
-  container.style.animation = "fadeOut 0.8s";
-  blurry.style.animation = "fadeOut 0.8s";
-
-  setTimeout(() => {
-    blurry.style.display = "none";
-    container.style.display = "none";
-  }, 800);
-
-  
+ function closeForm() {
+  blurry.style.display = "none";
+  container.style.display = "none";
+  window.scrollTo(0, 0);
 }
-// when the background is clicked, exit the sign up form
-blurry.addEventListener("click", () => {
-   // fadeout animation when .blurry-sapin is clicked
-  container.style.animation = "fadeOut 0.3s";
-  blurry.style.animation = "fadeOut 0.3s";
 
-  setTimeout(() => {
-    blurry.style.display = "none";
-    container.style.display = "none";
-    window.scrollTo(0, 0);
-  }, 300);
-  
-  
+// when the background is clicked, exit the sign up form
+  blurry.addEventListener("click", () => {
+  blurry.style.display = "none";
+  container.style.display = "none";
+  window.scrollTo(0, 0);
+
 });
+
+
 
 
 

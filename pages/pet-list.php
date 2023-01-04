@@ -15,14 +15,11 @@
                 <button class="btn btn-secondary dropdown-toggle choose-animal " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     Animal Type
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <ul class="dropdown-menu animal-type" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="#">Dogs</a></li>
                     <li><a class="dropdown-item" href="#">Cats</a></li>
                     <li><a class="dropdown-item" href="#">Hamsters</a></li>
-                    <li><a class="dropdown-item" href="#">Hamsters</a></li>
-                    <li><a class="dropdown-item" href="#">Hamsters</a></li>
-                    <li><a class="dropdown-item" href="#">Hamsters</a></li>
-                    <li><a class="dropdown-item" href="#">Hamsters</a></li>
+                    
                 </ul>
             </div>
             <!-- Search the name of the animal -->
@@ -86,10 +83,7 @@
             </nav>
         </div>
     </section>
-
-    <!-- javascript -->
-    <script src="../js/hover.js"></script>
-   
+ 
 </body>
 
 </html>

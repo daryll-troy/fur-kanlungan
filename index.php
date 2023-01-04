@@ -1,3 +1,60 @@
+<!-- Sign Up Validation -->
+<?php
+// define variables and set to empty values
+// $fullname = $fullname_err = "";
+// $fname = $fname_err = "";
+// $lname = $lname_err = "";
+// $username = $username_err = "";
+// $email = $email_err = "";
+// $password = $password_err = "";
+// $conf_password = $conf_password_err = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // if (empty($_POST["reg-firstname"]) || empty($_POST["reg-lastname"])) {
+    //     $test = $_POST['reg-firstname'];
+    //     $fullname_err = "Full name is required";
+    //     echo "<script> console.log('$fullname_err')</script>";
+    // } else {
+    //     $fname = test_input($_POST["reg-firstname"]);
+    //     $lname = test_input($_POST["reg-lastname"]);
+    //     // check if name only contains letters and whitespace
+    //     if (!preg_match("/^[a-zA-Z-' ]*$/", $fname) || !preg_match("/^[a-zA-Z-' ]*$/", $lname)) {
+    //         $fname_err = "Only letters and white space allowed";
+    //         echo "<script>
+
+    //         console.log('$fname_err')</script>";
+    //     }
+
+    // }
+
+    // if (empty($_POST["reg_email"])) {
+    //     $email_err = "Email is required";
+    //     echo "<script>console.log('$email_err');</script>";
+
+    // } else {
+
+    //     $email = test_input($_POST["reg_email"]);
+    //     // check if e-mail address is well-formed
+    //     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //         $email_err = "Invalid email format";
+    //         echo "<script> console.log('$email_err')</script>";
+    //     }
+    // }
+
+}
+
+
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,52 +77,65 @@
 </head>
 
 <body>
-    <!-- Login Section -->
+    <!-- Sign in and Sign up Section -->
     <section class="sign-in min-vh-100 igitna" id="sign-in">
         <!-- signup form -->
         <div class="blur-sapin igitna" id="blur-sapin"> </div>
 
         <div class="register" id="register">
-            <form action="sign-up.php" method="post" enctype="multipart/form-data">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data" id="form_signup">
                 <div class="label-create">Create Account</div>
+
                 <div class=" add-padding">
+                    <!-- name -->
                     <label for="reg-firstname" class="form-label  mt-2">Name</label>
                     <div class="names-in-row">
                         <input type="text" class="form-control" id="reg-firstname" placeholder="Enter First Name" name="reg-firstname">
                         <input type="text" class="form-control" id="reg-lastname" placeholder="Enter Last Name" name="reg-lastname">
                     </div>
+                    <div> <small id="name_err" style="color: red;"></small></div>
+                    <!-- email -->
                     <label for="reg-email" class="form-label mt-2 ">Email</label>
-                    <input type="email" class="form-control" id="reg-email" placeholder="Enter Email" name="reg-email">
+                    <input type="text" class="form-control" id="reg-email" placeholder="Enter Email" name="reg-email">
+                    <div> <small id="email_err" style="color: red;"></small></div>
+                    <!-- username -->
                     <label for="reg-username" class="form-label mt-2">Username</label>
-                    <input type="password" class="form-control" id="reg-username" placeholder="Enter Username" name="reg-username">
+                    <input type="text" class="form-control" id="reg-username" placeholder="Enter Username" name="reg-username">
+                    <div> <small id="username_err" style="color: red;"></small></div>
+                    <!-- password -->
                     <label for="reg-password" class="form-label mt-2">Password</label>
                     <input type="password" class="form-control" id="reg-password" placeholder="Enter Password" name="reg-password">
+                    <div> <small id="password_err" style="color: red;"></small></div>
+                    <!-- confirm password -->
                     <label for="reg-conf-password" class="form-label mt-2">Confirm Password</label>
                     <input type="password" class="form-control" id="reg-conf-password" placeholder="Confirm Password" name="reg-conf-password">
-
-
-                    <label for="formFile" class="form-label">Valid I.D.</label>
-                    <input class=" form-control reg-id" type="file" id="formFile">
-                    <!-- Default dropup button -->
+                    <div> <small id="conf_password_err" style="color: red;"></small></div>
+                    <!-- valid ID -->
+                    <label for="reg-id" class="form-label mt-2">Valid I.D.</label>
+                    <input class=" form-control" type="file" id="reg-id" name="reg-id">
+                    <div> <small id="validid_err" style="color: red;"></small></div>
+                    <!-- municipality -->
                     <div class="btn-group dropup muni-cont">
-                        <button type="button" class="btn btn-secondary dropdown-toggle municipality" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button  type="button" class="btn btn-secondary dropdown-toggle municipality " data-bs-toggle="dropdown" aria-expanded="false">
                             Municipality
-                        </button>
-                        <ul class="dropdown-menu">
+                        </button required>
+                        <ul class="dropdown-menu" id="choose-muni">
                             <li><a class="dropdown-item" href="#">Menu item</a></li>
                             <li><a class="dropdown-item" href="#">Menu item</a></li>
                             <li><a class="dropdown-item" href="#">Menu item</a></li>
 
                         </ul>
                     </div>
+                    <div> <small id="municipality_err" style="color: red;"></small></div>
+                    <!-- terms and conditions -->
                     <div class="back-to-signin igitna">
                         <p>By clicking sign up, you agree to the <span><a href="" class="terms_and_cond">Terms and Conditions</a> </span></p>
                     </div>
                     <div class="igitna mb-2">
-                        <button type="submit" class="btn btn-primary submit-reg">Sign Up</button>
+                        <input type="button" class="btn btn-primary submit-reg" id="btn_signup" value="Sign Up">
                     </div>
                     <div class="back-to-signin igitna">
-                        <p>Already have an account? <span id="link-signup" onclick="closeForm()">Sign In </span></p>
+                        <p>Already have an account? <span id="link-signin" onclick="closeForm()">Sign In </span></p>
                     </div>
 
                 </div>
@@ -103,7 +173,7 @@
                                         <input type="password" class="form-control txtpwd " id="pwd" placeholder="Enter password" name="pswd">
                                     </div>
                                     <div class="igitna">
-                                        <button type="submit" class="btn btn-primary submit-login">Sign in</button>
+                                        <button class="btn btn-primary submit-login">Sign in</button>
                                     </div>
                                     <div class="signup">
                                         <p><a href="">Forgot Password&nbsp</a></p>
@@ -124,7 +194,10 @@
     <?php include_once 'pages/pet-list.php'; ?>
     <?php include_once 'pages/footer.php'; ?>
 
+    <!-- Javascript -->
     <script src="js/pop-up-sign-up.js"></script>
+    <script src="js/hover.js"></script>
+    <script src="js/check_sign_up.js"></script>
 </body>
 
 </html>

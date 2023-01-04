@@ -19,7 +19,7 @@
 }
 
 .col-lg-5 h1,
-p {
+.col-lg-5 p {
     color: aliceblue;
 
 }
@@ -377,7 +377,7 @@ p {
 #reg-email,
 #reg-password,
 #reg-conf-password,
-.reg-id,
+#reg-id,
 #reg-username {
     border: 2px;
     border-color: rgb(54, 10, 10);
@@ -420,6 +420,7 @@ p {
 }
 
 /* link-signup color to blue */
+#link-signin,
 #link-signup {
     color: rgb(68, 68, 237);
     cursor: pointer;

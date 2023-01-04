@@ -23,7 +23,9 @@
     <?php include_once 'pet-list.php'; ?>
     <?php include_once 'footer.php'; ?>
 
-   
+    <!-- javascript -->
+    <script src="../js/hover.js"></script>
+  
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+/* Does this cause the white text of pet-list card-text @ index.php? */
 body {
     background-color: rgba(236, 232, 228, 0.99);
 }
@@ -5,6 +6,12 @@ body {
 /* Browse Pets part */
 .pet-list {
     background-color: rgba(236, 232, 228, 0.99);
+}
+
+/* set max-height of animal type and set it to overflow: auto */
+.animal-type {
+    max-height: 20rem;
+    overflow: auto;
 }
 
 .type-search {
@@ -102,8 +109,9 @@ body {
     .filter {
         overflow: auto;
     }
+
     /* make the dropdown content appear */
-    .wrap-search{
+    .wrap-search {
         overflow: visible;
     }
 }
@@ -125,7 +133,8 @@ body {
         display: flex;
         justify-content: center;
         /* flex-direction: column; */
-     }
+    }
+
     /* .middle-search{
         display: flex;
         justify-content: center;
