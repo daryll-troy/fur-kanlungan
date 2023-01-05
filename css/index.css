@@ -429,20 +429,25 @@
 /* municipality dropdown */
 .municipality {
     margin-top: 30px;
-    width: 20%;
-    background-color: rgb(94, 83, 83);
+    /* width: 50%; */
+    background-color: rgb(160, 153, 153);
     border: 0px;
+    color: aliceblue;
 }
 
-.municipality:hover {
-    background-color: rgb(54, 10, 10);
+.municipality option{
+    color: aliceblue;
+  
 }
-
+/* remove margin top of municipality select*/
+#municipality{
+    margin-top: 0;
+}
 /* contain the menu item to a fixed height and enable scrolling */
-.muni-cont ul {
+/* .muni-cont select {
     max-height: 20rem;
     overflow: auto;
-}
+} */
 
 /* remove the underline of terms and conditions link */
 .terms_and_cond {

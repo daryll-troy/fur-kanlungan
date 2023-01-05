@@ -10,7 +10,7 @@ const username = document.getElementById('reg-username');
 const password = document.getElementById('reg-password');
 const conf_password = document.getElementById('reg-conf-password');
 const valid_id = document.getElementById('reg-id');
-const municipality = document.getElementById('choose-muni');
+const municipality = document.getElementById('municipality');
 
 // divs for error messages
 let name_err = document.getElementById('name_err');
@@ -22,6 +22,9 @@ let validid_err = document.getElementById('validid_err');
 let municipality_err = document.getElementById('municipality_err');
 
 const btn_signup = document.getElementById('btn_signup');
+
+
+
 // this will be used to change the attribute value of sign up button to submit
 let check_validations = 0;
 
@@ -192,9 +195,12 @@ function checkValidId() {
 
 function checkMunicipality() {
     let municipality_val = municipality.value;
-    // fix this
-    if (municipality_val == '') {
-        municipality_err.innerHTML = "Please select your municipality.";
+
+    if (municipality_val == 'none') {
+        municipality_err.innerHTML = "Select Municipality";
+        municipality.style.border = "2px";
+        municipality.style.borderStyle = "solid";
+        municipality.style.borderColor = "red";
     } else {
 
         municipality_err.innerHTML = "";
@@ -210,6 +216,7 @@ function remove_red_on_close() {
     password.value = "";
     conf_password.value = "";
     valid_id.value = "";
+    municipality.value = "none";
     // set div for errors to "" after sign up close
     name_err.innerHTML = "";
     email_err.innerHTML = "";
@@ -226,6 +233,7 @@ function remove_red_on_close() {
     password.style.borderColor = "black";
     conf_password.style.borderColor = "black";
     valid_id.style.borderColor = "black";
+    municipality.style.border = "none";
 }
 
 

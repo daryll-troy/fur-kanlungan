@@ -1,5 +1,11 @@
+<?php
+// connect to database
+include 'pages/connect.php';
+?>
+
 <!-- Sign Up Validation -->
 <?php
+
 // define variables and set to empty values
 // $fullname = $fullname_err = "";
 // $fname = $fname_err = "";
@@ -110,23 +116,23 @@ function test_input($data)
                     <label for="reg-conf-password" class="form-label mt-2">Confirm Password</label>
                     <input type="password" class="form-control" id="reg-conf-password" placeholder="Confirm Password" name="reg-conf-password">
                     <div> <small id="conf_password_err" style="color: red;"></small></div>
+
+                    <!-- municipality -->
+                    <label for="municipality" class="form-label">Municipality</label>
+                    <select class="form-select btn municipality" aria-label="Default select example" id="municipality" name="municipality">
+                        <option value="none">Select Municipality</option>
+                        <?php
+                                        
+                        ?>
+                        <!-- <option value="1">One</option> -->
+                    </select>
+                    <div> <small id="municipality_err" style="color: red;"></small></div>
+
                     <!-- valid ID -->
                     <label for="reg-id" class="form-label mt-2">Valid I.D.</label>
                     <input class=" form-control" type="file" id="reg-id" name="reg-id">
                     <div> <small id="validid_err" style="color: red;"></small></div>
-                    <!-- municipality -->
-                    <div class="btn-group dropup muni-cont">
-                        <button  type="button" class="btn btn-secondary dropdown-toggle municipality " data-bs-toggle="dropdown" aria-expanded="false">
-                            Municipality
-                        </button required>
-                        <ul class="dropdown-menu" id="choose-muni">
-                            <li><a class="dropdown-item" href="#">Menu item</a></li>
-                            <li><a class="dropdown-item" href="#">Menu item</a></li>
-                            <li><a class="dropdown-item" href="#">Menu item</a></li>
 
-                        </ul>
-                    </div>
-                    <div> <small id="municipality_err" style="color: red;"></small></div>
                     <!-- terms and conditions -->
                     <div class="back-to-signin igitna">
                         <p>By clicking sign up, you agree to the <span><a href="" class="terms_and_cond">Terms and Conditions</a> </span></p>
