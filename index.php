@@ -122,7 +122,21 @@ function test_input($data)
                     <select class="form-select btn municipality" aria-label="Default select example" id="municipality" name="municipality">
                         <option value="none">Select Municipality</option>
                         <?php
-                                        
+                        // select all municipality
+                        $sql = "SELECT muni_name FROM municipality;";
+                        $result = mysqli_query($conn,$sql);
+    
+                        if (mysqli_num_rows($result) > 0) {
+                            // output data of each row
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $get_muni_name = $row["muni_name"];
+                                echo "<option value='$get_muni_name' id='get_muni_name'>$get_muni_name</option>";
+                            }
+                        } else {
+                            // echo "0 results";
+                        }
+
+                        mysqli_close($conn);
                         ?>
                         <!-- <option value="1">One</option> -->
                     </select>
@@ -130,7 +144,7 @@ function test_input($data)
 
                     <!-- valid ID -->
                     <label for="reg-id" class="form-label mt-2">Valid I.D.</label>
-                    <input class=" form-control" type="file" id="reg-id" name="reg-id">
+                    <input class=" form-control" type="file" id="reg-id" name="reg-id" multiple accept=".jpg, .png">
                     <div> <small id="validid_err" style="color: red;"></small></div>
 
                     <!-- terms and conditions -->

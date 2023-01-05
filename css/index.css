@@ -435,19 +435,22 @@
     color: aliceblue;
 }
 
-.municipality option{
+.municipality option {
     color: aliceblue;
-  
+
 }
+
 /* remove margin top of municipality select*/
-#municipality{
+#municipality {
     margin-top: 0;
 }
-/* contain the menu item to a fixed height and enable scrolling */
-/* .muni-cont select {
-    max-height: 20rem;
-    overflow: auto;
-} */
+
+/* set the first character to capital letter on selecting municipality */
+#get_muni_name,
+#municipality {
+    text-transform: capitalize;
+}
+
 
 /* remove the underline of terms and conditions link */
 .terms_and_cond {

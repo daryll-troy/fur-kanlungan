@@ -2,6 +2,7 @@
 const signin = document.getElementById("link-signin");
 // const blurry = document.getElementById("blur-sapin");
 
+
 // const form = document.getElementById('form_signup');
 const fname = document.getElementById('reg-firstname');
 const lname = document.getElementById('reg-lastname');
@@ -49,8 +50,7 @@ signin.addEventListener('click', (e) => {
     remove_red_on_close();
 })
 
-// when blur-sapin is clicked
-/** 
+/** when blur-sapin is clicked
  * somehow this works even if blurry is not initialized to blur-sapin element above and if it gets initialized, 
  * the sign up button wont work otherwise which is kind of counter-intuitive
 */
@@ -180,19 +180,6 @@ function equalPassword(password_val, conf_password_val) {
     }
 }
 
-function checkValidId() {
-    let validid_val = valid_id.value;
-
-    // check if username is blank
-    if (validid_val === '') {
-        valid_id.style.borderColor = "red";
-        validid_err.innerHTML = "Please Upload an image file.";
-    } else {
-        valid_id.style.borderColor = "black";
-        validid_err.innerHTML = "";
-    }
-}
-
 function checkMunicipality() {
     let municipality_val = municipality.value;
 
@@ -202,10 +189,64 @@ function checkMunicipality() {
         municipality.style.borderStyle = "solid";
         municipality.style.borderColor = "red";
     } else {
-
+        municipality.style.borderColor = "black";
         municipality_err.innerHTML = "";
     }
 }
+
+function checkValidId() {
+    let validid_val = valid_id.value;
+
+    // check if username is blank
+    if (validid_val === '') {
+        valid_id.style.borderColor = "red";
+        validid_err.innerHTML = "Please Upload an image file.";
+    } else {
+        // validate the file
+        // valid_id.onchange = function () {
+        //     if (this.files[0].size > 1000) {
+        //         alert("File is too big!");
+        //         this.value = "";
+        //     } else {
+        //         valid_id.style.borderColor = "black";
+        //         validid_err.innerHTML = "";
+        //     }
+        // };
+
+        // valid_id.addEventListener("click", () => {
+        //     const allowedExtensions = ['jpg', 'png'],
+        //         sizeLimit = 5_000_000; // 5 megabyte
+
+        //     // destructuring file name and size from file object
+        //     const { name: fileName, size: fileSize } = this.files[0];
+        //     alert(fileName);
+        //     /*
+        //     * if filename is apple.png, we split the string to get ["apple","png"]
+        //     * then apply the pop() method to return the file extension
+        //     *
+        //     */
+        //     const fileExtension = fileName.split(".").pop();
+
+        //     /* 
+        //       check if the extension of the uploaded file is included 
+        //       in our array of allowed file extensions
+        //     */
+        //     if (!allowedExtensions.includes(fileExtension)) {
+        //         alert("file type not allowed");
+        //         this.value = null;
+        //     } else if (fileSize > sizeLimit) {
+        //         alert("file size too large")
+        //         this.value = null;
+        //     } else {
+        //         valid_id.style.borderColor = "black";
+        //         validid_err.innerHTML = "";
+        //     }
+        // });
+
+    }
+}
+
+
 
 function remove_red_on_close() {
     // reset the values of textboxes to ""
@@ -235,5 +276,4 @@ function remove_red_on_close() {
     valid_id.style.borderColor = "black";
     municipality.style.border = "none";
 }
-
 
