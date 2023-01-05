@@ -24,16 +24,6 @@ let municipality_err = document.getElementById('municipality_err');
 
 const btn_signup = document.getElementById('btn_signup');
 
-
-
-// this will be used to change the attribute value of sign up button to submit
-let check_validations = 0;
-
-// make border green
-// fname.addEventListener("focusout", (e)=>{
-//     fname.style.borderColor = "green";
-// });
-
 // when sign up button is clicked
 btn_signup.addEventListener('click', (e) => {
     // call all validation functions
@@ -43,8 +33,44 @@ btn_signup.addEventListener('click', (e) => {
     checkPassword();
     checkValidId();
     checkMunicipality();
-    // btn_signup.setAttribute("type", "submit");
+    all_valid();
+
+
 })
+
+// change the btn_signup to type = "submit"
+function all_valid() {
+    let store_color = fname.style.borderColor;
+    if (store_color == "lime") {
+        store_color = lname.style.borderColor;
+        if (store_color == "lime") {
+            store_color = email.style.borderColor;
+            if (store_color == "lime") {
+                store_color = username.style.borderColor;
+                if (store_color == "lime") {
+                    store_color = password.style.borderColor;
+                    if (store_color == "lime") {
+                        store_color = conf_password.style.borderColor;
+                        if (store_color == "lime") {
+                            store_color = valid_id.style.borderColor;
+                            if (store_color == "lime") {
+                                store_color = municipality.style.borderColor;
+                                btn_signup.setAttribute("type", "submit");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    // if ( == lname.style.borderColor == email.style.borderColor == username.style.borderColor == password.style.borderColor == conf_password.style.borderColor == valid_id.style.borderColor == municipality.style.borderColor == "lime")
+    //     btn_signup.setAttribute("type", "submit");
+    // else{
+    //     alert('something went wrong');
+    // }
+}
 // when sign in link is clicked
 signin.addEventListener('click', (e) => {
     remove_red_on_close();
@@ -52,7 +78,7 @@ signin.addEventListener('click', (e) => {
 
 /** when blur-sapin is clicked
  * somehow this works even if blurry is not initialized to blur-sapin element above and if it gets initialized, 
- * the sign up button wont work otherwise which is kind of counter-intuitive
+ * the sign up button wont work otherwise which is kind of -intuitive
 */
 blurry.addEventListener('click', (e) => {
     remove_red_on_close();
@@ -62,56 +88,105 @@ blurry.addEventListener('click', (e) => {
 function checkName() {
     let fname_val = fname.value.trim();
     let lname_val = lname.value.trim();
-
+    let regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
     // check for blank inputs
     if (fname_val === '' || lname_val === '') {
 
         if (fname_val === '' && lname_val !== '') {
             fname.style.borderColor = "red";
-            lname.style.borderColor = "black";
-            name_err.innerHTML = "Please fill this input.";
+            lname.style.borderColor = "lime";
+            name_err.innerHTML = "Please fill this input";
+
         }
         if (lname_val === '' && fname_val !== '') {
             lname.style.borderColor = "red";
-            fname.style.borderColor = "black";
-            name_err.innerHTML = "Please fill this input.";
+            fname.style.borderColor = "lime";
+            name_err.innerHTML = "Please fill this input";
+
         }
         if (lname_val === '' && fname_val === '') {
             lname.style.borderColor = "red";
             fname.style.borderColor = "red";
-            name_err.innerHTML = "Please fill this input.";
+            name_err.innerHTML = "Please fill this input";
+
         }
 
     } else if (fname_val !== '' || lname_val !== '') {
         if (fname_val !== '' && lname_val === '')
-            fname.style.borderColor = "black";
+            fname.style.borderColor = "lime";
 
         if (lname_val !== '' && fname_val === '')
-            lname.style.borderColor = "black";
+            lname.style.borderColor = "lime";
 
         if (lname_val !== '' && fname_val !== '') {
-            fname.style.borderColor = "black";
-            lname.style.borderColor = "black";
-            name_err.innerHTML = "";
+            // check if both name fields contain non-letter characters
+            if (!isName(fname_val) || !isName(lname_val)) {
+                fname.style.borderColor = "red";
+                lname.style.borderColor = "red";
+                name_err.innerHTML = "Name fields can only contain letters and white spaces";
+
+            } else {
+                fname.style.borderColor = "lime";
+                lname.style.borderColor = "lime";
+                name_err.innerHTML = "";
+
+            }
         }
+    } else {
+        fname.style.borderColor = "lime";
+        lname.style.borderColor = "lime";
+        name_err.innerHTML = "";
+
     }
 
-
+}
+function isName(name) {
+    // check if the name field contains only letters
+    return /^[A-Za-z]*$/.test(name);
 }
 
 function checkEmail() {
     let email_val = email.value.trim();
+    let lower_case_email = email_val.toLowerCase();
 
     // check if email is blank
     if (email_val === '') {
         email.style.borderColor = "red";
-        email_err.innerHTML = "Please fill this input.";
+        email_err.innerHTML = "Please fill this input";
+
+        // check if the string is a valid email structure
     } else if (!isEmail(email_val)) {
+
         email.style.borderColor = "red";
         email_err.innerHTML = "Invalid email.";
+
+        // check if it contains gmail.com or yahoo.com
+    } else if ((lower_case_email.match("@gmail.com") == '@gmail.com') || (lower_case_email.match("@yahoo.com") == '@yahoo.com')) {
+        // check if there are still non-white characters after.com 
+        let after_atsign = lower_case_email.search('@') + 1;
+        let max_length = lower_case_email.length;
+        let diff = max_length - after_atsign;
+        if (diff === 9) {
+            email.style.borderColor = "lime";
+            email_err.innerHTML = "";
+
+        } else {
+            email.style.borderColor = "red";
+            email_err.innerHTML = ".com is only accepted";
+
+        }
+
     } else {
-        email.style.borderColor = "black";
-        email_err.innerHTML = "";
+        // check if the domain is .com
+        if ((lower_case_email.match("@gmail.") == '@gmail.') || (lower_case_email.match("@yahoo.") == '@yahoo.')) {
+            email.style.borderColor = "red";
+            email_err.innerHTML = ".com is only accepted";
+
+        } else {
+            email.style.borderColor = "red";
+            email_err.innerHTML = "Gmail and Yahoo are only accepted";
+
+        }
     }
 
 }
@@ -126,11 +201,21 @@ function checkUsername() {
     // check if username is blank
     if (username_val === '') {
         username.style.borderColor = "red";
-        username_err.innerHTML = "Please fill this input.";
-    } else {
-        username.style.borderColor = "black";
+        username_err.innerHTML = "Please fill this input";
+    } else if (onlyLettersAndNumbers(username_val)) {
+        username.style.borderColor = "lime";
         username_err.innerHTML = "";
+
     }
+    else {
+        username.style.borderColor = "red";
+        username_err.innerHTML = "Letters and Numbers are only allowed";
+    }
+}
+
+// check username input for other characters besides letters and numbers
+function onlyLettersAndNumbers(str) {
+    return /^[A-Za-z0-9]*$/.test(str);
 }
 
 function checkPassword() {
@@ -139,16 +224,17 @@ function checkPassword() {
     // check if password is blank
     if (password_val === '') {
         password.style.borderColor = "red";
-        password_err.innerHTML = "Please fill this input.";
+        password_err.innerHTML = "Please fill this input";
         checkConfirmPassword(password_val);
     } else if (password_val.length < 8) {
         //check if no. of characters is > 8
         password.style.borderColor = "red";
-        password_err.innerHTML = "Minimum of 8 characters.";
+        password_err.innerHTML = "Minimum of 8 characters";
         checkConfirmPassword(password_val);
     } else {
-        password.style.borderColor = "black";
+        password.style.borderColor = "lime";
         password_err.innerHTML = "";
+
         checkConfirmPassword(password_val);
     }
 }
@@ -159,14 +245,13 @@ function checkConfirmPassword(password_val) {
     // check if conf password is blank
     if (conf_password_val === '') {
         conf_password.style.borderColor = "red";
-        conf_password_err.innerHTML = "Please fill this input.";
+        conf_password_err.innerHTML = "Please fill this input";
     } else if (conf_password_val.length < 8) {
         //check if no. of characters is > 8
         conf_password.style.borderColor = "red";
-        conf_password_err.innerHTML = "Minimum of 8 characters.";
+        conf_password_err.innerHTML = "Minimum of 8 characters";
     } else {
-        conf_password.style.borderColor = "black";
-        conf_password_err.innerHTML = "";
+
         equalPassword(password_val, conf_password_val);
     }
 }
@@ -175,7 +260,11 @@ function equalPassword(password_val, conf_password_val) {
     if (password_val !== conf_password_val) {
         password.style.borderColor = "red";
         conf_password.style.borderColor = "red";
-        password_err.innerHTML = conf_password_err.innerHTML = "Password do not match."
+        password_err.innerHTML = conf_password_err.innerHTML = "Password do not match"
+
+    } else {
+        conf_password.style.borderColor = "lime";
+        conf_password_err.innerHTML = "";
 
     }
 }
@@ -189,8 +278,11 @@ function checkMunicipality() {
         municipality.style.borderStyle = "solid";
         municipality.style.borderColor = "red";
     } else {
-        municipality.style.borderColor = "black";
+        municipality.style.border = "2px";
+        municipality.style.borderStyle = "solid";
+        municipality.style.borderColor = "lime";
         municipality_err.innerHTML = "";
+
     }
 }
 
@@ -200,50 +292,22 @@ function checkValidId() {
     // check if username is blank
     if (validid_val === '') {
         valid_id.style.borderColor = "red";
-        validid_err.innerHTML = "Please Upload an image file.";
+        validid_err.innerHTML = "Please Upload an image file";
     } else {
-        // validate the file
-        // valid_id.onchange = function () {
-        //     if (this.files[0].size > 1000) {
-        //         alert("File is too big!");
-        //         this.value = "";
-        //     } else {
-        //         valid_id.style.borderColor = "black";
-        //         validid_err.innerHTML = "";
-        //     }
-        // };
+        // validate the file size
 
-        // valid_id.addEventListener("click", () => {
-        //     const allowedExtensions = ['jpg', 'png'],
-        //         sizeLimit = 5_000_000; // 5 megabyte
+        if (valid_id.files[0].size > 2_000_000) {
+            valid_id.value = "";
+            valid_id.style.borderColor = "red";
+            validid_err.innerHTML = "Image should not exceed 2MB";
+        } else {
+            valid_id.style.borderColor = "lime";
+            validid_err.innerHTML = "";
 
-        //     // destructuring file name and size from file object
-        //     const { name: fileName, size: fileSize } = this.files[0];
-        //     alert(fileName);
-        //     /*
-        //     * if filename is apple.png, we split the string to get ["apple","png"]
-        //     * then apply the pop() method to return the file extension
-        //     *
-        //     */
-        //     const fileExtension = fileName.split(".").pop();
-
-        //     /* 
-        //       check if the extension of the uploaded file is included 
-        //       in our array of allowed file extensions
-        //     */
-        //     if (!allowedExtensions.includes(fileExtension)) {
-        //         alert("file type not allowed");
-        //         this.value = null;
-        //     } else if (fileSize > sizeLimit) {
-        //         alert("file size too large")
-        //         this.value = null;
-        //     } else {
-        //         valid_id.style.borderColor = "black";
-        //         validid_err.innerHTML = "";
-        //     }
-        // });
+        }
 
     }
+
 }
 
 
@@ -274,6 +338,6 @@ function remove_red_on_close() {
     password.style.borderColor = "black";
     conf_password.style.borderColor = "black";
     valid_id.style.borderColor = "black";
-    municipality.style.border = "none";
+    municipality.style.border = "black";
 }
 

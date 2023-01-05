@@ -3,64 +3,6 @@
 include 'pages/connect.php';
 ?>
 
-<!-- Sign Up Validation -->
-<?php
-
-// define variables and set to empty values
-// $fullname = $fullname_err = "";
-// $fname = $fname_err = "";
-// $lname = $lname_err = "";
-// $username = $username_err = "";
-// $email = $email_err = "";
-// $password = $password_err = "";
-// $conf_password = $conf_password_err = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // if (empty($_POST["reg-firstname"]) || empty($_POST["reg-lastname"])) {
-    //     $test = $_POST['reg-firstname'];
-    //     $fullname_err = "Full name is required";
-    //     echo "<script> console.log('$fullname_err')</script>";
-    // } else {
-    //     $fname = test_input($_POST["reg-firstname"]);
-    //     $lname = test_input($_POST["reg-lastname"]);
-    //     // check if name only contains letters and whitespace
-    //     if (!preg_match("/^[a-zA-Z-' ]*$/", $fname) || !preg_match("/^[a-zA-Z-' ]*$/", $lname)) {
-    //         $fname_err = "Only letters and white space allowed";
-    //         echo "<script>
-
-    //         console.log('$fname_err')</script>";
-    //     }
-
-    // }
-
-    // if (empty($_POST["reg_email"])) {
-    //     $email_err = "Email is required";
-    //     echo "<script>console.log('$email_err');</script>";
-
-    // } else {
-
-    //     $email = test_input($_POST["reg_email"]);
-    //     // check if e-mail address is well-formed
-    //     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    //         $email_err = "Invalid email format";
-    //         echo "<script> console.log('$email_err')</script>";
-    //     }
-    // }
-
-}
-
-
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,7 +31,7 @@ function test_input($data)
         <div class="blur-sapin igitna" id="blur-sapin"> </div>
 
         <div class="register" id="register">
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data" id="form_signup">
+            <form action="pages/sign-up.php" method="post" enctype="multipart/form-data" id="form_signup">
                 <div class="label-create">Create Account</div>
 
                 <div class=" add-padding">
@@ -120,7 +62,7 @@ function test_input($data)
                     <!-- municipality -->
                     <label for="municipality" class="form-label">Municipality</label>
                     <select class="form-select btn municipality" aria-label="Default select example" id="municipality" name="municipality">
-                        <option value="none">Select Municipality</option>
+                        <option value="none">Select municipality</option>
                         <?php
                         // select all municipality
                         $sql = "SELECT muni_name FROM municipality;";
@@ -138,7 +80,6 @@ function test_input($data)
 
                         mysqli_close($conn);
                         ?>
-                        <!-- <option value="1">One</option> -->
                     </select>
                     <div> <small id="municipality_err" style="color: red;"></small></div>
 
@@ -218,6 +159,7 @@ function test_input($data)
     <script src="js/pop-up-sign-up.js"></script>
     <script src="js/hover.js"></script>
     <script src="js/check_sign_up.js"></script>
+
 </body>
 
 </html>

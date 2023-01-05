@@ -46,6 +46,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
                                 <li><a class="dropdown-item" href="#" style="margin-left: 0;">History</a></li>
+                                <li><a class="dropdown-item" href="#"  style="margin-left: 0;">My Pets</a></li>
                                 <li><a class="dropdown-item" href="#"  style="margin-left: 0;">Profile</a></li>
                                 <li>
                                     <hr class="dropdown-divider" style="color: black;">
