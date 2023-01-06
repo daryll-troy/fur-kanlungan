@@ -55,7 +55,12 @@ function all_valid() {
                             store_color = valid_id.style.borderColor;
                             if (store_color == "lime") {
                                 store_color = municipality.style.borderColor;
-                                btn_signup.setAttribute("type", "submit");
+
+                                setInterval(() => {
+                                    btn_signup.setAttribute("type", "submit");
+                                    btn_signup.value = "Sign Up";
+                                }, 100);
+
                             }
                         }
                     }
@@ -129,14 +134,12 @@ function checkName() {
                 fname.style.borderColor = "lime";
                 lname.style.borderColor = "lime";
                 name_err.innerHTML = "";
-
             }
         }
     } else {
         fname.style.borderColor = "lime";
         lname.style.borderColor = "lime";
         name_err.innerHTML = "";
-
     }
 
 }
@@ -169,7 +172,6 @@ function checkEmail() {
         if (diff === 9) {
             email.style.borderColor = "lime";
             email_err.innerHTML = "";
-
         } else {
             email.style.borderColor = "red";
             email_err.innerHTML = ".com is only accepted";
@@ -205,7 +207,6 @@ function checkUsername() {
     } else if (onlyLettersAndNumbers(username_val)) {
         username.style.borderColor = "lime";
         username_err.innerHTML = "";
-
     }
     else {
         username.style.borderColor = "red";
@@ -265,7 +266,6 @@ function equalPassword(password_val, conf_password_val) {
     } else {
         conf_password.style.borderColor = "lime";
         conf_password_err.innerHTML = "";
-
     }
 }
 
@@ -278,11 +278,12 @@ function checkMunicipality() {
         municipality.style.borderStyle = "solid";
         municipality.style.borderColor = "red";
     } else {
+
+
         municipality.style.border = "2px";
         municipality.style.borderStyle = "solid";
         municipality.style.borderColor = "lime";
         municipality_err.innerHTML = "";
-
     }
 }
 
@@ -295,17 +296,15 @@ function checkValidId() {
         validid_err.innerHTML = "Please Upload an image file";
     } else {
         // validate the file size
-
         if (valid_id.files[0].size > 2_000_000) {
             valid_id.value = "";
             valid_id.style.borderColor = "red";
             validid_err.innerHTML = "Image should not exceed 2MB";
         } else {
+
             valid_id.style.borderColor = "lime";
             validid_err.innerHTML = "";
-
         }
-
     }
 
 }

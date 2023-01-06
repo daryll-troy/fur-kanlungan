@@ -51,7 +51,7 @@
                                 <li>
                                     <hr class="dropdown-divider" style="color: black;">
                                 </li>
-                                <li><a class="dropdown-item" href="#" style="margin-left: 0;">Sign Out</a></li>
+                                <li><a class="dropdown-item" href="logout.php" style="margin-left: 0;">Sign Out</a></li>
                             </ul>
                         </li>
                     </ul>

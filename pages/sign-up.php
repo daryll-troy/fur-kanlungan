@@ -4,28 +4,22 @@ include 'connect.php';
 ?>
 
 <?php
-$fname = $_POST['reg-firstname'];
-$lname = $_POST['reg-lastname'];
-$email = $_POST['reg-email'];
-$username = $_POST['reg-username'];
-$password = $_POST['reg-password'];
-$conf_password = $_POST['reg-conf-password'];
-$municipality = $_POST['municipality'];
+//  Sign Up upload to database
+
+$fname = htmlspecialchars(strtolower($_POST['reg-firstname']));
+$lname = htmlspecialchars(strtolower($_POST['reg-lastname']));
+$email = htmlspecialchars(strtolower($_POST['reg-email']));
+
+$username = htmlspecialchars(strtolower($_POST['reg-username']));
+$password = htmlspecialchars(strtolower($_POST['reg-password']));
+$conf_password = htmlspecialchars(strtolower($_POST['reg-conf-password']));
+$municipality = htmlspecialchars(strtolower($_POST['municipality']));
 $valid_id = $_FILES['reg-id'];
 $muni_id = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $id = $_FILES['reg-id'];
-
-
-    // echo $_FILES['reg-id'];
-    foreach ($id as $x => $x_value) {
-        echo  $x . " => " . $x_value;
-        echo "<br>";
-    }
-
     // get the id of muni_id selected
-    $sql = "SELECT muniID FROM municipality WHERE muni_name = '$municipality'";
+    $sql = "SELECT muniID FROM municipality WHERE muni_name = '$municipality' LIMIT 1";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         // output data of each row
@@ -39,31 +33,94 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
 
-    // // Upload file to server
-    // if (move_uploaded_file($_FILES['reg-id']['tmp_name'], $targetFilePath)) {
-    //     echo "File uploaded successfully!";
+    // Upload file to server
+    if (move_uploaded_file($_FILES['reg-id']['tmp_name'], $targetFilePath)) {
+        // echo "Phtoto id uploaded to server successfully!</br> ";
 
-    //     // Insert image file name into database
-    //     // prepare and bind
-    //     $stmt = $conn->prepare("INSERT INTO users (username, email, password, fname, lname, photo_id, muniID) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    //     $stmt->bind_param("sssssss", $username, $email, $password, $fname, $lname, $fileName, $muni_id);
-    //     $stmt->execute();
-    //     $conn->close();
-    // } else {
-    //     echo "Sorry, file not uploaded, please try again!";
-    // }
-    // header("location: ../index.php");
-    // exit();
+        // Insert image file name into database
+        // prepare and bind
+        $stmt = $conn->prepare("INSERT INTO users (username, email, password, fname, lname, photo_id, muniID) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssss", $username, $email, $password, $fname, $lname, $fileName, $muni_id);
 
-    // Get images from the database
-    $query = $conn->query("SELECT photo_id FROM users limit 1");
-    if ($query->num_rows > 0) {
-        while ($row = $query->fetch_assoc()) {
-            $imageURL = '../images/valid_id/' . $row["photo_id"];
-            echo $imageURL;
+        // check exception if username of email already exists in the database
+        try {
+            $stmt->execute();
+            // close connection
+            $conn->close();
+            echo "<script>alert('Sign Up Successful!')</script>";
+            // head back to index.php
+            echo "<script>
+            window.location.href='../index.php';
+            </script>";
+            exit();
+        } catch (Exception $stmt) {
+            // counter for determining whether an email or username already exist in the database
+
+            $countEmail = 0;
+            $countUsername = 0;
+            // check if username already exists in the database
+            $sql = "SELECT username FROM users WHERE username = '$username'";
+            $result_username = $conn->query($sql);
+            if ($result_username->num_rows > 0) {
+                $countUsername = 1;
+            }
+
+            // check if email already exists in the database
+            $sql = "SELECT email FROM users WHERE email = '$email'";
+            $result_email = $conn->query($sql);
+            if ($result_email->num_rows > 0) {
+                $countEmail = 1;
+            }
+
+            if ($countEmail == 1 && $countUsername == 0) {
+
+                echo "<script>alert('Email is already taken!')</script>";
+                $conn->close();
+                // head back to index.php
+                echo "<script>
+                    window.location.href='../index.php';
+                    </script>";
+                exit();
+            } else if ($countEmail == 0 && $countUsername == 1) {
+
+                $conn->close();
+                echo "<script>alert('Username is already taken!')</script>";
+                // head back to index.php
+                echo "<script>
+                        window.location.href='../index.php';
+                        </script>";
+                exit();
+            } else if ($countEmail == 1 && $countUsername == 1) {
+                // alert when both username and email already exist
+
+                echo "<script>alert('Username and Email are already taken!')</script>";
+                $conn->close();
+                // head back to index.php
+                echo "<script>
+                window.location.href='../index.php';
+                </script>";
+                exit();
+            }
         }
+    } else {
+        // echo "Sorry, photo id not uploaded to server, please try again!</br> ";
+        echo "<script>alert('Sorry, photo id not uploaded to server, please try again!')</script>";
+        // head back to index.php
+        echo "<script>
+                    window.location.href='../index.php';
+            </script>";
+        exit();
     }
+    // NOTE: do not delete this, will use it later
+    // Get images from the database
+    // $query = $conn->query("SELECT photo_id FROM users limit 1");
+    // if ($query->num_rows > 0) {
+    //     while ($row = $query->fetch_assoc()) {
+    //         $imageURL = '../images/valid_id/' . $row["photo_id"];
+    //         echo $imageURL;
+    //     }
+    // }
+
 }
 
 ?>
-<img src="<?php echo $imageURL; ?>" alt="" />

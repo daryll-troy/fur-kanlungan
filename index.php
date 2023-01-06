@@ -1,6 +1,79 @@
 <?php
 // connect to database
 include 'pages/connect.php';
+// start a session
+session_start();
+// check if the user had already logged in
+if (isset($_SESSION['userID'])) {
+    header("location: pages/dashboard.php");
+}
+?>
+<!-- Login Process -->
+<?php
+// value of error divs
+$us_em_err_mess = $pass_err_mess = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    //for getting the value of username and email if they exist in the database
+    $getUsID = "";
+    $getUs = "";
+    $getEm = "";
+    $getPa = "";
+    $row = "";
+    // get user login inputs
+    $email_or_username = trim(htmlspecialchars(strtolower($_POST['email_or_username'])));
+    $password = trim(htmlspecialchars(strtolower($_POST['pwd'])));
+
+    if (!empty($email_or_username) && !empty($password)) {
+        // get the email or username from the database if it exists
+        $sql = "SELECT userID, username, email FROM users WHERE username = '$email_or_username' OR email = '$email_or_username' LIMIT 1";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                // get userID, email, and username
+                $getUsID = $row['userID'];
+                $getUs = $row['username'];
+                $getEm = $row['email'];
+            }
+        } else {
+            if (!empty($email_or_username)) {
+                // give value to error divs
+                // make the username/email seem correct or wrong if the username/email is wrong
+                $pass_err_mess = "Invalid Credential(s)";
+                $us_em_err_mess = "Invalid Credential(s)";
+            }
+        }
+
+        //get the password from the database if it exists
+        $sql = "SELECT password FROM users WHERE password = '$password' LIMIT 1";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                // get password
+                $getPa = $row['password'];
+            }
+        } else {
+            if (!empty($password)) {
+                // give value to error divs
+                // make the username/email seem correct or wrong if the password is wrong
+                $pass_err_mess = "Invalid Credential(s)";
+                $us_em_err_mess = "Invalid Credential(s)";
+            }
+        }
+    }
+
+    // direct to dashboard.php if all inputs are exisiting in the database
+    if (!empty($getUs) && !empty($getEm) && !empty($getPa)) {
+        $_SESSION['userID'] = $getUsID;
+        $conn->close();
+        header("location: pages/dashboard.php");
+        exit();
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +107,7 @@ include 'pages/connect.php';
             <form action="pages/sign-up.php" method="post" enctype="multipart/form-data" id="form_signup">
                 <div class="label-create">Create Account</div>
 
-                <div class=" add-padding">
+                <div class="reg-add-padding">
                     <!-- name -->
                     <label for="reg-firstname" class="form-label  mt-2">Name</label>
                     <div class="names-in-row">
@@ -66,8 +139,8 @@ include 'pages/connect.php';
                         <?php
                         // select all municipality
                         $sql = "SELECT muni_name FROM municipality;";
-                        $result = mysqli_query($conn,$sql);
-    
+                        $result = mysqli_query($conn, $sql);
+
                         if (mysqli_num_rows($result) > 0) {
                             // output data of each row
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -93,7 +166,7 @@ include 'pages/connect.php';
                         <p>By clicking sign up, you agree to the <span><a href="" class="terms_and_cond">Terms and Conditions</a> </span></p>
                     </div>
                     <div class="igitna mb-2">
-                        <input type="button" class="btn btn-primary submit-reg" id="btn_signup" value="Sign Up">
+                        <input type="button" class="btn btn-primary submit-reg" id="btn_signup" value="Validate">
                     </div>
                     <div class="back-to-signin igitna">
                         <p>Already have an account? <span id="link-signin" onclick="closeForm()">Sign In </span></p>
@@ -104,7 +177,7 @@ include 'pages/connect.php';
         </div>
 
 
-        <!-- sign in -->
+        <!-- ============================== sign in ================================ -->
         <div class="container-fluid">
             <div class="sapin">
                 <div class="row">
@@ -122,16 +195,18 @@ include 'pages/connect.php';
                     </div>
                     <div class="col-lg-4 igitna">
                         <div class="login igitna">
-                            <form action="">
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                 <h4 style="text-align: center;">Sign In to your Account</h4>
                                 <div class="add-padding">
                                     <div class="mb-3 mt-3">
-                                        <label for="email" class="form-label lblemail">Email:</label>
-                                        <input type="email" class="form-control txtemail" id="email" placeholder="Enter email" name="email">
+                                        <label for="email_or_username" class="form-label lblemail">Email/Username:</label>
+                                        <input type="text" class="form-control txtemail" id="email_or_username" placeholder="Enter email/username" name="email_or_username">
+                                        <div> <small id="us_em_err"><?php echo $us_em_err_mess; ?></small></div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="pwd" class="form-label">Password:</label>
-                                        <input type="password" class="form-control txtpwd " id="pwd" placeholder="Enter password" name="pswd">
+                                        <input type="password" class="form-control txtpwd " id="pwd" placeholder="Enter password" name="pwd">
+                                        <div> <small id="pass_err"><?php echo $pass_err_mess; ?></small></div>
                                     </div>
                                     <div class="igitna">
                                         <button class="btn btn-primary submit-login">Sign in</button>

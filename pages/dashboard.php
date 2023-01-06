@@ -1,3 +1,14 @@
+<?php
+// connect to database
+include 'connect.php';
+// start a session
+session_start();
+// check if the user had already logged in
+if (!isset($_SESSION['userID'])) {
+    header("location: ../index.php");
+    exit();
+}
+?>
 <html lang="en">
 
 <head>
@@ -23,9 +34,10 @@
     <?php include_once 'pet-list.php'; ?>
     <?php include_once 'footer.php'; ?>
 
+
     <!-- javascript -->
     <script src="../js/hover.js"></script>
-  
+    <?php $conn->close(); ?>
 </body>
 
 </html>

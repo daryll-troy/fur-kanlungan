@@ -102,16 +102,12 @@
     width: 350px;
 }
 
-.txtemail {
-    margin-bottom: 30px;
-
-}
-
 .txtemail,
 .txtpwd {
     border: 2px;
     border-color: rgb(54, 10, 10);
     border-style: solid;
+
 }
 
 /* Put in single line the forget password and sign up links*/
@@ -141,6 +137,12 @@
     color: black;
 }
 
+/* Error Checking divs */
+#us_em_err,
+#pass_err {
+   
+    color: red;
+}
 
 /********** Media Queries *************/
 
@@ -413,8 +415,14 @@
     font-size: clamp(1.7rem, 2.5vw, 2rem);
 }
 
-/* add padding to the form container*/
+/* add padding to the login form container*/
 .add-padding {
+    padding: 0 0.2rem;
+
+}
+
+/* add padding to the register form container*/
+.reg-add-padding {
     padding: 0 2rem;
 
 }
