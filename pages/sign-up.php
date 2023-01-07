@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $targetDir = "C:/xampp/htdocs/fur-kanlungan/images/valid_id/";
     $fileName = basename($_FILES["reg-id"]["name"]);
     $targetFilePath = $targetDir . $fileName;
-    $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+    // $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
 
     // Upload file to server
     if (move_uploaded_file($_FILES['reg-id']['tmp_name'], $targetFilePath)) {
@@ -111,15 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </script>";
         exit();
     }
-    // NOTE: do not delete this, will use it later
-    // Get images from the database
-    // $query = $conn->query("SELECT photo_id FROM users limit 1");
-    // if ($query->num_rows > 0) {
-    //     while ($row = $query->fetch_assoc()) {
-    //         $imageURL = '../images/valid_id/' . $row["photo_id"];
-    //         echo $imageURL;
-    //     }
-    // }
+   
 
 }
 

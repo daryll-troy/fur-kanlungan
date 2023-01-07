@@ -1,0 +1,44 @@
+/* The whole my pet info section */
+.pet_info {
+    background-color: rgba(236, 232, 228, 0.99);
+    display: flex;
+    align-items: center;
+  
+}
+
+.pet_pics{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.904);
+    flex: 1;
+    height: 100vh;
+}
+
+.pet_pics img{
+   height: 100%;
+   width: 100%;
+   object-fit:contain;
+}
+
+.pet_details{
+    background-color:inherit;
+    flex: 1;
+   height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.details_container{
+    background-color: rgba(255, 196, 0, 0.11);
+    height: 90vh;
+    width: 70vh;
+}
+
+/* ===================== MEDIA QUERIES ======================== */
+@media screen and (max-width: 991px){
+    .pet_info{
+        flex-direction: column;
+    }
+}
