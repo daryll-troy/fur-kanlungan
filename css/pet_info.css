@@ -3,16 +3,17 @@
     background-color: rgba(236, 232, 228, 0.99);
     display: flex;
     align-items: center;
-  
+
 }
 
 .pet_pics{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.904);
+    background-color: rgba(31, 20, 12, 0.904);
     flex: 1;
     height: 100vh;
+    position: relative;
 }
 
 .pet_pics img{
@@ -34,6 +35,23 @@
     background-color: rgba(255, 196, 0, 0.11);
     height: 90vh;
     width: 70vh;
+}
+/* adjust the previous button and next button */
+.previous_pic img,
+.next_pic img{
+   height: clamp(35px, 15vw, 80px);
+   /*why not working */
+   border-radius: 50%;
+}
+.previous_pic {
+    margin: 0 0 0 0.5em;
+    position: absolute;
+    left: 0;
+}
+.next_pic{
+    margin: 0 0.8em 0 0;
+    position: absolute;
+    right: 0;
 }
 
 /* ===================== MEDIA QUERIES ======================== */

@@ -2,13 +2,61 @@
 // connect to database
 include 'connect.php';
 // start a session
-session_start();
-// check if the user had already logged in
-if (!isset($_SESSION['userID'])) {
-    $conn->close();
-    header("location: ../index.php");
-    exit();
+// session_start();
+// // check if the user had already logged in
+// if (!isset($_SESSION['userID'])) {
+//     $conn->close();
+//     header("location: ../index.php");
+//     exit();
+// }
+?>
+
+<?php
+$pet_id = "";
+$photo_array = array();
+$pet_photo = "";
+
+// get the petID of the clicked pet from my_pets.php
+if (isset($_GET['pet_id'])) {
+    $pet_id = $_GET['pet_id'];
+
+    //     echo "
+    //     <script>
+    //     alert('$pet_id');
+    // </script>
+    //     ";
+
+
+    // get the all photos of the pet
+    $sql = "
+                        SELECT  pet_photo.photo, pet.name, pet.age, pet.sex, pet.description,  breed_category.breed
+                        FROM pet 
+                        INNER JOIN pet_photo ON pet.petID = pet_photo.petID
+                        INNER JOIN pet_category ON pet.pcID = pet_category.pcID
+                        INNER JOIN breed_category ON pet.bcID = breed_category.bcID
+                        WHERE pet.petID = '$pet_id';
+                        ";
+    $query = $conn->query($sql);
+    if ($query->num_rows > 0) {
+
+        while ($row = $query->fetch_assoc()) {
+            $pet_photo .=  $row["photo"] . " ";
+            $pet_name = $row['name'];
+            $pet_age = $row['age'];
+            $pet_sex = $row['sex'];
+            $pet_description = $row['description'];
+            $pet_breed = $row['breed'];
+        }
+    }
 }
+
+//  convert the string $pet_photo to an array $explode_arr
+$explode_arr = explode(" ", $pet_photo);
+// remove that last blank aray item
+array_splice($explode_arr, count($explode_arr) - 1, 1);
+$json_pic_arr = json_encode($explode_arr);
+$latest_pic = "'" . $_GET['photo'] . "'";
+
 ?>
 
 <!DOCTYPE html>
@@ -30,62 +78,22 @@ if (!isset($_SESSION['userID'])) {
     <link rel="stylesheet" href="../css/footer.css">
     <!-- css for header.php -->
     <link rel="stylesheet" href="../css/header.css">
+
 </head>
 
 <body>
-    <?php include_once 'header.php'; ?>
     <div class='pet_info min-vh-100'>
+        <!-- div for pet details -->
+        <div class='pet_pics'>
+            <div class='previous_pic'>
+                <img src='../images/backward.png' onclick="backward()">
+            </div>
+            <img src='../images/pet_pics/<?php echo $_GET['photo']; ?>' id="pet_pic">
 
-        <?php
-        $pet_id = "";
-        $photo_array = array("");
-        $pet_photo = "";
-        // get the petID of the clicked pet from my_pets.php
-        if (isset($_GET['pet_id'])) {
-            $pet_id = $_GET['pet_id'];
-
-            //     echo "
-            //     <script>
-            //     alert('$pet_id');
-            // </script>
-            //     ";
-
-
-            // get the all photos of the pet
-            $sql = "
-                        SELECT  pet_photo.photo, pet.name, pet.age, pet.sex, pet.description,  breed_category.breed
-                        FROM pet 
-                        INNER JOIN pet_photo ON pet.petID = pet_photo.petID
-                        INNER JOIN pet_category ON pet.pcID = pet_category.pcID
-                        INNER JOIN breed_category ON pet.bcID = breed_category.bcID
-                        WHERE pet.petID = '$pet_id';
-                        ";
-            $query = $conn->query($sql);
-            if ($query->num_rows > 0) {
-                
-                while ($row = $query->fetch_assoc()) {
-                    $pet_photo .= '../images/pet_pics/' . $row["photo"] . " ";
-                    $pet_name = $row['name'];
-                    $pet_age = $row['age'];
-                    $pet_sex = $row['sex'];
-                    $pet_description = $row['description'];
-                    $pet_breed = $row['breed'];
-
-                }
-               
-            }
-        }
-        $photo_array = array($pet_photo);
-        $photo_array_str = implode($photo_array);
-        $explode_pas = explode(" ", $photo_array_str);
-        $arr_reverse = array_reverse($explode_pas);
-        $str = $arr_reverse[1];
-       
-         echo "    <div class='pet_pics'>
-                            <img src='$str'>
-                        </div>
-                        ";
-        ?>
+            <div class='next_pic'>
+                <img src='../images/forward.png' onclick="forward()">
+            </div>
+        </div>
 
         <!-- div for pet details-->
         <div class="pet_details">
@@ -98,7 +106,10 @@ if (!isset($_SESSION['userID'])) {
                     <span><?php echo $pet_description ?></span>
                 </div>
                 <div class="name">Breed: <span><?php echo $pet_breed ?></span></div>
+                <div class="go_back">
+                    <a href="my_pets.php"><input type="button" value="Back" class="btn btn-primary back_button"></a>
 
+                </div>
             </div>
 
         </div>
@@ -110,7 +121,14 @@ if (!isset($_SESSION['userID'])) {
 
 
     <?php include_once 'footer.php'; ?>
+
+    <script>
+        // var arr = <?php //echo $json_pic_arr; ?>;
+        // let latest_pic = <?php //echo $latest_pic; ?>;
+      
+    </script>
     <?php $conn->close(); ?>
+
 </body>
 
 

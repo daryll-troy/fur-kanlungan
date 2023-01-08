@@ -79,11 +79,13 @@ if (!isset($_SESSION['userID'])) {
                     $query_1_photo = $conn->query($sql_1_photo);
                     if ($query_1_photo->num_rows > 0) {
                         while ($row_1_photo = $query_1_photo->fetch_assoc()) {
+                            // to be passed as a $_GET value
+                            $photo_fileName = $row_1_photo['photo'];
                             
                             $pet_photo = '../images/pet_pics/' . $row_1_photo['photo'];
                             echo "
                                     <div class='pet_photo'>
-                                        <a href='pet_info.php?pet_id=$pet_id'>
+                                        <a href='pet_info.php?pet_id=$pet_id&photo=$photo_fileName'>
                                             <img src='$pet_photo' />
                                         </a>
                                     </div>
@@ -95,7 +97,7 @@ if (!isset($_SESSION['userID'])) {
 
                     echo "  
                                 <div class='pet_name'>
-                                <a href='pet_info.php?pet_id=$pet_id'>
+                                <a href='pet_info.php?pet_id=$pet_id&photo=$photo_fileName'>
                                     <div> $pet_name</div>
                                     </a>
                                 </div>
