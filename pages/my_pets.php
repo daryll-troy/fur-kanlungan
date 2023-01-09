@@ -19,7 +19,7 @@ if (!isset($_SESSION['userID'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Pets | Fur-Kanlungan </title>
+    <title>Posted Pets | Fur-Kanlungan </title>
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -31,7 +31,7 @@ if (!isset($_SESSION['userID'])) {
     <link rel="stylesheet" href="../css/footer.css">
     <!-- css for header.php -->
     <link rel="stylesheet" href="../css/header.css">
-    <!-- update icon, delete icon, add icon -->
+    <!-- update icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
@@ -50,7 +50,7 @@ if (!isset($_SESSION['userID'])) {
             $user = $_SESSION['userID'];
             $pet_photo = "";
             $pet_name = "";
-           
+
             $sql = "
                     SELECT pet.petID, pet.name
                     FROM pet 
@@ -64,8 +64,8 @@ if (!isset($_SESSION['userID'])) {
 
                     $pet_name = $row['name'];
                     $pet_id = $row['petID'];
-                    
-                    
+
+
                     // display the current pets of the user 
                     echo "<div class='each_pet'>";
 
@@ -81,7 +81,7 @@ if (!isset($_SESSION['userID'])) {
                         while ($row_1_photo = $query_1_photo->fetch_assoc()) {
                             // to be passed as a $_GET value
                             $photo_fileName = $row_1_photo['photo'];
-                            
+
                             $pet_photo = '../images/pet_pics/' . $row_1_photo['photo'];
                             echo "
                                     <div class='pet_photo'>
@@ -117,13 +117,11 @@ if (!isset($_SESSION['userID'])) {
                     echo "
                              <div class='delete_pets'>
                                 
-                                    <span class='material-symbols-outlined'>
-                                    delete
-                                    </span>
+                             <img src='../images/adopted.png' id='adopted_icon'>
                                 
                              </div>
                     ";
-                 echo "</div>";
+                    echo "</div>";
                 }
             } else {
                 echo "<div class='zero_pets'>";

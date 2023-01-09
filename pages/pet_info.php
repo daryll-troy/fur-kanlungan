@@ -121,11 +121,12 @@ $latest_pic = "'" . $_GET['photo'] . "'";
 
 
     <?php include_once 'footer.php'; ?>
-
+    <script src="../js/pet_info_pic.js"></script>
     <script>
-        // var arr = <?php //echo $json_pic_arr; ?>;
-        // let latest_pic = <?php //echo $latest_pic; ?>;
-      
+        // var arr = <?php //echo $json_pic_arr; 
+                        ?>;
+        // let latest_pic = <?php //echo $latest_pic; 
+                            ?>;
     </script>
     <?php $conn->close(); ?>
 

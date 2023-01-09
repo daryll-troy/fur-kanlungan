@@ -1,0 +1,47 @@
+/* create a pet content body */
+.create_pets {
+    background-color: rgba(236, 232, 228, 0.99);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_div {
+    background-color: rgb(208, 205, 202);
+    width: 30%;
+    min-height: 80vh;
+    padding: 2em 2em 2em;
+    box-shadow: 4px 4px 15px;
+}
+
+.pet_category,
+.breed,
+.gender {
+    background-color: rgb(160, 153, 153);
+    border: 0px;
+    color: aliceblue;
+}
+
+#pet_category,
+.get_animal_type {
+    text-transform: capitalize;
+}
+/* button sumbit */
+.create_button{
+    display: flex;
+    justify-content: center;
+   
+}
+#btn_create_pet{
+    width: 50%;
+    background-color: rgb(110, 18, 18);
+    border: 0;
+    
+}
+/* Title  of the page */
+.create_pet_title h4{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 2em;
+}
