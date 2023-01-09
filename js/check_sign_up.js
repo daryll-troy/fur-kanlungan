@@ -77,7 +77,7 @@ signin.addEventListener('click', (e) => {
 
 /** when blur-sapin is clicked
  * somehow this works even if blurry is not initialized to blur-sapin element above and if it gets initialized, 
- * the sign up button wont work otherwise which is kind of -intuitive
+ * the sign up button wont work otherwise which is kind of counter-intuitive. I don't know why it works
 */
 blurry.addEventListener('click', (e) => {
     remove_red_on_close();
@@ -87,7 +87,7 @@ blurry.addEventListener('click', (e) => {
 function checkName() {
     let fname_val = fname.value.trim();
     let lname_val = lname.value.trim();
-    let regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+
     // check for blank inputs
     if (fname_val === '' || lname_val === '') {
 
@@ -139,7 +139,7 @@ function checkName() {
 
 }
 function isName(name) {
-    // check if the name field contains only letters
+    // check if the name field contains only letters and spaces
     return /^[A-Za-z\s]*$/.test(name);
 }
 
@@ -273,8 +273,6 @@ function checkMunicipality() {
         municipality.style.borderStyle = "solid";
         municipality.style.borderColor = "red";
     } else {
-
-
         municipality.style.border = "2px";
         municipality.style.borderStyle = "solid";
         municipality.style.borderColor = "lime";

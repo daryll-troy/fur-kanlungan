@@ -97,8 +97,8 @@ if (!isset($_SESSION['userID'])) {
 
                     echo "  
                                 <div class='pet_name'>
-                                <a href='pet_info.php?pet_id=$pet_id&photo=$photo_fileName'>
-                                    <div> $pet_name</div>
+                                    <a href='pet_info.php?pet_id=$pet_id&photo=$photo_fileName'>
+                                        <div> $pet_name</div>
                                     </a>
                                 </div>
                            
@@ -108,7 +108,7 @@ if (!isset($_SESSION['userID'])) {
                              <div class='update_pets'>
                                 
                                     <span class='material-symbols-outlined'>
-                                    update
+                                        update
                                     </span>
                                
                              </div>
@@ -117,7 +117,7 @@ if (!isset($_SESSION['userID'])) {
                     echo "
                              <div class='delete_pets'>
                                 
-                             <img src='../images/adopted.png' id='adopted_icon'>
+                                <img src='../images/adopted.png' id='adopted_icon'>
                                 
                              </div>
                     ";

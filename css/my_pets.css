@@ -38,8 +38,9 @@
     display: flex;
     background-color: rgb(249, 217, 184);
     width: 60%;
-    height: 10vh;
+    min-height: 10vh;
     margin: 0 0 0.5em 0;
+    
 }
 /* for no pets message container */
 .zero_pets{
@@ -76,12 +77,17 @@
 .zero_pets{
     font-size: 1.5em;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-wrap:break-word;
+    
 }
 /* remove link decoration */
 .pet_name a{
     text-decoration: none;
     color: initial;
 }
+
 
 /* for updating and deleting pet data */
 .update_pets,

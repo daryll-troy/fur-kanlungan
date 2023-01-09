@@ -158,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <!-- valid ID -->
                     <label for="reg-id" class="form-label mt-2">Valid I.D.</label>
-                    <input class=" form-control" type="file" id="reg-id" name="reg-id" multiple accept=".jpg, .png, .jpeg">
+                    <input class=" form-control" type="file" id="reg-id" name="reg-id"  accept=".jpg, .png, .jpeg">
                     <div> <small id="validid_err" style="color: red;"></small></div>
 
                     <!-- terms and conditions -->

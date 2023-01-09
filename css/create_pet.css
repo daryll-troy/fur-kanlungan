@@ -26,20 +26,30 @@
 #breed {
     text-transform: capitalize;
 }
+
 /* button sumbit */
-.create_button{
+.create_button {
     display: flex;
     justify-content: center;
-   
+    margin: 2em 0 0 0;
 }
-#btn_create_pet{
+
+#btn_create_pet {
     width: 50%;
     background-color: rgb(110, 18, 18);
     border: 0;
-    
+
 }
-/* Title  of the page */
-.create_pet_title h4{
+
+#btn_create_pet:hover {
+    width: 50%;
+    background-color: rgb(54, 10, 10);
+    border: 0;
+
+}
+
+/* Title  of the pbirthyear */
+.create_pet_title h4 {
     width: 50%;
     text-align: center;
     margin: 0 auto;
@@ -48,41 +58,57 @@
 
 /* add border to input fields */
 #name,
-#age,
+#birthyear,
 #gender,
 #pet_category,
-#breed{
-    border: 1px;
+#breed,
+#upload_pics,
+#description {
+    border: 2px;
     border-style: solid;
     border-color: black;
 }
+
+/* display: non the _err divs */
+#name_err,
+#birthyear_err,
+#gender_err,
+#pet_category_err,
+#breed_err,
+#upload_pics_err,
+#description_err {
+    display: none;
+}
+
+
+
 /* =========================== MEDIA QUERIES ============================ */
-@media  screen and (max-width: 1200px) {
-    .form_div{
+@media screen and (max-width: 1200px) {
+    .form_div {
         width: 40%;
     }
 }
 
-@media  screen and (max-width: 992px) {
-    .form_div{
+@media screen and (max-width: 992px) {
+    .form_div {
         width: 50%;
     }
 }
 
-@media  screen and (max-width: 768px) {
-    .form_div{
+@media screen and (max-width: 768px) {
+    .form_div {
         width: 60%;
     }
 }
 
-@media  screen and (max-width: 600px) {
-    .form_div{
+@media screen and (max-width: 600px) {
+    .form_div {
         width: 80%;
     }
 }
 
-@media  screen and (max-width: 480px) {
-    .form_div{
+@media screen and (max-width: 480px) {
+    .form_div {
         width: 100%;
     }
 }

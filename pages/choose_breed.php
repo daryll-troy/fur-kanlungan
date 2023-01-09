@@ -1,8 +1,5 @@
 <?php
-// connect to database
-// include 'connect.php';
-// include create.php to get the value of the variable $pcID
-// include 'create.php';
+
 class DbConnect
 {
     private $host = 'localhost';
@@ -29,7 +26,7 @@ if (isset($_POST['pc'])) {
 
     $stmt = $conn->prepare("SELECT bc.breed from breed_category AS bc
                             INNER JOIN pet_category AS pc ON pc.pcID = bc.pcID
-                            WHERE pc.animal_type = '" . $_POST['pc'] . "'");
+                            WHERE pc.animal_type = '" . $_POST['pc'] . "' ORDER BY bc.breed");
     $stmt->execute();
     $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($books);

@@ -11,6 +11,32 @@ if (!isset($_SESSION['userID'])) {
 }
 ?>
 
+<?php
+
+if (isset($_POST['btn_create_pet'])) {
+    //  Sign Up upload to database
+
+    $name = htmlspecialchars(strtolower($_POST['name']));
+    $birthyear = htmlspecialchars(strtolower($_POST['birthyear']));
+    $gender = htmlspecialchars(strtolower($_POST['gender']));
+
+    $pet_category = htmlspecialchars(strtolower($_POST['pet_category']));
+    $breed = htmlspecialchars(strtolower($_POST['breed']));
+
+    $description = htmlspecialchars($_POST['description']);
+    $upload_pics = $_FILES['upload_pics'];
+
+    $age = (int) date("Y") - (int) $birthyear;
+
+    $fileName = basename($_FILES["upload_pics"]["name"]);
+    echo $fileName;
+    echo " " . $description;
+    // echo "
+    // <script>alert('Hello World!');</script>
+    // ";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,43 +58,42 @@ if (!isset($_SESSION['userID'])) {
     <link rel="stylesheet" href="../css/header.css">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <!-- For choosing the appropriate breeds based on the pet category -->
-    <script src="../js/create_pet.js"></script>
 </head>
 
 <body>
     <!-- header -->
-    <?php include "header.php"; ?>
+    <?php //include "header.php";
+    ?>
     <!-- create pet form -->
     <div class="create_pets min-vh-100">
         <div class="form_div">
             <div class="create_pet_title">
                 <h4 class="mb-4">Create Pet</h4>
             </div>
-            <form action="" id="create_pet_form">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="create_pet_form" method="post" enctype="multipart/form-data">
                 <!-- name -->
                 <div class="name_cont">
                     <label for="name" class="form-label  mt-2">Name</label>
                     <input type="text" class="form-control" id="name" placeholder=" Name" name="name">
-                    <div> <small id="name_err" style="color: red;">Invalid name</small></div>
+                    <div> <small id="name_err" style="color: red;"></small></div>
                 </div>
 
-                <!-- age -->
-                <div class="age_cont">
-                    <label for="age" class="form-label  mt-2">Age</label>
-                    <input type="text" class="form-control" id="age" placeholder="Age" name="age">
-                    <div class="mb-2"> <small id="age_err" style="color: red;">Invalid age</small></div>
+                <!-- birthyear -->
+                <div class="birthyear_cont">
+                    <label for="birthyear" class="form-label  mt-2">Birthyear</label>
+                    <input type="text" class="form-control" id="birthyear" placeholder="0000" name="birthyear">
+                    <div class="mb-2"> <small id="birthyear_err" style="color: red;"></small></div>
                 </div>
 
                 <!-- gender -->
                 <div class="gender_cont">
                     <label for="gender" class="form-label">Gender</label>
                     <select class="form-select btn gender" aria-label="Default select example" id="gender" name="gender">
-                        <option value="no_gender">Select Gender</option>
+                        <option value="none" id="no_gender">Select Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
-                    <div class="mb-2"> <small id="gender_err" style="color: red;">No gender selected</small></div>
+                    <div class="mb-2"> <small id="gender_err" style="color: red;"></small></div>
                 </div>
 
                 <!-- pet_category -->
@@ -78,7 +103,7 @@ if (!isset($_SESSION['userID'])) {
                         <option value="none" class='get_animal_type'> Select Pet Category</option>
                         <?php
                         // select all pet category
-                        $sql = "SELECT pcID, animal_type FROM pet_category";
+                        $sql = "SELECT pcID, animal_type FROM pet_category ORDER BY animal_type";
                         $result = mysqli_query($conn, $sql);
                         // $pcID = "";
                         $get_animal_type = "";
@@ -90,31 +115,49 @@ if (!isset($_SESSION['userID'])) {
                                 echo "<option value='$get_animal_type' class='get_animal_type'>$get_animal_type</option>";
                             }
                         } else {
+                            echo "
+                                 <script> alert('Error: database connection failure');</script>
+                            ";
                         }
 
 
                         ?>
                     </select>
-                    <div class="mb-2"> <small id="pet_category_err" style="color: red;">No pet category selected</small></div>
+                    <div class="mb-2"> <small id="pet_category_err" style="color: red;"></small></div>
                 </div>
 
                 <!-- breed -->
                 <div class="breed_cont">
                     <label for="breed" class="form-label">Breed</label>
                     <select class="form-select btn breed" aria-label="Default select example" id="breed" name="breed"></select>
-                    <div class="mb-2"> <small id="breed_err" style="color: red;">No breed selected</small></div>
+                    <div class=""> <small id="breed_err" style="color: red;"></small></div>
+                </div>
+
+                <!-- Upload pics of the pet -->
+                <!-- valid ID -->
+                <label for="upload_pics" class="form-label mt-2">Add Photos</label>
+                <input class=" form-control" type="file" id="upload_pics" name="upload_pics" multiple accept=".jpg, .png, .jpeg">
+                <div class="mb-2"> <small id="upload_pics_err" style="color: red;"></small></div>
+
+                <!-- Description -->
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" name="description" rows="1" placeholder="Text here..."></textarea>
+                    <div class="mb-2"> <small id="description_err" style="color: red;"></small></div>
                 </div>
 
                 <!-- Create button -->
                 <div class="create_button mb-2">
-                    <input type="button" class="btn btn-primary btn_create_pet" id="btn_create_pet" value="Create">
+                    <input type="button" class="btn btn-primary btn_create_pet" name="btn_create_pet" id="btn_create_pet" value="Create">
                 </div>
             </form>
 
         </div>
     </div>
 
-
+    <!-- For choosing the appropriate breeds based on the pet category -->
+    <script src="../js/create_pet.js"></script>
+    <script src="../js/test.js"></script>
     <!-- close connection -->
     <?php mysqli_close($conn); ?>
 </body>

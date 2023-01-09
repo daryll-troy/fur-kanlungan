@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } finally {
         // Upload file to server
         if (move_uploaded_file($_FILES['reg-id']['tmp_name'], $targetFilePath)) {
-            echo "<script>alert('Photo id uploaded to server!')</script>";
+            // echo "<script>alert('Photo id uploaded to server!')</script>";
             // head back to index.php
             echo "<script>
                     window.location.href='../index.php';
