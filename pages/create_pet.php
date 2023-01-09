@@ -21,7 +21,7 @@ if (!isset($_SESSION['userID'])) {
     <title>Create Pet | Fur-Kanlungan </title>
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- css reset -->
     <link rel="stylesheet" href="../css/css-resets.css">
     <!-- css for create_pets.php.php -->
@@ -32,29 +32,8 @@ if (!isset($_SESSION['userID'])) {
     <link rel="stylesheet" href="../css/header.css">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <!-- Javascript -->
+    <!-- For choosing the appropriate breeds based on the pet category -->
     <script src="../js/create_pet.js"></script>
-    <script type="text/javascript">
-        // $(document).ready(function() {
-        //     $("#pet_category").change(function() {
-        //         var pc = $("#pet_category").val();
-        //         alert(pc);
-        //         $.ajax({
-        //             url: 'choose_breed.php',
-        //             method: 'post',
-        //             data: 'pc=' + pc
-        //         }).done(function(breeds) {
-                    
-        //             breeds = JSON.parse(breeds);
-        //             console.log(breeds);
-        //             $('#breed').empty();
-        //             breeds.forEach(function(breed) {
-        //                 $('#breed').append('<option>' + breed.breed + '</option>')
-        //             })
-        //         })
-        //     })
-        // })
-    </script>
 </head>
 
 <body>
@@ -122,10 +101,7 @@ if (!isset($_SESSION['userID'])) {
                 <!-- breed -->
                 <div class="breed_cont">
                     <label for="breed" class="form-label">Breed</label>
-                    <select class="form-select btn breed" aria-label="Default select example" id="breed" name="breed">
-                       
-
-                    </select>
+                    <select class="form-select btn breed" aria-label="Default select example" id="breed" name="breed"></select>
                     <div class="mb-2"> <small id="breed_err" style="color: red;">No breed selected</small></div>
                 </div>
 

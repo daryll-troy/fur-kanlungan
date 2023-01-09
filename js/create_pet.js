@@ -1,3 +1,4 @@
+// For choosing the appropriate breeds based on the pet category
 $(document).ready(function() {
     $("#pet_category").change(function() {
         var pc = $("#pet_category").val();
@@ -12,8 +13,9 @@ $(document).ready(function() {
             console.log(breeds);
             $('#breed').empty();
             breeds.forEach(function(breed) {
-                $('#breed').append('<option>' + breed.breed + '</option>')
+                $('#breed').append('<option class = each_breed' + '>' + breed.breed + '</option>')
             })
         })
     })
 })
+

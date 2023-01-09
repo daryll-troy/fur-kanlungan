@@ -69,12 +69,6 @@ function all_valid() {
         }
     }
 
-
-    // if ( == lname.style.borderColor == email.style.borderColor == username.style.borderColor == password.style.borderColor == conf_password.style.borderColor == valid_id.style.borderColor == municipality.style.borderColor == "lime")
-    //     btn_signup.setAttribute("type", "submit");
-    // else{
-    //     alert('something went wrong');
-    // }
 }
 // when sign in link is clicked
 signin.addEventListener('click', (e) => {
@@ -124,16 +118,17 @@ function checkName() {
             lname.style.borderColor = "lime";
 
         if (lname_val !== '' && fname_val !== '') {
-            // check if both name fields contain non-letter characters
-            if (!isName(fname_val) || !isName(lname_val)) {
-                fname.style.borderColor = "red";
-                lname.style.borderColor = "red";
-                name_err.innerHTML = "Name fields can only contain letters and white spaces";
-
-            } else {
+            // check if both name fields contain non-letter characters and not white space
+            if (isName(fname_val) && isName(lname_val)) {
                 fname.style.borderColor = "lime";
                 lname.style.borderColor = "lime";
                 name_err.innerHTML = "";
+
+
+            } else {
+                fname.style.borderColor = "red";
+                lname.style.borderColor = "red";
+                name_err.innerHTML = "Name fields can only contain letters and white spaces";
             }
         }
     } else {
@@ -145,7 +140,7 @@ function checkName() {
 }
 function isName(name) {
     // check if the name field contains only letters
-    return /^[A-Za-z]*$/.test(name);
+    return /^[A-Za-z\s]*$/.test(name);
 }
 
 function checkEmail() {
