@@ -34,6 +34,7 @@ if (!isset($_SESSION['userID'])) {
     <!-- update icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+
 </head>
 
 <body>
@@ -104,24 +105,27 @@ if (!isset($_SESSION['userID'])) {
                            
                                 ";
                     // update pets
-                    echo "
-                             <div class='update_pets'>
-                                
-                                    <span class='material-symbols-outlined'>
-                                        update
-                                    </span>
-                               
-                             </div>
+                    echo "  <div class='pang-row'>
+                                    <div class='update_pets'>
+                                        
+                                            <span class='material-symbols-outlined'>
+                                                update
+                                            </span>
+                                    
+                                    </div>
                     ";
                     // delete pets
                     echo "
-                             <div class='delete_pets'>
-                                
-                                <img src='../images/adopted.png' id='adopted_icon'>
-                                
+                                    <div class='delete_pets'>
+                                        
+                                            <span class='material-symbols-outlined'>
+                                            delete
+                                        </span>
+                                        
+                                    </div>
                              </div>
                     ";
-                    echo "</div>";
+        echo "</div>";
                 }
             } else {
                 echo "<div class='zero_pets'>";
@@ -136,10 +140,16 @@ if (!isset($_SESSION['userID'])) {
     </div>
 
     <?php include_once 'footer.php'; ?>
-
-
+<!-- add color to link item of this page on the header -->
+    <script>
+        function navbarColor(){
+            document.getElementById('my_pets').style.backgroundColor = 'rgb(' + 85 + ',' + 48 + ',' + 8 + ',' + 0.918 +')';
+        }
+        navbarColor();
+    </script>
 
     <?php $conn->close(); ?>
+ 
 </body>
 
 </html>

@@ -14,7 +14,7 @@ $username = htmlspecialchars(strtolower($_POST['reg-username']));
 $password = htmlspecialchars(strtolower($_POST['reg-password']));
 $conf_password = htmlspecialchars(strtolower($_POST['reg-conf-password']));
 $municipality = htmlspecialchars(strtolower($_POST['municipality']));
-$valid_id = $_FILES['reg-id'];
+
 $muni_id = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

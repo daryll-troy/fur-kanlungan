@@ -1,17 +1,33 @@
 /* create a pet content body */
 .create_pets {
-    background-color: rgba(236, 232, 228, 0.99);
+   
+    background-image: url("../images/fur1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-image: url("../images/animals.jpg");
+    background-repeat: no-repeat;
+    background-size:cover; */
+   
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
+#layer{
+    min-height: 100vh;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     background-color: rgba(87, 73, 33, 0.397);
+}
 .form_div {
-    background-color: rgb(208, 205, 202);
+    
+    background-color: rgba(244, 195, 147, 0.766);
     width: 30%;
-    min-height: 80vh;
+    height: 80%;
     padding: 2em 2em 2em;
-    box-shadow: 4px 4px 15px;
+    box-shadow: 8px 8px 15px;
+border-radius: 3%;
 }
 
 .pet_category,
@@ -43,6 +59,21 @@
 
 #btn_create_pet:hover {
     width: 50%;
+    background-color: rgb(54, 10, 10);
+    border: 0;
+
+}
+
+/* back button */
+#back {
+    width: 15%;
+    background-color: rgb(110, 18, 18);
+    border: 0;
+
+}
+
+#back:hover {
+    width: 15%;
     background-color: rgb(54, 10, 10);
     border: 0;
 

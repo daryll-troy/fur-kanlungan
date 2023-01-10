@@ -56,6 +56,27 @@ li:hover {
   
 }
 
+/* profile picture */
+#profPic{
+    height: 1.8em;
+    width: 1.8em;
+    border-radius: 50%;
+    object-fit:cover;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+}
+.igitna-pic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0; 
+    border-radius: 50%;
+    
+}
+
+
+
 /********** Media Queries *************/
 
 /* remove the padding-top of navbar */

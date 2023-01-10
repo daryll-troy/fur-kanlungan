@@ -6,6 +6,9 @@ body {
 /* Browse Pets part */
 .pet-list {
     background-color: rgba(236, 232, 228, 0.99);
+    background-image: url("../images/fur1.jpg");
+    background-size: cover;
+   
 }
 
 /* set max-height of animal type and set it to overflow: auto */

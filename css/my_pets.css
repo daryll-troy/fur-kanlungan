@@ -1,5 +1,8 @@
 /* The whole my pets section */
 .my_pets {
+    background-image: url("../images/fur1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     background-color: rgba(236, 232, 228, 0.99);
     display: flex;
     align-items: center;
@@ -15,8 +18,10 @@
     flex-direction: column;
     align-items: center;
     padding: 2em 0 0 0;
-    background-color: rgba(87, 78, 33, 0.030);
+    background-color: rgba(87, 73, 33, 0.397);
+
 }
+
 /* the div that will take you to add pet page when the add pet button is clicked */
 .create_pets {
     display: flex;
@@ -26,13 +31,15 @@
     width: 60%;
     height: 15vh;
     margin: 0 0 0.5em 0;
-    
+
 }
+
 /* add shadow to boxes */
 .create_pets,
-.each_pet{
+.each_pet {
     box-shadow: 5px 5px 15px;
 }
+
 /* the div of each pet */
 .each_pet {
     display: flex;
@@ -40,21 +47,23 @@
     width: 60%;
     min-height: 10vh;
     margin: 0 0 0.5em 0;
-    
+
 }
+
 /* for no pets message container */
-.zero_pets{
+.zero_pets {
     display: flex;
-    justify-content: center ;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(249, 217, 184);
     width: 60%;
     height: 10vh;
     margin: 0 0 0.5em 0;
 }
+
 /* pet image container */
 .pet_img {
-    /* margin: 0 0.5em 0 0; */
+    
     flex: 1;
 }
 
@@ -72,18 +81,24 @@
     align-items: center;
     flex: 3;
 }
+
+.pet_name div {
+    text-transform: capitalize;
+}
+
 /* adjust the font size and font style */
 .pet_name,
-.zero_pets{
+.zero_pets {
     font-size: 1.5em;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     overflow-y: auto;
     overflow-x: hidden;
-    overflow-wrap:break-word;
-    
+    overflow-wrap: break-word;
+
 }
+
 /* remove link decoration */
-.pet_name a{
+.pet_name a {
     text-decoration: none;
     color: initial;
 }
@@ -101,17 +116,69 @@
 }
 
 /* adopted icon */
-#adopted_icon{
+#adopted_icon {
     width: 25px;
     height: 25px;
 }
 
+/* for the div of the icons: .pang-row */
+.pang-row{
+    display: flex;
+    flex: 1;
+}
 
 /* ============================= MEDIA QUERIES ============================== */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1024px) {
+
     .each_pet,
-    .create_pets{
+    .create_pets {
         width: 90%;
-        /* flex-direction: column; */
+
+    }
+
+  
+
+}
+@media screen and (max-width: 992px) {
+
+    .each_pet,
+    .create_pets {
+        width: 90%;
+
+    }
+
+  
+
+}
+@media screen and (max-width: 767px) {
+
+    .each_pet,
+    .create_pets {
+        width: 90%;
+
+    }
+
+    .list_my_pets {
+        width: 100%;
+
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    .each_pet,
+    .create_pets {
+        flex-direction: column;
+        align-items: center;
+        padding: 1em 0.5em;
+    }
+
+    .each_pet {
+        min-height: 15em;
+    }
+
+    .update_pets{
+        margin-right: 3em;
     }
 }

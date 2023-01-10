@@ -24,7 +24,12 @@ $("#description").each(function () {
     this.setAttribute("style", "height:" + (this.scrollHeight) + "px;overflow-y:hidden;");
 }).on("input", function () {
     this.style.height = (this.scrollHeight) + "px";
+}).on("click", function () {
+    if ($('#description').val() === "")
+        this.setAttribute("style", "height: 100px");
 });
+
+
 
 // Start to validity of each input when the create button is clicked
 $('#btn_create_pet').click(function () {
@@ -53,11 +58,11 @@ function all_valid() {
                         store_color = document.getElementById('upload_pics').style.borderColor;
                         if (store_color == "lime") {
                             store_color = document.getElementById('description').style.borderColor;
-                            if (store_color == "lime"){
+                            if (store_color == "lime") {
                                 document.getElementById('btn_create_pet').setAttribute("type", "submit");
-                            
+
                             }
-                                
+
 
                         }
                     }
@@ -164,9 +169,17 @@ function checkUploadPics() {
         $('#upload_pics_err').css("display", "block");
         $('#upload_pics_err').text("Please fill this input.");
     } else {
+        // if($('#upload_pics').files[0].size < 10485760){
+
+        // }else{
+        //     $('#upload_pics').css("border-color", "red");
+        //     $('#upload_pics_err').css("display", "block");
+        //     $('#upload_pics_err').text("File size limit: 10MB");
+        // }
         $('#upload_pics').css("border-color", "lime");
         $('#upload_pics_err').css("display", "none");
         $('#upload_pics_err').text("");
+
     }
 }
 
