@@ -108,20 +108,22 @@ if (!isset($_SESSION['userID'])) {
                     echo "  <div class='pang-row'>
                                     <div class='update_pets'>
                                         
-                                            <span class='material-symbols-outlined'>
+                                            <a href='update_pet.php'>
+                                                <span class='material-symbols-outlined'>
                                                 update
                                             </span>
+                                        </a>
                                     
                                     </div>
                     ";
                     // delete pets
                     echo "
                                     <div class='delete_pets'>
-                                        
+                                        <a href=''>
                                             <span class='material-symbols-outlined'>
-                                            delete
-                                        </span>
-                                        
+                                             delete
+                                          </span>
+                                        </a>
                                     </div>
                              </div>
                     ";

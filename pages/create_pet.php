@@ -145,16 +145,22 @@ if (isset($_POST['btn_create_pet'])) {
 
 <body>
     <!-- header -->
-    <?php include "header.php";
-    ?>
+    <?php include "header.php"; ?>
+
     <!-- create pet form -->
     <div class="create_pets min-vh-100">
         <div id="layer">
+
+
             <div class="form_div">
-                <a href="my_pets.php"> <input type="button" class="btn btn-primary back" name="back" id="back" value="Back"></a>
+
 
                 <div class="create_pet_title">
-                    <h4 class="mb-4">Create Pet</h4>
+                    <div><a href="my_pets.php"> <img src="../images/backTo.png" id="backTo"></a></div>
+                    <div>
+                        <h4 class="mb-4">Create Pet</h4>
+                    </div>
+
 
                 </div>
 
@@ -222,7 +228,6 @@ if (isset($_POST['btn_create_pet'])) {
                     </div>
 
                     <!-- Upload pics of the pet -->
-                    <!-- valid ID -->
                     <label for="upload_pics" class="form-label mt-2">Add Photos</label>
                     <input class=" form-control" type="file" id="upload_pics" name="upload_pics[]" multiple accept=".jpg, .png, .jpeg">
                     <div class="mb-2"> <small id="upload_pics_err" style="color: red;"></small></div>
@@ -250,9 +255,3 @@ if (isset($_POST['btn_create_pet'])) {
 </body>
 
 </html>
-
-<!-- close connection -->
-<?php
-
-
-?>

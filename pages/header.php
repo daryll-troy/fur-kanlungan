@@ -42,7 +42,7 @@
                             <a class="nav-link" href="#"><span class="puti-header">Donate</span></a>
                         </li>
                         <li class="nav-item " id="my_pets">
-                            <a class="nav-link" href="my_pets.php"><span class="puti-header ">My Pets</span></a>
+                            <a class="nav-link" href="my_pets.php"><span class="puti-header ">Posted</span></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

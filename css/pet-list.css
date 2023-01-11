@@ -8,7 +8,16 @@ body {
     background-color: rgba(236, 232, 228, 0.99);
     background-image: url("../images/fur1.jpg");
     background-size: cover;
-   
+    display: flex;
+    justify-content: center;
+}
+
+/* all-wraper for that back ground  color*/
+.all-wrapper {
+    width: 80%;
+    min-height: 100vh;
+    background-color: rgba(87, 73, 33, 0.397);
+
 }
 
 /* set max-height of animal type and set it to overflow: auto */
@@ -92,8 +101,13 @@ body {
     object-fit: cover;
 }
 
+
+
 .ipa-grey {
     background-color: rgb(58, 57, 57);
+    border: 3px;
+    border-color: black;
+    border-style: solid;
 }
 
 /********** Media Queries *************/
@@ -143,6 +157,21 @@ body {
         justify-content: center;
         width: 100%;
     } */
+
+}
+
+@media screen and (max-width: 539px) {
+    form.pet-list {
+        display: flex;
+        justify-content: center;
+        align-items: center ;
+        flex-direction:column-reverse;
+      
+    }
+
+.press-search{
+    margin-bottom: 3em;
+}
 
 }
 

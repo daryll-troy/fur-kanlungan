@@ -1,33 +1,37 @@
 /* create a pet content body */
 .create_pets {
-   
+
     background-image: url("../images/fur1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+   
     /* background-image: url("../images/animals.jpg");
     background-repeat: no-repeat;
     background-size:cover; */
-   
+
     display: flex;
     align-items: center;
     justify-content: center;
 }
-#layer{
+
+#layer {
     min-height: 100vh;
     width: 80%;
     display: flex;
     justify-content: center;
-    align-items: center;
-     background-color: rgba(87, 73, 33, 0.397);
+    padding-top: 5em;
+    background-color: rgba(87, 73, 33, 0.397);
+
 }
+
 .form_div {
-    
+
     background-color: rgba(244, 195, 147, 0.766);
-    width: 30%;
+    width: 60%;
     height: 80%;
     padding: 2em 2em 2em;
     box-shadow: 8px 8px 15px;
-border-radius: 3%;
+    border-radius: 3%;
 }
 
 .pet_category,
@@ -51,36 +55,31 @@ border-radius: 3%;
 }
 
 #btn_create_pet {
-    width: 50%;
+    width: 20%;
     background-color: rgb(110, 18, 18);
     border: 0;
 
 }
 
 #btn_create_pet:hover {
-    width: 50%;
+    width: 20%;
     background-color: rgb(54, 10, 10);
     border: 0;
 
 }
 
-/* back button */
-#back {
-    width: 15%;
-    background-color: rgb(110, 18, 18);
-    border: 0;
 
-}
+
 
 #back:hover {
-    width: 15%;
+
     background-color: rgb(54, 10, 10);
     border: 0;
 
 }
 
 /* Title  of the pbirthyear */
-.create_pet_title h4 {
+.create_pet_title div h4 {
     width: 50%;
     text-align: center;
     margin: 0 auto;
@@ -111,20 +110,14 @@ border-radius: 3%;
     display: none;
 }
 
-
+/* backTo button */
+#backTo {
+    height: 3em;
+    width: 3em;
+}
 
 /* =========================== MEDIA QUERIES ============================ */
-@media screen and (max-width: 1200px) {
-    .form_div {
-        width: 40%;
-    }
-}
 
-@media screen and (max-width: 992px) {
-    .form_div {
-        width: 50%;
-    }
-}
 
 @media screen and (max-width: 768px) {
     .form_div {
@@ -139,7 +132,16 @@ border-radius: 3%;
 }
 
 @media screen and (max-width: 480px) {
-    .form_div {
+
+    .form_div,
+    #layer {
         width: 100%;
+    }
+
+    
+
+    .create_pet_title div {
+        display: flex;
+        justify-content: center;
     }
 }
