@@ -31,7 +31,7 @@ if (isset($_POST['btn_create_pet'])) {
     // get userID
     $userID = $_SESSION['userID'];
 
-    // $upload_pics = $_FILES['upload_pics'];
+    
 
     // File upload configuration 
     $targetDir = "C:/xampp/htdocs/fur-kanlungan/images/pet_pics/";
@@ -40,9 +40,7 @@ if (isset($_POST['btn_create_pet'])) {
     $upload_pics = array_filter($_FILES['upload_pics']['name']);
 
     // check file size
-    if ($_FILES['upload_pics']['size'] > 10485760) {
-
-
+    if ($_FILES['upload_pics']['size'] > 5000000) {
 
         try {
             // get breed id
@@ -54,7 +52,7 @@ if (isset($_POST['btn_create_pet'])) {
                     $bcID = $row['bcID'];
                 }
             }
-            // get breed id
+            // get pet category id
             $get_pcID = "SELECT pcID FROM pet_category WHERE animal_type = '$pet_category'";
             $result = $conn->query($get_pcID);
             if ($result->num_rows > 0) {
@@ -69,6 +67,7 @@ if (isset($_POST['btn_create_pet'])) {
             $stmt->bind_param("sissiii", $name, $birthyear, $gender, $description, $pcID, $bcID, $userID);
             $stmt->execute();
         } catch (Exception $stmt) {
+            
         } finally {
 
             // get each file name in $_FILES
@@ -228,7 +227,7 @@ if (isset($_POST['btn_create_pet'])) {
                     </div>
 
                     <!-- Upload pics of the pet -->
-                    <label for="upload_pics" class="form-label mt-2">Add Photos</label>
+                    <label for="upload_pics" class="form-label mt-2">Upload Photos</label>
                     <input class=" form-control" type="file" id="upload_pics" name="upload_pics[]" multiple accept=".jpg, .png, .jpeg">
                     <div class="mb-2"> <small id="upload_pics_err" style="color: red;"></small></div>
 

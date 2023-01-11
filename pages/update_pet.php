@@ -9,10 +9,111 @@ if (!isset($_SESSION['userID'])) {
     header("location: ../index.php");
     exit();
 }
+
+
 ?>
+
 <!-- update pet script -->
 <?php
+// if the button type is now submit after validation
+if (isset($_POST['btn_update_pet'])) {
+    //get the description value from the text area input field
+    $description = htmlspecialchars($_POST['description']);
+    // get petID from the database
+    $getID = "";
 
+    // File upload configuration 
+    $targetDir = "C:/xampp/htdocs/fur-kanlungan/images/pet_pics/";
+    $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+    $statusMsg = $errorMsg = $errorUpload = $errorUploadType = '';
+    $upload_pics = array_filter($_FILES['upload_pics']['name']);
+
+    // check file size
+    if ($_FILES['upload_pics']['size'] > 5000000) {
+        try {
+            // validate the id of the $_GET['petID']
+            // get the saved description
+
+            if (isset($_SESSION['petID'])) {
+                $getID = $_SESSION['petID'];
+                $sql = "SELECT petID FROM pet WHERE petID = '$getID'";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $getID = $row['petID'];
+                    }
+                } else {
+                    $conn->close();
+                    echo "<script>alert('Invalid Pet ID!')</script>";
+                    echo "<script>
+                     window.location.href='my_pets.php';
+                       </script>";
+                    exit();
+                }
+
+                // UPDATE THE DESCRIPTION
+                $change_desc = " UPDATE pet SET description = ? WHERE petID = ?";
+
+                $stmt = $conn->prepare($change_desc);
+                $stmt->bind_param("si", $description, $getID);
+                $stmt->execute();
+            }
+        } catch (Exception $stmt) {
+            $conn->close();
+            echo "<script>alert('An database error occured! :(')</script>";
+            echo "<script>
+            window.location.href='my_pets.php';
+            </script>";
+            exit();
+        } finally {
+
+            // get each file name in $_FILES
+            foreach ($_FILES['upload_pics']['name'] as $key => $val) {
+                // File upload path 
+                $fileName = basename($_FILES['upload_pics']['name'][$key]);
+                $targetFilePath = $targetDir . $fileName;
+
+                // Check whether file type is valid 
+                $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+                if (in_array($fileType, $allowTypes)) {
+                    // Upload file to server 
+                    if (move_uploaded_file($_FILES["upload_pics"]["tmp_name"][$key], $targetFilePath)) {
+
+
+
+                        // upload pet photos to pet_photo
+                        $stmt = $conn->prepare("INSERT INTO pet_photo(photo, petID) VALUES ( ?, ?)");
+                        $stmt->bind_param("si", $fileName, $getID);
+                        try {
+                            $stmt->execute();
+                            $conn->close();
+                            unset($_SESSION["petID"]);
+
+                            echo "<script>alert('Pet Updated!')</script>";
+                            echo "<script>
+                            window.location.href='my_pets.php';
+                            </script>";
+                            exit();
+                        } catch (Exception $stmt) {
+                            $conn->close();
+                            echo "<script>alert('An database error occured! :(')</script>";
+                            echo "<script>
+                            window.location.href='my_pets.php';
+                            </script>";
+                            exit();
+                        }
+                    } else {
+                        $errorUpload .= $_FILES['upload_pics']['name'][$key] . ' | ';
+                    }
+                } else {
+                    $errorUploadType .= $_FILES['upload_pics']['name'][$key] . ' | ';
+                }
+            }
+        }
+    } else {
+        echo '<script>alert("File size limit: 5MB")</script>';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +141,8 @@ if (!isset($_SESSION['userID'])) {
 
 <body>
     <!-- header -->
-    <?php include "header.php"; ?>
+    <?php include "header.php"; 
+    ?>
 
     <div class="update_pets min-vh-100">
         <div id="layer">
@@ -48,7 +150,26 @@ if (!isset($_SESSION['userID'])) {
                 <div class="update_pet_title">
                     <div id="back_div"><a href="my_pets.php"> <img src="../images/backTo.png" id="backTo"></a></div>
                     <div id="title_div">
-                        <h4 class="mb-4">Update Pet</h4>
+                        <h4 class="mb-4" style="text-transform:capitalize;">Update <?php
+                                                                                    // display the name of the pet
+                                                                                    $getID = $_GET['pet_id'];
+                                                                                    $sql = "SELECT petID, name FROM pet WHERE petID = '$getID'";
+                                                                                    $result = $conn->query($sql);
+                                                                                    if ($result->num_rows > 0) {
+                                                                                        while ($row = $result->fetch_assoc()) {
+                                                                                            echo $row['name'];
+                                                                                            $_SESSION['petID'] = $row['petID'];
+                                                                                        }
+                                                                                    } else {
+                                                                                        $conn->close();
+                                                                                        echo "<script>alert('Invalid Pet ID!')</script>";
+                                                                                        echo "<script>
+                                                                                                window.location.href='my_pets.php';
+                                                                                                </script>";
+                                                                                        exit();
+                                                                                    }
+                                                                                    ?>
+                        </h4>
                     </div>
                 </div>
 
@@ -61,12 +182,31 @@ if (!isset($_SESSION['userID'])) {
                     <!-- Description -->
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="description" name="description" rows="1" placeholder="Text here..."></textarea>
+                        <textarea class="form-control" id="description" name="description" rows="1" placeholder="Text here...">
+                        <?php
+                        // get the saved description
+                        $getID = $_GET['pet_id'];
+                        $sql = "SELECT description from pet WHERE petID = '$getID'";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo $row['description'];
+                            }
+                        }
+                        ?>
+                        </textarea>
                         <div class="mb-2"> <small id="description_err" style="color: red;"></small></div>
+                    </div>
+
+                    <!-- update button -->
+                    <div class="update_button mb-2">
+                        <input type="button" class="btn btn-primary btn_update_pet" name="btn_update_pet" id="btn_update_pet" value="Update">
                     </div>
                 </form>
             </div>
         </div>
+
+        <script src="../js/update_pet.js"></script>
 </body>
 
 </html>

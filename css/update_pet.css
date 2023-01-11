@@ -17,7 +17,7 @@
     width: 80%;
     display: flex;
     justify-content: center;
-    
+
     padding-top: 5em;
     background-color: rgba(87, 73, 33, 0.397);
 
@@ -39,10 +39,10 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    
+
 }
 
-#title_div h4{
+#title_div h4 {
     font-size: 2em;
 }
 
@@ -50,4 +50,34 @@
 #backTo {
     height: 3em;
     width: 3em;
+}
+
+/* add border to fields */
+#description,
+#upload_pics {
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+/* update button */
+
+.update_button {
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 0 0;
+}
+
+#btn_update_pet {
+    width: 20%;
+    background-color: rgb(110, 18, 18);
+    border: 0;
+
+}
+
+#btn_update_pet:hover {
+    width: 20%;
+    background-color: rgb(54, 10, 10);
+    border: 0;
+
 }

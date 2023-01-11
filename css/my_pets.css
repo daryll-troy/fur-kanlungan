@@ -13,7 +13,7 @@
 /* The inner div horizontally center the pet list */
 .list_my_pets {
     width: 80%;
-    height: 100vh;
+    min-height: 100vh;
     overflow: auto;
     display: flex;
     flex-direction: column;
@@ -132,6 +132,11 @@
 .pang-row {
     display: flex;
     flex: 1;
+}
+
+/* delete icon */
+#delete_pet_img{
+    cursor: pointer;
 }
 
 /* ============================= MEDIA QUERIES ============================== */

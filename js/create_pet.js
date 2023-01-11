@@ -33,12 +33,8 @@ $("#description").each(function () {
 
     }
 
-})
-// .on("click", function () {
+});
 
-
-
-// });
 
 
 
@@ -55,7 +51,6 @@ $('#btn_create_pet').click(function () {
 
 // check validity of all inputs
 function all_valid() {
-    //   if($('#name').css("border-color") == rgb(0, 255, 0))
     let store_color = document.getElementById('name').style.borderColor;
     if (store_color == "lime") {
         store_color = document.getElementById('birthyear').style.borderColor;

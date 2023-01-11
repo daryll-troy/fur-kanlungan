@@ -11,7 +11,10 @@ if (!isset($_SESSION['userID'])) {
 }
 ?>
 
+<!--  delete pet -->
+<?php
 
+?>
 
 <html lang="en">
 
@@ -33,7 +36,8 @@ if (!isset($_SESSION['userID'])) {
     <link rel="stylesheet" href="../css/header.css">
     <!-- update icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
 </head>
 
@@ -86,7 +90,7 @@ if (!isset($_SESSION['userID'])) {
                             $pet_photo = '../images/pet_pics/' . $row_1_photo['photo'];
                             echo "
                                     <div class='pet_photo'>
-                                        <a href='pet_info.php?pet_id=$pet_id&photo=$photo_fileName'>
+                                        <a href='pet_info.php?pet_id=$pet_id'>
                                             <img src='$pet_photo' />
                                         </a>
                                     </div>
@@ -98,7 +102,7 @@ if (!isset($_SESSION['userID'])) {
 
                     echo "  
                                 <div class='pet_name'>
-                                    <a href='pet_info.php?pet_id=$pet_id&photo=$photo_fileName'>
+                                    <a href='pet_info.php?pet_id=$pet_id'>
                                         <div> $pet_name</div>
                                     </a>
                                 </div>
@@ -108,7 +112,7 @@ if (!isset($_SESSION['userID'])) {
                     echo "  <div class='pang-row'>
                                     <div class='update_pets'>
                                         
-                                            <a href='update_pet.php'>
+                                            <a href='update_pet.php?pet_id=$pet_id'>
                                                 <span class='material-symbols-outlined'>
                                                 update
                                             </span>
@@ -119,15 +123,19 @@ if (!isset($_SESSION['userID'])) {
                     // delete pets
                     echo "
                                     <div class='delete_pets'>
-                                        <a href=''>
-                                            <span class='material-symbols-outlined'>
+                                        
+                                            <span class='material-symbols-outlined' id='delete_pet_img'>
                                              delete
                                           </span>
-                                        </a>
+                                        
                                     </div>
                              </div>
-                    ";
-        echo "</div>";
+                            ";
+
+                       echo "
+                                    <div id='getPetID' style='display: none;'>". $pet_id ."</div>
+                                    ";     
+                    echo "</div>";
                 }
             } else {
                 echo "<div class='zero_pets'>";
@@ -142,16 +150,18 @@ if (!isset($_SESSION['userID'])) {
     </div>
 
     <?php include_once 'footer.php'; ?>
-<!-- add color to link item of this page on the header -->
+    <!-- add color to link item of this page on the header -->
     <script>
-        function navbarColor(){
-            document.getElementById('my_pets').style.backgroundColor = 'rgb(' + 85 + ',' + 48 + ',' + 8 + ',' + 0.918 +')';
+        function navbarColor() {
+            document.getElementById('my_pets').style.backgroundColor = 'rgb(' + 85 + ',' + 48 + ',' + 8 + ',' + 0.918 + ')';
         }
         navbarColor();
     </script>
 
-    <?php $conn->close(); ?>
- 
+    <script src="../js/delete_pet.js"></script>
+
 </body>
 
 </html>
+
+<?php $conn->close(); ?>
