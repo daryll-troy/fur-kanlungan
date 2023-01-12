@@ -1,0 +1,119 @@
+.delete_pets {
+
+    background-image: url("../images/fur1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-image: url("../images/animals.jpg");
+    background-repeat: no-repeat;
+    background-size:cover; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#layer {
+    min-height: 100vh;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+
+    padding-top: 5em;
+    background-color: rgba(87, 73, 33, 0.397);
+
+}
+
+.form_div {
+
+    background-color: rgba(244, 195, 147, 0.766);
+    width: 60%;
+    height: 80%;
+    padding: 2em 2em 2em;
+    box-shadow: 8px 8px 15px;
+    border-radius: 3%;
+}
+
+/* the form */
+#delete_pet_form{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+/* Title  of the page */
+
+.delete_pet_title #title_div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+#title_div h4 {
+    font-size: 2em;
+}
+
+/* backTo button */
+#backTo {
+    height: 3em;
+    width: 3em;
+}
+
+/* add border to fields */
+#description,
+#upload_pics {
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+/* delete button */
+
+.delete_button {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    justify-content: flex-end;
+    margin: 2em 0 0 0;
+}
+.cancel_button {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    
+    margin: 2em 0 0 0;
+}
+
+/* delete and canel buttons */
+
+#btn_delete_pet {
+    width: 30%;
+    background-color: rgb(110, 18, 18);
+    border: 0;
+margin-right: 2em;
+}
+
+#btn_delete_pet:hover {
+    width: 30%;
+    background-color: rgb(54, 10, 10);
+    border: 0;
+
+}
+.cancel_button a{
+    width: 100%;
+}
+
+#btn_cancel_pet {
+    width: 30%;
+    background-color: rgb(110, 18, 18);
+    border: 0;
+margin-left: 2em;
+}
+
+#btn_cancel_pet:hover {
+    width: 30%;
+    background-color: rgb(54, 10, 10);
+    border: 0;
+
+}
+

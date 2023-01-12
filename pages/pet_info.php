@@ -2,13 +2,13 @@
 // connect to database
 include 'connect.php';
 // start a session
-// session_start();
+session_start();
 // // check if the user had already logged in
-// if (!isset($_SESSION['userID'])) {
-//     $conn->close();
-//     header("location: ../index.php");
-//     exit();
-// }
+if (!isset($_SESSION['userID'])) {
+    $conn->close();
+    header("location: ../index.php");
+    exit();
+}
 ?>
 
 <?php
@@ -19,13 +19,7 @@ $pet_photo = "";
 // get the petID of the clicked pet from my_pets.php
 if (isset($_GET['pet_id'])) {
     $pet_id = $_GET['pet_id'];
-
-    //     echo "
-    //     <script>
-    //     alert('$pet_id');
-    // </script>
-    //     ";
-
+    $_SESSION['pet_id'] = $_GET['pet_id'];
 
     // get the all photos of the pet
     $sql = "
@@ -40,7 +34,7 @@ if (isset($_GET['pet_id'])) {
     if ($query->num_rows > 0) {
 
         while ($row = $query->fetch_assoc()) {
-            $pet_photo .=  $row["photo"] . " ";
+            $pet_photo =  $row["photo"];
             $pet_name = $row['name'];
             $pet_age = $row['age'];
             $pet_sex = $row['sex'];
@@ -50,12 +44,10 @@ if (isset($_GET['pet_id'])) {
     }
 }
 
-//  convert the string $pet_photo to an array $explode_arr
-$explode_arr = explode(" ", $pet_photo);
-// remove that last blank aray item
-array_splice($explode_arr, count($explode_arr) - 1, 1);
-$json_pic_arr = json_encode($explode_arr);
-$latest_pic = "'" . $_GET['photo'] . "'";
+// this will be used for the first pic displayed upon loading of pet_info
+$_SESSION['coverPetPic'] = $pet_photo;
+
+
 
 ?>
 
@@ -78,7 +70,8 @@ $latest_pic = "'" . $_GET['photo'] . "'";
     <link rel="stylesheet" href="../css/footer.css">
     <!-- css for header.php -->
     <link rel="stylesheet" href="../css/header.css">
-
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -88,7 +81,7 @@ $latest_pic = "'" . $_GET['photo'] . "'";
             <div class='previous_pic'>
                 <img src='../images/backward.png' onclick="backward()">
             </div>
-            <img src='../images/pet_pics/<?php echo $_GET['photo']; ?>' id="pet_pic">
+            <img src='' id="pet_pic">
 
             <div class='next_pic'>
                 <img src='../images/forward.png' onclick="forward()">
@@ -122,12 +115,7 @@ $latest_pic = "'" . $_GET['photo'] . "'";
 
     <?php include_once 'footer.php'; ?>
     <script src="../js/pet_info_pic.js"></script>
-    <script>
-        // var arr = <?php //echo $json_pic_arr; 
-                        ?>;
-        // let latest_pic = <?php //echo $latest_pic; 
-                            ?>;
-    </script>
+
     <?php $conn->close(); ?>
 
 </body>

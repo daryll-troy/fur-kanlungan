@@ -105,7 +105,7 @@ if (isset($_POST['btn_create_pet'])) {
 
 
             $conn->close();
-            echo "<script>alert('Pet Created!')</script>";
+            // echo "<script>alert('Pet Created!')</script>";
             echo "<script>
             window.location.href='my_pets.php';
             </script>";
@@ -134,8 +134,7 @@ if (isset($_POST['btn_create_pet'])) {
     <link rel="stylesheet" href="../css/css-resets.css">
     <!-- css for create_pets.php.php -->
     <link rel="stylesheet" href="../css/create_pet.css">
-    <!-- css for footer.php -->
-    <link rel="stylesheet" href="../css/footer.css">
+  
     <!-- css for header.php -->
     <link rel="stylesheet" href="../css/header.css">
     <!-- jquery -->

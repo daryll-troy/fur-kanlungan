@@ -28,8 +28,8 @@ if (isset($_POST['pc'])) {
                             INNER JOIN pet_category AS pc ON pc.pcID = bc.pcID
                             WHERE pc.animal_type = '" . $_POST['pc'] . "' ORDER BY bc.breed");
     $stmt->execute();
-    $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($books);
+    $breeds = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($breeds);
 }
 
 

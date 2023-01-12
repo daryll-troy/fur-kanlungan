@@ -122,19 +122,22 @@ if (!isset($_SESSION['userID'])) {
                     ";
                     // delete pets
                     echo "
-                                    <div class='delete_pets'>
-                                        
-                                            <span class='material-symbols-outlined' id='delete_pet_img'>
-                                             delete
-                                          </span>
+                                    <div class='delete_pets' id='delete_pets'>
+                                            <a href='delete_pet.php?pet_id=$pet_id'>
+                                                    <span class='material-symbols-outlined delete_pet_img' id='delete_pet_img'>
+                                                    delete
+                                                </span>
+                                          </a>
                                         
                                     </div>
                              </div>
                             ";
+                            
+                    // plan failed for ajax on delete pet
 
-                       echo "
-                                    <div id='getPetID' style='display: none;'>". $pet_id ."</div>
-                                    ";     
+                    //    echo "
+                    //    <div class='getPetID' id='getPetID'>". $pet_id ."</div> 
+                    //                 ";     
                     echo "</div>";
                 }
             } else {
@@ -158,7 +161,8 @@ if (!isset($_SESSION['userID'])) {
         navbarColor();
     </script>
 
-    <script src="../js/delete_pet.js"></script>
+<!-- can't get the class index of the clicked div -->
+    <!-- <script src="../js/delete_pet.js"></script> -->
 
 </body>
 

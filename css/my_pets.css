@@ -135,8 +135,8 @@
 }
 
 /* delete icon */
-#delete_pet_img{
-    cursor: pointer;
+.delete_pet_img{
+    cursor:pointer;
 }
 
 /* ============================= MEDIA QUERIES ============================== */

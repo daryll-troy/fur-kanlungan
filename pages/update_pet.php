@@ -24,7 +24,7 @@ if (isset($_POST['btn_update_pet'])) {
 
     // File upload configuration 
     $targetDir = "C:/xampp/htdocs/fur-kanlungan/images/pet_pics/";
-    $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+    $allowTypes = array('jpg', 'png', 'jpeg');
     $statusMsg = $errorMsg = $errorUpload = $errorUploadType = '';
     $upload_pics = array_filter($_FILES['upload_pics']['name']);
 
@@ -32,9 +32,7 @@ if (isset($_POST['btn_update_pet'])) {
     if ($_FILES['upload_pics']['size'] > 5000000) {
         try {
             // validate the id of the $_GET['petID']
-            // get the saved description
-
-            if (isset($_SESSION['petID'])) {
+           if (isset($_SESSION['petID'])) {
                 $getID = $_SESSION['petID'];
                 $sql = "SELECT petID FROM pet WHERE petID = '$getID'";
                 $result = $conn->query($sql);
@@ -44,7 +42,7 @@ if (isset($_POST['btn_update_pet'])) {
                     }
                 } else {
                     $conn->close();
-                    echo "<script>alert('Invalid Pet ID!')</script>";
+                    echo "<script>alert('Invalid Pet ID! 2')</script>";
                     echo "<script>
                      window.location.href='my_pets.php';
                        </script>";
@@ -86,20 +84,14 @@ if (isset($_POST['btn_update_pet'])) {
                         $stmt->bind_param("si", $fileName, $getID);
                         try {
                             $stmt->execute();
-                            $conn->close();
-                            unset($_SESSION["petID"]);
+                            
+                            
 
-                            echo "<script>alert('Pet Updated!')</script>";
-                            echo "<script>
-                            window.location.href='my_pets.php';
-                            </script>";
-                            exit();
+                            
                         } catch (Exception $stmt) {
                             $conn->close();
                             echo "<script>alert('An database error occured! :(')</script>";
-                            echo "<script>
-                            window.location.href='my_pets.php';
-                            </script>";
+                            header('location: my_pets.php');
                             exit();
                         }
                     } else {
@@ -109,6 +101,14 @@ if (isset($_POST['btn_update_pet'])) {
                     $errorUploadType .= $_FILES['upload_pics']['name'][$key] . ' | ';
                 }
             }
+            // let the iteration of file names finish first before exiting the script
+            $conn->close();
+            unset($_SESSION['petID']);
+            // echo "<script>alert('Pet Updated!')</script>";
+            echo "<script>
+            window.location.href='my_pets.php';
+            </script>";
+            exit();
         }
     } else {
         echo '<script>alert("File size limit: 5MB")</script>';
@@ -131,8 +131,7 @@ if (isset($_POST['btn_update_pet'])) {
     <link rel="stylesheet" href="../css/css-resets.css">
     <!-- css for create_pets.php.php -->
     <link rel="stylesheet" href="../css/update_pet.css">
-    <!-- css for footer.php -->
-    <link rel="stylesheet" href="../css/footer.css">
+
     <!-- css for header.php -->
     <link rel="stylesheet" href="../css/header.css">
     <!-- jquery -->
@@ -141,7 +140,7 @@ if (isset($_POST['btn_update_pet'])) {
 
 <body>
     <!-- header -->
-    <?php include "header.php"; 
+    <?php include "header.php";
     ?>
 
     <div class="update_pets min-vh-100">
@@ -151,29 +150,36 @@ if (isset($_POST['btn_update_pet'])) {
                     <div id="back_div"><a href="my_pets.php"> <img src="../images/backTo.png" id="backTo"></a></div>
                     <div id="title_div">
                         <h4 class="mb-4" style="text-transform:capitalize;">Update <?php
+                                                                                    $getID = "";
                                                                                     // display the name of the pet
-                                                                                    $getID = $_GET['pet_id'];
-                                                                                    $sql = "SELECT petID, name FROM pet WHERE petID = '$getID'";
-                                                                                    $result = $conn->query($sql);
-                                                                                    if ($result->num_rows > 0) {
-                                                                                        while ($row = $result->fetch_assoc()) {
-                                                                                            echo $row['name'];
-                                                                                            $_SESSION['petID'] = $row['petID'];
-                                                                                        }
-                                                                                    } else {
-                                                                                        $conn->close();
-                                                                                        echo "<script>alert('Invalid Pet ID!')</script>";
-                                                                                        echo "<script>
+                                                                                    try {
+
+                                                                                        $getID = $_GET['pet_id'];
+                                                                                        $sql = "SELECT petID, name FROM pet WHERE petID = '$getID'";
+                                                                                        $result = $conn->query($sql);
+                                                                                        if ($result->num_rows > 0) {
+                                                                                            while ($row = $result->fetch_assoc()) {
+                                                                                                echo $row['name'];
+                                                                                                $_SESSION['petID'] = $row['petID'];
+                                                                                            }
+                                                                                        } else {
+                                                                                            $conn->close();
+                                                                                            // echo "<script>alert('Invalid Pet ID! 1')</script>";
+                                                                                            echo "<script>
                                                                                                 window.location.href='my_pets.php';
                                                                                                 </script>";
-                                                                                        exit();
+                                                                                            exit();
+                                                                                        }
+                                                                                    } catch (Exception $getID) {
                                                                                     }
+
+
                                                                                     ?>
                         </h4>
                     </div>
                 </div>
 
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="create_pet_form" method="post" enctype="multipart/form-data">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="update_pet_form" method="post" enctype="multipart/form-data">
                     <!-- Upload pics of the pet -->
                     <label for="upload_pics" class="form-label mt-2">Add Photos</label>
                     <input class=" form-control" type="file" id="upload_pics" name="upload_pics[]" multiple accept=".jpg, .png, .jpeg">
@@ -182,15 +188,26 @@ if (isset($_POST['btn_update_pet'])) {
                     <!-- Description -->
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="description" name="description" rows="1" placeholder="Text here...">
+                        <textarea class="form-control" id="description" name="description" rows="1" placeholder="Text here..." style=" text-indent: 0;">
                         <?php
+                        $getID = $_GET['pet_id'];
+                        $sql = "SELECT petID FROM pet WHERE petID = '$getID'";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                               
+                                $_SESSION['petID'] = $row['petID'];
+                            }
+                        }
+
                         // get the saved description
                         $getID = $_GET['pet_id'];
                         $sql = "SELECT description from pet WHERE petID = '$getID'";
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
-                                echo $row['description'];
+
+                                echo trim($row['description']);
                             }
                         }
                         ?>
@@ -206,7 +223,8 @@ if (isset($_POST['btn_update_pet'])) {
             </div>
         </div>
 
-        <script src="../js/update_pet.js"></script>
+    </div>
+    <script src="../js/update_pet.js"></script>
 </body>
 
 </html>
