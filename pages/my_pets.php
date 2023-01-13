@@ -132,9 +132,8 @@ if (!isset($_SESSION['userID'])) {
                                     </div>
                              </div>
                             ";
-                            
-                    // plan failed for ajax on delete pet
 
+                    // plan failed for ajax on delete pet
                     //    echo "
                     //    <div class='getPetID' id='getPetID'>". $pet_id ."</div> 
                     //                 ";     
@@ -161,7 +160,7 @@ if (!isset($_SESSION['userID'])) {
         navbarColor();
     </script>
 
-<!-- can't get the class index of the clicked div -->
+    <!-- can't get the class index of the clicked div -->
     <!-- <script src="../js/delete_pet.js"></script> -->
 
 </body>

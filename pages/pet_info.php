@@ -15,7 +15,7 @@ if (!isset($_SESSION['userID'])) {
 $pet_id = "";
 $photo_array = array();
 $pet_photo = "";
-
+$pet_user = "";
 // get the petID of the clicked pet from my_pets.php
 if (isset($_GET['pet_id'])) {
     $pet_id = $_GET['pet_id'];
@@ -23,7 +23,7 @@ if (isset($_GET['pet_id'])) {
 
     // get the all photos of the pet
     $sql = "
-                        SELECT  pet_photo.photo, pet.name, pet.age, pet.sex, pet.description,  breed_category.breed
+                        SELECT  pet.userID, pet_photo.photo, pet.name, pet.age, pet.sex, pet.description,  breed_category.breed
                         FROM pet 
                         INNER JOIN pet_photo ON pet.petID = pet_photo.petID
                         INNER JOIN pet_category ON pet.pcID = pet_category.pcID
@@ -40,7 +40,12 @@ if (isset($_GET['pet_id'])) {
             $pet_sex = $row['sex'];
             $pet_description = $row['description'];
             $pet_breed = $row['breed'];
+            $pet_user = $row['userID'];
         }
+    } else {
+        echo "<script>alert('No such Pet ID!!')</script>";
+        echo "<script>window.location.href = 'dashboard.php'</script>";
+        exit();
     }
 }
 
@@ -91,18 +96,34 @@ $_SESSION['coverPetPic'] = $pet_photo;
         <!-- div for pet details-->
         <div class="pet_details">
             <div class="details_container">
-
+                <div class="back_img">
+                    <img src="../images/backTo.png" alt="" id="backTo" onclick="history.back()">
+                </div>
                 <div class="name">Name: <span><?php echo $pet_name ?></span></div>
-                <div class="name">Age: <span><?php echo $pet_age ?></span></div>
+                <div class="name">Age: <span><?php echo date("Y") - $pet_age ?></span></div>
                 <div class="name">Gender: <span><?php echo $pet_sex ?></span></div>
                 <div class="name">Description:
                     <span><?php echo $pet_description ?></span>
                 </div>
                 <div class="name">Breed: <span><?php echo $pet_breed ?></span></div>
-                <div class="go_back">
-                    <a href="my_pets.php"><input type="button" value="Back" class="btn btn-primary back_button"></a>
+                <?php
+                if ($_SESSION['userID'] === $pet_user) {
+                ?>
+                    <div class="go_back">
+                        <div style="color: red;">This is your pet.</div>
+                        <a href="my_pets.php"><input type="button" value="Posted" class="btn btn-primary back_button"></a>
 
-                </div>
+                    </div>
+                <?php
+                } else {
+                ?>
+                    <div class="go_back">
+                        <a href=""><input type="button" value="Message Owner" class="btn btn-primary back_button"></a>
+
+                    </div>
+                <?php
+                }
+                ?>
             </div>
 
         </div>

@@ -54,6 +54,11 @@
     right: 0;
 }
 
+/* back image */
+#backTo {
+    height: 3em;
+    width: 3em;
+}
 /* ===================== MEDIA QUERIES ======================== */
 @media screen and (max-width: 991px){
     .pet_info{

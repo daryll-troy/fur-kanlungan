@@ -18,8 +18,7 @@
                     </button>
                     <ul class="dropdown-menu animal-type" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="#">Dogs</a></li>
-                        <li><a class="dropdown-item" href="#">Cats</a></li>
-                        <li><a class="dropdown-item" href="#">Hamsters</a></li>
+
 
                     </ul>
                 </div>
@@ -36,35 +35,58 @@
             <!-- card containers of pets -->
             <div class="container mt-5 pb-5 pet-container">
                 <div class="row g-4">
-                    <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border">
-                        <div class="card" style="width: 18rem;">
-                            <div class="d-flex justify-content-center ipa-grey">
-                                <img src="https://hips.hearstapps.com/hmg-prod/images/cute-dog-captions-1563456568.jpg?crop=0.668xw:1.00xh;0.241xw,0&resize=480:*" class="card-img-top img-fluid" alt="image">
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text"><span style="font-weight: bold;">Name: </span>Totoy Brown</p>
-                                <p class="card-text"><span style="font-weight: bold;">Age: </span>3 yrs.</p>
-                                <p class="card-text"><span style="font-weight: bold;">Breed: </span>Golden Retriever</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border">
-                        <div class="card" style="width: 18rem;">
-                            <div class="d-flex justify-content-center ipa-grey">
-                                <img src="https://hips.hearstapps.com/hmg-prod/images/funny-dog-captions-1563456605.jpg?crop=0.748xw:1.00xh;0.0897xw,0&resize=1200:*" class="card-img-top img-fluid" alt="image">
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text"><span style="font-weight: bold;">Name: </span>Totoy Brown</p>
-                                <p class="card-text"><span style="font-weight: bold;">Age: </span>3 yrs.</p>
-                                <p class="card-text"><span style="font-weight: bold;">Breed: </span>Golden Retriever</p>
-                            </div>
-                        </div>
-                    </div>
 
+                    <?php
+
+                    $sql = "SELECT * FROM pet";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+
+
+                    while ($row = $result->fetch_assoc()) {
+
+                        // get the breed to display
+                        $bcID = $row['bcID'];
+                        $bc_sql = "SELECT breed FROM breed_category WHERE bcID = ?";
+                        $stmt = $conn->prepare($bc_sql);
+                        $stmt->bind_param("i", $bcID);
+                        $stmt->execute();
+                        $bc_result = $stmt->get_result();
+                        $bc = $bc_result->fetch_assoc();
+
+                        // get 1 pic file name
+                        $petID = $row['petID'];
+                        $petPho_sql = "SELECT photo FROM pet_photo WHERE petID = ? ORDER BY petPhoID DESC LIMIT 1";
+                        $stmt = $conn->prepare($petPho_sql);
+                        $stmt->bind_param("i", $petID);
+                        $stmt->execute();
+                        $photo_result = $stmt->get_result();
+                        $photo = $photo_result->fetch_assoc();
+                    ?>
+                        <div class='col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border'>
+                            <a href="pet_info.php?pet_id=<?php echo $petID ?>" style="text-decoration: none; color:black;">
+                                <div class='card' style='width: 18rem; '>
+                                    <div class='d-flex justify-content-center ipa-grey'>
+                                        <img src='../images/pet_pics/<?php echo $photo['photo']; ?>' class='card-img-top img-fluid' alt='image'>
+                                    </div>
+                                    <div class='card-body'>
+                                        <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Name: </span><?php echo $row['name']; ?></p>
+                                        <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Gender: </span><?php echo $row['sex']; ?></p>
+                                        <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Age: </span><?php echo date("Y") -  $row['age']; ?></p>
+                                        <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold;'>Breed: </span><?php echo $bc['breed']; ?></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
             <!-- Pagination for the list of pets -->
-            <div class="page-number">
+            <!-- <div class="page-number">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination d-flex flex-wrap justify-content-center no-margin-bottom">
                         <li class="page-item">
@@ -82,7 +104,7 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
+            </div> -->
         </div>
     </section>
 

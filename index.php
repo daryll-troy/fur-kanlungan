@@ -24,10 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // get user login inputs
     $email_or_username = trim(htmlspecialchars(strtolower($_POST['email_or_username'])));
     $password = trim(htmlspecialchars(strtolower($_POST['pwd'])));
+    // hash the password
+    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     if (!empty($email_or_username) && !empty($password)) {
         // get the email or username from the database if it exists
-        $sql = "SELECT userID, username, email FROM users WHERE username = '$email_or_username' OR email = '$email_or_username' LIMIT 1";
+        $sql = "SELECT userID, username, email, password FROM users WHERE username = '$email_or_username' OR email = '$email_or_username' LIMIT 1";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row
@@ -36,6 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $getUsID = $row['userID'];
                 $getUs = $row['username'];
                 $getEm = $row['email'];
+                if (password_verify($password, $row['password']))
+                    $getPa = "password match";
+                else {
+                    $pass_err_mess = "Invalid Credential(s)";
+                    $us_em_err_mess = "Invalid Credential(s)";
+                }
             }
         } else {
             if (!empty($email_or_username)) {
@@ -46,23 +54,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        //get the password from the database if it exists
-        $sql = "SELECT password FROM users WHERE password = '$password' LIMIT 1";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while ($row = $result->fetch_assoc()) {
-                // get password
-                $getPa = $row['password'];
-            }
-        } else {
-            if (!empty($password)) {
-                // give value to error divs
-                // make the username/email seem correct or wrong if the password is wrong
-                $pass_err_mess = "Invalid Credential(s)";
-                $us_em_err_mess = "Invalid Credential(s)";
-            }
-        }
+        // //get the password from the database if it exists
+        // $sql = "SELECT password FROM users WHERE password = '$password' LIMIT 1";
+        // $result = $conn->query($sql);
+        // if ($result->num_rows > 0) {
+        //     // output data of each row
+        //     while ($row = $result->fetch_assoc()) {
+        //         // get password
+        //         $getPa = $row['password'];
+        //     }
+        // } else {
+        //     if (!empty($password)) {
+        //         // give value to error divs
+        //         // make the username/email seem correct or wrong if the password is wrong
+        //         $pass_err_mess = "Invalid Credential(s)";
+        //         $us_em_err_mess = "Invalid Credential(s)";
+        //     }
+        // }
     }
 
     // direct to dashboard.php if all inputs are exisiting in the database
@@ -158,7 +166,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <!-- valid ID -->
                     <label for="reg-id" class="form-label mt-2">Valid I.D.</label>
-                    <input class=" form-control" type="file" id="reg-id" name="reg-id"  accept=".jpg, .png, .jpeg">
+                    <input class=" form-control" type="file" id="reg-id" name="reg-id" accept=".jpg, .png, .jpeg">
                     <div> <small id="validid_err" style="color: red;"></small></div>
 
                     <!-- terms and conditions -->

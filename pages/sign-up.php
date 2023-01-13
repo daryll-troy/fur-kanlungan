@@ -17,6 +17,9 @@ $municipality = htmlspecialchars(strtolower($_POST['municipality']));
 
 $muni_id = "";
 
+// hash the password
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // get the id of muni_id selected
     $sql = "SELECT muniID FROM municipality WHERE muni_name = '$municipality' LIMIT 1";
@@ -39,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Insert image file name into database
     // prepare and bind
     $stmt = $conn->prepare("INSERT INTO users (username, email, password, fname, lname, photo_id, muniID) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $username, $email, $password, $fname, $lname, $fileName, $muni_id);
+    $stmt->bind_param("sssssss", $username, $email, $hashed_password , $fname, $lname, $fileName, $muni_id);
 
     // check exception if username of email already exists in the database
     try {

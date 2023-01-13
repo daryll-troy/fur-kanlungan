@@ -18,7 +18,7 @@ if (!isset($_SESSION['userID'])) {
 // if the button type is now submit after validation
 if (isset($_POST['btn_update_pet'])) {
     //get the description value from the text area input field
-    $description = htmlspecialchars($_POST['description']);
+    $description = trim(htmlspecialchars($_POST['description']));
     // get petID from the database
     $getID = "";
 
