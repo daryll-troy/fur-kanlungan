@@ -45,8 +45,8 @@
                 <!-- breed -->
                 <div class="breed_cont dropdown mt-5 d-flex justify-content-center ">
 
-                    <select class="form-select btn breed breed_category" aria-label="Default select example" id="breed" name="breed">
-                        <option value="none" class='each_breed'> All Breeds</option>
+                    <select class="form-select btn breed" aria-label="Default select example" id="breed" name="breed">
+                        <option value="none" class='each_breed'>All Breeds</option>
                     </select>
 
                 </div>
@@ -67,7 +67,7 @@
 
                     <?php
                     // get all pets
-                    $sql = "SELECT * FROM pet";
+                    $sql = "SELECT * FROM pet ORDER BY name";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     $result = $stmt->get_result();
@@ -120,26 +120,7 @@
                     ?>
                 </div>
             </div>
-            <!-- Pagination for the list of pets -->
-            <!-- <div class="page-number">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination d-flex flex-wrap justify-content-center no-margin-bottom">
-                        <li class="page-item">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">...</a></li>
-                        <li class="page-item"><a class="page-link" href="#">30</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div> -->
+           
         </div>
     </section>
 

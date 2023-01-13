@@ -97,7 +97,7 @@ $_SESSION['coverPetPic'] = $pet_photo;
         <div class="pet_details">
             <div class="details_container">
                 <div class="back_img">
-                    <img src="../images/backTo.png" alt="" id="backTo" onclick="retain_category()">
+                    <img src="../images/backTo.png" alt="" id="backTo" onclick="history.back()">
                 </div>
                 <div class="name">Name: <span><?php echo $pet_name ?></span></div>
                 <div class="name">Age: <span><?php echo date("Y") - $pet_age ?></span></div>

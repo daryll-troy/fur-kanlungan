@@ -11,3 +11,4 @@ for (const color of newColor) {
         color.style.color = "black";
     });
 }
+

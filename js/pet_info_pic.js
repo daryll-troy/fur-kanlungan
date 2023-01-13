@@ -3,9 +3,10 @@
 
 var getCurrentPic = "";
 
-function retain_category() {
-    history.back();
-}
+// WAS PLANNING TO USE THIS FUNCTION TO MAKE THE PAGE RETAIN THE STATE OF BEING FILTERED
+// function retain_category() {
+//     history.back();
+// }
 
 window.onload = function () {
     var firstPic = $("#pet_pic").val();

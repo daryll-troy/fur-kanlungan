@@ -3,9 +3,9 @@
 include "connect.php";
 session_start();
 
+// get all pets based from a pet_category
 if (isset($_POST['pc'])) {
-    //NOTE REMINDER: DO NOT USE SESSION HERE. IT WILL CAUSE AN ERROR
-    
+   
     $get_pcID = "";
     $getAllPets = "";
     
@@ -21,7 +21,7 @@ if (isset($_POST['pc'])) {
         }
     }
 
-    $sql = "SELECT * FROM pet WHERE pcID = ? ";
+    $sql = "SELECT * FROM pet WHERE pcID = ? ORDER BY name";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $get_pcID);
     $stmt->execute();
@@ -29,6 +29,17 @@ if (isset($_POST['pc'])) {
     // fetch_assoc() won't work with the ajax process connected to this, thus, fetch_all()
     $pets = $result->fetch_all(MYSQLI_ASSOC);
     echo  json_encode($pets);
+}
+
+// get breed name
+if(isset($_POST['breedName'])){
+    $sql = "SELECT breed FROM breed_category WHERE bcID = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $_POST['breedName']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $one_photo = $result->fetch_all(MYSQLI_ASSOC);
+    echo  json_encode($one_photo);
 }
 
 // get 1 photo of each pet
@@ -42,6 +53,37 @@ if (isset($_POST['petID'])) {
     $one_photo = $result->fetch_all(MYSQLI_ASSOC);
     echo  json_encode($one_photo);
 }
+
+
+// get all pets based from a breed_category
+if (isset($_POST['bc'])) {
+    
+    $get_bcID = "";
+    $getAllPets = "";
+    
+    // get the id of the pet category selected
+    $sql = "SELECT bcID from breed_category WHERE breed = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $_POST['bc']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $get_bcID = $row['bcID'];
+        }
+    }
+
+    $sql = "SELECT * FROM pet WHERE bcID = ?  ORDER BY name";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $get_bcID);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    // fetch_assoc() won't work with the ajax process connected to this, thus, fetch_all()
+    $breeds = $result->fetch_all(MYSQLI_ASSOC);
+    echo  json_encode($breeds);
+}
+
+
 
 // close connection
 $conn->close();

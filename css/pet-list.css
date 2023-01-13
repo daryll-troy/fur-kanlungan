@@ -46,17 +46,17 @@ body {
     padding-left: 2.5em;
     padding-right: 2.5em;
 }
-.breed_category
+.breed
 {
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 
 /* color and capitalize */
 .pet_category,
 .press-search,
-.breed_category  {
+.breed  {
     background-color: rgb(110, 18, 18);
     color: aliceblue;
     text-transform: capitalize;
@@ -68,40 +68,16 @@ body {
 
 .pet_category:hover,
 .press-search:hover,
-.breed_category:hover  {
+.breed:hover  {
     background-color: rgb(54, 10, 10);
     color: aliceblue;
 }
 
 .pet_category:focus,
-.breed_category:focus  {
+.breed:focus  {
     background-color: rgb(54, 10, 10);
 }
 
-/* Modify the pagination bar */
-/* .no-margin-bottom li {
-    padding-left: 8px;
-    padding-right: 8px;
-}
-
-.no-margin-bottom li a,
-.no-margin-bottom li a:hover {
-    border-radius: 20%;
-    color: rgba(110, 18, 18, 0.726);
-    border: 2px;
-    border-color: rgb(54, 10, 10);
-    border-style: solid;
-}
-
-.no-margin-bottom li a:active {
-    background-color: rgb(54, 10, 10);
-    color: aliceblue;
-} */
-
-/* adjust the pagination width to overflow: auto */
-/* .pagination {
-    overflow: auto;
-} */
 
 /* set to justify-content: between the .wrap-search div */
 .wrap-search {
@@ -125,6 +101,11 @@ body {
     border-style: solid;
 }
 
+/* add background color to card when filter is clicked */
+.white-box{
+    background-color: aliceblue;
+}
+
 /********** Media Queries *************/
 
 /* Adjust the category and search button */
@@ -135,7 +116,7 @@ body {
     }
 
     .pet_category,
-    .breed_category  {
+    .breed  {
         width: 10em;
     }
 

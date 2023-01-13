@@ -24,8 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // get user login inputs
     $email_or_username = trim(htmlspecialchars(strtolower($_POST['email_or_username'])));
     $password = trim(htmlspecialchars(strtolower($_POST['pwd'])));
-    // hash the password
-    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+   
 
     if (!empty($email_or_username) && !empty($password)) {
         // get the email or username from the database if it exists
@@ -197,7 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <h1>Fur-Kanlungan</h1>
                             <p>A web-based adoption system for furry pets in Pangasinan</p>
                             <!-- go to bookmarked pet-list id  -->
-                            <a href="#pet-list"> <button type="submit" class="btn btn-primary browse-button">Browse Pets </button></a>
+                            <!-- <a href="#pet-list"> <button type="submit" class="btn btn-primary browse-button">Browse Pets </button></a> -->
                         </div>
 
                     </div>
@@ -235,12 +234,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    <?php include_once 'pages/pet-list.php'; ?>
-    <?php include_once 'pages/footer.php'; ?>
+    <?php //include_once 'pages/pet-list.php'; ?>
+    <?php //include_once 'pages/footer.php'; ?>
 
     <!-- Javascript -->
     <script src="js/pop-up-sign-up.js"></script>
-    <script src="js/hover.js"></script>
+    <!-- <script src="js/hover.js"></script> -->
     <script src="js/check_sign_up.js"></script>
 
 </body>
