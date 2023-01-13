@@ -3,12 +3,14 @@
 include "connect.php";
 session_start();
 
+
+
 // get all pets based from a pet_category
 if (isset($_POST['pc'])) {
-   
+
     $get_pcID = "";
     $getAllPets = "";
-    
+
     // get the id of the pet category selected
     $sql = "SELECT pcID from pet_category WHERE animal_type = ?";
     $stmt = $conn->prepare($sql);
@@ -32,7 +34,7 @@ if (isset($_POST['pc'])) {
 }
 
 // get breed name
-if(isset($_POST['breedName'])){
+if (isset($_POST['breedName'])) {
     $sql = "SELECT breed FROM breed_category WHERE bcID = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $_POST['breedName']);
@@ -57,10 +59,10 @@ if (isset($_POST['petID'])) {
 
 // get all pets based from a breed_category
 if (isset($_POST['bc'])) {
-    
+
     $get_bcID = "";
     $getAllPets = "";
-    
+
     // get the id of the pet category selected
     $sql = "SELECT bcID from breed_category WHERE breed = ?";
     $stmt = $conn->prepare($sql);
@@ -83,7 +85,19 @@ if (isset($_POST['bc'])) {
     echo  json_encode($breeds);
 }
 
+// LIVE SEARCH
+if (isset($_POST['search'])) {
+    $search = $_POST['search'];
+    $sql = "SELECT * FROM pet WHERE name LIKE '" . $search . "%'";
+ 
 
 
+    $result = $conn->query($sql);
+
+    $row = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($row);
+
+
+}
 // close connection
 $conn->close();

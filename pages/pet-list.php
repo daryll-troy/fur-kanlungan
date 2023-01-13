@@ -13,6 +13,17 @@
     <section class="pet-list min-vh-100" id="pet-list">
         <div class="all-wrapper">
             <div class="container flex-wrap filter wrap-search">
+                
+                <!-- Search the name of the animal -->
+                <nav class="navbar navbar-light bg-light mt-5 search-nav">
+                    <div class="container-fluid search-nav middle-search">
+                        <form class="d-flex flex-wrap justify-content-center pet-list">
+                            <input class="form-control me-2 type-search " type="search" placeholder="Search Name" aria-label="Search" id="type-search">
+                            <!-- <button class="btn btn-outline-success press-search" type="submit">Search</button> -->
+                        </form>
+                    </div>
+                </nav>
+
                 <!-- Dropdown to filter the animal category -->
                 <div class="dropdown mt-5 d-flex justify-content-center ">
                     <select class="form-select btn pet_category" aria-label="Default select example" id="pet_category" name="pet_category">
@@ -51,15 +62,7 @@
 
                 </div>
 
-                <!-- Search the name of the animal -->
-                <nav class="navbar navbar-light bg-light mt-5 search-nav">
-                    <div class="container-fluid search-nav middle-search">
-                        <form class="d-flex flex-wrap justify-content-center pet-list">
-                            <input class="form-control me-2 type-search " type="search" placeholder="Search Name" aria-label="Search">
-                            <button class="btn btn-outline-success press-search" type="submit">Search</button>
-                        </form>
-                    </div>
-                </nav>
+
             </div>
             <!-- card containers of pets -->
             <div class="container mt-5 pb-5 pet-container">
@@ -120,7 +123,7 @@
                     ?>
                 </div>
             </div>
-           
+
         </div>
     </section>
 

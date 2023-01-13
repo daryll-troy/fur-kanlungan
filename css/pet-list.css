@@ -30,7 +30,7 @@ body {
 }
 
 .type-search {
-    width: 30em;
+    width: 20em;
     height: 2.5em;
     border: 2px;
     border-color: rgb(54, 10, 10);
@@ -82,7 +82,8 @@ body {
 /* set to justify-content: between the .wrap-search div */
 .wrap-search {
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
+    gap: 1em;
 }
 
 /* uniform size for dog pics in card display */
