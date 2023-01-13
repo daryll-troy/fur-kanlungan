@@ -87,17 +87,15 @@ if (isset($_POST['bc'])) {
 
 // LIVE SEARCH
 if (isset($_POST['search'])) {
-    $search = $_POST['search'];
-    $sql = "SELECT * FROM pet WHERE name LIKE '" . $search . "%'";
- 
+    // protect search against cross site scripting
+    $search = htmlspecialchars(trim($_POST['search']));
 
+    $sql = "SELECT * FROM pet WHERE name LIKE '" . $search . "%'";
 
     $result = $conn->query($sql);
 
     $row = $result->fetch_all(MYSQLI_ASSOC);
     echo json_encode($row);
-
-
 }
 // close connection
 $conn->close();

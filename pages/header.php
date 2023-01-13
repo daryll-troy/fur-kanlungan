@@ -70,7 +70,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
 
-                                <!-- <li><a class="dropdown-item" href="my_pets.php"  style="margin-left: 0;">Posted Pets</a></li> -->
+                                
                                 <li><a class="dropdown-item" href="#" style="margin-left: 0; text-transform: capitalize; font-weight:bold; font-size: 1.1em;"><?php echo $fname;?></a></li>
                                 <li><a class="dropdown-item" href="#" style="margin-left: 0;">Profile</a></li>
                                 <li>

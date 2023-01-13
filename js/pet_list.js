@@ -267,67 +267,69 @@ $(document).ready(function () {
         // get breed name
         var search = $("#type-search").val();
         // console.log(search);
-        $.ajax({
-            url: 'pet_list_filter.php',
-            method: 'post',
-            data: 'search=' + search
-        }).done(function (search) {
-            search = JSON.parse(search);
-            console.log(search);
-            $('.black-border').remove();
+        
+            $.ajax({
+                url: 'pet_list_filter.php',
+                method: 'post',
+                data: 'search=' + search
+            }).done(function (search) {
+                search = JSON.parse(search);
+                console.log(search);
+                $('.black-border').remove();
 
-            // change the list of pets
-            search.forEach(function (value) {
-                var get1photo = "";
+                // change the list of pets
+                search.forEach(function (value) {
+                    var get1photo = "";
 
-                // get 1 photo from each pet
-                $.ajax({
-                    url: 'pet_list_filter.php',
-                    method: 'post',
-                    data: 'petID=' + value.petID
-                }).done(function (photo) {
-                    photo = JSON.parse(photo);
+                    // get 1 photo from each pet
+                    $.ajax({
+                        url: 'pet_list_filter.php',
+                        method: 'post',
+                        data: 'petID=' + value.petID
+                    }).done(function (photo) {
+                        photo = JSON.parse(photo);
 
-                    // display the pet card
-                    photo.forEach(function (pho_value) {
-                        var getBreedName = "";
-                        // get breed name
-                        $.ajax({
-                            url: 'pet_list_filter.php',
-                            method: 'post',
-                            data: 'breedName=' + value.bcID
-                        }).done(function (breedName) {
-                            breedName = JSON.parse(breedName);
+                        // display the pet card
+                        photo.forEach(function (pho_value) {
+                            var getBreedName = "";
+                            // get breed name
+                            $.ajax({
+                                url: 'pet_list_filter.php',
+                                method: 'post',
+                                data: 'breedName=' + value.bcID
+                            }).done(function (breedName) {
+                                breedName = JSON.parse(breedName);
 
-                            breedName.forEach(function (breedName) {
-                                getBreedName = breedName.breed;
-                                get1photo = pho_value.photo;
-                                // console.log(get1photo);
-                                let getAge = new Date().getFullYear() - value.age;
+                                breedName.forEach(function (breedName) {
+                                    getBreedName = breedName.breed;
+                                    get1photo = pho_value.photo;
+                                    // console.log(get1photo);
+                                    let getAge = new Date().getFullYear() - value.age;
 
-                                $('.row_of_col').append(" <div class='col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border'>" +
-                                    " <a href='pet_info.php?pet_id=" + value.petID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
-                                    " <div class='card' style='width: 18rem; '>" +
-                                    "<div class='d-flex justify-content-center ipa-grey'>" +
-                                    "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
-                                    + "</div>" +
+                                    $('.row_of_col').append(" <div class='col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border'>" +
+                                        " <a href='pet_info.php?pet_id=" + value.petID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
+                                        " <div class='card' style='width: 18rem; '>" +
+                                        "<div class='d-flex justify-content-center ipa-grey'>" +
+                                        "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
+                                        + "</div>" +
 
-                                    "<div class='card-body white-box'>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Name: </span>" + value.name + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Gender: </span>" + value.sex + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Age: </span>" + getAge + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Breed: </span>" + getBreedName + "</p>"
-                                    + "</div>"
-                                    + "</div>"
-                                    + "</a>"
-                                    + "</div>");
+                                        "<div class='card-body white-box'>" +
+                                        " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Name: </span>" + value.name + "</p>" +
+                                        " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Gender: </span>" + value.sex + "</p>" +
+                                        " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Age: </span>" + getAge + "</p>" +
+                                        " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Breed: </span>" + getBreedName + "</p>"
+                                        + "</div>"
+                                        + "</div>"
+                                        + "</a>"
+                                        + "</div>");
+                                })
                             })
                         })
+
                     })
 
                 })
-
             })
-        })
+        
     })
 })

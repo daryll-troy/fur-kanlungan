@@ -6,7 +6,7 @@ body {
 /* Browse Pets part */
 .pet-list {
     background-color: rgba(236, 232, 228, 0.99);
-    background-image: url("../images/fur1.jpg");
+    background-image: url("../admin/images/furAdmin.jpg");
     background-size: cover;
     display: flex;
     justify-content: center;

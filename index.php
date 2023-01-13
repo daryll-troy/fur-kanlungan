@@ -7,6 +7,8 @@ session_start();
 if (isset($_SESSION['userID'])) {
     header("location: pages/dashboard.php");
 }
+
+
 ?>
 <!-- Login Process -->
 <?php
@@ -53,23 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        // //get the password from the database if it exists
-        // $sql = "SELECT password FROM users WHERE password = '$password' LIMIT 1";
-        // $result = $conn->query($sql);
-        // if ($result->num_rows > 0) {
-        //     // output data of each row
-        //     while ($row = $result->fetch_assoc()) {
-        //         // get password
-        //         $getPa = $row['password'];
-        //     }
-        // } else {
-        //     if (!empty($password)) {
-        //         // give value to error divs
-        //         // make the username/email seem correct or wrong if the password is wrong
-        //         $pass_err_mess = "Invalid Credential(s)";
-        //         $us_em_err_mess = "Invalid Credential(s)";
-        //     }
-        // }
     }
 
     // direct to dashboard.php if all inputs are exisiting in the database

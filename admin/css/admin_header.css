@@ -1,0 +1,118 @@
+.header {
+    min-height: 5vh;
+}
+
+
+.ipantay-nav {
+    height: inherit;
+    padding-top: 0;
+    padding-bottom: 0;
+
+}
+
+.ipantay-cont-fluid {
+    background-color: rgba(117, 62, 3, 0.833);
+    height: inherit;
+    padding: 0.5vh 1.5vh;
+}
+
+.logo {
+    width: 3em;
+    height: 3em;
+    background-color: aliceblue;
+    border-radius: 45%;
+
+}
+
+.puti-header {
+    color: rgb(249, 249, 249);
+    font-size: 1.3rem;
+    padding-right: 1rem;
+
+}
+
+#fur-kanlungan {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: rgb(249, 249, 249);
+}
+
+/* remove blue underlines on links */
+.ipantay-cont-fluid a {
+    text-decoration: none;
+}
+
+
+
+li:hover {
+    background-color: rgba(85, 48, 8, 0.918);
+    opacity: 9.5;
+}
+
+/* make hover of each navbar item cover the entire height of the header */
+.isagad-hover {
+    display: flex;
+    justify-content: end;
+  
+}
+
+/* profile picture */
+#profPic{
+    height: 1.8em;
+    width: 1.8em;
+    border-radius: 50%;
+    object-fit:cover;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+}
+.igitna-pic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0; 
+    border-radius: 50%;
+    
+}
+
+
+
+/********** Media Queries *************/
+
+/* remove the padding-top of navbar */
+@media screen and (max-width: 991px) {
+    .isagad-hover {
+        margin-top: 1em;
+        background-color: rgba(85, 49, 11, 0.918);
+    }
+    .isagad-hover ul li span{
+        display: flex;
+        justify-content: center;
+    }
+    .isagad-hover ul{
+        width: 100%;
+    }
+    .isagad-hover ul li span a{
+        border-style: solid;
+        border-bottom: 10px;
+        border-color: rgba(15, 9, 2, 0.918);;
+    }
+    /* remove the padding on the sides when hamburger is on */
+    .ipantay-cont-fluid{
+       padding-left: 0;
+       padding-right: 0;
+       padding-bottom: 0;
+    }
+    /* adjust the paddings of the logo and hamburger button */
+    .ipantay-cont-fluid a:nth-child(1){
+        margin-left: 0.6em;
+     }
+     .ipantay-cont-fluid button{
+        margin-right: 0.6em;
+     }
+     /* darken the hover color */
+     li:hover {
+        background-color: rgba(43, 24, 4, 0.918);
+    }
+   
+}
