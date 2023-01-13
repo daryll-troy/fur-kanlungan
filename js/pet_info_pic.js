@@ -3,9 +3,13 @@
 
 var getCurrentPic = "";
 
+function retain_category() {
+    history.back();
+}
+
 window.onload = function () {
     var firstPic = $("#pet_pic").val();
-    
+
     $.ajax({
         url: 'get_all_petPhotos.php',
         method: 'post',
@@ -28,7 +32,7 @@ var currentIndexForward = 0;
 function forward() {
     // console.log(getCurrentPic);
     var page = $("#pet_pic").val();
-    
+
     $.ajax({
         url: 'get_all_petPhotos.php',
         method: 'post',
@@ -41,15 +45,15 @@ function forward() {
         //    get the value of the object property 'photo'
         let arrPhotos = ""
         for (let x in page) {
-          
+
 
             arrPhotos = page[x];
-            
-            console.log("past: " + getCurrentPic);
+
+            // console.log("past: " + getCurrentPic);
             for (let cou = 0; cou < arrPhotos.length; cou++) {
-                console.log("current: " + arrPhotos[cou]);
-                console.log("cou: " + cou + " => currentIndexForward: " + currentIndexForward);
-                
+                // console.log("current: " + arrPhotos[cou]);
+                // console.log("cou: " + cou + " => currentIndexForward: " + currentIndexForward);
+
 
                 if (getCurrentPic != arrPhotos[cou]) {
                     if (cou < currentIndexForward)
@@ -73,29 +77,29 @@ function forward() {
 // This will serve as the index of getCurrentPic for backward button
 var currentIndexBackward = 0;
 
- var page = $("#pet_pic").val();
- 
- $.ajax({
-     url: 'get_all_petPhotos.php',
-     method: 'post',
-     data: 'page=' + page
- }).done(function (page) {
+var page = $("#pet_pic").val();
 
-     page = JSON.parse(page);
-     for (let x in page) {
+$.ajax({
+    url: 'get_all_petPhotos.php',
+    method: 'post',
+    data: 'page=' + page
+}).done(function (page) {
+
+    page = JSON.parse(page);
+    for (let x in page) {
         currentIndexBackward = page[x].length - 1;
-      
-     }
- });
+
+    }
+});
 
 
 
 
 function backward() {
-    
+
     // console.log(getCurrentPic);
     var page = $("#pet_pic").val();
-    
+
     $.ajax({
         url: 'get_all_petPhotos.php',
         method: 'post',
@@ -112,11 +116,11 @@ function backward() {
 
             arrPhotos = page[x];
 
-            console.log(arrPhotos);
-            console.log("past: " + getCurrentPic);
+            // console.log(arrPhotos);
+            // console.log("past: " + getCurrentPic);
             for (let cou = arrPhotos.length - 1; cou >= 0; cou--) {
-                console.log("current: " + arrPhotos[cou]);
-                console.log("cou: " + cou + " => currentIndexBackward: " + currentIndexBackward);
+                // console.log("current: " + arrPhotos[cou]);
+                // console.log("cou: " + cou + " => currentIndexBackward: " + currentIndexBackward);
 
 
                 if (getCurrentPic != arrPhotos[cou]) {

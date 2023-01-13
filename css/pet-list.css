@@ -21,9 +21,12 @@ body {
 }
 
 /* set max-height of animal type and set it to overflow: auto */
-.animal-type {
+.get_animal_type,
+.eah_breed  {
     max-height: 20rem;
     overflow: auto;
+    color: aliceblue;
+    text-transform: capitalize;
 }
 
 .type-search {
@@ -38,33 +41,45 @@ body {
     width: 10em;
     border: 0px;
 }
-
-.choose-animal {
+/* paddings */
+.pet_category{
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+}
+.breed_category
+{
     padding-left: 2em;
     padding-right: 2em;
 }
 
-.choose-animal,
-.press-search {
+
+/* color and capitalize */
+.pet_category,
+.press-search,
+.breed_category  {
     background-color: rgb(110, 18, 18);
     color: aliceblue;
+    text-transform: capitalize;
 }
 
 .search-nav {
     padding: 0;
 }
 
-.choose-animal:hover,
-.press-search:hover {
+.pet_category:hover,
+.press-search:hover,
+.breed_category:hover  {
     background-color: rgb(54, 10, 10);
+    color: aliceblue;
 }
 
-.choose-animal:focus {
+.pet_category:focus,
+.breed_category:focus  {
     background-color: rgb(54, 10, 10);
 }
 
 /* Modify the pagination bar */
-.no-margin-bottom li {
+/* .no-margin-bottom li {
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -81,12 +96,12 @@ body {
 .no-margin-bottom li a:active {
     background-color: rgb(54, 10, 10);
     color: aliceblue;
-}
+} */
 
 /* adjust the pagination width to overflow: auto */
-.pagination {
+/* .pagination {
     overflow: auto;
-}
+} */
 
 /* set to justify-content: between the .wrap-search div */
 .wrap-search {
@@ -119,7 +134,8 @@ body {
 
     }
 
-    .choose-animal {
+    .pet_category,
+    .breed_category  {
         width: 10em;
     }
 
@@ -134,13 +150,13 @@ body {
 }
 
 @media screen and (max-height: 650px) {
-    .no-margin-bottom {
+    /* .no-margin-bottom {
         margin-bottom: 0;
-    }
+    } */
 
-    .page-number {
+    /* .page-number {
         padding-bottom: 2em;
-    }
+    } */
 }
 
 
