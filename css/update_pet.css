@@ -60,6 +60,9 @@
     border-color: black;
 }
 
+#description{
+    background-color: rgba(218, 226, 226, 0.603);
+}
 /* update button */
 
 .update_button {

@@ -97,6 +97,10 @@
     border-color: black;
 }
 
+#description{
+    background-color: rgba(218, 226, 226, 0.603);
+}
+
 /* display: non the _err divs */
 #name_err,
 #birthyear_err,

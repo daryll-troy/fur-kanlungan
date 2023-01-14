@@ -50,7 +50,7 @@ if (!isset($_SESSION['adminID'])) {
                 <div class="form">
                     <div class="shop_short_details">
                         <div> <img src="../../images/backTo.png" id="backTo" onclick="history.back()"></div>
-                        <div>
+                        <div id="title">
                             <h4 class="mb-4">Create Shop</h4>
                         </div>
 
@@ -119,11 +119,14 @@ if (!isset($_SESSION['adminID'])) {
 
 
                     </div>
+                    <!-- services -->
                     <div class="services">
-                        <textarea name="services" id="" cols="30" rows="10"></textarea>
+                    <label for="services" class="form-label">Services</label>
+                        <textarea name="services" id="services" cols="30" rows="10"></textarea>
                     </div>
                     <div class="description">
-                        <textarea name="description" id="" cols="30" rows="10"></textarea>
+                    <label for="description" class="form-label">Description</label>
+                        <textarea name="description" id="description" cols="30" rows="10"></textarea>
                     </div>
                 </div>
             </form>
@@ -131,9 +134,9 @@ if (!isset($_SESSION['adminID'])) {
     </div>
 
     <script>
-        function navbarColor() {
+        
             document.getElementById('shop').style.backgroundColor = 'rgb(' + 85 + ',' + 48 + ',' + 8 + ',' + 0.918 + ')';
-        }
+        
     </script>
 
     <!-- map script  -->
