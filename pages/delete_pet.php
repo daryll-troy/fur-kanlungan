@@ -14,18 +14,24 @@ if (!isset($_SESSION['userID'])) {
 }
 
 
+// check if $_GET['pet_id'] is owned by the logged in user
+$get_petID = $_GET['pet_id'];
+$sql = "SELECT userID FROM pet WHERE petID = $get_petID";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        if ($row['userID'] != $_SESSION['userID']) {
 
 
+            echo ' <script>alert("You cannot do that here boy..tsk tsk");</script>';
+            echo '<script>window.location.href = "my_pets.php"</script>';
+            // header("location: my_pets.php");
+            exit();
+        }
+    }
+}
 
-// $getID = $_GET['pet_id'];
-// $sql = "SELECT petID FROM pet WHERE petID = '$getID'";
-// $result = $conn->query($sql);
-// if ($result->num_rows > 0) {
-//     while ($row = $result->fetch_assoc()) {
 
-//         $_POST['petID'] = $row['petID'];
-//     }
-// }
 
 
 // execute when this when submitted to delete
@@ -66,14 +72,14 @@ if (isset($_POST['btn_delete_pet'])) {
         $result->bind_param("i", $_POST['petID']);
         $result->execute();
 
-        
+
         $conn->close();
         // unset session variable 
         unset($_SESSION["petID"]);
-       
+
         // echo "<script>alert('Pet Deleted!')</script>";
 
-         // head back to my_pets.php
+        // head back to my_pets.php
         echo "<script>
                 window.location.href='my_pets.php';
                 </script>";
@@ -130,7 +136,7 @@ if (isset($_POST['btn_delete_pet'])) {
                                                                                         }
                                                                                     } else {
                                                                                         $conn->close();
-                                                                                        echo "<script>alert('Invalid Pet ID!')</script>";
+                                                                                        echo "<script>alert('You cannot do that here boy..tsk tsk')</script>";
                                                                                         echo "<script>
                                                                                                 window.location.href='my_pets.php';
                                                                                                 </script>";
@@ -145,19 +151,19 @@ if (isset($_POST['btn_delete_pet'])) {
                    
 
                     <!-- delete button -->
-                    <div class="delete_button mb-2">
-                        <input type="submit" class="btn btn-primary btn_delete_pet" name="btn_delete_pet" id="btn_delete_pet" value="Delete">
-                    </div>
-
-                     <!-- cancel button -->
-                     <div class="cancel_button mb-2">
-                        <a href="my_pets.php">
-                        <input type="button" class="btn btn-primary btn_cancel_pet" name="btn_cancel_pet" id="btn_cancel_pet" value="Cancel">
-                        </a>
-                    </div>
-                </form>
+                    <div class=" delete_button mb-2">
+                    <input type="submit" class="btn btn-primary btn_delete_pet" name="btn_delete_pet" id="btn_delete_pet" value="Delete">
             </div>
+
+            <!-- cancel button -->
+            <div class="cancel_button mb-2">
+                <a href="my_pets.php">
+                    <input type="button" class="btn btn-primary btn_cancel_pet" name="btn_cancel_pet" id="btn_cancel_pet" value="Cancel">
+                </a>
+            </div>
+            </form>
         </div>
+    </div>
     </div>
 </body>
 

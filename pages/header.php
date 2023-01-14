@@ -26,7 +26,7 @@
                 <div class="collapse navbar-collapse isagad-hover" id="navbarScroll">
                     <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#"> <span class="puti-header">Chats</span></a></a>
+                            <a class="nav-link" aria-current="page" href="chat_list.php"> <span class="puti-header">Chats</span></a></a>
                         </li>
 
                         <li class="nav-item">

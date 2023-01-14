@@ -10,6 +10,22 @@ if (!isset($_SESSION['userID'])) {
     exit();
 }
 
+// check if $_GET['pet_id'] is owned by the logged in user
+$get_petID = $_GET['pet_id'];
+$sql = "SELECT userID FROM pet WHERE petID = $get_petID";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        if ($row['userID'] != $_SESSION['userID']) {
+
+
+            echo ' <script>alert("You cannot do that here boy..tsk tsk");</script>';
+            echo '<script>window.location.href = "my_pets.php"</script>';
+            // header("location: my_pets.php");
+            exit();
+        }
+    }
+}
 
 ?>
 

@@ -1,5 +1,3 @@
-
-
 <html lang="en">
 
 <head>
@@ -18,7 +16,7 @@
                 <a href="dashboard.php">
                     <img src="../../images/logo.gif" alt="logo" class="logo me-4">
                 </a>
-                <a href="admin_dashboard.php"> <span id="fur-kanlungan" style="font-weight: bold; color:aliceblue; font-size: 1.5em;">ADMIN</span>
+                <a href="admin_dashboard.php" ><span id="fur-kanlungan" style="font-weight: bold; color:aliceblue; font-size: 1.5em;">ADMIN</span>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,26 +24,22 @@
                 </button>
                 <div class="collapse navbar-collapse isagad-hover" id="navbarScroll">
                     <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#"> <span class="puti-header">Chats</span></a></a>
-                        </li>
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="#"><span class="puti-header">Products</span></a>
                         </li>
-                        <li class="nav-item" id="shops">
-                            <a class="nav-link" href="admin_shops.php"  ><span class="puti-header">Shops</span></a>
+                        <li class="nav-item" id="shop">
+                            <a class="nav-link" href="admin_shop.php"><span class="puti-header">Shops</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><span class="puti-header">Clinics</span></a>
                         </li>
+
+                        <li class="nav-item " id="reports">
+                            <a class="nav-link" href="admin_dashboard.php"><span class="puti-header ">Reports</span></a>
+                        </li>
                         
-                        <li class="nav-item " id="pets">
-                            <a class="nav-link" href=""><span class="puti-header ">Pets</span></a>
-                        </li>
-                        <li class="nav-item " id="users">
-                            <a class="nav-link" href="admin_dashboard.php"><span class="puti-header ">Users</span></a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="puti-header igitna-pic">
@@ -58,8 +52,8 @@
 
 
                                 <li><a class="dropdown-item" href="#" style="margin-left: 0; text-transform: capitalize; font-weight:bold; font-size: 1.1em;"><?php
-                                echo $_SESSION['username'];
-                                ?>
+                                                                                                                                                                echo $_SESSION['username'];
+                                                                                                                                                                ?>
                                     </a></li>
                                 <hr class="dropdown-divider" style="color: black;">
                         </li>

@@ -41,6 +41,8 @@ if (isset($_GET['pet_id'])) {
             $pet_description = $row['description'];
             $pet_breed = $row['breed'];
             $pet_user = $row['userID'];
+
+            
         }
     } else {
         echo "<script>alert('No such Pet ID!!')</script>";
@@ -102,6 +104,7 @@ $_SESSION['coverPetPic'] = $pet_photo;
                 <div class="name">Name: <span><?php echo $pet_name ?></span></div>
                 <div class="name">Age: <span><?php echo date("Y") - $pet_age ?></span></div>
                 <div class="name">Gender: <span><?php echo $pet_sex ?></span></div>
+                <div class="name">Owner: <span><?php echo $pet_user ?></span></div>
                 <div class="name">Description:
                     <span><?php echo $pet_description ?></span>
                 </div>
@@ -112,13 +115,13 @@ $_SESSION['coverPetPic'] = $pet_photo;
                     <div class="go_back">
                         <div style="color: red;">This is your pet.</div>
                         <a href="my_pets.php"><input type="button" value="Posted" class="btn btn-primary back_button"></a>
-
+                        
                     </div>
                 <?php
                 } else {
                 ?>
                     <div class="go_back">
-                        <a href=""><input type="button" value="Message Owner" class="btn btn-primary back_button"></a>
+                        <a href="chat_box.php?pet_user=<?php echo $pet_user ?>"><input type="button" value="Message Owner" class="btn btn-primary back_button"></a>
 
                     </div>
                 <?php

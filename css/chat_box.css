@@ -1,0 +1,41 @@
+.message_who {
+    background-image: url("../admin/images/furAdmin.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.chat_box{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.chat_field{
+    width: 100%;
+    min-height: 40vh;
+    margin: 2em 0 1em 0;
+}
+
+.name_of_message{
+    font-size:xx-large;
+}
+
+
+
+#photo_id{
+    /* display: none; */
+    border: 10px solid transparent;
+    border-radius: 50%;
+    border-image: 50 round;
+    width: 8em;
+    height: 8em;
+}

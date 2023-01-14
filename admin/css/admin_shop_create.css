@@ -1,0 +1,43 @@
+.shop {
+    background-image: url("../images/furAdmin.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(200, 196, 192, 0.99);
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+}
+
+.list_shop {
+    width: 90%;
+    min-height: 100vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5em 0 0 0;
+    background-color: rgba(87, 73, 33, 0.397);
+
+}
+form{
+    width: 100%;
+}
+
+.form{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+#backTo{
+    height: 3em;
+    width: 3em;
+}
+
+.shop_short_details,
+.services,
+.description{
+    flex: 1;
+}
+
