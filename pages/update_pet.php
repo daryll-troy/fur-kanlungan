@@ -271,6 +271,10 @@ if (isset($_POST['btn_update_pet'])) {
 
     </div>
     <script src="../js/update_pet.js"></script>
+
+    <script>
+        document.getElementById('my_pets').style.backgroundColor = 'rgb(' + 85 + ',' + 48 + ',' + 8 + ',' + 0.918 + ')';
+    </script>
 </body>
 
 </html>

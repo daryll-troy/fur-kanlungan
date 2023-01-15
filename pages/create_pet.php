@@ -263,6 +263,10 @@ if (isset($_POST['btn_create_pet'])) {
     <!-- For choosing the appropriate breeds based on the pet category -->
     <script src="../js/create_pet.js"></script>
     <script src="../js/test.js"></script>
+
+    <script>
+        document.getElementById('my_pets').style.backgroundColor = 'rgb(' + 85 + ',' + 48 + ',' + 8 + ',' + 0.918 + ')';
+    </script>
 </body>
 
 </html>

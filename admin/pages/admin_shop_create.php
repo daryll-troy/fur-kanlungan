@@ -11,7 +11,7 @@ if (!isset($_SESSION['adminID'])) {
 
 <!-- Create the shop now -->
 <?php
-if (isset($_POST['btn_create_pet'])) {
+if (isset($_POST['btn_create_shop'])) {
     // get the post variables
     $name = trim(htmlspecialchars(strtolower($_POST['name'])));
     $email = trim(htmlspecialchars(strtolower($_POST['email'])));
@@ -43,94 +43,80 @@ if (isset($_POST['btn_create_pet'])) {
     // check file size
     if ($_FILES['upload_pics']['size'] > 5000000) {
 
-        $sql = "INSERT INTO shop(shop_name, email, owner, muniID, contact_no
-        open_hours, services, description) VALUES(?, ?, ?, ? ,? ,? , ?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param(
-            "sssissss",
-            $name,
-            $email,
-            $owner,
-            $muniID,
-            $contact,
-            $open_hours,
-            $services,
-            $description
-        );
-        $stmt->execute();
-    //     try {
+       
+        try {
             
-    //         $sql = "INSERT INTO shop(shop_name, email, owner, muniID, contact_no
-    //         open_hours, services, description) VALUES(?, ?, ?, ? ,? ,? , ?, ?)";
-    //         $stmt = $conn->prepare($sql);
-    //         $stmt->bind_param(
-    //             "sssissss",
-    //             $name,
-    //             $email,
-    //             $owner,
-    //             $muniID,
-    //             $contact,
-    //             $open_hours,
-    //             $services,
-    //             $description
-    //         );
-    //         $stmt->execute();
+            $sql = "INSERT INTO shop(shop_name, email, owner, muniID, contact_no,
+            open_hours, services, description) VALUES(?, ?, ?, ? ,? ,? , ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param(
+                "sssissss",
+                $name,
+                $email,
+                $owner,
+                $muniID,
+                $contact,
+                $open_hours,
+                $services,
+                $description
+            );
+            $stmt->execute();
 
            
-    //     } catch (Exception $stmt) {
-    //         echo "Ang error ay: " . $conn->error;
-    //     } finally {
+        } catch (Exception $stmt) {
+            echo "Ang error ay: " . $conn->error;
+        } finally {
 
-    //         // get each file name in $_FILES
-    //         foreach ($_FILES['upload_pics']['name'] as $key => $val) {
-    //             // File upload path 
-    //             $fileName = basename($_FILES['upload_pics']['name'][$key]);
-    //             $targetFilePath = $targetDir . $fileName;
+            // get each file name in $_FILES
+            foreach ($_FILES['upload_pics']['name'] as $key => $val) {
+                // File upload path 
+                $fileName = basename($_FILES['upload_pics']['name'][$key]);
+                $targetFilePath = $targetDir . $fileName;
 
-    //             // Check whether file type is valid 
-    //             $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
-    //             if (in_array($fileType, $allowTypes)) {
-    //                 // Upload file to server 
-    //                 if (move_uploaded_file($_FILES["upload_pics"]["tmp_name"][$key], $targetFilePath)) {
+                // Check whether file type is valid 
+                $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+                if (in_array($fileType, $allowTypes)) {
+                    // Upload file to server 
+                    if (move_uploaded_file($_FILES["upload_pics"]["tmp_name"][$key], $targetFilePath)) {
 
-    //                     // shopID variable
-    //                     $shopID = "";
+                        // shopID variable
+                        $shopID = "";
 
-    //                     // get the shop id of this newly created shop
-    //                     $getShopID = "SELECT shopID FROM shop WHERE shop_name = '$name' AND email = '$email' AND  owner = '$owner' AND  muniID = $muniID
-    //                                    AND contact_no = '$contact' AND  open_hours = '$open_hours' AND  services = '$services'  AND  description = '$description' ";
-    //                     $result = $conn->query($getShopID);
-    //                     if ($result->num_rows > 0) {
-    //                         // output data of each row
-    //                         while ($row = $result->fetch_assoc()) {
-    //                             $shopID = $row['shopID'];
-    //                         }
-    //                     } else {
-    //                         echo $conn->error;
-    //                     }
+                        // get the shop id of this newly created shop
+                        $getShopID = "SELECT shopID FROM shop WHERE shop_name = '$name' AND email = '$email' AND  owner = '$owner' AND  muniID = $muniID
+                                       AND contact_no = '$contact' AND  open_hours = '$open_hours' AND  services = '$services'  AND  description = '$description' ";
+                        $result = $conn->query($getShopID);
+                        if ($result->num_rows > 0) {
+                            // output data of each row
+                            while ($row = $result->fetch_assoc()) {
+                                $shopID = $row['shopID'];
+                            }
+                        } else {
+                            echo $conn->error;
+                        }
 
-    //                     // upload pet photos to pet_photo
-    //                     $stmt = $conn->prepare("INSERT INTO shop_photo(photo, shopID) VALUES ( ?, ?)");
-    //                     $stmt->bind_param("si", $fileName, $shopID);
-    //                     $stmt->execute();
-    //                 } else {
-    //                     $errorUpload .= $_FILES['upload_pics']['name'][$key] . ' | ';
-    //                     echo $errorUpload;
-    //                 }
-    //             } else {
-    //                 $errorUploadType .= $_FILES['upload_pics']['name'][$key] . ' | ';
-    //                 echo $errorUploadType;
-    //             }
-    //         }
-    //         $conn->close();
+                        // upload shop photos to shop_photo
+                        $stmt = $conn->prepare("INSERT INTO shop_photo(photo, shopID) VALUES ( ?, ?)");
+                        $stmt->bind_param("si", $fileName, $shopID);
+                        $stmt->execute();
+                    } else {
+                        $errorUpload .= $_FILES['upload_pics']['name'][$key] . ' | ';
+                        echo $errorUpload;
+                    }
+                } else {
+                    $errorUploadType .= $_FILES['upload_pics']['name'][$key] . ' | ';
+                    echo $errorUploadType;
+                }
+            }
+            $conn->close();
 
-    //         echo "<script>
-    //         window.location.href='my_pets.php';
-    //         </script>";
-    //         exit();
-    //     }
-    // } else {
-    //     echo '<script>alert("File size limit: 5MB")</script>';
+            echo "<script>
+            window.location.href='admin_shop.php';
+            </script>";
+            exit();
+        }
+    } else {
+        echo '<script>alert("File size limit: 5MB")</script>';
         
         
     }
@@ -169,10 +155,10 @@ if (isset($_POST['btn_create_pet'])) {
     <?php include_once 'admin_header.php'; ?>
     <div class="shop min-vh-100">
         <div class="list_shop">
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="create_pet_form" method="post" enctype="multipart/form-data">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="create_shop_form" method="post" enctype="multipart/form-data">
                 <div class="form">
                     <div class="shop_short_details">
-                        <div> <img src="../../images/backTo.png" id="backTo" onclick="history.back()"></div>
+                        <div> <img src="../../images/backTo.png" id="backTo" onclick="window.location.href = 'admin_shop.php'"></div>
                         <div id="title">
                             <h4 class="mb-4">Create Shop</h4>
                         </div>
@@ -214,7 +200,7 @@ if (isset($_POST['btn_create_pet'])) {
                                     echo "<option value='$get_muni_name' id='get_muni_name'>$get_muni_name</option>";
                                 }
                             } else {
-                                // echo "0 results";
+                                echo "0 muni_name results";
                             }
 
                             ?>
@@ -254,7 +240,7 @@ if (isset($_POST['btn_create_pet'])) {
                 </div>
                 <!-- Create button -->
                 <div class="create_button  mt-4">
-                    <input type="submit" class="btn btn-primary btn_create_pet" name="btn_create_pet" id="btn_create_pet" value="Create">
+                    <input type="submit" class="btn btn-primary btn_create_shop" name="btn_create_shop" id="btn_create_shop" value="Create">
                 </div>
             </form>
         </div>

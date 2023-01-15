@@ -23,52 +23,52 @@ if (!isset($_SESSION['userID'])) {
 if (isset($_POST['btn_delete_pet'])) {
     $_POST['petID'] = $_SESSION['petID'];
     // try {
-        // copy pet_photo to deledopted_photo
-        $sql = "
+    // copy pet_photo to deledopted_photo
+    $sql = "
  INSERT INTO deledopted_photo SELECT * FROM pet_photo WHERE petID = ? 
  ";
-        $result = $conn->prepare($sql);
-        $result->bind_param("i", $_POST['petID']);
-        $result->execute();
+    $result = $conn->prepare($sql);
+    $result->bind_param("i", $_POST['petID']);
+    $result->execute();
 
 
 
-        // delete photos from pet_photo
-        $sql = "
+    // delete photos from pet_photo
+    $sql = "
         DELETE  FROM pet_photo WHERE petID = ?
         ";
-        $result = $conn->prepare($sql);
-        $result->bind_param("i", $_POST['petID']);
-        $result->execute();
+    $result = $conn->prepare($sql);
+    $result->bind_param("i", $_POST['petID']);
+    $result->execute();
 
-        // copy pet to deledopted
-        $sql = "
+    // copy pet to deledopted
+    $sql = "
     INSERT INTO deledopted SELECT * FROM pet WHERE petID = ? 
     ";
-        $result = $conn->prepare($sql);
-        $result->bind_param("i", $_POST['petID']);
-        $result->execute();
+    $result = $conn->prepare($sql);
+    $result->bind_param("i", $_POST['petID']);
+    $result->execute();
 
-        // delete pet from pet
-        $sql = "
+    // delete pet from pet
+    $sql = "
     DELETE  FROM pet WHERE petID = ?
     ";
-        $result = $conn->prepare($sql);
-        $result->bind_param("i", $_POST['petID']);
-        $result->execute();
+    $result = $conn->prepare($sql);
+    $result->bind_param("i", $_POST['petID']);
+    $result->execute();
 
 
-        $conn->close();
-        // unset session variable 
-        unset($_SESSION["petID"]);
+    $conn->close();
+    // unset session variable 
+    unset($_SESSION["petID"]);
 
-        // echo "<script>alert('Pet Deleted!')</script>";
+    // echo "<script>alert('Pet Deleted!')</script>";
 
-        // head back to my_pets.php
-        echo "<script>
+    // head back to my_pets.php
+    echo "<script>
                 window.location.href='my_pets.php';
                 </script>";
-        exit();
+    exit();
     // } catch (Exception $result) {
     //     // echo "
     //     //     <script>alert(" . $conn->error . ");</script> ";
@@ -102,7 +102,7 @@ if (isset($_POST['btn_delete_pet'])) {
 </head>
 
 <body>
-    <?php //include "header.php" ?>
+    <?php include "header.php" ?>
     <div class="delete_pets min-vh-100">
 
         <div id="layer">
@@ -112,7 +112,7 @@ if (isset($_POST['btn_delete_pet'])) {
                     <div id="title_div">
                         <h4 class="mb-4" style="text-transform:capitalize;">delete <?php
                                                                                     // display the name of the pet
-                                                                                    
+
                                                                                     $getID = $_GET['pet_id'];
                                                                                     $sql = "SELECT petID, name FROM pet WHERE petID = '$getID'";
                                                                                     $result = $conn->query($sql);
@@ -153,23 +153,27 @@ if (isset($_POST['btn_delete_pet'])) {
                 </div>
 
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="delete_pet_form" method="post">
-                   
+
 
                     <!-- delete button -->
                     <div class=" delete_button mb-2">
-                    <input type="submit" class="btn btn-primary btn_delete_pet" name="btn_delete_pet" id="btn_delete_pet" value="Delete">
-            </div>
+                        <input type="submit" class="btn btn-primary btn_delete_pet" name="btn_delete_pet" id="btn_delete_pet" value="Delete">
+                    </div>
 
-            <!-- cancel button -->
-            <div class="cancel_button mb-2">
-                <a href="my_pets.php">
-                    <input type="button" class="btn btn-primary btn_cancel_pet" name="btn_cancel_pet" id="btn_cancel_pet" value="Cancel">
-                </a>
+                    <!-- cancel button -->
+                    <div class="cancel_button mb-2">
+                        <a href="my_pets.php">
+                            <input type="button" class="btn btn-primary btn_cancel_pet" name="btn_cancel_pet" id="btn_cancel_pet" value="Cancel">
+                        </a>
+                    </div>
+                </form>
             </div>
-            </form>
         </div>
     </div>
-    </div>
+
+    <script>
+        document.getElementById('my_pets').style.backgroundColor = 'rgb(' + 85 + ',' + 48 + ',' + 8 + ',' + 0.918 + ')';
+    </script>
 </body>
 
 </html>

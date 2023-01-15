@@ -9,9 +9,117 @@ if (!isset($_SESSION['adminID'])) {
 
 ?>
 
-
+<!-- create the clinic -->
 <?php
 
+if (isset($_POST['btn_create_clinic'])) {
+    // get the post variables
+    $name = trim(htmlspecialchars(strtolower($_POST['name'])));
+    $email = trim(htmlspecialchars(strtolower($_POST['email'])));
+    $owner = trim(htmlspecialchars(strtolower($_POST['owner'])));
+    $municipality = trim(htmlspecialchars(strtolower($_POST['municipality'])));
+    $contact = trim(htmlspecialchars(strtolower($_POST['contact'])));
+    $open_hours = trim(htmlspecialchars(strtolower($_POST['open_hours'])));
+    $services = trim(htmlspecialchars(strtolower($_POST['services'])));
+    $description = trim(htmlspecialchars(strtolower($_POST['description'])));
+
+    // holds the munID
+    $muniID = "";
+
+    // get the municipality id based from the muni_name input
+    $sql = "SELECT muniID FROM municipality WHERE muni_name = '$municipality'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $muniID = $row['muniID'];
+    }
+
+
+
+
+    // check file size
+    if ($_FILES['upload_pics']['size'] > 5000000) {
+
+
+        try {
+
+            $sql = "INSERT INTO clinic(clinic_name, email, owner, muniID, contact_no,
+            open_hours, services, description) VALUES(?, ?, ?, ? ,? ,? , ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param(
+                "sssissss",
+                $name,
+                $email,
+                $owner,
+                $muniID,
+                $contact,
+                $open_hours,
+                $services,
+                $description
+            );
+            $stmt->execute();
+        } catch (Exception $stmt) {
+            echo "Ang error ay: " . $conn->error;
+        } finally {
+
+            // File upload configuration 
+            $targetDir = "C:/xampp/htdocs/fur-kanlungan/images/clinic_pics/";
+            $allowTypes = array('jpg', 'png', 'jpeg');
+            $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';
+            $upload_pics = array_filter($_FILES['upload_pics']['name']);
+
+            // get each file name in $_FILES
+            foreach ($_FILES['upload_pics']['name'] as $key => $val) {
+                // File upload path 
+                $fileName = basename($_FILES['upload_pics']['name'][$key]);
+                $targetFilePath = $targetDir . $fileName;
+
+                // Check whether file type is valid 
+                $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+                if (in_array($fileType, $allowTypes)) {
+                    // Upload file to server 
+                    if (move_uploaded_file($_FILES["upload_pics"]["tmp_name"][$key], $targetFilePath)) {
+
+                        // clinicID variable
+                        $clinicID = "";
+
+                        // get the clinic id of this newly created clinic
+                        $getclinicID = "SELECT clinicID FROM clinic WHERE clinic_name = '$name' AND email = '$email' AND  owner = '$owner' AND  muniID = $muniID
+                                       AND contact_no = '$contact' AND  open_hours = '$open_hours' AND  services = '$services'  AND  description = '$description' ";
+                        $result = $conn->query($getclinicID);
+                        if ($result->num_rows > 0) {
+                            // output data of each row
+                            while ($row = $result->fetch_assoc()) {
+                                $clinicID = $row['clinicID'];
+                            }
+                        } else {
+                            echo $conn->error;
+                        }
+
+                        // upload clinic photos to clinic_photo
+                        $stmt = $conn->prepare("INSERT INTO clinic_photo(photo, clinicID) VALUES ( ?, ?)");
+                        $stmt->bind_param("si", $fileName, $clinicID);
+                        $stmt->execute();
+                    } else {
+                        $errorUpload .= $_FILES['upload_pics']['name'][$key] . ' | ';
+                        echo $errorUpload;
+                    }
+                } else {
+                    $errorUploadType .= $_FILES['upload_pics']['name'][$key] . ' | ';
+                    echo $errorUploadType;
+                }
+            }
+            $conn->close();
+
+            echo "<script>
+            window.location.href='admin_clinic.php';
+            </script>";
+            exit();
+        }
+    } else {
+        echo '<script>alert("File size limit: 5MB")</script>';
+    }
+}
 ?>
 
 <html lang="en">
@@ -46,10 +154,10 @@ if (!isset($_SESSION['adminID'])) {
     <?php include_once 'admin_header.php'; ?>
     <div class="clinic min-vh-100">
         <div class="list_clinic">
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="create_pet_form" method="post" enctype="multipart/form-data">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="create_clinic_form" method="post" enctype="multipart/form-data">
                 <div class="form">
                     <div class="clinic_short_details">
-                        <div> <img src="../../images/backTo.png" id="backTo" onclick="history.back()"></div>
+                        <div> <img src="../../images/backTo.png" id="backTo" onclick="window.location.href = 'admin_clinic.php'"></div>
                         <div id="title">
                             <h4 class="mb-4">Create clinic</h4>
                         </div>
@@ -102,6 +210,12 @@ if (!isset($_SESSION['adminID'])) {
 
                         </select>
 
+
+                        <!-- Upload pics of the clinic -->
+                        <label for="upload_pics" class="form-label mt-2">Upload Photos</label>
+                        <input class=" form-control" type="file" id="upload_pics" name="upload_pics[]" multiple accept=".jpg, .png, .jpeg">
+                        <div class="mb-2"> <small id="upload_pics_err" style="color: red;"></small></div>
+
                         <!-- contact -->
                         <div class="contact_cont">
                             <label for="contact" class="form-label  mt-2">Contact</label>
@@ -121,22 +235,25 @@ if (!isset($_SESSION['adminID'])) {
                     </div>
                     <!-- services -->
                     <div class="services">
-                    <label for="services" class="form-label">Services</label>
+                        <label for="services" class="form-label">Services</label>
                         <textarea name="services" id="services" cols="30" rows="10"></textarea>
                     </div>
                     <div class="description">
-                    <label for="description" class="form-label">Description</label>
+                        <label for="description" class="form-label">Description</label>
                         <textarea name="description" id="description" cols="30" rows="10"></textarea>
                     </div>
+                </div>
+
+                <!-- Create button -->
+                <div class="create_button  mt-4">
+                    <input type="submit" class="btn btn-primary btn_create_clinic" name="btn_create_clinic" id="btn_create_clinic" value="Create">
                 </div>
             </form>
         </div>
     </div>
 
     <script>
-        
-            document.getElementById('clinic').style.backgroundColor = 'rgb(' + 85 + ',' + 48 + ',' + 8 + ',' + 0.918 + ')';
-        
+        document.getElementById('clinic').style.backgroundColor = 'rgb(' + 85 + ',' + 48 + ',' + 8 + ',' + 0.918 + ')';
     </script>
 
     <!-- map script  -->

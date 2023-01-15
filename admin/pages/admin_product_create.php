@@ -9,9 +9,119 @@ if (!isset($_SESSION['adminID'])) {
 
 ?>
 
-
+<!-- create the product -->
 <?php
 
+if (isset($_POST['btn_create_product'])) {
+    // get the post variables
+    $name = trim(htmlspecialchars(strtolower($_POST['name'])));
+    $price = trim(htmlspecialchars(strtolower($_POST['price'])));
+    $pet_category = trim(htmlspecialchars(strtolower($_POST['pet_category'])));
+    $shop_name = trim(htmlspecialchars(strtolower($_POST['shop_name'])));
+    $description = trim(htmlspecialchars(strtolower($_POST['description'])));
+
+
+    $shopID = $pcID = "";
+
+    //  get the shop id
+    $sql = "SELECT shopID from shop WHERE shop_name = '$shop_name'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $shopID = $row['shopID'];
+        }
+    } else {
+?>
+        <script>
+            alert("Failed getting the shopID")
+        </script>
+    <?php
+    }
+
+    // get the pcID
+    $sql = "SELECT pcID from pet_category WHERE animal_type = '$pet_category'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $pcID = $row['pcID'];
+        }
+    } else {
+    ?>
+        <script>
+            alert("Failed getting the pcID")
+        </script>
+<?php
+    }
+
+    // check file size
+    if ($_FILES['upload_pics']['size'] > 5000000) {
+        try {
+
+            $sql = "INSERT INTO product(prod_name, price, description, shopID, pcID) VALUES(?, ?, ?, ? ,? )";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param(
+                "sisii",
+                $name,
+                $price,
+                $description,
+                $shopID,
+                $pcID
+            );
+            $stmt->execute();
+        } catch (Exception $stmt) {
+            echo "Ang error ay: " . $conn->error;
+        } finally {
+            // File upload configuration 
+            $targetDir = "C:/xampp/htdocs/fur-kanlungan/images/product_pics/";
+            $allowTypes = array('jpg', 'png', 'jpeg');
+            $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';
+            $upload_pics = array_filter($_FILES['upload_pics']['name']);
+
+            // get each file name in $_FILES
+            foreach ($_FILES['upload_pics']['name'] as $key => $val) {
+                // File upload path 
+                $fileName = basename($_FILES['upload_pics']['name'][$key]);
+                $targetFilePath = $targetDir . $fileName;
+
+                // Check whether file type is valid 
+                $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+                if (in_array($fileType, $allowTypes)) {
+                    // Upload file to server 
+                    if (move_uploaded_file($_FILES["upload_pics"]["tmp_name"][$key], $targetFilePath)) {
+                        // get the product id of this product based from the newly unique prod_name inserted
+                        $prod_id = "";
+
+                        $query_prodID = "SELECT prodID FROM product WHERE prod_name = '$name'";
+                        $result = $conn->query($query_prodID);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                $prod_id = $row['prodID'];
+                            }
+                        } else {
+                            echo $conn->error;
+                        }
+
+                        // upload product photos to product_photo
+                        $stmt = $conn->prepare("INSERT INTO product_photo(photo, prodID) VALUES ( ?, ?)");
+                        $stmt->bind_param("si", $fileName, $prod_id);
+                        $stmt->execute();
+                    } else {
+                        $errorUpload .= $_FILES['upload_pics']['name'][$key] . ' | ';
+                        echo $errorUpload;
+                    }
+                }
+                $conn->close();
+
+                echo "<script>
+            window.location.href='admin_product.php';
+            </script>";
+                exit();
+            }
+        }
+    } else {
+        echo '<script>alert("File size limit: 5MB")</script>';
+    }
+}
 ?>
 
 <html lang="en">
@@ -49,7 +159,7 @@ if (!isset($_SESSION['adminID'])) {
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="create_pet_form" method="post" enctype="multipart/form-data">
                 <div class="form">
                     <div class="product_short_details">
-                        <div> <img src="../../images/backTo.png" id="backTo" onclick="history.back()"></div>
+                        <div> <img src="../../images/backTo.png" id="backTo" onclick="window.location.href = 'admin_product.php'"></div>
                         <div id="title">
                             <h4 class="mb-4">Create product</h4>
                         </div>
@@ -104,12 +214,18 @@ if (!isset($_SESSION['adminID'])) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     $shop_name = $row["shop_name"];
                             ?>
-                                    <option value='shop_name' id='shop_name'><?php echo $shop_name; ?> </option>
+                                    <option value='<?php echo $shop_name; ?> ' id='shop_name'><?php echo $shop_name; ?> </option>
                             <?php
                                 }
                             }
                             ?>
                         </select>
+
+                        <!-- Upload pics of the product -->
+                        <label for="upload_pics" class="form-label mt-2">Upload Photos</label>
+                        <input class=" form-control" type="file" id="upload_pics" name="upload_pics[]" multiple accept=".jpg, .png, .jpeg">
+                        <div class="mb-2"> <small id="upload_pics_err" style="color: red;"></small></div>
+
                     </div>
 
                     <!-- services -->
@@ -118,6 +234,11 @@ if (!isset($_SESSION['adminID'])) {
                         <label for="description" class="form-label">Description</label>
                         <textarea name="description" id="description" cols="30" rows="10"></textarea>
                     </div>
+                </div>
+
+                <!-- Create button -->
+                <div class="create_button  mt-4">
+                    <input type="submit" class="btn btn-primary btn_create_product" name="btn_create_product" id="btn_create_product" value="Create">
                 </div>
             </form>
         </div>

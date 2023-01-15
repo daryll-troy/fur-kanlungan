@@ -77,13 +77,13 @@ if (!isset($_SESSION['adminID'])) {
 
                             $pcID = $row['pcID'];
                             $sql = "SELECT pc.animal_type FROM pet_category AS pc
-                            INNER JOIN product AS pro ON pro.pcID = pc.pcID WHERE pc.pcID = $pcID
+                            INNER JOIN product AS pro ON pro.pcID = pc.pcID WHERE pc.pcID = $pcID LIMIT 1
                             ";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
-                                while ($anima_type = $result->fetch_assoc()) {
+                                while ($animal_type = $result->fetch_assoc()) {
                             ?>
-                                    <div class="animal_type"><?php echo $anima_type['animal_type']; ?></div>
+                                    <div class="animal_type"><?php echo $animal_type['animal_type']; ?></div>
                             <?php
                                 }
                             }
@@ -93,7 +93,7 @@ if (!isset($_SESSION['adminID'])) {
 
                             $shopID = $row['shopID'];
                             $sql = "SELECT shop.shop_name FROM shop 
-                            INNER JOIN product ON product.shopId = shop.shopID WHERE shop.shopID = $shopID
+                            INNER JOIN product ON product.shopId = shop.shopID WHERE product.shopID = $shopID LIMIT 1
                             ";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
