@@ -9,9 +9,132 @@ if (!isset($_SESSION['adminID'])) {
 
 ?>
 
-
+<!-- Create the shop now -->
 <?php
+if (isset($_POST['btn_create_pet'])) {
+    // get the post variables
+    $name = trim(htmlspecialchars(strtolower($_POST['name'])));
+    $email = trim(htmlspecialchars(strtolower($_POST['email'])));
+    $owner = trim(htmlspecialchars(strtolower($_POST['owner'])));
+    $municipality = trim(htmlspecialchars(strtolower($_POST['municipality'])));
+    $contact = trim(htmlspecialchars(strtolower($_POST['contact'])));
+    $open_hours = trim(htmlspecialchars(strtolower($_POST['open_hours'])));
+    $services = trim(htmlspecialchars(strtolower($_POST['services'])));
+    $description = trim(htmlspecialchars(strtolower($_POST['description'])));
 
+    // holds the munID
+    $muniID = "";
+
+    // get the municipality id based from the muni_name input
+    $sql = "SELECT muniID FROM municipality WHERE muni_name = '$municipality'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $muniID = $row['muniID'];
+    }
+
+
+    // File upload configuration 
+    $targetDir = "C:/xampp/htdocs/fur-kanlungan/images/shop_pics/";
+    $allowTypes = array('jpg', 'png', 'jpeg');
+    $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';
+    $upload_pics = array_filter($_FILES['upload_pics']['name']);
+
+    // check file size
+    if ($_FILES['upload_pics']['size'] > 5000000) {
+
+        $sql = "INSERT INTO shop(shop_name, email, owner, muniID, contact_no
+        open_hours, services, description) VALUES(?, ?, ?, ? ,? ,? , ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param(
+            "sssissss",
+            $name,
+            $email,
+            $owner,
+            $muniID,
+            $contact,
+            $open_hours,
+            $services,
+            $description
+        );
+        $stmt->execute();
+    //     try {
+            
+    //         $sql = "INSERT INTO shop(shop_name, email, owner, muniID, contact_no
+    //         open_hours, services, description) VALUES(?, ?, ?, ? ,? ,? , ?, ?)";
+    //         $stmt = $conn->prepare($sql);
+    //         $stmt->bind_param(
+    //             "sssissss",
+    //             $name,
+    //             $email,
+    //             $owner,
+    //             $muniID,
+    //             $contact,
+    //             $open_hours,
+    //             $services,
+    //             $description
+    //         );
+    //         $stmt->execute();
+
+           
+    //     } catch (Exception $stmt) {
+    //         echo "Ang error ay: " . $conn->error;
+    //     } finally {
+
+    //         // get each file name in $_FILES
+    //         foreach ($_FILES['upload_pics']['name'] as $key => $val) {
+    //             // File upload path 
+    //             $fileName = basename($_FILES['upload_pics']['name'][$key]);
+    //             $targetFilePath = $targetDir . $fileName;
+
+    //             // Check whether file type is valid 
+    //             $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+    //             if (in_array($fileType, $allowTypes)) {
+    //                 // Upload file to server 
+    //                 if (move_uploaded_file($_FILES["upload_pics"]["tmp_name"][$key], $targetFilePath)) {
+
+    //                     // shopID variable
+    //                     $shopID = "";
+
+    //                     // get the shop id of this newly created shop
+    //                     $getShopID = "SELECT shopID FROM shop WHERE shop_name = '$name' AND email = '$email' AND  owner = '$owner' AND  muniID = $muniID
+    //                                    AND contact_no = '$contact' AND  open_hours = '$open_hours' AND  services = '$services'  AND  description = '$description' ";
+    //                     $result = $conn->query($getShopID);
+    //                     if ($result->num_rows > 0) {
+    //                         // output data of each row
+    //                         while ($row = $result->fetch_assoc()) {
+    //                             $shopID = $row['shopID'];
+    //                         }
+    //                     } else {
+    //                         echo $conn->error;
+    //                     }
+
+    //                     // upload pet photos to pet_photo
+    //                     $stmt = $conn->prepare("INSERT INTO shop_photo(photo, shopID) VALUES ( ?, ?)");
+    //                     $stmt->bind_param("si", $fileName, $shopID);
+    //                     $stmt->execute();
+    //                 } else {
+    //                     $errorUpload .= $_FILES['upload_pics']['name'][$key] . ' | ';
+    //                     echo $errorUpload;
+    //                 }
+    //             } else {
+    //                 $errorUploadType .= $_FILES['upload_pics']['name'][$key] . ' | ';
+    //                 echo $errorUploadType;
+    //             }
+    //         }
+    //         $conn->close();
+
+    //         echo "<script>
+    //         window.location.href='my_pets.php';
+    //         </script>";
+    //         exit();
+    //     }
+    // } else {
+    //     echo '<script>alert("File size limit: 5MB")</script>';
+        
+        
+    }
+}
 ?>
 
 <html lang="en">
@@ -78,7 +201,7 @@ if (!isset($_SESSION['adminID'])) {
                         <!-- municipality -->
                         <label for="municipality" class="form-label">Municipality</label>
                         <select class="form-select btn municipality" aria-label="Default select example" id="municipality" name="municipality">
-                            <option value="none">Select municipality</option>
+                            <option value="none">Select Municipality</option>
                             <?php
                             // select all municipality
                             $sql = "SELECT muni_name FROM municipality;";
@@ -95,12 +218,12 @@ if (!isset($_SESSION['adminID'])) {
                             }
 
                             ?>
-                            <!-- MAP -->
-                            <!-- <div id="map"></div> -->
-
-
-
                         </select>
+
+                        <!-- Upload pics of the shop -->
+                        <label for="upload_pics" class="form-label mt-2">Upload Photos</label>
+                        <input class=" form-control" type="file" id="upload_pics" name="upload_pics[]" multiple accept=".jpg, .png, .jpeg">
+                        <div class="mb-2"> <small id="upload_pics_err" style="color: red;"></small></div>
 
                         <!-- contact -->
                         <div class="contact_cont">
@@ -115,28 +238,30 @@ if (!isset($_SESSION['adminID'])) {
                             <input type="text" class="form-control" id="open_hours" placeholder=" open_hours" name="open_hours">
                             <div> <small id="open_hours_err" style="color: red;"></small></div>
                         </div>
-
-
-
                     </div>
+
                     <!-- services -->
                     <div class="services">
-                    <label for="services" class="form-label">Services</label>
+                        <label for="services" class="form-label">Services</label>
                         <textarea name="services" id="services" cols="30" rows="10"></textarea>
                     </div>
                     <div class="description">
-                    <label for="description" class="form-label">Description</label>
+                        <label for="description" class="form-label">Description</label>
                         <textarea name="description" id="description" cols="30" rows="10"></textarea>
                     </div>
+
+
+                </div>
+                <!-- Create button -->
+                <div class="create_button  mt-4">
+                    <input type="submit" class="btn btn-primary btn_create_pet" name="btn_create_pet" id="btn_create_pet" value="Create">
                 </div>
             </form>
         </div>
     </div>
 
     <script>
-        
-            document.getElementById('shop').style.backgroundColor = 'rgb(' + 85 + ',' + 48 + ',' + 8 + ',' + 0.918 + ')';
-        
+        document.getElementById('shop').style.backgroundColor = 'rgb(' + 85 + ',' + 48 + ',' + 8 + ',' + 0.918 + ')';
     </script>
 
     <!-- map script  -->

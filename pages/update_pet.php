@@ -11,21 +11,25 @@ if (!isset($_SESSION['userID'])) {
 }
 
 // check if $_GET['pet_id'] is owned by the logged in user
-$get_petID = $_GET['pet_id'];
-$sql = "SELECT userID FROM pet WHERE petID = $get_petID";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        if ($row['userID'] != $_SESSION['userID']) {
+
+// $get_petID = $_GET['pet_id'];
+
+// $sql = "SELECT userID FROM pet WHERE petID = $get_petID";
+// $result = $conn->query($sql);
+// if ($result->num_rows > 0) {
+//     while ($row = $result->fetch_assoc()) {
+//         if ($row['userID'] != $_SESSION['userID']) {
 
 
-            echo ' <script>alert("You cannot do that here boy..tsk tsk");</script>';
-            echo '<script>window.location.href = "my_pets.php"</script>';
-            // header("location: my_pets.php");
-            exit();
-        }
-    }
-}
+//             echo ' <script>alert("You cannot do that here boy..tsk tsk");</script>';
+//             echo '<script>window.location.href = "my_pets.php"</script>';
+           
+//             // exit();
+//         }
+//     }
+// }
+
+
 
 ?>
 
@@ -35,6 +39,7 @@ if ($result->num_rows > 0) {
 if (isset($_POST['btn_update_pet'])) {
     //get the description value from the text area input field
     $description = trim(htmlspecialchars($_POST['description']));
+    $vaccinated = trim(htmlspecialchars($_POST['vaccinated']));
     // get petID from the database
     $getID = "";
 
@@ -48,7 +53,7 @@ if (isset($_POST['btn_update_pet'])) {
     if ($_FILES['upload_pics']['size'] > 5000000) {
         try {
             // validate the id of the $_GET['petID']
-           if (isset($_SESSION['petID'])) {
+            if (isset($_SESSION['petID'])) {
                 $getID = $_SESSION['petID'];
                 $sql = "SELECT petID FROM pet WHERE petID = '$getID'";
                 $result = $conn->query($sql);
@@ -66,10 +71,10 @@ if (isset($_POST['btn_update_pet'])) {
                 }
 
                 // UPDATE THE DESCRIPTION
-                $change_desc = " UPDATE pet SET description = ? WHERE petID = ?";
+                $change_desc = " UPDATE pet SET description = ?, vaccinated = ? WHERE petID = ?";
 
                 $stmt = $conn->prepare($change_desc);
-                $stmt->bind_param("si", $description, $getID);
+                $stmt->bind_param("ssi", $description, $vaccinated, $getID);
                 $stmt->execute();
             }
         } catch (Exception $stmt) {
@@ -100,10 +105,6 @@ if (isset($_POST['btn_update_pet'])) {
                         $stmt->bind_param("si", $fileName, $getID);
                         try {
                             $stmt->execute();
-                            
-                            
-
-                            
                         } catch (Exception $stmt) {
                             $conn->close();
                             echo "<script>alert('An database error occured! :(')</script>";
@@ -112,9 +113,11 @@ if (isset($_POST['btn_update_pet'])) {
                         }
                     } else {
                         $errorUpload .= $_FILES['upload_pics']['name'][$key] . ' | ';
+                        echo $errorUpload;
                     }
                 } else {
                     $errorUploadType .= $_FILES['upload_pics']['name'][$key] . ' | ';
+                    echo $errorUploadType;
                 }
             }
             // let the iteration of file names finish first before exiting the script
@@ -124,7 +127,7 @@ if (isset($_POST['btn_update_pet'])) {
             echo "<script>
             window.location.href='my_pets.php';
             </script>";
-            exit();
+            // exit();
         }
     } else {
         echo '<script>alert("File size limit: 5MB")</script>';
@@ -170,6 +173,23 @@ if (isset($_POST['btn_update_pet'])) {
                                                                                     // display the name of the pet
                                                                                     try {
 
+
+                                                                                        $get_petID = $_GET['pet_id'];
+                                                                                        $sql = "SELECT userID FROM pet WHERE petID = $get_petID";
+                                                                                        $result = $conn->query($sql);
+                                                                                        if ($result->num_rows > 0) {
+                                                                                            while ($row = $result->fetch_assoc()) {
+                                                                                                if ($row['userID'] != $_SESSION['userID']) {
+                                                                                        
+                                                                                        
+                                                                                                    echo ' <script>alert("You cannot do that here boy..tsk tsk");</script>';
+                                                                                                    echo '<script>window.location.href = "my_pets.php"</script>';
+                                                                                                   
+                                                                                                    // exit();
+                                                                                                }
+                                                                                            }
+                                                                                        }
+
                                                                                         $getID = $_GET['pet_id'];
                                                                                         $sql = "SELECT petID, name FROM pet WHERE petID = '$getID'";
                                                                                         $result = $conn->query($sql);
@@ -201,6 +221,16 @@ if (isset($_POST['btn_update_pet'])) {
                     <input class=" form-control" type="file" id="upload_pics" name="upload_pics[]" multiple accept=".jpg, .png, .jpeg">
                     <div class="mb-2"> <small id="upload_pics_err" style="color: red;"></small></div>
 
+                    <!-- vaccine status-->
+                    <div class="vaccinated_cont">
+                        <label for="vaccinated" class="form-label">Vaccinated</label>
+                        <select class="form-select btn vaccinated" aria-label="Default select example" id="vaccinated" name="vaccinated">
+                            <option value="no" class='vaccine_status'> No</option>
+                            <option value="yes" class='vaccine_status'>Yes</option>
+                        </select>
+                        <div class=""> <small id="vaccinated_err" style="color: red;"></small></div>
+                    </div>
+
                     <!-- Description -->
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
@@ -211,7 +241,7 @@ if (isset($_POST['btn_update_pet'])) {
                         $result = $conn->query($sql);
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
-                               
+
                                 $_SESSION['petID'] = $row['petID'];
                             }
                         }

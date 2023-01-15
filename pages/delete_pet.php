@@ -14,22 +14,7 @@ if (!isset($_SESSION['userID'])) {
 }
 
 
-// check if $_GET['pet_id'] is owned by the logged in user
-$get_petID = $_GET['pet_id'];
-$sql = "SELECT userID FROM pet WHERE petID = $get_petID";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        if ($row['userID'] != $_SESSION['userID']) {
 
-
-            echo ' <script>alert("You cannot do that here boy..tsk tsk");</script>';
-            echo '<script>window.location.href = "my_pets.php"</script>';
-            // header("location: my_pets.php");
-            exit();
-        }
-    }
-}
 
 
 
@@ -37,7 +22,7 @@ if ($result->num_rows > 0) {
 // execute when this when submitted to delete
 if (isset($_POST['btn_delete_pet'])) {
     $_POST['petID'] = $_SESSION['petID'];
-    try {
+    // try {
         // copy pet_photo to deledopted_photo
         $sql = "
  INSERT INTO deledopted_photo SELECT * FROM pet_photo WHERE petID = ? 
@@ -84,10 +69,11 @@ if (isset($_POST['btn_delete_pet'])) {
                 window.location.href='my_pets.php';
                 </script>";
         exit();
-    } catch (Exception $result) {
-        echo "
-            <script>alert(" . $conn->error . ");</script> ";
-    }
+    // } catch (Exception $result) {
+    //     // echo "
+    //     //     <script>alert(" . $conn->error . ");</script> ";
+    //     echo"alert('conn->error')";
+    // }
 }
 ?>
 
@@ -116,7 +102,7 @@ if (isset($_POST['btn_delete_pet'])) {
 </head>
 
 <body>
-    <?php include "header.php" ?>
+    <?php //include "header.php" ?>
     <div class="delete_pets min-vh-100">
 
         <div id="layer">
@@ -126,6 +112,7 @@ if (isset($_POST['btn_delete_pet'])) {
                     <div id="title_div">
                         <h4 class="mb-4" style="text-transform:capitalize;">delete <?php
                                                                                     // display the name of the pet
+                                                                                    
                                                                                     $getID = $_GET['pet_id'];
                                                                                     $sql = "SELECT petID, name FROM pet WHERE petID = '$getID'";
                                                                                     $result = $conn->query($sql);
@@ -135,19 +122,37 @@ if (isset($_POST['btn_delete_pet'])) {
                                                                                             $_SESSION['petID'] = $row['petID'];
                                                                                         }
                                                                                     } else {
-                                                                                        $conn->close();
-                                                                                        echo "<script>alert('You cannot do that here boy..tsk tsk')</script>";
-                                                                                        echo "<script>
-                                                                                                window.location.href='my_pets.php';
-                                                                                                </script>";
-                                                                                        exit();
+                                                                                        // $conn->close();
+                                                                                        // echo "<script>alert('You cannot do that here boy..tsk tsk2')</script>";
+                                                                                        // echo "<script>
+                                                                                        //         window.location.href='my_pets.php';
+                                                                                        //         </script>";
+                                                                                        // exit();
+                                                                                    }
+
+
+                                                                                    // // check if $_GET['pet_id'] is owned by the logged in user
+                                                                                    $get_petID = $_GET['pet_id'];
+                                                                                    $sql = "SELECT userID FROM pet WHERE petID = '$get_petID'";
+                                                                                    $result = $conn->query($sql);
+                                                                                    if ($result->num_rows > 0) {
+                                                                                        while ($row = $result->fetch_assoc()) {
+                                                                                            if ($row['userID'] != $_SESSION['userID']) {
+
+
+                                                                                                echo ' <script>alert("You cannot do that here boy..tsk tsk");</script>';
+                                                                                                echo '<script>window.location.href = "my_pets.php"</script>';
+                                                                                                // header("location: my_pets.php");
+                                                                                                exit();
+                                                                                            }
+                                                                                        }
                                                                                     }
                                                                                     ?>
                         </h4>
                     </div>
                 </div>
 
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="delete_pet_form" method="post" ">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="delete_pet_form" method="post">
                    
 
                     <!-- delete button -->

@@ -17,25 +17,25 @@ if (isset($_POST['btn_create_pet'])) {
     //  Sign Up upload to database
 
     // get the post variables
-    $name = htmlspecialchars(strtolower($_POST['name']));
-    $birthyear = (int) htmlspecialchars(strtolower($_POST['birthyear']));
-    $gender = htmlspecialchars(strtolower($_POST['gender']));
+    $name = trim(htmlspecialchars(strtolower($_POST['name'])));
+    $birthyear = trim((int) htmlspecialchars(strtolower($_POST['birthyear'])));
+    $gender = trim(htmlspecialchars(strtolower($_POST['gender'])));
 
-    $pet_category = htmlspecialchars(strtolower($_POST['pet_category']));
-    $breed = htmlspecialchars(strtolower($_POST['breed']));
-
-    $description = htmlspecialchars($_POST['description']);
+    $pet_category = trim(htmlspecialchars(strtolower($_POST['pet_category'])));
+    $breed = trim(htmlspecialchars(strtolower($_POST['breed'])));
+    $vaccinated = trim(htmlspecialchars(strtolower($_POST['vaccinated'])));
+    $description = trim(htmlspecialchars($_POST['description']));
 
     // get the breed id and pc id and pet id later
     $bcID = $pcID = $petID = "";
     // get userID
     $userID = $_SESSION['userID'];
 
-    
+
 
     // File upload configuration 
     $targetDir = "C:/xampp/htdocs/fur-kanlungan/images/pet_pics/";
-    $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+    $allowTypes = array('jpg', 'png', 'jpeg');
     $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';
     $upload_pics = array_filter($_FILES['upload_pics']['name']);
 
@@ -63,11 +63,11 @@ if (isset($_POST['btn_create_pet'])) {
             }
 
             // upload the pet to pet table
-            $stmt = $conn->prepare("INSERT INTO pet(name, age, sex, description, pcID, bcID, userID) VALUES ( ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sissiii", $name, $birthyear, $gender, $description, $pcID, $bcID, $userID);
+            $stmt = $conn->prepare("INSERT INTO pet(name, age, sex, description, pcID, bcID, userID, vaccinated) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sissiiis", $name, $birthyear, $gender, $description, $pcID, $bcID, $userID, $vaccinated);
             $stmt->execute();
         } catch (Exception $stmt) {
-            
+            echo "Ang error ay: " . $conn->error;
         } finally {
 
             // get each file name in $_FILES
@@ -82,6 +82,7 @@ if (isset($_POST['btn_create_pet'])) {
                     // Upload file to server 
                     if (move_uploaded_file($_FILES["upload_pics"]["tmp_name"][$key], $targetFilePath)) {
 
+                        // get the pet id of the this newly created pet just based from the non-image details of this pet
                         $getPetID = "SELECT petID FROM pet WHERE name = '$name' AND age = $birthyear AND  sex = '$gender' AND description = '$description' AND pcID = $pcID AND bcID = $bcID AND userID = $userID";
                         $result = $conn->query($getPetID);
                         if ($result->num_rows > 0) {
@@ -97,15 +98,17 @@ if (isset($_POST['btn_create_pet'])) {
                         $stmt->execute();
                     } else {
                         $errorUpload .= $_FILES['upload_pics']['name'][$key] . ' | ';
+                        echo $errorUpload;
                     }
                 } else {
                     $errorUploadType .= $_FILES['upload_pics']['name'][$key] . ' | ';
+                    echo $errorUploadType;
                 }
             }
 
 
             $conn->close();
-            // echo "<script>alert('Pet Created!')</script>";
+           
             echo "<script>
             window.location.href='my_pets.php';
             </script>";
@@ -134,7 +137,7 @@ if (isset($_POST['btn_create_pet'])) {
     <link rel="stylesheet" href="../css/css-resets.css">
     <!-- css for create_pets.php.php -->
     <link rel="stylesheet" href="../css/create_pet.css">
-  
+
     <!-- css for header.php -->
     <link rel="stylesheet" href="../css/header.css">
     <!-- jquery -->
@@ -223,6 +226,16 @@ if (isset($_POST['btn_create_pet'])) {
                         <label for="breed" class="form-label">Breed</label>
                         <select class="form-select btn breed" aria-label="Default select example" id="breed" name="breed"></select>
                         <div class=""> <small id="breed_err" style="color: red;"></small></div>
+                    </div>
+
+                    <!-- vaccine status-->
+                    <div class="vaccinated_cont">
+                        <label for="vaccinated" class="form-label">Vaccinated</label>
+                        <select class="form-select btn vaccinated" aria-label="Default select example" id="vaccinated" name="vaccinated">
+                            <option value="no" class='vaccine_status'> No</option>
+                            <option value="yes" class='vaccine_status'>Yes</option>
+                        </select>
+                        <div class=""> <small id="vaccinated_err" style="color: red;"></small></div>
                     </div>
 
                     <!-- Upload pics of the pet -->

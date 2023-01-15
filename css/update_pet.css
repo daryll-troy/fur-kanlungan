@@ -62,6 +62,15 @@
 
 #description{
     background-color: rgba(218, 226, 226, 0.603);
+  
+}
+
+.vaccinated {
+    background-color: rgb(160, 153, 153);
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+
 }
 /* update button */
 

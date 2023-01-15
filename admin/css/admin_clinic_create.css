@@ -1,4 +1,4 @@
-.shop {
+.clinic {
     background-image: url("../images/furAdmin.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -13,7 +13,7 @@
     text-align: center;
 }
 
-.list_shop {
+.list_clinic {
     width: 90%;
     min-height: 100vh;
     overflow: auto;
@@ -25,24 +25,20 @@
 
 }
 form{
-    width: 90%;
+    width: 100%;
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgba(244, 195, 147, 0.766);
-    border-radius: 5%;
-    box-shadow: 5px 5px 10px 5px;
-    padding: 2em;
+    justify-content: center;
 }
 
 .form{
-    width: 90%;
+    width: 80%;
     display: flex;
     justify-content: center;
-    gap: 0 1rem;
- 
-   
-   
+    gap: 0 2rem;
+    background-color: rgba(244, 195, 147, 0.766);
+    padding: 2em;
+    border-radius: 5%;
+    box-shadow: 5px 5px 10px 5px;
 }
 
 #backTo{
@@ -56,7 +52,7 @@ form{
     box-shadow: 5px 5px 5px ;
 }
 
-.shop_short_details,
+.clinic_short_details,
 .services,
 .description{
     flex: 1;

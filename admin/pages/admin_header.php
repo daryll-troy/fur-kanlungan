@@ -26,14 +26,14 @@
                     <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll">
 
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><span class="puti-header">Products</span></a>
+                        <li class="nav-item" id="product">
+                            <a class="nav-link" href="admin_product.php"><span class="puti-header">Products</span></a>
                         </li>
                         <li class="nav-item" id="shop">
                             <a class="nav-link" href="admin_shop.php"><span class="puti-header">Shops</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><span class="puti-header">Clinics</span></a>
+                        <li class="nav-item" id="clinic">
+                            <a class="nav-link" href="admin_clinic.php"><span class="puti-header">Clinics</span></a>
                         </li>
 
                         <li class="nav-item " id="reports">

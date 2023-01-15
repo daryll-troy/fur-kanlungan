@@ -1,0 +1,33 @@
+/* The whole my pet info section */
+.shop_info {
+    background-color: rgba(236, 232, 228, 0.99);
+    display: flex;
+    align-items: center;
+
+}
+
+.shop_pics{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(31, 20, 12, 0.904);
+    flex: 1;
+    height: 100vh;
+    position: relative;
+}
+
+
+.serv_desc{
+    background-color:inherit;
+    flex: 0.7;
+   height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+/* back image */
+#backTo {
+    height: 3em;
+    width: 3em;
+}

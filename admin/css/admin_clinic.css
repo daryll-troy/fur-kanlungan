@@ -1,5 +1,5 @@
-/* The whole my shop section */
-.shop {
+/* The whole my clinic section */
+.clinic {
     background-image: url("../images/furAdmin.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -11,7 +11,7 @@
 }
 
 /* create button  container*/
-.create_shop {
+.create_clinic {
     width: 10%;
     border-radius: 5%;
     border-color: black;
@@ -23,12 +23,12 @@
     cursor: pointer;
 }
 
-.create_shop:hover {
+.create_clinic:hover {
     box-shadow: 5px 5px 10px;
 }
 
-/* The inner div horizontally center the shop list */
-.list_shop {
+/* The inner div horizontally center the clinic list */
+.list_clinic {
     width: 90%;
     min-height: 100vh;
     overflow: auto;
@@ -79,8 +79,8 @@
     color: black;
 }
 
-/* each shop row */
-.each_shop {
+/* each clinic row */
+.each_clinic {
     display: grid;
     grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr  1fr 1fr 1fr 0.5fr;
     grid-template-rows: auto;
@@ -91,18 +91,18 @@
     column-gap: 2px;
 }
 
-/* each shop grid item */
-.each_shop>div:nth-child(even) {
+/* each clinic grid item */
+.each_clinic>div:nth-child(even) {
     background-color: rgba(200, 196, 192, 0.99);
 
 }
 
-.each_shop>div:nth-child(odd) {
+.each_clinic>div:nth-child(odd) {
     background-color: rgba(193, 125, 56, 0.99);
 
 }
 
-.each_shop div {
+.each_clinic div {
     text-transform: capitalize;
     grid-row: 1;
     padding: 0.2em;
@@ -120,28 +120,24 @@ font-weight:500;
     word-wrap: break-word;
 }
 
-.each_shop div:hover:not(.btn_delete) {
+.each_clinic div:hover:not(.btn_delete) {
     box-shadow: 5px 5px 15px 5px;
 }
-
-
+/* margin bottom for update icon */
+.update_pet_img{
+    margin-bottom: 0.5em;
+}
 /* btn_delete */
 .btn_delete {
     display: flex;
     flex-direction: column;
 }
 
-/* update icon */
-.update_pet_img{
-    margin-bottom: 0.5em;
-}
-/* delete icon */
 .btn_delete svg {
     height: 1.5rem;
     width: 1.5rem;
     margin-top: 1rem;
 }
-
 
 .btn_delete svg:hover,
 .btn_delete span:hover {

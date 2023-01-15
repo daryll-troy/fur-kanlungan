@@ -1,4 +1,4 @@
-.shop {
+.clinic {
     background-image: url("../images/furAdmin.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -8,12 +8,13 @@
     align-items: center;
     flex-direction: column;
 }
+
 /* center title */
 #title h4{
     text-align: center;
 }
 
-.list_shop {
+.list_clinic {
     width: 90%;
     min-height: 100vh;
     overflow: auto;
@@ -24,27 +25,42 @@
     background-color: rgba(87, 73, 33, 0.397);
 
 }
-form{
-    width: 90%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgba(244, 195, 147, 0.766);
-    border-radius: 5%;
-    box-shadow: 5px 5px 10px 5px;
-    padding: 2em;
-}
 
-.form{
-    width: 90%;
+form{
+    width: 100%;
     display: flex;
     justify-content: center;
-    gap: 0 1rem;
- 
-   
-   
 }
 
+
+.form{
+    width: 80%;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    gap: 0 2rem;
+    background-color: rgba(244, 195, 147, 0.766);
+    padding: 2em;
+    border-radius: 5%;
+    box-shadow: 5px 5px 10px 5px;
+}
+
+.cancel_delete_button{
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+/* delete container */
+/* .delete_cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+
+/* back image */
 #backTo{
     height: 3em;
     width: 3em;
@@ -52,27 +68,7 @@ form{
     border-radius: 50%;
 }
 
-#backTo:hover{
-    box-shadow: 5px 5px 5px ;
-}
-
-.shop_short_details,
-.services,
-.description{
-    flex: 1;
-}
-
-#services,
-#description{
-    width: 100%;
-    height: 95%;
-    background-color: rgba(218, 226, 226, 0.603);
-    border:0;
-}
-
-/* municipality */
-#municipality{
-    background-color: rgb(160, 153, 153);
-    color: aliceblue;
-    text-transform: capitalize;
-}
+/* delete button margin right
+.btn_delete_pet{
+    margin-
+} */
