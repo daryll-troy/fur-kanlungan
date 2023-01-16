@@ -55,6 +55,7 @@
     border-style: solid;
     border-width: 0 3px;
     /* grid-row-gap: 50px; */
+    margin-bottom: 5em;
 }
 
 /* container of the column headers */

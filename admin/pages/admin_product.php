@@ -145,7 +145,7 @@ if (!isset($_SESSION['adminID'])) {
         }
 
         function goToUpdateProduct(shopID) {
-            window.location.href = "admin_product_update.php?shopID=" + shopID;
+            window.location.href = "admin_product_update.php?prodID=" + shopID ;
         }
 
         function goToproductPic(productID) {

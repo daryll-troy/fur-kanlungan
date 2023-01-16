@@ -97,11 +97,11 @@ if (!isset($_SESSION['adminID'])) {
                             <!-- <div class="description"><?php //echo $row['description']; ?></div> -->
                             <div class="date_time"><?php echo $row['date_time']; ?></div>
                             <div class="btn_delete">
-                            <span class='material-symbols-outlined update_pet_img' id='delete_pet_img' onclick="goToUpdateProduct(<?php echo $row['clinicID']; ?>)">
+                            <span class='material-symbols-outlined update_pet_img' id='delete_pet_img' onclick="goToUpdateClinic(<?php echo $row['clinicID']; ?>)">
                                     update
                                 </span>
                                
-                                <span class='material-symbols-outlined delete_pet_img' id='delete_pet_img' onclick="goToDeleteclinic(<?php echo $row['clinicID'];?>)">
+                                <span class='material-symbols-outlined delete_pet_img' id='delete_pet_img' onclick="goToDeleteClinic(<?php echo $row['clinicID'];?>)">
                                     delete
                                 </span>
                                 <span onclick="goToclinicPic(<?php echo $row['clinicID'];?>)">
@@ -132,15 +132,15 @@ if (!isset($_SESSION['adminID'])) {
             window.location.href = "admin_clinic_create.php";
         }
 
-        function goToUpdateClinic(shopID) {
-            window.location.href = "admin_clinic_update.php?shopID=" + shopID;
+        function goToUpdateClinic(clinicID) {
+            window.location.href = "admin_clinic_update.php?clinicID=" + clinicID;
         }
 
-        function goToclinicPic(clinicID){
+        function goToCliniCPic(clinicID){
             window.location.href = "admin_clinic_photos.php?" + clinicID;
         }
 
-        function goToDeleteclinic(clinicID){
+        function goToDeleteClinic(clinicID){
             window.location.href = "admin_clinic_delete.php?" + clinicID;
         }
     </script>

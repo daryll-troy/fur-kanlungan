@@ -88,6 +88,7 @@ if (isset($_POST['btn_create_product'])) {
                 if (in_array($fileType, $allowTypes)) {
                     // Upload file to server 
                     if (move_uploaded_file($_FILES["upload_pics"]["tmp_name"][$key], $targetFilePath)) {
+                        
                         // get the product id of this product based from the newly unique prod_name inserted
                         $prod_id = "";
 
