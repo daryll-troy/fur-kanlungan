@@ -25,7 +25,7 @@ if (!isset($_SESSION['adminID'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- css reset -->
-    <link rel="stylesheet" href="../css/css-resets.css">
+    <link rel="stylesheet" href="../../css/css-resets.css">
     <!-- css for admin_product.php.php -->
     <link rel="stylesheet" href="../css/admin_product.css">
 
@@ -46,7 +46,18 @@ if (!isset($_SESSION['adminID'])) {
             <div class="create_product" onclick="goToCreate()">
                 <img src="../../images/add_button.png" alt="">
             </div>
+
+            <div id="count_products " style="font-weight: bolder; font-size: 1.5em; margin-top: 1em; color: aliceblue;">
+                <?php
+                $count = "SELECT COUNT(prodID) AS count FROM product";
+                $res = $conn->query($count);
+                $num =  $res->fetch_assoc();
+                echo $num['count'] . " Product(s) Created";
+                ?>
+            </div>
+            
             <div class="grid-container">
+
                 <div class="col_title">
                     <div>Product ID</div>
 
@@ -61,7 +72,7 @@ if (!isset($_SESSION['adminID'])) {
                 </div>
                 <?php
                 // get all products
-                $sql = "SELECT * FROM product";
+                $sql = "SELECT * FROM product ORDER BY prod_name";
                 $query = $conn->query($sql);
                 if ($query->num_rows > 0) {
                     while ($row = $query->fetch_assoc()) {
@@ -145,15 +156,15 @@ if (!isset($_SESSION['adminID'])) {
         }
 
         function goToUpdateProduct(shopID) {
-            window.location.href = "admin_product_update.php?prodID=" + shopID ;
+            window.location.href = "admin_product_update.php?prodID=" + shopID;
         }
 
         function goToproductPic(productID) {
-            window.location.href = "admin_product_photos.php?" + productID;
+            window.location.href = "admin_product_photos.php?prodID=" + productID;
         }
 
         function goToDeleteproduct(productID) {
-            window.location.href = "admin_product_delete.php?" + productID;
+            window.location.href = "admin_product_delete.php?prodID=" + productID;
         }
     </script>
 

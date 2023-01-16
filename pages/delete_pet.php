@@ -14,66 +14,61 @@ if (!isset($_SESSION['userID'])) {
 }
 
 
-
-
-
-
-
 // execute when this when submitted to delete
 if (isset($_POST['btn_delete_pet'])) {
     $_POST['petID'] = $_SESSION['petID'];
-    // try {
-    // copy pet_photo to deledopted_photo
-    $sql = "
+    try {
+        // copy pet_photo to deledopted_photo
+        $sql = "
  INSERT INTO deledopted_photo SELECT * FROM pet_photo WHERE petID = ? 
  ";
-    $result = $conn->prepare($sql);
-    $result->bind_param("i", $_POST['petID']);
-    $result->execute();
+        $result = $conn->prepare($sql);
+        $result->bind_param("i", $_POST['petID']);
+        $result->execute();
 
 
 
-    // delete photos from pet_photo
-    $sql = "
+        // delete photos from pet_photo
+        $sql = "
         DELETE  FROM pet_photo WHERE petID = ?
         ";
-    $result = $conn->prepare($sql);
-    $result->bind_param("i", $_POST['petID']);
-    $result->execute();
+        $result = $conn->prepare($sql);
+        $result->bind_param("i", $_POST['petID']);
+        $result->execute();
 
-    // copy pet to deledopted
-    $sql = "
+        // copy pet to deledopted
+        $sql = "
     INSERT INTO deledopted SELECT * FROM pet WHERE petID = ? 
     ";
-    $result = $conn->prepare($sql);
-    $result->bind_param("i", $_POST['petID']);
-    $result->execute();
+        $result = $conn->prepare($sql);
+        $result->bind_param("i", $_POST['petID']);
+        $result->execute();
 
-    // delete pet from pet
-    $sql = "
+        // delete pet from pet
+        $sql = "
     DELETE  FROM pet WHERE petID = ?
     ";
-    $result = $conn->prepare($sql);
-    $result->bind_param("i", $_POST['petID']);
-    $result->execute();
+        $result = $conn->prepare($sql);
+        $result->bind_param("i", $_POST['petID']);
+        $result->execute();
 
 
-    $conn->close();
-    // unset session variable 
-    unset($_SESSION["petID"]);
+        $conn->close();
+        // unset session variable 
+        unset($_SESSION["petID"]);
 
-    // echo "<script>alert('Pet Deleted!')</script>";
+        // echo "<script>alert('Pet Deleted!')</script>";
 
-    // head back to my_pets.php
-    echo "<script>
+        // head back to my_pets.php
+        echo "<script>
                 window.location.href='my_pets.php';
                 </script>";
-    exit();
-    // } catch (Exception $result) {
-    //     // echo "
-    //     //     <script>alert(" . $conn->error . ");</script> ";
-    //     echo"alert('conn->error')";
-    // }
+        exit();
+    } catch (Exception $result) {
+        // echo "
+        //     <script>alert(" . $conn->error . ");</script> ";
+        echo "alert('conn->error')";
+    }
 }
 ?>
 
@@ -110,44 +105,45 @@ if (isset($_POST['btn_delete_pet'])) {
                 <div class="delete_pet_title">
                     <div id="back_div"><a href="my_pets.php"> <img src="../images/backTo.png" id="backTo"></a></div>
                     <div id="title_div">
-                        <h4 class="mb-4" style="text-transform:capitalize;">delete <?php
-                                                                                    // display the name of the pet
+                        <h4 class="mb-4" style="text-transform:capitalize;">
+                            Delete <?php
+                                    // display the name of the pet
 
-                                                                                    $getID = $_GET['pet_id'];
-                                                                                    $sql = "SELECT petID, name FROM pet WHERE petID = '$getID'";
-                                                                                    $result = $conn->query($sql);
-                                                                                    if ($result->num_rows > 0) {
-                                                                                        while ($row = $result->fetch_assoc()) {
-                                                                                            echo $row['name']  . "?";
-                                                                                            $_SESSION['petID'] = $row['petID'];
-                                                                                        }
-                                                                                    } else {
-                                                                                        // $conn->close();
-                                                                                        // echo "<script>alert('You cannot do that here boy..tsk tsk2')</script>";
-                                                                                        // echo "<script>
-                                                                                        //         window.location.href='my_pets.php';
-                                                                                        //         </script>";
-                                                                                        // exit();
-                                                                                    }
-
-
-                                                                                    // // check if $_GET['pet_id'] is owned by the logged in user
-                                                                                    $get_petID = $_GET['pet_id'];
-                                                                                    $sql = "SELECT userID FROM pet WHERE petID = '$get_petID'";
-                                                                                    $result = $conn->query($sql);
-                                                                                    if ($result->num_rows > 0) {
-                                                                                        while ($row = $result->fetch_assoc()) {
-                                                                                            if ($row['userID'] != $_SESSION['userID']) {
+                                    $getID = $_GET['pet_id'];
+                                    $sql = "SELECT petID, name FROM pet WHERE petID = '$getID'";
+                                    $result = $conn->query($sql);
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo $row['name']  . "?";
+                                            $_SESSION['petID'] = $row['petID'];
+                                        }
+                                    } else {
+                                        $conn->close();
+                                        echo "<script>alert('Oops! Technical Error')</script>";
+                                        echo "<script>
+                                                                                                window.location.href='my_pets.php';
+                                                                                                </script>";
+                                        exit();
+                                    }
 
 
-                                                                                                echo ' <script>alert("You cannot do that here boy..tsk tsk");</script>';
-                                                                                                echo '<script>window.location.href = "my_pets.php"</script>';
-                                                                                                // header("location: my_pets.php");
-                                                                                                exit();
-                                                                                            }
-                                                                                        }
-                                                                                    }
-                                                                                    ?>
+                                    // // check if $_GET['pet_id'] is owned by the logged in user
+                                    $get_petID = $_GET['pet_id'];
+                                    $sql = "SELECT userID FROM pet WHERE petID = '$get_petID'";
+                                    $result = $conn->query($sql);
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            if ($row['userID'] != $_SESSION['userID']) {
+
+
+                                                echo ' <script>alert("You cannot do that here boy..tsk tsk");</script>';
+                                                echo '<script>window.location.href = "my_pets.php"</script>';
+                                                // header("location: my_pets.php");
+                                                exit();
+                                            }
+                                        }
+                                    }
+                                    ?>
                         </h4>
                     </div>
                 </div>

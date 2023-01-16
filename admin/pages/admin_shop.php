@@ -31,10 +31,10 @@ if (!isset($_SESSION['adminID'])) {
 
     <!-- css for header.php -->
     <link rel="stylesheet" href="../css/admin_header.css">
-   
+
     <!-- delete icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
+
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
@@ -48,6 +48,16 @@ if (!isset($_SESSION['adminID'])) {
             <div class="create_shop" onclick="goToCreate()">
                 <img src="../../images/add_button.png" alt="">
             </div>
+
+            <div id="count_shops" style="font-weight: bolder; font-size: 1.5em; margin-top: 1em; color: aliceblue;">
+                <?php
+                $count = "SELECT COUNT(shopID) AS count FROM shop";
+                $res = $conn->query($count);
+                $num =  $res->fetch_assoc();
+                echo $num['count'] . " Shop(s) Created";
+                ?>
+            </div>
+
             <div class="grid-container">
                 <div class="col_title">
                     <div>Shop ID</div>
@@ -65,7 +75,7 @@ if (!isset($_SESSION['adminID'])) {
                 </div>
                 <?php
                 // get all shops
-                $sql = "SELECT * FROM shop";
+                $sql = "SELECT * FROM shop ORDER BY shop_name";
                 $query = $conn->query($sql);
                 if ($query->num_rows > 0) {
                     while ($row = $query->fetch_assoc()) {

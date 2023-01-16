@@ -42,10 +42,6 @@ if (isset($_POST['btn_update_clinic'])) {
 
 
         try {
-
-            // $sql = "INSERT INTO clinic(clinic_name, email, owner, muniID, contact_no,
-            // open_hours, services, description) VALUES(?, ?, ?, ? ,? ,? , ?, ?)";
-
             $sql = "UPDATE clinic SET clinic_name = ?, email = ?, owner = ?, muniID = ?, contact_no = ?, open_hours = ?, services = ?, description = ? WHERE clinicID = ?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param(
@@ -161,8 +157,8 @@ if (isset($_POST['btn_update_clinic'])) {
                 <div class="form">
                     <div class="clinic_short_details">
                         <div> <img src="../../images/backTo.png" id="backTo" onclick="window.location.href = 'admin_clinic.php'"></div>
-                        <div id="title">
-                            <h4 class="mb-4">Update Clinic
+                        <div id="title" style="text-transform:capitalize">
+                            <h4 class="mb-4">Update
                                 <?php
                                 $_SESSION['clinicID'] = $_GET['clinicID'];
 
@@ -176,7 +172,7 @@ if (isset($_POST['btn_update_clinic'])) {
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
                                         // display the clinic name in the input field
-                                        echo "(" . $row['clinic_name'] . ")";
+                                        echo  $row['clinic_name'] ;
                                         // get and store the other values of of the rest of the columns
                                         $clinic_name = $row['clinic_name'];
                                         $email = $row['email'];

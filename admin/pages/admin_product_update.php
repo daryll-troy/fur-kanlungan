@@ -158,8 +158,8 @@ if (isset($_POST['btn_update_product'])) {
                 <div class="form">
                     <div class="product_short_details">
                         <div> <img src="../../images/backTo.png" id="backTo" onclick="window.location.href = 'admin_product.php'"></div>
-                        <div id="title">
-                            <h4 class="mb-4">Update Product
+                        <div id="title" style="text-transform:capitalize">
+                            <h4 class="mb-4">Update
                                 <?php
                                 $_SESSION['prodID'] = $_GET['prodID'];
 
@@ -172,7 +172,7 @@ if (isset($_POST['btn_update_product'])) {
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
                                         // display the product name in the input field
-                                        echo "(" . $row['prod_name'] . ")";
+                                        echo  $row['prod_name'] ;
                                         // get and store the other values of of the rest of the columns
                                         $prod_name = $row['prod_name'];
                                         $price = $row['price'];
