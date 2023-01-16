@@ -33,7 +33,7 @@ if (isset($_POST['btn_create_product'])) {
     } else {
 ?>
         <script>
-            alert("Failed getting the shopID")
+            alert("Failed getting the shopID");
         </script>
     <?php
     }
@@ -48,7 +48,7 @@ if (isset($_POST['btn_create_product'])) {
     } else {
     ?>
         <script>
-            alert("Failed getting the pcID")
+            alert("Failed getting the pcID");
         </script>
 <?php
     }
@@ -88,7 +88,7 @@ if (isset($_POST['btn_create_product'])) {
                 if (in_array($fileType, $allowTypes)) {
                     // Upload file to server 
                     if (move_uploaded_file($_FILES["upload_pics"]["tmp_name"][$key], $targetFilePath)) {
-                        
+
                         // get the product id of this product based from the newly unique prod_name inserted
                         $prod_id = "";
 
@@ -110,14 +110,16 @@ if (isset($_POST['btn_create_product'])) {
                         $errorUpload .= $_FILES['upload_pics']['name'][$key] . ' | ';
                         echo $errorUpload;
                     }
+                } else {
+                    $errorUploadType .= $_FILES['upload_pics']['name'][$key] . ' | ';
+                    echo $errorUploadType;
                 }
-                $conn->close();
-
-                echo "<script>
+            }
+            $conn->close();
+            echo "<script>
             window.location.href='admin_product.php';
             </script>";
-                exit();
-            }
+            exit();
         }
     } else {
         echo '<script>alert("File size limit: 5MB")</script>';
@@ -131,7 +133,7 @@ if (isset($_POST['btn_create_product'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create product | Fur-Kanlungan </title>
+    <title>Create Product | Fur-Kanlungan </title>
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

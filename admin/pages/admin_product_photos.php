@@ -26,7 +26,7 @@ if (!isset($_SESSION['adminID'])) {
     <!-- css for admin_product.php.php -->
     <!-- <link rel="stylesheet" href="../css/admin_product.css"> -->
     <link rel="stylesheet" href="../css/admin_product_photos.css">
-  
+
     <!-- update icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- jquery -->
@@ -41,8 +41,29 @@ if (!isset($_SESSION['adminID'])) {
     <div class='product_info min-vh-100'>
         <!-- ALL product PHOTOS -->
         <div class='product_pics'>
-          
-           
+
+            <!-- Get all the photos of this prodID -->
+            <?php
+            $getprodID = $_GET['prodID'];
+            // query all photos of this prodID
+            $sql = "SELECT photo FROM product_photo WHERE prodID = $getprodID ";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+            ?>
+                    <div class="each_photo">
+                        <img src="../../images/product_pics/<?php echo $row['photo'] ?>" alt="" class="each_img">
+                    </div>
+                <?php
+                }
+            } else {
+                ?>
+                <script>
+                    alert("Nothing to show");
+                </script>
+            <?php
+            }
+            ?>
 
         </div>
         <!-- SERVICES AND DESCRIPTION OF THE product -->
@@ -50,8 +71,25 @@ if (!isset($_SESSION['adminID'])) {
             <div class="back_img">
                 <img src="../../images/backTo.png" alt="" id="backTo" onclick="history.back()">
             </div>
-          
-            <div class="description"></div>
+
+            <div class="description">
+                <div class="bold_des">Description</div>
+                <div class="paragraph">
+                    <?php
+                    $prodID = $_GET['prodID'];
+                    $sql = "SELECT  description FROM product WHERE prodID = $prodID";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo $row['description'];
+                        }
+                    } else {
+                        echo "No pics available";
+                    }
+                    ?>
+                </div>
+
+            </div>
         </div>
     </div>
 

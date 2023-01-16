@@ -6,24 +6,57 @@
 
 }
 
-.clinic_pics{
+.clinic_pics {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     background-color: rgba(31, 20, 12, 0.904);
     flex: 1;
     height: 100vh;
     position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+    row-gap: 1em;
+    /* grid-template-rows: repeat(auto-fit, minmax(10em, 1fr)); */
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1em 0.5em;
+}
+
+/* the images */
+.each_img {
+    height: clamp(10em, 10vw, 20em);
+    width: 10em;
+    object-fit: cover
+ 
+}
+
+.each_img:active{
+    width: clamp(20em, 10vw, 20em);
+    height: 20em;
+     transform: scale(1.1);
+     transition: transform 0.25s;
+}
+
+.each_photo {
+    display: flex;
+    justify-content: center;
+}
+
+.each_photo img{
+ cursor: pointer;
+ box-shadow: 5px 5px 10px 3px #888888;
 }
 
 
-.serv_desc{
-    background-color:inherit;
+.serv_desc {
+    background-color: inherit;
     flex: 0.7;
-   height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 }
 
 /* back image */
@@ -31,3 +64,5 @@
     height: 3em;
     width: 3em;
 }
+
+

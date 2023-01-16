@@ -108,6 +108,7 @@ if (isset($_POST['btn_create_shop'])) {
                     echo $errorUploadType;
                 }
             }
+            
             $conn->close();
 
             echo "<script>

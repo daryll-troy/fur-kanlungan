@@ -105,14 +105,17 @@ if (isset($_POST['btn_update_product'])) {
                         $errorUpload .= $_FILES['upload_pics']['name'][$key] . ' | ';
                         echo $errorUpload;
                     }
+                } else {
+                    $errorUploadType .= $_FILES['upload_pics']['name'][$key] . ' | ';
+                    echo $errorUploadType;
                 }
+            }
 
-                $conn->close();
-                echo "<script>
+            $conn->close();
+            echo "<script>
                 window.location.href='admin_product.php';
                 </script>";
-                exit();
-            }
+            exit();
         }
     } else {
         echo '<script>alert("File size limit: 5MB")</script>';
@@ -172,7 +175,7 @@ if (isset($_POST['btn_update_product'])) {
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
                                         // display the product name in the input field
-                                        echo  $row['prod_name'] ;
+                                        echo  $row['prod_name'];
                                         // get and store the other values of of the rest of the columns
                                         $prod_name = $row['prod_name'];
                                         $price = $row['price'];

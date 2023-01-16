@@ -30,7 +30,7 @@ if (!isset($_SESSION['adminID'])) {
     <!-- css for admin_clinic.php.php -->
     <!-- <link rel="stylesheet" href="../css/admin_clinic.css"> -->
     <link rel="stylesheet" href="../css/admin_clinic_photos.css">
-  
+
     <!-- update icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- jquery -->
@@ -45,8 +45,29 @@ if (!isset($_SESSION['adminID'])) {
     <div class='clinic_info min-vh-100'>
         <!-- ALL clinic PHOTOS -->
         <div class='clinic_pics'>
-          
-           
+            <!-- Get all the photos of this clinicID -->
+            <?php
+            $getclinicID = $_GET['clinicID'];
+            // query all photos of this clinicID
+            $sql = "SELECT photo FROM clinic_photo WHERE clinicID = $getclinicID ";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+            ?>
+                    <div class="each_photo">
+                        <img src="../../images/clinic_pics/<?php echo $row['photo']?>" alt="" class="each_img">
+                    </div>
+            <?php
+                }
+            } else {
+                ?>
+                <script>
+                    alert("Nothing to show");
+                </script>
+            <?php
+            }
+            ?>
+
 
         </div>
         <!-- SERVICES AND DESCRIPTION OF THE clinic -->
@@ -55,7 +76,8 @@ if (!isset($_SESSION['adminID'])) {
                 <img src="../../images/backTo.png" alt="" id="backTo" onclick="history.back()">
             </div>
             <div class="services">
-                
+
+
             </div>
             <div class="description"></div>
         </div>

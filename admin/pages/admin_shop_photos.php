@@ -26,7 +26,7 @@ if (!isset($_SESSION['adminID'])) {
     <!-- css for admin_shop.php.php -->
     <!-- <link rel="stylesheet" href="../css/admin_shop.css"> -->
     <link rel="stylesheet" href="../css/admin_shop_photos.css">
-  
+
     <!-- update icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- jquery -->
@@ -41,8 +41,29 @@ if (!isset($_SESSION['adminID'])) {
     <div class='shop_info min-vh-100'>
         <!-- ALL SHOP PHOTOS -->
         <div class='shop_pics'>
-          
-           
+
+            <!-- Get all the photos of this shopID -->
+            <?php
+            $getshopID = $_GET['shopID'];
+            // query all photos of this shopID
+            $sql = "SELECT photo FROM shop_photo WHERE shopID = $getshopID ";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+            ?>
+                    <div class="each_photo">
+                        <img src="../../images/shop_pics/<?php echo $row['photo'] ?>" alt="" class="each_img">
+                    </div>
+                <?php
+                }
+            } else {
+                ?>
+                <script>
+                    alert("Nothing to show");
+                </script>
+            <?php
+            }
+            ?>
 
         </div>
         <!-- SERVICES AND DESCRIPTION OF THE SHOP -->
@@ -51,9 +72,11 @@ if (!isset($_SESSION['adminID'])) {
                 <img src="../../images/backTo.png" alt="" id="backTo" onclick="history.back()">
             </div>
             <div class="services">
+             
+            </div>
+            <div class="description">
 
             </div>
-            <div class="description"></div>
         </div>
     </div>
 

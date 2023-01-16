@@ -3,7 +3,7 @@
     background-image: url("../images/furAdmin.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: rgba(200, 196, 192, 0.99);
+    /* background-color: rgba(200, 196, 192, 0.99); */
     display: flex;
 
     align-items: center;
