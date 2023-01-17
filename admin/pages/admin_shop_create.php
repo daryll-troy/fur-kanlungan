@@ -83,8 +83,7 @@ if (isset($_POST['btn_create_shop'])) {
                         $shopID = "";
 
                         // get the shop id of this newly created shop
-                        $getShopID = "SELECT shopID FROM shop WHERE shop_name = '$name' AND email = '$email' AND  owner = '$owner' AND  muniID = $muniID
-                                       AND contact_no = '$contact' AND  open_hours = '$open_hours' AND  services = '$services'  AND  description = '$description' ";
+                        $getShopID = "SELECT shopID FROM shop WHERE shop_name = '$name'";
                         $result = $conn->query($getShopID);
                         if ($result->num_rows > 0) {
                             // output data of each row
@@ -94,6 +93,10 @@ if (isset($_POST['btn_create_shop'])) {
                         } else {
                             echo $conn->error;
                         }
+?>
+<!-- <script>alert('<?php //echo $shopID;?>')</script> -->
+<?php
+
 
                         // upload shop photos to shop_photo
                         $stmt = $conn->prepare("INSERT INTO shop_photo(photo, shopID) VALUES ( ?, ?)");

@@ -68,14 +68,65 @@ if (!isset($_SESSION['adminID'])) {
         </div>
         <!-- SERVICES AND DESCRIPTION OF THE SHOP -->
         <div class="serv_desc">
+            <div class="pinakaTitle">
+                <p> Shop
+                    <?php
+                    // get shop name again
+                    $shopID = $_GET['shopID'];
+                    $sql = "SELECT shop_name FROM shop WHERE shopID = $shopID";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows >  0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo $row['shop_name'];
+                        }
+                    }
+                    ?>
+                </p>
+            </div>
+
             <div class="back_img">
                 <img src="../../images/backTo.png" alt="" id="backTo" onclick="history.back()">
             </div>
-            <div class="services">
-             
-            </div>
-            <div class="description">
 
+            <div class="services">
+                <!-- Services Title -->
+                <div class="bold_serv">
+                    Services
+                </div>
+                <!-- Get the services -->
+                <div class="serv_para">
+                    <?php
+                    $shopID = $_GET['shopID'];
+                    $sql = "SELECT services FROM shop WHERE shopID = $shopID";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows >  0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo $row['services'];
+                        }
+                    }
+                    ?>
+                </div>
+
+
+                <div class="description">
+                    <div class="bold_desc">
+                        Description
+                    </div>
+                    <div class="desc_para">
+                        <?php
+                        $shopID = $_GET['shopID'];
+                        $sql = "SELECT  description FROM shop WHERE shopID = $shopID";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo $row['description'];
+                            }
+                        } else {
+                            echo "No pics available";
+                        }
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

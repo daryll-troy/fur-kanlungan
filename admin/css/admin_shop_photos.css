@@ -1,12 +1,14 @@
 /* The whole my pet info section */
 .shop_info {
-    background-color: rgba(236, 232, 228, 0.99);
+    background-image: url("../images/furAdmin.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
 
 }
 
-.shop_pics{
+.shop_pics {
     display: flex;
     /* align-items: center; */
     background-color: rgba(31, 20, 12, 0.904);
@@ -30,15 +32,14 @@
     height: 10em;
     width: clamp(10em, 10vw, 20em);
     object-fit: cover
- 
 }
 
-.each_img:active{
+.each_img:active {
     width: clamp(20em, 10vw, 20em);
     height: 20em;
-     transform: scale(1.1);
-     transition: transform 0.25s;
-    
+    transform: scale(1.1);
+    transition: transform 0.25s;
+
 }
 
 .each_photo {
@@ -46,22 +47,60 @@
     justify-content: center;
 }
 
-.each_photo img{
- cursor: pointer;
- box-shadow: 5px 5px 10px 3px #888888;
+.each_photo img {
+    cursor: pointer;
+    box-shadow: 5px 5px 10px 3px #888888;
 }
 
-.serv_desc{
-    background-color:inherit;
+.serv_desc {
+    background-color: rgba(87, 73, 33, 0.397);
+
+    height: 100vh;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
     flex: 0.7;
-   height: 100vh;
+}
+
+/* pinakatitle */
+.pinakaTitle{
     display: flex;
     justify-content: center;
-    align-items:center;
+    font-weight: bold;
+    font-size: 3em;
 }
 
 /* back image */
 #backTo {
     height: 3em;
     width: 3em;
+}
+
+.back_img {
+    /* width: 100%; */
+    margin-bottom: 2em;
+}
+
+.services,
+.description {
+    overflow-y: auto;
+}
+
+/* description title */
+.bold_serv,
+.bold_desc {
+    font-weight: bold;
+    font-size: 2em;
+    margin-bottom: 1em;
+
+}
+
+.serv_para,
+.desc_para {
+    font-weight: 500;
+    /* font-size: 1em; */
+    margin-bottom: 1em;
 }

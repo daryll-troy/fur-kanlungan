@@ -84,8 +84,7 @@ if (isset($_POST['btn_create_clinic'])) {
                         $clinicID = "";
 
                         // get the clinic id of this newly created clinic
-                        $getclinicID = "SELECT clinicID FROM clinic WHERE clinic_name = '$name' AND email = '$email' AND  owner = '$owner' AND  muniID = $muniID
-                                       AND contact_no = '$contact' AND  open_hours = '$open_hours' AND  services = '$services'  AND  description = '$description' ";
+                        $getclinicID = "SELECT clinicID FROM clinic WHERE clinic_name = '$name' ";
                         $result = $conn->query($getclinicID);
                         if ($result->num_rows > 0) {
                             // output data of each row

@@ -1,6 +1,8 @@
 /* The whole my pet info section */
 .clinic_info {
-    background-color: rgba(236, 232, 228, 0.99);
+    background-image: url("../images/furAdmin.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
 
@@ -51,12 +53,24 @@
 
 
 .serv_desc {
-    background-color: inherit;
-    flex: 0.7;
+    background-color: rgba(87, 73, 33, 0.397);
+
     height: 100vh;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    flex: 0.7;
+}
+
+/* pinakatitle */
+.pinakaTitle{
     display: flex;
     justify-content: center;
-    align-items: center;
+    font-weight: bold;
+    font-size: 3em;
 }
 
 /* back image */
@@ -66,3 +80,29 @@
 }
 
 
+
+.back_img {
+    /* width: 100%; */
+    margin-bottom: 2em;
+}
+
+.services,
+.description {
+    overflow-y: auto;
+}
+
+/* description title */
+.bold_serv,
+.bold_desc {
+    font-weight: bold;
+    font-size: 2em;
+    margin-bottom: 1em;
+
+}
+
+.serv_para,
+.desc_para {
+    font-weight: 500;
+    /* font-size: 1em; */
+    margin-bottom: 1em;
+}
