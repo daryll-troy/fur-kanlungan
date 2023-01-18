@@ -13,7 +13,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ipantay-nav">
             <div class="container-fluid ipantay-cont-fluid">
 
-                <a href="dashboard.php">
+                <a href="admin_dashboard.php">
                     <img src="../../images/logo.gif" alt="logo" class="logo me-4">
                 </a>
                 <a href="admin_dashboard.php" ><span id="fur-kanlungan" style="font-weight: bold; color:aliceblue; font-size: 1.5em;">ADMIN</span>

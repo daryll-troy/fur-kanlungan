@@ -19,11 +19,11 @@ if (!isset($_SESSION['adminID'])) {
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-      <!-- css reset -->
-      <link rel="stylesheet" href="../css/css-resets.css">
+    <!-- css reset -->
+    <link rel="stylesheet" href="../css/css-resets.css">
     <!-- css for admin_dashboard.php.php -->
     <link rel="stylesheet" href="../css/admin_dashboard.css">
-  
+
     <!-- css for header.php -->
     <link rel="stylesheet" href="../css/admin_header.css">
     <!-- update icon -->
@@ -34,9 +34,65 @@ if (!isset($_SESSION['adminID'])) {
 
 <body>
     <?php include "admin_header.php" ?>
-    <div class="pets min-vh-100">
-        <div class="list_pets">
-            
+    <div class="entity min-vh-100">
+        <!-- List and Filter the Entities -->
+        <div class="list_entity">
+            <div class="categories">
+                <select class="form-select btn entity_category" aria-label="Default select example" id="entity_category" name="entity_category">
+                    <option value="none" class='entity'> Select Entity</option>
+                    <option value="user" class='entity'> Users</option>
+                    <option value="pet" class='entity'> Pets</option>
+                    <option value="product" class='entity'> Products</option>
+                    <option value="clinic" class='entity'> Clinics</option>
+                    <option value="shop" class='entity'> Shops</option>
+                </select>
+
+                <!-- when Users is selected -->
+                <div class="user_category">
+
+                    <select class="form-select btn  user_menu" aria-label="Default select example" id="user_category" name="user_category">
+                        <option value="pets_owned" class='entity'> Pets Owned</option>
+                        <option value="unverified" class='entity'> Unverified</option>
+                        <option value="verified" class='entity'>Verified</option>
+                    </select>
+                </div>
+
+
+
+                <!-- municipality category  -->
+                <select class="form-select btn municipality" aria-label="Default select example" id="municipality" name="municipality">
+                    <option value="all_muni" class='get_muni_name'>All Municipalites</option>
+                    <?php
+                    // select all municipality
+                    $sql = "SELECT muni_name FROM municipality;";
+                    $result = mysqli_query($conn, $sql);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $get_muni_name = $row["muni_name"];
+                            echo "<option value='$get_muni_name' class='get_muni_name'>$get_muni_name</option>";
+                        }
+                    } else {
+                        // echo "0 results";
+                    }
+
+                    ?>
+                </select>
+
+
+                <!-- Search the name of the animal -->
+                <!-- <nav class="navbar navbar-light bg-light search-nav"> -->
+                <div class="middle-search">
+                    <form class="d-flex flex-wrap justify-content-center pet-list">
+                        <input class="form-control  type-search " type="search" placeholder="Search Name" aria-label="Search" id="type-search">
+                        <!-- <button class="btn btn-outline-success press-search" type="submit">Search</button> -->
+                    </form>
+                </div>
+                <!-- </nav> -->
+
+            </div>
+
         </div>
     </div>
     <!-- add color to link item of this page on the header -->
@@ -46,6 +102,9 @@ if (!isset($_SESSION['adminID'])) {
         }
         navbarColor();
     </script>
+
+    <!-- JS for the filtering -->
+    <script src="../js/admin_dashboard.js"></script>
 </body>
 
 </html>

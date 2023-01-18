@@ -1,5 +1,5 @@
-/* The whole my pets section */
-.pets {
+/* The whole my entity section */
+.entity {
     background-image: url("../images/furAdmin.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -10,21 +10,81 @@
     flex-direction: column;
 }
 
-/* The inner div horizontally center the pet list */
-.list_pets {
+/* The inner div horizontally center the entity list */
+.list_entity {
     width: 90%;
     min-height: 100vh;
     overflow: auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5em 0 0 0;
+    flex-direction: row;
+    align-items: flex-start;
+    /* padding: 5em 0 0 0; */
     background-color: rgba(87, 73, 33, 0.397);
+}
+
+.categories {
+    width: 100%;
+    padding: 3.5em 2em 2em 2em;
+    background-color: rgba(167, 133, 40, 0.637);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.entity_category,
+.municipality {
+    width: 15%;
+  
+    background-color: rgb(110, 18, 18);
+    color: aliceblue;
+    text-transform: capitalize;
 
 }
 
-/* the div that will take you to add pet page when the add pet button is clicked */
-.admin_create_pets {
+/* municipality */
+
+.get_muni_name{
+    color: aliceblue;
+    background-color: rgba(200, 196, 192, 0.99);
+    text-transform: capitalize;
+}
+
+.municipality{
+    display: none;
+}
+
+/* user */
+
+.user_category {
+    display: none;
+    width: 15%;
+    background-color: rgb(110, 18, 18);
+    color: aliceblue;
+    text-transform: capitalize;
+    border-radius: 5%;
+}
+
+/* set max-height of animal type and set it to overflow: auto */
+.entity,
+.user_menu,
+.get_muni_name {
+    max-height: 20rem;
+    overflow: auto;
+    color: aliceblue;
+    text-transform: capitalize;
+
+}
+
+/* search bar */
+.middle-search {
+    width: 20%;
+    /* justify-self: end; */
+    display:none;
+}
+
+/* the div that will take you to add entity page when the add entity button is clicked */
+/* .admin_create_entity {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,26 +93,26 @@
     height: 15vh;
     margin: 0 0 0.5em 0;
     
-}
+} */
 
 /* add shadow to boxes */
-.admin_create_pets,
-.each_pet {
+/* .admin_create_entity,
+.each_entity {
     box-shadow: 5px 5px 15px;
-}
+} */
 
-/* the div of each pet */
-.each_pet {
+/* the div of each entity */
+/* .each_entity {
     display: flex;
     background-color: rgb(249, 217, 184);
     width: 60%;
     min-height: 10vh;
     margin: 0 0 0.5em 0;
 
-}
+} */
 
-/* for no pets message container */
-.zero_pets {
+/* for no entity message container */
+/* .zero_entity {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,119 +120,119 @@
     width: 60%;
     height: 10vh;
     margin: 0 0 0.5em 0;
-}
+} */
 
-/* pet image container */
-.pet_img {
+/* entity image container */
+/* .entity_img {
 
     flex: 1;
-}
+} */
 
 /* the actual image */
-.pet_photo img {
+/* .entity_photo img {
     height: 100%;
     width: 8em;
     object-fit: cover;
-}
+} */
 
-/* pet name container */
-.pet_name {
+/* entity name container */
+/* .entity_name {
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 3;
-}
-
-.pet_name div {
+} */
+/* 
+.entity_name div {
     text-transform: capitalize;
-}
+} */
 
 /* adjust the font size and font style */
-.pet_name,
-.zero_pets {
+/* .entity_name,
+.zero_entity {
     font-size: 1.5em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     overflow-y: auto;
     overflow-x: hidden;
     overflow-wrap: break-word;
 
-}
+} */
 
 /* remove link decoration */
-.pet_name a {
+/* .entity_name a {
     text-decoration: none;
     color: initial;
 }
+ */
 
-
-/* for updating and deleting pet data */
-.update_pets,
-.delete_pets {
-    /* background-color: cadetblue; */
-    /* width: 30%; */
-    display: flex;
+/* for updating and deleting entity data */
+/* .update_entity,
+.delete_entity { */
+/* background-color: cadetblue; */
+/* width: 30%; */
+/* display: flex;
     justify-content: center;
     align-items: center;
     flex: 1;
   
-}
-.update_pets a,
-.delete_pets a{
+} */
+/* .update_entity a,
+.delete_entity a{
     
     color: black;
-}
+} */
 
 /* adopted icon */
-#adopted_icon {
+/* #adopted_icon {
     width: 25px;
     height: 25px;
-}
+} */
 
 /* for the div of the icons: .pang-row */
-.pang-row {
+/* .pang-row {
     display: flex;
     flex: 1;
-}
+} */
 
 /* delete icon */
-.delete_pet_img{
+/* .delete_entity_img{
     cursor:pointer;
-}
+} */
 
 /* ============================= MEDIA QUERIES ============================== */
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
 
-    .each_pet,
-    .admin_create_pets {
+    .each_entity,
+    .admin_create_entity {
         width: 90%;
 
     }
 
 
 
-}
+} */
 
-@media screen and (max-width: 992px) {
+/* @media screen and (max-width: 992px) {
 
-    .each_pet,
-    .admin_create_pets {
+    .each_entity,
+    .admin_create_entity {
         width: 90%;
 
     }
 
 
 
-}
-
+} */
+/* 
 @media screen and (max-width: 767px) {
 
-    .each_pet,
-    .admin_create_pets {
+    .each_entity,
+    .admin_create_entity {
         width: 90%;
 
     }
 
-    .list_pets {
+    .list_entity {
         width: 100%;
 
     }
@@ -181,18 +241,18 @@
 
 @media screen and (max-width: 480px) {
 
-    .each_pet,
-    .admin_create_pets {
+    .each_entity,
+    .admin_create_entity {
         flex-direction: column;
         align-items: center;
         padding: 1em 0.5em;
     }
 
-    .each_pet {
+    .each_entity {
         min-height: 15em;
     }
 
-    .update_pets {
+    .update_entity {
         margin-right: 3em;
     }
-}
+} */

@@ -68,6 +68,22 @@ if (!isset($_SESSION['adminID'])) {
         </div>
         <!-- SERVICES AND DESCRIPTION OF THE product -->
         <div class="serv_desc">
+            <div class="pinakaTitle">
+                <p> Product
+                    <?php
+                    // get prod name again
+                    $prodID = $_GET['prodID'];
+                    $sql = "SELECT prod_name FROM product WHERE prodID = $prodID";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows >  0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo $row['prod_name'];
+                        }
+                    }
+                    ?>
+                </p>
+            </div>
+
             <div class="back_img">
                 <img src="../../images/backTo.png" alt="" id="backTo" onclick="history.back()">
             </div>
