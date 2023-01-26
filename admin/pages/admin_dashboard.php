@@ -20,7 +20,7 @@ if (!isset($_SESSION['adminID'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- css reset -->
-    <link rel="stylesheet" href="../css/css-resets.css">
+    <link rel="stylesheet" href="../../css/css-resets.css">
     <!-- css for admin_dashboard.php.php -->
     <link rel="stylesheet" href="../css/admin_dashboard.css">
 
@@ -85,7 +85,7 @@ if (!isset($_SESSION['adminID'])) {
                 <!-- <nav class="navbar navbar-light bg-light search-nav"> -->
                 <div class="middle-search">
                     <form class="d-flex flex-wrap justify-content-center pet-list">
-                        <input class="form-control  type-search " type="search" placeholder="Search Name" aria-label="Search" id="type-search">
+                        <input class="form-control  type-search " type="search" placeholder="Search" aria-label="Search" id="type-search">
                         <!-- <button class="btn btn-outline-success press-search" type="submit">Search</button> -->
                     </form>
                 </div>
@@ -93,6 +93,18 @@ if (!isset($_SESSION['adminID'])) {
 
             </div>
 
+
+            <div class="grid-container">
+                <!-- Users Entity Display -->
+                <div class="col_users">
+                    <div>User ID</div>
+                    <div>Username</div>
+                    <div>Fname</div>
+                    <div>Lname</div>
+                    <div>Municipality</div>
+                    <div>Pets Owned</div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- add color to link item of this page on the header -->

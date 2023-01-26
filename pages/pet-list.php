@@ -87,7 +87,7 @@
                             $bc_result = $stmt->get_result();
                             $bc = $bc_result->fetch_assoc();
 
-                            // get 1 pic file name
+                            // get 1 pic file name (latest uploaded)
                             $petID = $row['petID'];
                             $petPho_sql = "SELECT photo FROM pet_photo WHERE petID = ? ORDER BY petPhoID DESC LIMIT 1";
                             $stmt = $conn->prepare($petPho_sql);

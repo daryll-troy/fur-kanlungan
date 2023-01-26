@@ -2,7 +2,7 @@
 include "../../pages/connect.php";
 
 session_start();
-
+//check if the user, not admin, has already logged in
 if(isset($_SESSION['userID'])){
     header("location: ../../index.php");
     exit();

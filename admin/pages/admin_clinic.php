@@ -63,11 +63,8 @@ if (!isset($_SESSION['adminID'])) {
                     <div>Email</div>
                     <div>Owner</div>
                     <div>Municipality</div>
-                    <!-- <div>Location</div> -->
                     <div>Contact No.</div>
                     <div>Open Hours</div>
-                    <!-- <div>Services</div>
-                <div>Description</div> -->
                     <div>Created At</div>
                     <div>Options</div>
                 </div>
