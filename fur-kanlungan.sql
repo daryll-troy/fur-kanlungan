@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2023 at 12:27 PM
+-- Generation Time: Jan 28, 2023 at 08:07 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -105,11 +105,14 @@ CREATE TABLE `clinic` (
 --
 
 INSERT INTO `clinic` (`clinicID`, `clinic_name`, `email`, `muniID`, `owner`, `location`, `contact_no`, `open_hours`, `services`, `description`, `date_time`) VALUES
-(2, 'clinic ni paulo', 'cpauloe@gmail.com', 8, 'eric de pertierra', '', '123456780', '10 - 20', 'walaasdasd', 'hehehedfg gsd', '2023-01-15 14:31:39'),
-(3, 'rtyrt', 'sgserhdrtngd', 16, 'artertet', 'wergthh', '09301582145', 'ewrwrwrew', 'ertertetr', 'wrwrwrwerwer', '2023-01-15 18:19:08'),
-(4, 'mn', 'mn', 20, 'mn', '', 'mn', 'mn', 'mn', 'mn', '2023-01-15 23:06:21'),
-(5, 'ccdfdg', 'ccadas', 1, 'ccsdfsdf', '', 'cc', 'cc', 'cc', 'cc', '2023-01-16 00:26:55'),
-(6, 'gh', 'gh', 21, 'gh', '', 'gh', 'gh', 'gh', 'gh', '2023-01-16 00:34:25');
+(8, 'jhj', 'ghfghf', 1, 'fghd', '', 'dfgd', 'fghf', 'fghf', 'fghf', '2023-01-16 22:54:12'),
+(9, 'k', 'k', 1, 'k', '', 'k', 'k', 'beauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don', 'beauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want, yeah\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\ni know where you hide, alone in your car\r\nknow all of the things that make you who you are\r\ni know that goodbye means nothing at all\r\ncomes back and begs me to catch her every time she falls, yeah\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain, oh\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nyeah, yeah\r\ni don&#039;t mind spending every day (ooh, ooh)\r\nout on your corner in the pouring rain\r\n(please don&#039;t try so hard to say goodbye)', '2023-01-17 00:26:32'),
+(11, 'ako', 'dfgdf', 1, 'dfgd', '', '205622', '45657df', 'humpty dumpty sat on a wall,\r\nhumpty dumpty had a great fall;\r\nall the king&amp;#039;s horses and all the king&amp;#039;s men\r\ncouldn&amp;#039;t put humpty together again.\r\n\r\nit starts with one thing\r\ni don&amp;#039;t know why\r\nit doesn&amp;#039;t even ma', 'dfgdfg\r\nbeauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want, yeah\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\ni know where you hide, alone in your car\r\nknow all of the things that make you who you are\r\ni know that goodbye means nothing at all\r\ncomes back and begs me to catch her every time she falls, yeah\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain, oh\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nyeah, yeah\r\ni don&#039;t mind spending every day (ooh, ooh)\r\nout on your corner in the pouring rain\r\n(please don&#039;t try so hard to say goodbye)', '2023-01-17 01:33:05'),
+(12, 'mima', 'dfgd', 1, 'dfgdfgdfg', '', 'dfgdfg', 'ghfgh', 'dfgdf', 'sdfs', '2023-01-17 01:33:28'),
+(13, 'po', 'ui', 20, 'po', '', 'po', 'po', 'po', 'po', '2023-01-17 08:13:37'),
+(14, 'yoyo', 'sdf', 18, 'gfgh', '', 'dfghj', 'hjh', 'hgjjbeauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni', 'fdgsdfd', '2023-01-17 08:21:24'),
+(15, 'aarobbs', 'hhjg', 20, 'ghf', '', 'thtrh', 'dgsdg', 'gsdgsbeauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more', 'sdfsdfbeauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want, yeah\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\ni know where you hide, alone in your car\r\nknow all of the things that make you who you are\r\ni know that goodbye means nothing at all\r\ncomes back and begs me to catch her every time she falls, yeah\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain, oh\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nyeah, yeah\r\ni don&#039;t mind spending every day (ooh, ooh)\r\nout on your corner in the pouring rain\r\n(please don&#039;t try so hard to say goodbye)', '2023-01-17 08:27:19'),
+(16, 'haha', 'haha', 17, 'haha', '', 'haha', 'haha', 'dfgdfg\r\nbeauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want mor', 'dfgdfg\r\nbeauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want, yeah\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\ni know where you hide, alone in your car\r\nknow all of the things that make you who you are\r\ni know that goodbye means nothing at all\r\ncomes back and begs me to catch her every time she falls, yeah\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain, oh\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nyeah, yeah\r\ni don&#039;t mind spending every day (ooh, ooh)\r\nout on your corner in the pouring rain\r\n(please don&#039;t try so hard to say goodbye)', '2023-01-17 08:48:00');
 
 -- --------------------------------------------------------
 
@@ -129,10 +132,125 @@ CREATE TABLE `clinic_photo` (
 --
 
 INSERT INTO `clinic_photo` (`clinicphoID`, `clinicID`, `photo`, `date_time`) VALUES
-(1, 4, 'hamster2.jpg', '2023-01-15 23:06:21'),
-(2, 6, 'stix2.jpg', '2023-01-16 00:34:25'),
-(3, 2, 'stix3.jpg', '2023-01-16 19:14:39'),
-(4, 2, 'istockphoto-1217828258-170667a.jpg', '2023-01-16 19:15:17');
+(13, 8, 'Khaomanee_cat.jpg', '2023-01-16 22:54:12'),
+(14, 8, 'pexels-pixabay-45201.jpg', '2023-01-16 22:54:12'),
+(15, 9, 'hamster2.jpg', '2023-01-17 00:26:32'),
+(16, 9, 'hehe.jpeg', '2023-01-17 00:26:32'),
+(17, 9, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 00:26:32'),
+(18, 9, 'jorji1.jpg', '2023-01-17 00:26:32'),
+(19, 9, 'Khaomanee_cat.jpg', '2023-01-17 00:26:32'),
+(20, 9, 'samantha.jpg', '2023-01-17 00:26:32'),
+(21, 9, 'stix.jpg', '2023-01-17 00:26:32'),
+(22, 9, 'stix2.jpg', '2023-01-17 00:26:32'),
+(23, 9, 'stix3.jpg', '2023-01-17 00:26:32'),
+(24, 9, 'Brown_Aspin.jpg', '2023-01-17 00:36:58'),
+(25, 9, 'Campbells_dwarf.jpg', '2023-01-17 00:36:58'),
+(26, 9, 'germanshepherd.jpg', '2023-01-17 00:36:58'),
+(27, 9, 'hamster1.jpg', '2023-01-17 00:36:58'),
+(28, 9, 'hamster2.jpg', '2023-01-17 00:36:58'),
+(29, 9, 'hehe.jpeg', '2023-01-17 00:36:58'),
+(30, 9, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 00:36:58'),
+(31, 9, 'jorji1.jpg', '2023-01-17 00:36:58'),
+(32, 9, 'Khaomanee_cat.jpg', '2023-01-17 00:36:58'),
+(33, 9, 'pexels-pixabay-45201.jpg', '2023-01-17 00:36:58'),
+(34, 9, 'puspin2.jpg', '2023-01-17 00:36:58'),
+(35, 9, 'Brown_Aspin.jpg', '2023-01-17 00:37:12'),
+(36, 9, 'Campbells_dwarf.jpg', '2023-01-17 00:37:12'),
+(37, 9, 'germanshepherd.jpg', '2023-01-17 00:37:12'),
+(38, 9, 'hamster1.jpg', '2023-01-17 00:37:12'),
+(39, 9, 'hamster2.jpg', '2023-01-17 00:37:12'),
+(40, 9, 'hehe.jpeg', '2023-01-17 00:37:12'),
+(41, 9, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 00:37:12'),
+(42, 9, 'jorji1.jpg', '2023-01-17 00:37:12'),
+(43, 9, 'Khaomanee_cat.jpg', '2023-01-17 00:37:12'),
+(44, 9, 'pexels-pixabay-45201.jpg', '2023-01-17 00:37:12'),
+(45, 9, 'puspin2.jpg', '2023-01-17 00:37:12'),
+(46, 9, 'samantha.jpg', '2023-01-17 00:37:12'),
+(47, 9, 'stix.jpg', '2023-01-17 00:37:13'),
+(48, 9, 'stix2.jpg', '2023-01-17 00:37:13'),
+(49, 9, 'stix3.jpg', '2023-01-17 00:37:13'),
+(50, 8, 'Campbells_dwarf.jpg', '2023-01-17 01:24:11'),
+(51, 8, 'germanshepherd.jpg', '2023-01-17 01:24:11'),
+(52, 8, 'hamster1.jpg', '2023-01-17 01:24:11'),
+(53, 8, 'hamster2.jpg', '2023-01-17 01:24:11'),
+(54, 8, 'hehe.jpeg', '2023-01-17 01:24:11'),
+(55, 8, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 01:24:11'),
+(56, 8, 'jorji1.jpg', '2023-01-17 01:24:11'),
+(57, 8, 'Khaomanee_cat.jpg', '2023-01-17 01:24:11'),
+(58, 8, 'pexels-pixabay-45201.jpg', '2023-01-17 01:24:11'),
+(59, 8, 'puspin2.jpg', '2023-01-17 01:24:11'),
+(60, 8, 'samantha.jpg', '2023-01-17 01:24:11'),
+(61, 8, 'stix.jpg', '2023-01-17 01:24:11'),
+(62, 8, 'stix2.jpg', '2023-01-17 01:24:11'),
+(63, 8, 'stix3.jpg', '2023-01-17 01:24:11'),
+(64, 11, 'Brown_Aspin.jpg', '2023-01-17 01:33:05'),
+(65, 11, 'Campbells_dwarf.jpg', '2023-01-17 01:33:05'),
+(66, 11, 'germanshepherd.jpg', '2023-01-17 01:33:05'),
+(67, 11, 'hamster1.jpg', '2023-01-17 01:33:05'),
+(68, 11, 'hamster2.jpg', '2023-01-17 01:33:05'),
+(69, 11, 'hehe.jpeg', '2023-01-17 01:33:05'),
+(70, 11, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 01:33:05'),
+(71, 11, 'jorji1.jpg', '2023-01-17 01:33:05'),
+(72, 11, 'Khaomanee_cat.jpg', '2023-01-17 01:33:05'),
+(73, 11, 'pexels-pixabay-45201.jpg', '2023-01-17 01:33:05'),
+(74, 11, 'puspin2.jpg', '2023-01-17 01:33:05'),
+(75, 11, 'samantha.jpg', '2023-01-17 01:33:05'),
+(76, 11, 'stix.jpg', '2023-01-17 01:33:05'),
+(77, 11, 'stix2.jpg', '2023-01-17 01:33:05'),
+(78, 11, 'stix3.jpg', '2023-01-17 01:33:05'),
+(79, 12, 'stix2.jpg', '2023-01-17 01:33:28'),
+(80, 12, 'stix3.jpg', '2023-01-17 01:33:28'),
+(81, 12, 'pexels-pixabay-45201.jpg', '2023-01-17 01:43:32'),
+(82, 12, 'puspin2.jpg', '2023-01-17 01:43:32'),
+(83, 12, 'samantha.jpg', '2023-01-17 01:43:32'),
+(84, 12, 'stix.jpg', '2023-01-17 01:43:32'),
+(85, 12, 'stix2.jpg', '2023-01-17 01:43:32'),
+(86, 12, 'stix3.jpg', '2023-01-17 01:43:32'),
+(87, 12, 'Brown_Aspin.jpg', '2023-01-17 01:44:08'),
+(88, 12, 'Campbells_dwarf.jpg', '2023-01-17 01:44:08'),
+(89, 12, 'germanshepherd.jpg', '2023-01-17 01:44:08'),
+(90, 12, 'hamster1.jpg', '2023-01-17 01:44:08'),
+(91, 12, 'hamster2.jpg', '2023-01-17 01:44:08'),
+(92, 12, 'hehe.jpeg', '2023-01-17 01:44:08'),
+(93, 12, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 01:44:08'),
+(94, 12, 'jorji1.jpg', '2023-01-17 01:44:08'),
+(95, 12, 'Khaomanee_cat.jpg', '2023-01-17 01:44:08'),
+(96, 12, 'pexels-pixabay-45201.jpg', '2023-01-17 01:44:08'),
+(97, 12, 'puspin2.jpg', '2023-01-17 01:44:08'),
+(98, 12, 'samantha.jpg', '2023-01-17 01:44:08'),
+(99, 12, 'stix.jpg', '2023-01-17 01:44:08'),
+(100, 12, 'stix2.jpg', '2023-01-17 01:44:08'),
+(101, 12, 'stix3.jpg', '2023-01-17 01:44:08'),
+(102, 12, 'Brown_Aspin.jpg', '2023-01-17 01:44:50'),
+(103, 12, 'Campbells_dwarf.jpg', '2023-01-17 01:44:50'),
+(104, 12, 'germanshepherd.jpg', '2023-01-17 01:44:50'),
+(105, 12, 'hamster1.jpg', '2023-01-17 01:44:50'),
+(106, 12, 'hamster2.jpg', '2023-01-17 01:44:50'),
+(107, 12, 'hehe.jpeg', '2023-01-17 01:44:50'),
+(108, 12, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 01:44:50'),
+(109, 12, 'jorji1.jpg', '2023-01-17 01:44:50'),
+(110, 12, 'Khaomanee_cat.jpg', '2023-01-17 01:44:50'),
+(111, 12, 'pexels-pixabay-45201.jpg', '2023-01-17 01:44:50'),
+(112, 12, 'puspin2.jpg', '2023-01-17 01:44:50'),
+(113, 12, 'samantha.jpg', '2023-01-17 01:44:50'),
+(114, 12, 'stix.jpg', '2023-01-17 01:44:50'),
+(115, 12, 'stix2.jpg', '2023-01-17 01:44:50'),
+(116, 12, 'stix3.jpg', '2023-01-17 01:44:50'),
+(117, 13, 'stix.jpg', '2023-01-17 08:13:37'),
+(118, 13, 'stix2.jpg', '2023-01-17 08:13:37'),
+(119, 13, 'stix3.jpg', '2023-01-17 08:13:37'),
+(121, 15, 'samantha.jpg', '2023-01-17 08:27:19'),
+(122, 15, 'stix.jpg', '2023-01-17 08:27:19'),
+(123, 15, 'stix2.jpg', '2023-01-17 08:27:19'),
+(124, 15, 'stix3.jpg', '2023-01-17 08:27:19'),
+(125, 16, 'samantha.jpg', '2023-01-17 08:48:00'),
+(126, 16, 'stix.jpg', '2023-01-17 08:48:00'),
+(127, 16, 'stix2.jpg', '2023-01-17 08:48:00'),
+(128, 16, 'stix3.jpg', '2023-01-17 08:48:00'),
+(129, 15, 'samantha.jpg', '2023-01-17 21:26:49'),
+(130, 15, 'stix.jpg', '2023-01-17 21:26:49'),
+(131, 15, 'stix2.jpg', '2023-01-17 21:26:49'),
+(132, 15, 'stix3.jpg', '2023-01-17 21:26:49');
 
 -- --------------------------------------------------------
 
@@ -165,6 +283,7 @@ INSERT INTO `deledopted` (`petID`, `name`, `age`, `sex`, `vacinnated`, `descript
 (7, 'jkljk', 2009, 'male', 'yes', 'dfgdhgh', 2, 4, 3, '2023-01-15 17:19:25'),
 (8, 'jejas', 2009, 'male', 'no', 'ergdfgdfgdf', 1, 1, 3, '2023-01-15 17:20:56'),
 (9, 'tang', 2008, 'female', 'yes', 'fhdfh', 2, 4, 3, '2023-01-15 17:34:45'),
+(10, 'manypic', 2021, 'male', 'yes', 'Why do stars fall down from the sky?', 3, 6, 3, '2023-01-15 18:09:09'),
 (11, 'sdfdsf', 2009, 'male', 'yes', 'dfgdsdsfasdfsada', 1, 1, 3, '2023-01-15 21:33:01'),
 (12, 'ghdfgd', 2009, 'female', 'yes', 'dgfhgjdgfdgf', 3, 6, 3, '2023-01-15 22:02:32'),
 (13, 'xcvdfbfgn', 2020, 'male', 'no', 'ukhjjgfhfgh', 1, 3, 3, '2023-01-15 22:03:51');
@@ -218,6 +337,21 @@ INSERT INTO `deledopted_photo` (`petphoID`, `petID`, `photo`, `date_time`) VALUE
 (86, 8, 'stix2.jpg', '2023-01-15 17:21:27'),
 (87, 8, 'stix3.jpg', '2023-01-15 17:21:27'),
 (88, 9, 'puspin2.jpg', '2023-01-15 17:34:45'),
+(89, 10, 'Brown_Aspin.jpg', '2023-01-15 18:09:09'),
+(90, 10, 'Campbells_dwarf.jpg', '2023-01-15 18:09:09'),
+(91, 10, 'germanshepherd.jpg', '2023-01-15 18:09:09'),
+(92, 10, 'hamster1.jpg', '2023-01-15 18:09:09'),
+(93, 10, 'hamster2.jpg', '2023-01-15 18:09:09'),
+(94, 10, 'hehe.jpeg', '2023-01-15 18:09:09'),
+(95, 10, 'istockphoto-1217828258-170667a.jpg', '2023-01-15 18:09:09'),
+(96, 10, 'jorji1.jpg', '2023-01-15 18:09:09'),
+(97, 10, 'Khaomanee_cat.jpg', '2023-01-15 18:09:09'),
+(98, 10, 'pexels-pixabay-45201.jpg', '2023-01-15 18:09:09'),
+(99, 10, 'puspin2.jpg', '2023-01-15 18:09:09'),
+(100, 10, 'samantha.jpg', '2023-01-15 18:09:09'),
+(101, 10, 'stix.jpg', '2023-01-15 18:09:09'),
+(102, 10, 'stix2.jpg', '2023-01-15 18:09:09'),
+(103, 10, 'stix3.jpg', '2023-01-15 18:09:09'),
 (104, 11, 'germanshepherd.jpg', '2023-01-15 21:33:01'),
 (105, 12, 'hamster1.jpg', '2023-01-15 22:02:32'),
 (106, 13, 'stix.jpg', '2023-01-15 22:03:51');
@@ -313,7 +447,24 @@ CREATE TABLE `pet` (
 INSERT INTO `pet` (`petID`, `name`, `age`, `sex`, `vaccinated`, `description`, `pcID`, `bcID`, `userID`, `date_time`) VALUES
 (1, 'browny', 2020, 'male', NULL, 'browny\r\n', 2, 2, 1, NULL),
 (2, 'akosidogie', 2019, 'male', NULL, 'Ako si dogie', 1, 1, 2, NULL),
-(10, 'manypic', 2021, 'male', 'yes', 'Why do stars fall down from the sky?', 3, 6, 3, '2023-01-15 18:09:09');
+(14, 'ben', 2020, 'male', 'yes', 'asdasdasd', 1, 1, 3, '2023-01-16 20:52:27'),
+(15, 'mino', 2016, 'male', 'yes', 'Ako si Mino', 1, 3, 3, '2023-01-26 22:04:19');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `pets_owned`
+-- (See below for the actual view)
+--
+CREATE TABLE `pets_owned` (
+`userID` int(100)
+,`username` varchar(255)
+,`fname` varchar(255)
+,`lname` varchar(255)
+,`muni_name` varchar(255)
+,`muniID` int(100)
+,`pets_owned` bigint(21)
+);
 
 -- --------------------------------------------------------
 
@@ -385,21 +536,25 @@ INSERT INTO `pet_photo` (`petphoID`, `petID`, `photo`, `date_time`) VALUES
 (55, 55, 'stix3.jpg', NULL),
 (56, 1, 'Khaomanee_cat.jpg', NULL),
 (57, 2, 'germanshepherd.jpg', NULL),
-(89, 10, 'Brown_Aspin.jpg', '2023-01-15 18:09:09'),
-(90, 10, 'Campbells_dwarf.jpg', '2023-01-15 18:09:09'),
-(91, 10, 'germanshepherd.jpg', '2023-01-15 18:09:09'),
-(92, 10, 'hamster1.jpg', '2023-01-15 18:09:09'),
-(93, 10, 'hamster2.jpg', '2023-01-15 18:09:09'),
-(94, 10, 'hehe.jpeg', '2023-01-15 18:09:09'),
-(95, 10, 'istockphoto-1217828258-170667a.jpg', '2023-01-15 18:09:09'),
-(96, 10, 'jorji1.jpg', '2023-01-15 18:09:09'),
-(97, 10, 'Khaomanee_cat.jpg', '2023-01-15 18:09:09'),
-(98, 10, 'pexels-pixabay-45201.jpg', '2023-01-15 18:09:09'),
-(99, 10, 'puspin2.jpg', '2023-01-15 18:09:09'),
-(100, 10, 'samantha.jpg', '2023-01-15 18:09:09'),
-(101, 10, 'stix.jpg', '2023-01-15 18:09:09'),
-(102, 10, 'stix2.jpg', '2023-01-15 18:09:09'),
-(103, 10, 'stix3.jpg', '2023-01-15 18:09:09');
+(107, 14, 'stix.jpg', '2023-01-16 20:52:27'),
+(108, 14, 'Brown_Aspin.jpg', '2023-01-17 21:18:19'),
+(109, 14, 'Campbells_dwarf.jpg', '2023-01-17 21:18:19'),
+(110, 14, 'germanshepherd.jpg', '2023-01-17 21:18:19'),
+(111, 14, 'hamster1.jpg', '2023-01-17 21:18:19'),
+(112, 14, 'hamster2.jpg', '2023-01-17 21:18:19'),
+(113, 14, 'hehe.jpeg', '2023-01-17 21:18:19'),
+(114, 14, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 21:18:19'),
+(115, 14, 'jorji1.jpg', '2023-01-17 21:18:19'),
+(116, 14, 'Khaomanee_cat.jpg', '2023-01-17 21:18:19'),
+(117, 14, 'pexels-pixabay-45201.jpg', '2023-01-17 21:18:19'),
+(118, 14, 'puspin2.jpg', '2023-01-17 21:18:19'),
+(119, 14, 'samantha.jpg', '2023-01-17 21:18:19'),
+(120, 14, 'stix.jpg', '2023-01-17 21:18:19'),
+(121, 14, 'stix2.jpg', '2023-01-17 21:18:19'),
+(122, 14, 'stix3.jpg', '2023-01-17 21:18:19'),
+(123, 15, 'germanshepherd.jpg', '2023-01-26 22:04:19'),
+(124, 15, 'stix.jpg', '2023-01-26 22:04:19'),
+(125, 15, 'stix3.jpg', '2023-01-26 22:04:19');
 
 -- --------------------------------------------------------
 
@@ -422,18 +577,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`prodID`, `shopID`, `pcID`, `prod_name`, `description`, `price`, `date_time`) VALUES
-(1, 2, 1, 'eric awaw', 'eric god', 7000, '2023-01-15 13:46:39'),
-(6, 35, 3, 'daego', 'afduiahf aosid asd', 1234, '2023-01-16 01:50:55'),
-(7, 2, 2, 'marimar', 'panggamot sa ubo ng pusa', 38, '2023-01-16 01:55:47'),
-(8, 35, 3, 'earnie', 'parang robust ng daga at ibon', 565, '2023-01-16 01:56:22'),
-(9, 40, 2, 'd', 'sdf', 56, '2023-01-16 01:58:18'),
-(10, 40, 3, 'zz', 'zz', 0, '2023-01-16 02:02:06'),
-(11, 40, 2, 'm', 'm', 0, '2023-01-16 02:10:45'),
-(12, 40, 2, 'jb', 'bbbb', 90, '2023-01-16 02:11:11'),
-(15, 29, 1, 'op', 'op', 90, '2023-01-16 02:15:11'),
-(16, 2, 2, 'ty', 'ty', 67, '2023-01-16 02:15:35'),
-(17, 35, 2, 'daryll', 'daryll troy', 456, '2023-01-16 13:27:05'),
-(18, 23, 3, 'mmnb', 'yhghfghfgh', 789, '2023-01-16 14:52:29');
+(28, 46, 1, 'fgdfg', 'beauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want, yeah\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\ni know where you hide, alone in your car\r\nknow all of the things that make you who you are\r\ni know that goodbye means nothing at all\r\ncomes back and begs me to catch her every time she falls, yeah\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain, oh\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nyeah, yeah\r\ni don&#039;t mind spending every day (ooh, ooh)\r\nout on your corner in the pouring rain\r\n(please don&#039;t try so hard to say goodbye)', 789, '2023-01-17 01:27:56'),
+(33, 46, 1, 'afyut', 'dfgdfgsdfsdf miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want', 46, '2023-01-17 08:21:00'),
+(37, 61, 2, 'man', 'manasd', 231, '2023-01-17 23:16:40');
 
 -- --------------------------------------------------------
 
@@ -455,31 +601,84 @@ CREATE TABLE `product_photo` (
 INSERT INTO `product_photo` (`prodphoID`, `prodID`, `photo`, `date_time`) VALUES
 (1, 4, 'stix3.jpg', '2023-01-16 01:49:31'),
 (2, 5, 'istockphoto-1217828258-170667a.jpg', '2023-01-16 01:49:51'),
-(3, 6, 'pexels-pixabay-45201.jpg', '2023-01-16 01:50:55'),
-(4, 7, 'Campbells_dwarf.jpg', '2023-01-16 01:55:47'),
-(5, 8, 'hamster1.jpg', '2023-01-16 01:56:22'),
-(6, 9, 'stix3.jpg', '2023-01-16 01:58:18'),
-(7, 10, 'stix3.jpg', '2023-01-16 02:02:06'),
-(8, 11, 'jorji1.jpg', '2023-01-16 02:10:45'),
-(9, 12, 'stix3.jpg', '2023-01-16 02:11:11'),
-(12, 15, 'stix3.jpg', '2023-01-16 02:15:11'),
-(13, 16, 'stix3.jpg', '2023-01-16 02:15:35'),
-(14, 17, 'pic-na-retoke.jpg', '2023-01-16 13:27:05'),
-(15, 18, 'Brown_Aspin.jpg', '2023-01-16 14:52:29'),
-(16, 7, 'germanshepherd.jpg', '2023-01-16 14:59:46'),
-(17, 6, 'hamster1.jpg', '2023-01-16 15:00:34'),
-(18, 6, 'hamster1.jpg', '2023-01-16 15:01:07'),
-(20, 1, 'hehe.jpeg', '2023-01-16 15:20:12'),
-(21, 1, 'jorji1.jpg', '2023-01-16 15:23:18'),
-(22, 1, 'puspin2.jpg', '2023-01-16 15:24:02'),
-(23, 1, 'samantha.jpg', '2023-01-16 15:24:02'),
-(24, 1, 'stix2.jpg', '2023-01-16 15:24:02'),
-(25, 1, 'stix2.jpg', '2023-01-16 15:40:39'),
-(26, 1, 'stix3.jpg', '2023-01-16 15:40:39'),
-(27, 1, 'stix2.jpg', '2023-01-16 15:42:46'),
-(28, 1, 'stix3.jpg', '2023-01-16 15:42:46'),
-(29, 6, 'hamster2.jpg', '2023-01-16 15:44:41'),
-(30, 1, 'stix2.jpg', '2023-01-16 15:48:29');
+(42, 28, 'Brown_Aspin.jpg', '2023-01-17 01:28:11'),
+(45, 28, 'Brown_Aspin.jpg', '2023-01-17 01:30:35'),
+(47, 28, 'Khaomanee_cat.jpg', '2023-01-17 01:34:53'),
+(48, 28, 'germanshepherd.jpg', '2023-01-17 01:39:58'),
+(50, 28, 'puspin2.jpg', '2023-01-17 01:43:09'),
+(51, 28, 'Khaomanee_cat.jpg', '2023-01-17 01:45:22'),
+(116, 28, 'Brown_Aspin.jpg', '2023-01-17 01:58:15'),
+(117, 28, 'Campbells_dwarf.jpg', '2023-01-17 01:58:15'),
+(118, 28, 'germanshepherd.jpg', '2023-01-17 01:58:15'),
+(119, 28, 'hamster1.jpg', '2023-01-17 01:58:15'),
+(120, 28, 'hamster2.jpg', '2023-01-17 01:58:15'),
+(121, 28, 'hehe.jpeg', '2023-01-17 01:58:15'),
+(122, 28, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 01:58:15'),
+(123, 28, 'jorji1.jpg', '2023-01-17 01:58:15'),
+(124, 28, 'Khaomanee_cat.jpg', '2023-01-17 01:58:15'),
+(125, 28, 'pexels-pixabay-45201.jpg', '2023-01-17 01:58:15'),
+(126, 28, 'puspin2.jpg', '2023-01-17 01:58:15'),
+(127, 28, 'samantha.jpg', '2023-01-17 01:58:15'),
+(128, 28, 'stix.jpg', '2023-01-17 01:58:15'),
+(129, 28, 'stix2.jpg', '2023-01-17 01:58:15'),
+(130, 28, 'stix3.jpg', '2023-01-17 01:58:15'),
+(131, 28, 'Brown_Aspin.jpg', '2023-01-17 01:58:38'),
+(132, 28, 'Campbells_dwarf.jpg', '2023-01-17 01:58:38'),
+(133, 28, 'germanshepherd.jpg', '2023-01-17 01:58:38'),
+(134, 28, 'hamster1.jpg', '2023-01-17 01:58:38'),
+(135, 28, 'hamster2.jpg', '2023-01-17 01:58:38'),
+(136, 28, 'hehe.jpeg', '2023-01-17 01:58:38'),
+(137, 28, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 01:58:38'),
+(138, 28, 'jorji1.jpg', '2023-01-17 01:58:38'),
+(139, 28, 'Khaomanee_cat.jpg', '2023-01-17 01:58:38'),
+(140, 28, 'pexels-pixabay-45201.jpg', '2023-01-17 01:58:38'),
+(141, 28, 'puspin2.jpg', '2023-01-17 01:58:38'),
+(142, 28, 'samantha.jpg', '2023-01-17 01:58:38'),
+(143, 28, 'stix.jpg', '2023-01-17 01:58:38'),
+(144, 28, 'stix2.jpg', '2023-01-17 01:58:38'),
+(145, 28, 'stix3.jpg', '2023-01-17 01:58:38'),
+(146, 28, 'Brown_Aspin.jpg', '2023-01-17 01:59:16'),
+(147, 28, 'Campbells_dwarf.jpg', '2023-01-17 01:59:16'),
+(148, 28, 'germanshepherd.jpg', '2023-01-17 01:59:16'),
+(149, 28, 'hamster1.jpg', '2023-01-17 01:59:16'),
+(150, 28, 'hamster2.jpg', '2023-01-17 01:59:16'),
+(151, 28, 'hehe.jpeg', '2023-01-17 01:59:16'),
+(152, 28, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 01:59:16'),
+(153, 28, 'jorji1.jpg', '2023-01-17 01:59:16'),
+(154, 28, 'Khaomanee_cat.jpg', '2023-01-17 01:59:16'),
+(155, 28, 'pexels-pixabay-45201.jpg', '2023-01-17 01:59:16'),
+(156, 28, 'puspin2.jpg', '2023-01-17 01:59:16'),
+(157, 28, 'samantha.jpg', '2023-01-17 01:59:16'),
+(158, 28, 'stix.jpg', '2023-01-17 01:59:16'),
+(159, 28, 'stix2.jpg', '2023-01-17 01:59:16'),
+(160, 28, 'stix3.jpg', '2023-01-17 01:59:16'),
+(161, 33, 'samantha.jpg', '2023-01-17 08:21:00'),
+(162, 33, 'stix.jpg', '2023-01-17 08:21:00'),
+(163, 33, 'stix2.jpg', '2023-01-17 08:21:00'),
+(164, 33, 'stix3.jpg', '2023-01-17 08:21:00'),
+(165, 33, 'Brown_Aspin.jpg', '2023-01-17 21:18:57'),
+(166, 33, 'Campbells_dwarf.jpg', '2023-01-17 21:18:57'),
+(167, 33, 'germanshepherd.jpg', '2023-01-17 21:18:57'),
+(168, 33, 'hamster1.jpg', '2023-01-17 21:18:57'),
+(169, 33, 'hamster2.jpg', '2023-01-17 21:18:57'),
+(170, 33, 'hehe.jpeg', '2023-01-17 21:18:57'),
+(171, 33, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 21:18:57'),
+(172, 33, 'jorji1.jpg', '2023-01-17 21:18:57'),
+(173, 33, 'Khaomanee_cat.jpg', '2023-01-17 21:18:57'),
+(174, 33, 'pexels-pixabay-45201.jpg', '2023-01-17 21:18:57'),
+(175, 33, 'puspin2.jpg', '2023-01-17 21:18:57'),
+(176, 33, 'samantha.jpg', '2023-01-17 21:18:57'),
+(177, 33, 'stix.jpg', '2023-01-17 21:18:57'),
+(178, 33, 'stix2.jpg', '2023-01-17 21:18:57'),
+(179, 33, 'stix3.jpg', '2023-01-17 21:18:57'),
+(199, 37, 'jorji1.jpg', '2023-01-17 23:16:40'),
+(200, 37, 'Khaomanee_cat.jpg', '2023-01-17 23:16:40'),
+(201, 37, 'pexels-pixabay-45201.jpg', '2023-01-17 23:16:40'),
+(202, 37, 'puspin2.jpg', '2023-01-17 23:16:40'),
+(203, 37, 'samantha.jpg', '2023-01-17 23:16:40'),
+(204, 37, 'stix.jpg', '2023-01-17 23:16:41'),
+(205, 37, 'stix2.jpg', '2023-01-17 23:16:41'),
+(206, 37, 'stix3.jpg', '2023-01-17 23:16:41');
 
 -- --------------------------------------------------------
 
@@ -506,20 +705,15 @@ CREATE TABLE `shop` (
 --
 
 INSERT INTO `shop` (`shopID`, `shop_name`, `email`, `owner`, `muniID`, `location`, `contact_no`, `open_hours`, `services`, `description`, `date_time`) VALUES
-(1, 'pet shop 100', 'petshop@gmail.com', 'kenneth del rosario', 1, '', '93021542', '10am - 11pmmon - fri', 'pet care', 'this is a very nice pet shop', '2023-01-11 15:15:53'),
-(2, 'Alagaan', 'alagaan@yahoo.com', 'Maria Sta.Maria', 18, 'Perez Boulevard, Dagupan City', '2589632', '9-10', 'wala pa', 'maganda dito', '2023-01-21 16:05:07'),
-(23, 'ty', 'rt', 'dfhsdf', 3, '', 'dfgdfg', 'asdasdasd', 'rtyrtyr', 'erwerwerwr', '2023-01-15 22:25:27'),
-(24, 't', 'p', '', 48, '', '', '', '', '', '2023-01-15 22:25:54'),
-(26, 'n', 'n', '', 6, '', '', '', '', '', '2023-01-15 22:27:14'),
-(29, 'p', 'q', 'p', 19, '', '', '', '', '', '2023-01-15 22:28:51'),
-(30, 'i', 'i', 'i', 4, '', 'i', '', '', '', '2023-01-15 22:30:36'),
-(31, 'b', 'b', 'b', 14, '', 'b', 'b', '', '', '2023-01-15 22:31:36'),
-(33, 'h', 'h', 'h', 17, '', 'h', 'h', 'h', 'h', '2023-01-15 22:33:26'),
-(35, 'tae', 'tae', 'tae', 18, '', 'tae', 'tae', 'tae', 'tae', '2023-01-15 22:34:42'),
-(36, 'hjk', 'hjk', 'hjk', 20, '', 'hjk', 'hjk', 'hjk', 'hjk', '2023-01-15 22:35:49'),
-(38, 'g', 'g', 'g', 17, '', 'g', 'g', 'g', 'g', '2023-01-15 22:40:55'),
-(40, 'vb', 'vb', 'vb', 18, '', 'vb', 'vb', 'vbv', 'vb', '2023-01-15 22:52:12'),
-(41, 'cc', 'cc', 'cc', 20, '', 'cc', 'cc', 'cc', 'cc', '2023-01-16 00:27:11');
+(46, 'dfg', 'dfgh', 'ghjghj', 1, '', 'sgsd', 'sdfs', 'beauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don', 'beauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want, yeah\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\ni know where you hide, alone in your car\r\nknow all of the things that make you who you are\r\ni know that goodbye means nothing at all\r\ncomes back and begs me to catch her every time she falls, yeah\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain, oh\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nyeah, yeah\r\ni don&#039;t mind spending every day (ooh, ooh)\r\nout on your corner in the pouring rain\r\n(please don&#039;t try so hard to say goodbye)', '2023-01-16 22:53:57'),
+(48, 'ui', 'ui', 'ui', 12, '', 'io', 'io', 'io', 'io', '2023-01-17 01:51:02'),
+(52, 'po', 'po', 'po', 21, '', 'po', 'po', 'po', 'po', '2023-01-17 08:13:52'),
+(55, 'dfgdf', 'fdghfgj', 'sdfs', 17, '', 'gdfgd', 'nm', 'gfhjfg', 'dfghdfg', '2023-01-17 08:15:05'),
+(61, 'fgfefsdf', 'grtht', 'sdfsdf', 20, '', 'dfgrttu', 'sdghgh', 'ghwrtwe', 'dgdsfdsd', '2023-01-17 08:23:09'),
+(68, 'fkjhk', 'jhlkghj', 'fgjfghf', 19, '', 'hgjghjdf', 'dfgdfg', 'hjghkg', 'hgkjtyjdfgdfg', '2023-01-17 21:13:08'),
+(70, 'fdgdfg', 'fghgj', 'dfgdfg', 19, '', 'fdfhfgj', 'ryrtyrjtyj', 'sdfs miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\na', 'miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want', '2023-01-17 21:19:49'),
+(74, 'fgdfg', 'sdfsdf', 'fhdfh', 20, '', 'dfgd', 'dfhfdhd', 'xcvx', 'dvd', '2023-01-17 21:20:45'),
+(77, 'imee denise', 'imee@yahoo.com', 'imme', 1, '', '09457896512', '1uhaud', 'gfgsjhdada', 'sdfsfg', '2023-01-18 12:12:42');
 
 -- --------------------------------------------------------
 
@@ -539,12 +733,106 @@ CREATE TABLE `shop_photo` (
 --
 
 INSERT INTO `shop_photo` (`shopphoID`, `shopID`, `photo`, `date_time`) VALUES
-(1, 36, 'samantha.jpg', '2023-01-15 22:35:49'),
-(2, 38, 'hamster1.jpg', '2023-01-15 22:43:14'),
-(3, 23, 'samantha.jpg', '2023-01-16 19:24:38'),
-(4, 23, 'stix.jpg', '2023-01-16 19:24:38'),
-(5, 23, 'stix2.jpg', '2023-01-16 19:24:38'),
-(6, 23, 'stix3.jpg', '2023-01-16 19:24:38');
+(20, 46, 'istockphoto-1217828258-170667a.jpg', '2023-01-16 22:53:57'),
+(21, 46, 'stix.jpg', '2023-01-16 22:53:57'),
+(22, 46, 'stix2.jpg', '2023-01-16 22:53:57'),
+(23, 46, 'stix3.jpg', '2023-01-16 22:53:57'),
+(24, 46, 'Brown_Aspin.jpg', '2023-01-17 01:12:55'),
+(25, 46, 'Campbells_dwarf.jpg', '2023-01-17 01:12:55'),
+(26, 46, 'germanshepherd.jpg', '2023-01-17 01:12:55'),
+(27, 46, 'hamster1.jpg', '2023-01-17 01:12:55'),
+(28, 46, 'hamster2.jpg', '2023-01-17 01:12:55'),
+(29, 46, 'hehe.jpeg', '2023-01-17 01:12:55'),
+(30, 46, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 01:12:55'),
+(31, 46, 'jorji1.jpg', '2023-01-17 01:12:55'),
+(32, 46, 'Khaomanee_cat.jpg', '2023-01-17 01:12:55'),
+(33, 46, 'pexels-pixabay-45201.jpg', '2023-01-17 01:12:55'),
+(34, 46, 'puspin2.jpg', '2023-01-17 01:12:55'),
+(35, 46, 'samantha.jpg', '2023-01-17 01:12:55'),
+(36, 46, 'stix.jpg', '2023-01-17 01:12:55'),
+(37, 46, 'stix2.jpg', '2023-01-17 01:12:55'),
+(38, 46, 'stix3.jpg', '2023-01-17 01:12:55'),
+(39, 46, 'Brown_Aspin.jpg', '2023-01-17 01:13:18'),
+(40, 46, 'Campbells_dwarf.jpg', '2023-01-17 01:13:18'),
+(41, 46, 'germanshepherd.jpg', '2023-01-17 01:13:18'),
+(42, 46, 'hamster1.jpg', '2023-01-17 01:13:18'),
+(43, 46, 'hamster2.jpg', '2023-01-17 01:13:18'),
+(44, 46, 'hehe.jpeg', '2023-01-17 01:13:18'),
+(45, 46, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 01:13:18'),
+(46, 46, 'jorji1.jpg', '2023-01-17 01:13:18'),
+(47, 46, 'Khaomanee_cat.jpg', '2023-01-17 01:13:18'),
+(48, 46, 'pexels-pixabay-45201.jpg', '2023-01-17 01:13:18'),
+(49, 46, 'puspin2.jpg', '2023-01-17 01:13:18'),
+(50, 46, 'samantha.jpg', '2023-01-17 01:13:18'),
+(51, 46, 'stix.jpg', '2023-01-17 01:13:18'),
+(52, 46, 'stix2.jpg', '2023-01-17 01:13:18'),
+(53, 46, 'stix3.jpg', '2023-01-17 01:13:18'),
+(92, 46, 'Khaomanee_cat.jpg', '2023-01-17 01:31:09'),
+(93, 46, 'pexels-pixabay-45201.jpg', '2023-01-17 01:31:09'),
+(94, 46, 'puspin2.jpg', '2023-01-17 01:31:09'),
+(95, 46, 'samantha.jpg', '2023-01-17 01:31:09'),
+(96, 46, 'stix.jpg', '2023-01-17 01:31:09'),
+(97, 46, 'stix2.jpg', '2023-01-17 01:31:09'),
+(98, 46, 'stix3.jpg', '2023-01-17 01:31:09'),
+(99, 48, 'samantha.jpg', '2023-01-17 01:51:02'),
+(100, 48, 'stix.jpg', '2023-01-17 01:51:02'),
+(101, 48, 'stix2.jpg', '2023-01-17 01:51:02'),
+(102, 48, 'stix3.jpg', '2023-01-17 01:51:02'),
+(106, 52, 'stix2.jpg', '2023-01-17 08:13:52'),
+(111, 55, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 08:15:05'),
+(117, 61, 'samantha.jpg', '2023-01-17 08:23:09'),
+(118, 61, 'stix.jpg', '2023-01-17 08:23:09'),
+(119, 61, 'stix2.jpg', '2023-01-17 08:23:09'),
+(120, 61, 'stix3.jpg', '2023-01-17 08:23:09'),
+(166, 68, 'Brown_Aspin.jpg', '2023-01-17 21:13:08'),
+(167, 68, 'Campbells_dwarf.jpg', '2023-01-17 21:13:08'),
+(168, 68, 'germanshepherd.jpg', '2023-01-17 21:13:08'),
+(169, 68, 'hamster1.jpg', '2023-01-17 21:13:08'),
+(170, 68, 'hamster2.jpg', '2023-01-17 21:13:08'),
+(171, 68, 'hehe.jpeg', '2023-01-17 21:13:08'),
+(172, 68, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 21:13:08'),
+(173, 68, 'jorji1.jpg', '2023-01-17 21:13:08'),
+(174, 68, 'Khaomanee_cat.jpg', '2023-01-17 21:13:08'),
+(175, 68, 'pexels-pixabay-45201.jpg', '2023-01-17 21:13:08'),
+(176, 68, 'puspin2.jpg', '2023-01-17 21:13:08'),
+(177, 68, 'samantha.jpg', '2023-01-17 21:13:08'),
+(178, 68, 'stix.jpg', '2023-01-17 21:13:08'),
+(179, 68, 'stix2.jpg', '2023-01-17 21:13:08'),
+(180, 68, 'stix3.jpg', '2023-01-17 21:13:09'),
+(199, 70, 'Brown_Aspin.jpg', '2023-01-17 21:19:49'),
+(200, 70, 'Campbells_dwarf.jpg', '2023-01-17 21:19:49'),
+(201, 70, 'germanshepherd.jpg', '2023-01-17 21:19:49'),
+(202, 70, 'hamster1.jpg', '2023-01-17 21:19:49'),
+(203, 70, 'hamster2.jpg', '2023-01-17 21:19:49'),
+(204, 70, 'hehe.jpeg', '2023-01-17 21:19:49'),
+(205, 70, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 21:19:49'),
+(206, 70, 'jorji1.jpg', '2023-01-17 21:19:49'),
+(207, 70, 'Khaomanee_cat.jpg', '2023-01-17 21:19:49'),
+(208, 70, 'pexels-pixabay-45201.jpg', '2023-01-17 21:19:49'),
+(209, 70, 'puspin2.jpg', '2023-01-17 21:19:49'),
+(210, 70, 'samantha.jpg', '2023-01-17 21:19:49'),
+(211, 70, 'stix.jpg', '2023-01-17 21:19:49'),
+(212, 70, 'stix2.jpg', '2023-01-17 21:19:49'),
+(213, 70, 'stix3.jpg', '2023-01-17 21:19:49'),
+(214, 77, 'stix2.jpg', '2023-01-18 12:12:42'),
+(215, 77, 'stix3.jpg', '2023-01-18 12:12:42'),
+(216, 77, 'stix2.jpg', '2023-01-18 12:12:57'),
+(217, 77, 'stix3.jpg', '2023-01-18 12:12:57'),
+(218, 77, 'Brown_Aspin.jpg', '2023-01-18 12:13:11'),
+(219, 77, 'Campbells_dwarf.jpg', '2023-01-18 12:13:11'),
+(220, 77, 'germanshepherd.jpg', '2023-01-18 12:13:11'),
+(221, 77, 'hamster1.jpg', '2023-01-18 12:13:11'),
+(222, 77, 'hamster2.jpg', '2023-01-18 12:13:11'),
+(223, 77, 'hehe.jpeg', '2023-01-18 12:13:11'),
+(224, 77, 'istockphoto-1217828258-170667a.jpg', '2023-01-18 12:13:11'),
+(225, 77, 'jorji1.jpg', '2023-01-18 12:13:11'),
+(226, 77, 'Khaomanee_cat.jpg', '2023-01-18 12:13:11'),
+(227, 77, 'pexels-pixabay-45201.jpg', '2023-01-18 12:13:11'),
+(228, 77, 'puspin2.jpg', '2023-01-18 12:13:11'),
+(229, 77, 'samantha.jpg', '2023-01-18 12:13:11'),
+(230, 77, 'stix.jpg', '2023-01-18 12:13:11'),
+(231, 77, 'stix2.jpg', '2023-01-18 12:13:11'),
+(232, 77, 'stix3.jpg', '2023-01-18 12:13:11');
 
 -- --------------------------------------------------------
 
@@ -577,6 +865,15 @@ INSERT INTO `users` (`userID`, `username`, `email`, `password`, `fname`, `lname`
 (2, 'two', 'two@yahoo.com', '$2y$10$DiJbEIRecndAT.IK4TKF.eCREo81jMbS.0vyShyFlv.w.2xekFDcq', 'two', 'two', NULL, 'pic-na-retoke.jpg', NULL, NULL, 6, 'no', NULL),
 (3, 'jw', 'jw@yahoo.com', '$2y$10$pyDEsSs9TYYtHAASvBaoRO1oQBVpm5Y4iwbzF/mhX0tufgRI6a2Ku', 'john', 'wall', NULL, 'hehe.jpeg', NULL, NULL, 17, 'no', NULL),
 (4, 'ako', 'ako@gmail.com', '$2y$10$VtAFNTm.LXnVNjveW6hlxenvk.V.v/2EJ8UzPieD7rQyvBB5aPqZC', 'ako ay', 'bakit ', NULL, 'pic-na-retoke.jpg', NULL, NULL, 44, 'no', '2023-01-14 22:14:47');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `pets_owned`
+--
+DROP TABLE IF EXISTS `pets_owned`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `pets_owned`  AS SELECT `u`.`userID` AS `userID`, `u`.`username` AS `username`, `u`.`fname` AS `fname`, `u`.`lname` AS `lname`, `m`.`muni_name` AS `muni_name`, `m`.`muniID` AS `muniID`, count(`p`.`petID`) AS `pets_owned` FROM ((`users` `u` join `pet` `p` on(`u`.`userID` = `p`.`userID`)) join `municipality` `m` on(`m`.`muniID` = `u`.`muniID`)) GROUP BY `u`.`fname``fname`  ;
 
 --
 -- Indexes for dumped tables
@@ -728,19 +1025,19 @@ ALTER TABLE `chat_log`
 -- AUTO_INCREMENT for table `clinic`
 --
 ALTER TABLE `clinic`
-  MODIFY `clinicID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `clinicID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `clinic_photo`
 --
 ALTER TABLE `clinic_photo`
-  MODIFY `clinicphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `clinicphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT for table `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `petID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `petID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `pet_category`
@@ -752,31 +1049,31 @@ ALTER TABLE `pet_category`
 -- AUTO_INCREMENT for table `pet_photo`
 --
 ALTER TABLE `pet_photo`
-  MODIFY `petphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `petphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prodID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `prodID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `product_photo`
 --
 ALTER TABLE `product_photo`
-  MODIFY `prodphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `prodphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
 
 --
 -- AUTO_INCREMENT for table `shop`
 --
 ALTER TABLE `shop`
-  MODIFY `shopID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `shopID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `shop_photo`
 --
 ALTER TABLE `shop_photo`
-  MODIFY `shopphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `shopphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
 
 --
 -- AUTO_INCREMENT for table `users`
