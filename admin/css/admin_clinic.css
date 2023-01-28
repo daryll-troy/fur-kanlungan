@@ -73,12 +73,12 @@
     align-items: center;
 }
 
-#a_whole {
+/* #a_whole {
     display: grid;
     row-gap: 10px;
     text-decoration: none;
     color: black;
-}
+} */
 
 /* each clinic row */
 .each_clinic {
@@ -124,6 +124,7 @@ font-weight:500;
 .each_clinic div:hover:not(.btn_delete) {
     box-shadow: 5px 5px 15px 5px;
 }
+
 /* margin bottom for update icon */
 .update_pet_img{
     margin-bottom: 0.5em;

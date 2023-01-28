@@ -170,27 +170,27 @@ if (isset($_POST['btn_create_shop'])) {
                         <!-- shop name -->
                         <div class="name_cont">
                             <label for="name" class="form-label  mt-2">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder=" Name" name="name">
+                            <input type="text" class="form-control" id="name" placeholder=" Name" name="name" required>
                             <div> <small id="name_err" style="color: red;"></small></div>
                         </div>
 
                         <!-- email -->
                         <div class="email_cont">
                             <label for="email" class="form-label  mt-2">Email</label>
-                            <input type="text" class="form-control" id="email" placeholder=" email" name="email">
+                            <input type="text" class="form-control" id="email" placeholder=" email" name="email" required>
                             <div> <small id="email_err" style="color: red;"></small></div>
                         </div>
 
                         <!-- owner -->
                         <div class="owner_cont">
                             <label for="owner" class="form-label  mt-2">Owner</label>
-                            <input type="text" class="form-control" id="owner" placeholder=" owner" name="owner">
+                            <input type="text" class="form-control" id="owner" placeholder=" owner" name="owner" required>
                             <div> <small id="owner_err" style="color: red;"></small></div>
                         </div>
 
                         <!-- municipality -->
                         <label for="municipality" class="form-label">Municipality</label>
-                        <select class="form-select btn municipality" aria-label="Default select example" id="municipality" name="municipality">
+                        <select class="form-select btn municipality" aria-label="Default select example" id="municipality" name="municipality" required>
                             <option value="none">Select Municipality</option>
                             <?php
                             // select all municipality
@@ -212,20 +212,20 @@ if (isset($_POST['btn_create_shop'])) {
 
                         <!-- Upload pics of the shop -->
                         <label for="upload_pics" class="form-label mt-2">Upload Photos</label>
-                        <input class=" form-control" type="file" id="upload_pics" name="upload_pics[]" multiple accept=".jpg, .png, .jpeg">
+                        <input class=" form-control" type="file" id="upload_pics" name="upload_pics[]" multiple accept=".jpg, .png, .jpeg" required>
                         <div class="mb-2"> <small id="upload_pics_err" style="color: red;"></small></div>
 
                         <!-- contact -->
                         <div class="contact_cont">
                             <label for="contact" class="form-label  mt-2">Contact</label>
-                            <input type="text" class="form-control" id="contact" placeholder=" contact" name="contact">
+                            <input type="text" class="form-control" id="contact" placeholder=" contact" name="contact" required>
                             <div> <small id="contact_err" style="color: red;"></small></div>
                         </div>
 
                         <!-- open_hours -->
                         <div class="open_hours_cont">
                             <label for="open_hours" class="form-label  mt-2">Open Hours</label>
-                            <input type="text" class="form-control" id="open_hours" placeholder=" open_hours" name="open_hours">
+                            <input type="text" class="form-control" id="open_hours" placeholder=" open_hours" name="open_hours" required>
                             <div> <small id="open_hours_err" style="color: red;"></small></div>
                         </div>
                     </div>
@@ -233,11 +233,11 @@ if (isset($_POST['btn_create_shop'])) {
                     <!-- services -->
                     <div class="services">
                         <label for="services" class="form-label">Services</label>
-                        <textarea name="services" id="services" cols="30" rows="10"></textarea>
+                        <textarea name="services" id="services" cols="30" rows="10" required></textarea>
                     </div>
                     <div class="description">
                         <label for="description" class="form-label">Description</label>
-                        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                        <textarea name="description" id="description" cols="30" rows="10" required></textarea>
                     </div>
 
 

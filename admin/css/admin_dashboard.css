@@ -35,7 +35,7 @@
 .entity_category,
 .municipality {
     width: 15%;
-  
+
     background-color: rgb(110, 18, 18);
     color: aliceblue;
     text-transform: capitalize;
@@ -44,13 +44,13 @@
 
 /* municipality */
 
-.get_muni_name{
+.get_muni_name {
     color: aliceblue;
     background-color: rgba(200, 196, 192, 0.99);
     text-transform: capitalize;
 }
 
-.municipality{
+.municipality {
     display: none;
 }
 
@@ -80,8 +80,9 @@
 .middle-search {
     width: 20%;
     /* justify-self: end; */
-    display:none;
+    display: none;
 }
+
 /* div that contains the grid */
 .grid-container {
     width: 100%;
@@ -105,7 +106,7 @@
     display: none;
     /* justify-content: center;
     align-content: center; */
-    grid-template-columns: 0.5fr 1fr 1fr 1fr  1fr 0.5fr ;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 0.5fr;
     color: aliceblue;
 }
 
@@ -115,176 +116,56 @@
     align-items: center;
 }
 
-/* the div that will take you to add entity page when the add entity button is clicked */
-/* .admin_create_entity {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(236, 160, 85);
-    width: 60%;
-    height: 15vh;
-    margin: 0 0 0.5em 0;
-    
-} */
+/* each user_categ row */
+.each_user_categ {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 0.5fr;
+    grid-template-rows: auto;
 
-/* add shadow to boxes */
-/* .admin_create_entity,
-.each_entity {
-    box-shadow: 5px 5px 15px;
-} */
-
-/* the div of each entity */
-/* .each_entity {
-    display: flex;
-    background-color: rgb(249, 217, 184);
-    width: 60%;
-    min-height: 10vh;
-    margin: 0 0 0.5em 0;
-
-} */
-
-/* for no entity message container */
-/* .zero_entity {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(249, 217, 184);
-    width: 60%;
-    height: 10vh;
-    margin: 0 0 0.5em 0;
-} */
-
-/* entity image container */
-/* .entity_img {
-
-    flex: 1;
-} */
-
-/* the actual image */
-/* .entity_photo img {
-    height: 100%;
-    width: 8em;
-    object-fit: cover;
-} */
-
-/* entity name container */
-/* .entity_name {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 3;
-} */
-/* 
-.entity_name div {
-    text-transform: capitalize;
-} */
-
-/* adjust the font size and font style */
-/* .entity_name,
-.zero_entity {
-    font-size: 1.5em;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    overflow-y: auto;
-    overflow-x: hidden;
-    overflow-wrap: break-word;
-
-} */
-
-/* remove link decoration */
-/* .entity_name a {
-    text-decoration: none;
-    color: initial;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    column-gap: 2px;
 }
- */
 
-/* for updating and deleting entity data */
-/* .update_entity,
-.delete_entity { */
-/* background-color: cadetblue; */
-/* width: 30%; */
-/* display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-  
+
+/* each user_categ grid item */
+.each_user_categ>div:nth-child(even) {
+    background-color: rgba(200, 196, 192, 0.99);
+    color: black;
+}
+
+/* .each_user_categ>div:nth-child(even):hover {
+    color: aliceblue;
 } */
-/* .update_entity a,
-.delete_entity a{
-    
+
+.each_user_categ>div:nth-child(odd) {
+    background-color: rgba(193, 125, 56, 0.99);
+
+}
+
+/* .each_user_categ>div:nth-child(odd):hover {
     color: black;
 } */
 
-/* adopted icon */
-/* #adopted_icon {
-    width: 25px;
-    height: 25px;
-} */
-
-/* for the div of the icons: .pang-row */
-/* .pang-row {
+.each_user_categ div {
+    text-transform: capitalize;
+    grid-row: 1;
+    padding: 0.2em;
+/* color: black; */
     display: flex;
-    flex: 1;
-} */
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(0.4rem, 1vw, 1rem);
 
-/* delete icon */
-/* .delete_entity_img{
-    cursor:pointer;
-} */
+    border-color: black;
+    border-style: solid;
+    border-width: 0 1px;
 
-/* ============================= MEDIA QUERIES ============================== */
-/* @media screen and (max-width: 1024px) {
-
-    .each_entity,
-    .admin_create_entity {
-        width: 90%;
-
-    }
-
-
-
-} */
-
-/* @media screen and (max-width: 992px) {
-
-    .each_entity,
-    .admin_create_entity {
-        width: 90%;
-
-    }
-
-
-
-} */
-/* 
-@media screen and (max-width: 767px) {
-
-    .each_entity,
-    .admin_create_entity {
-        width: 90%;
-
-    }
-
-    .list_entity {
-        width: 100%;
-
-    }
-
+    font-weight: 500;
+    word-wrap: break-word;
 }
 
-@media screen and (max-width: 480px) {
-
-    .each_entity,
-    .admin_create_entity {
-        flex-direction: column;
-        align-items: center;
-        padding: 1em 0.5em;
-    }
-
-    .each_entity {
-        min-height: 15em;
-    }
-
-    .update_entity {
-        margin-right: 3em;
-    }
-} */
+.each_user_categ div:hover{
+    box-shadow: 5px 5px 15px 5px;
+}

@@ -19,6 +19,7 @@ function clearAll() {
     $(".municipality").css("display", "none");
     $(".middle-search").css("display", "none");
     $(".col_users").css("display", "none");
+    $('.each_user_categ').css("display", "none");
 }
 
 
@@ -28,28 +29,84 @@ function filterUser() {
     $(".user_category").css("display", "block");
     $(".municipality").css("display", "block");
     $(".col_users").css("display", "grid");
-    let user_categ = $(".user_category").val();
-    let muni = $(".municipality");
+    // let user_categ = $(".user_category").val();
+    let muni = $(".municipality").val();
+    let um = $('.user_menu').val();
 
-    if (muni.val() == "all_muni") {
-        
-        $.ajax({
-            url: 'admin_filter_categ.php',
-            method: 'post',
-            data: "user_categ=" + user_categ
-        }).done(function (user_cat_res) {
-           
-            user_cat_res = JSON.parse(user_cat_res);
-            console.log(user_cat_res);
-        })
+    // check if the municipality dropdown menu is selected as all municipalities
+    if (muni == "all_muni") {
+        // check if the users category is pets owned
+        if (um === "pets_owned") {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: { pets_owned: um }
+            }).done(function (pets_owned) {
+
+                pets_owned = JSON.parse(pets_owned);
+
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                pets_owned.forEach(function (result) {
+                    console.log(result);
+
+
+                    $('.grid-container').append(
+                        "<div class='each_user_categ'>" +
+                        "<div>" + result.userID + "</div>" +
+                        "<div>" + result.username + "</div>" +
+                        "<div>" + result.fname + "</div>" +
+                        "<div>" + result.lname + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "<div>" + result.pets_owned + "</div>" +
+                        "</div>"
+                    );
+
+                })
+
+            })
+        }
+
+        // check if the users category is unverified
+        if (um === "unverified") {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: { user_categ: user_categ }
+            })
+        }
     } else {
+        // if user category is pets owned
+        if (um === "pets_owned") {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: { pets_owned_muni: muni }
+            }).done(function (pets_owned_muni) {
+                pets_owned_muni = JSON.parse(pets_owned_muni);
 
-        // $.ajax({
-        //     url: 'admin_filter_categ.php',
-        //     method: 'post',
-        //     data: {user_categ: user_categ}
-        // }).done(function (user_cat_res) {
-        //     user_cat_res = JSON.parse(user_cat_res);
-        // })
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                pets_owned_muni.forEach(function (result) {
+                    console.log(result);
+
+
+                    $('.grid-container').append(
+                        "<div class='each_user_categ'>" +
+                        "<div>" + result.userID + "</div>" +
+                        "<div>" + result.username + "</div>" +
+                        "<div>" + result.fname + "</div>" +
+                        "<div>" + result.lname + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "<div>" + result.pets_owned + "</div>" +
+                        "</div>"
+                    );
+
+                })
+
+            })
+        }
     }
 }

@@ -192,21 +192,21 @@ if (isset($_POST['btn_update_product'])) {
                         <!-- product name -->
                         <div class="name_cont">
                             <label for="name" class="form-label  mt-2">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder=" Name" name="name" value="<?php echo $prod_name; ?>">
+                            <input type="text" class="form-control" id="name" placeholder=" Name" name="name" value="<?php echo $prod_name; ?>" required>
                             <div> <small id="name_err" style="color: red;"></small></div>
                         </div>
 
                         <!-- price -->
                         <div class="price_cont">
                             <label for="price" class="form-label  mt-2">price</label>
-                            <input type="text" class="form-control" id="price" placeholder=" price" name="price" value="<?php echo $price; ?>">
+                            <input type="text" class="form-control" id="price" placeholder=" price" name="price" value="<?php echo $price; ?>" required>
                             <div> <small id="price_err" style="color: red;"></small></div>
                         </div>
 
 
                         <!-- pet_category -->
                         <label for="pet_category" class="form-label">pet_category</label>
-                        <select class="form-select btn pet_category" aria-label="Default select example" id="pet_category" name="pet_category">
+                        <select class="form-select btn pet_category" aria-label="Default select example" id="pet_category" name="pet_category" required>
 
                             <?php
                             // select all pet_category
@@ -229,7 +229,7 @@ if (isset($_POST['btn_update_product'])) {
 
                         <!-- shop name -->
                         <label for="shop_name" class="form-label">Shop Name</label>
-                        <select class="form-select btn shop_name" aria-label="Default select example" id="shop_name" name="shop_name">
+                        <select class="form-select btn shop_name" aria-label="Default select example" id="shop_name" name="shop_name" required>
 
                             <?php
                             // select all shop_name
@@ -255,7 +255,7 @@ if (isset($_POST['btn_update_product'])) {
 
                     <div class="description">
                         <label for="description" class="form-label">Description</label>
-                        <textarea name="description" id="description" cols="30" rows="10"><?php echo $description; ?></textarea>
+                        <textarea name="description" id="description" cols="30" rows="10" required><?php echo $description; ?></textarea>
                     </div>
                 </div>
 

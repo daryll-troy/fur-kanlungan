@@ -52,8 +52,8 @@ if (!isset($_SESSION['adminID'])) {
 
                     <select class="form-select btn  user_menu" aria-label="Default select example" id="user_category" name="user_category">
                         <option value="pets_owned" class='entity'> Pets Owned</option>
-                        <option value="unverified" class='entity'> Unverified</option>
-                        <option value="verified" class='entity'>Verified</option>
+                        <option value="unverified" class='entity'> ID Unverified</option>
+                        <option value="verified" class='entity'>ID Verified</option>
                     </select>
                 </div>
 
