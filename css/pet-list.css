@@ -22,7 +22,7 @@ body {
 
 /* set max-height of animal type and set it to overflow: auto */
 .get_animal_type,
-.eah_breed  {
+.eah_breed {
     max-height: 20rem;
     overflow: auto;
     color: aliceblue;
@@ -41,13 +41,14 @@ body {
     width: 10em;
     border: 0px;
 }
+
 /* paddings */
-.pet_category{
+.pet_category {
     padding-left: 2.5em;
     padding-right: 2.5em;
 }
-.breed
-{
+
+.breed {
     padding-left: 1em;
     padding-right: 1em;
 }
@@ -56,7 +57,7 @@ body {
 /* color and capitalize */
 .pet_category,
 .press-search,
-.breed  {
+.breed {
     background-color: rgb(110, 18, 18);
     color: aliceblue;
     text-transform: capitalize;
@@ -68,13 +69,13 @@ body {
 
 .pet_category:hover,
 .press-search:hover,
-.breed:hover  {
+.breed:hover {
     background-color: rgb(54, 10, 10);
     color: aliceblue;
 }
 
 .pet_category:focus,
-.breed:focus  {
+.breed:focus {
     background-color: rgb(54, 10, 10);
 }
 
@@ -82,7 +83,7 @@ body {
 /* set to justify-content: between the .wrap-search div */
 .wrap-search {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     gap: 1em;
 }
 
@@ -103,7 +104,7 @@ body {
 }
 
 /* add background color to card when filter is clicked */
-.white-box{
+.white-box {
     background-color: aliceblue;
 }
 
@@ -117,7 +118,7 @@ body {
     }
 
     .pet_category,
-    .breed  {
+    .breed {
         width: 10em;
     }
 

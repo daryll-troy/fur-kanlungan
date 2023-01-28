@@ -22,6 +22,8 @@ $(document).ready(function () {
     })
 })
 
+
+
 // For displaying the pets based from the pet_category selected
 $(document).ready(function () {
 
@@ -262,10 +264,9 @@ $(document).ready(function () {
 // LIVE SEARCH OF PET NAMES
 $(document).ready(function () {
     $("#type-search").keyup(function () {
-        // alert("Type Search");
-        // get breed name
+
         var search = $("#type-search").val();
-        // console.log(search);
+
 
         $.ajax({
             url: 'pet_list_filter.php',
@@ -331,4 +332,5 @@ $(document).ready(function () {
         })
 
     })
+
 })

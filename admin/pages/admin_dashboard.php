@@ -49,9 +49,9 @@ if (!isset($_SESSION['adminID'])) {
 
                 <!-- when Users is selected -->
                 <div class="user_category">
-
                     <select class="form-select btn  user_menu" aria-label="Default select example" id="user_category" name="user_category">
                         <option value="pets_owned" class='entity'> Pets Owned</option>
+                        <option value="not_owned" class='entity'> Not Owned</option>
                         <option value="unverified" class='entity'> ID Unverified</option>
                         <option value="verified" class='entity'>ID Verified</option>
                     </select>
@@ -84,10 +84,10 @@ if (!isset($_SESSION['adminID'])) {
                 <!-- Search the name of the animal -->
                 <!-- <nav class="navbar navbar-light bg-light search-nav"> -->
                 <div class="middle-search">
-                    <form class="d-flex flex-wrap justify-content-center pet-list">
+                    <div class="d-flex flex-wrap justify-content-center pet-list">
                         <input class="form-control  type-search " type="search" placeholder="Search" aria-label="Search" id="type-search">
                         <!-- <button class="btn btn-outline-success press-search" type="submit">Search</button> -->
-                    </form>
+                    </div>
                 </div>
                 <!-- </nav> -->
 
@@ -96,6 +96,8 @@ if (!isset($_SESSION['adminID'])) {
 
             <div class="grid-container">
                 <!-- Users Entity Display -->
+
+                <!-- This is pets_owned -->
                 <div class="col_users">
                     <div>User ID</div>
                     <div>Username</div>
@@ -103,6 +105,25 @@ if (!isset($_SESSION['adminID'])) {
                     <div>Lname</div>
                     <div>Municipality</div>
                     <div>Pets Owned</div>
+                </div>
+                <!-- this is for not owned -->
+                <div class="not_owned">
+                    <div>User ID</div>
+                    <div>Username</div>
+                    <div>Fname</div>
+                    <div>Lname</div>
+                    <div>Municipality</div>
+                    <!-- <div>Pets Owned</div> -->
+                </div>
+
+                <!-- This is for both unverified and verified -->
+                <div class="unver_ver">
+                    <div>User ID</div>
+                    <div>Username</div>
+                    <div>Fname</div>
+                    <div>Lname</div>
+                    <div>Municipality</div>
+                    <div>Verified</div>
                 </div>
             </div>
         </div>

@@ -13,15 +13,17 @@
     <section class="pet-list min-vh-100" id="pet-list">
         <div class="all-wrapper">
             <div class="container flex-wrap filter wrap-search">
-                
+
                 <!-- Search the name of the animal -->
                 <nav class="navbar navbar-light bg-light mt-5 search-nav">
                     <div class="container-fluid search-nav middle-search">
-                        <form class="d-flex flex-wrap justify-content-center pet-list">
+                        <div class="d-flex flex-wrap justify-content-center pet-list">
                             <input class="form-control  type-search " type="search" placeholder="Search Name" aria-label="Search" id="type-search">
                             <!-- <button class="btn btn-outline-success press-search" type="submit">Search</button> -->
-                        </form>
+                        </div>
+
                     </div>
+
                 </nav>
 
                 <!-- Dropdown to filter the animal category -->

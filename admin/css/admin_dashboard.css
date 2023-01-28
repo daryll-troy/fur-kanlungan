@@ -102,7 +102,8 @@
 }
 
 /* container of the column headers */
-.col_users {
+.col_users,
+.unver_ver {
     display: none;
     /* justify-content: center;
     align-content: center; */
@@ -110,7 +111,18 @@
     color: aliceblue;
 }
 
-.col_users div {
+.not_owned {
+    display: none;
+    /* justify-content: center;
+    align-content: center; */
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+    color: aliceblue;
+}
+
+
+.col_users div,
+.unver_ver div,
+.not_owned div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,6 +140,17 @@
     column-gap: 2px;
 }
 
+/* each not_owned row */
+.each_not_owned {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    column-gap: 2px;
+}
 
 /* each user_categ grid item */
 .each_user_categ>div:nth-child(even) {
@@ -152,7 +175,7 @@
     text-transform: capitalize;
     grid-row: 1;
     padding: 0.2em;
-/* color: black; */
+    /* color: black; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -166,6 +189,6 @@
     word-wrap: break-word;
 }
 
-.each_user_categ div:hover{
+.each_user_categ div:hover {
     box-shadow: 5px 5px 15px 5px;
 }
