@@ -102,8 +102,7 @@
 }
 
 /* container of the column headers */
-.col_users,
-.unver_ver {
+.col_users {
     display: none;
     /* justify-content: center;
     align-content: center; */
@@ -111,7 +110,8 @@
     color: aliceblue;
 }
 
-.not_owned {
+.not_owned,
+.unver_ver {
     display: none;
     /* justify-content: center;
     align-content: center; */

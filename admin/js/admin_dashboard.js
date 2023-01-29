@@ -40,7 +40,7 @@ function clearTitles() {
     // column titles
     $(".col_users").css("display", "none");
     $(".not_owned").css("display", "none");
-
+    $(".unver_ver").css("display", "none");
     // num of resulting rows
     $(".count").css("display", "none");
 }
@@ -120,6 +120,7 @@ function filterUser() {
 
 
                     $('.grid-container').append(
+                        // the each_not_owned class was created to match the number of appropriate columns
                         "<div class='each_not_owned each_user_categ '>" +
                         "<div>" + result.userID + "</div>" +
                         "<div>" + result.username + "</div>" +
@@ -137,12 +138,79 @@ function filterUser() {
 
         // check if the users category is unverified
         if (um === "unverified") {
+            // display the column titles, but first, clear the all column titles
+            clearTitles();
+            $(".unver_ver").css("display", "grid");
+
             $.ajax({
                 url: 'admin_filter_categ.php',
                 method: 'post',
                 data: { unverified: um }
+            }).done(function (unverified) {
+                unverified = JSON.parse(unverified);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+                // used for the num of resulting rows
+                let count = 0;
+                unverified.forEach(function (result) {
+                    console.log(result);
+
+
+                    $('.grid-container').append(
+                        // each_not_owned class is also used here because they have the same amout of column
+                        "<div class='each_not_owned each_user_categ '>" +
+                        "<div>" + result.userID + "</div>" +
+                        "<div>" + result.username + "</div>" +
+                        "<div>" + result.fname + "</div>" +
+                        "<div>" + result.lname + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+
+                        "</div>"
+                    );
+                    count++;
+                })
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
             })
         }
+
+
+        // check if the users category is verified
+        if (um === "verified") {
+            // display the column titles, but first, clear the all column titles
+            clearTitles();
+            $(".unver_ver").css("display", "grid");
+
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: { verified: um }
+            }).done(function (verified) {
+                verified = JSON.parse(verified);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+                // used for the num of resulting rows
+                let count = 0;
+                verified.forEach(function (result) {
+                    console.log(result);
+
+
+                    $('.grid-container').append(
+                        // each_not_owned class is also used here because they have the same amout of column
+                        "<div class='each_not_owned each_user_categ '>" +
+                        "<div>" + result.userID + "</div>" +
+                        "<div>" + result.username + "</div>" +
+                        "<div>" + result.fname + "</div>" +
+                        "<div>" + result.lname + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+
+                        "</div>"
+                    );
+                    count++;
+                })
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+        }
+
 
         // if the municipality is specific
     } else {
@@ -218,13 +286,91 @@ function filterUser() {
                 $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
             })
         }
+
+        // check if the users category is unverified
+        if (um === "unverified") {
+            // display the column titles, but first, clear the all column titles
+            clearTitles();
+            $(".unver_ver").css("display", "grid");
+
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: { unverified_muni: muni }
+            }).done(function (unverified) {
+                unverified = JSON.parse(unverified);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+                // used for the num of resulting rows
+                let count = 0;
+                unverified.forEach(function (result) {
+                    console.log(result);
+
+
+                    $('.grid-container').append(
+                        // each_not_owned class is also used here because they have the same amout of column
+                        "<div class='each_not_owned each_user_categ '>" +
+                        "<div>" + result.userID + "</div>" +
+                        "<div>" + result.username + "</div>" +
+                        "<div>" + result.fname + "</div>" +
+                        "<div>" + result.lname + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+
+                        "</div>"
+                    );
+                    count++;
+                })
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+        }
+
+
+
+          // check if the users category is verified
+          if (um === "verified") {
+            // display the column titles, but first, clear the all column titles
+            clearTitles();
+            $(".unver_ver").css("display", "grid");
+
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: { verified_muni: muni }
+            }).done(function (verified) {
+                verified = JSON.parse(verified);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+                // used for the num of resulting rows
+                let count = 0;
+                verified.forEach(function (result) {
+                    console.log(result);
+
+
+                    $('.grid-container').append(
+                        // each_not_owned class is also used here because they have the same amout of column
+                        "<div class='each_not_owned each_user_categ '>" +
+                        "<div>" + result.userID + "</div>" +
+                        "<div>" + result.username + "</div>" +
+                        "<div>" + result.fname + "</div>" +
+                        "<div>" + result.lname + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+
+                        "</div>"
+                    );
+                    count++;
+                })
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+        }
     }
 }
 
 function searchUser() {
     let um = $('.user_menu').val();
     let ts = $('.type-search').val();
-    // console.log(ts);
+    // reset the value of municipality to all municipalities when live searching
+    $(".municipality").val('all_muni');
+
     if (um === "pets_owned") {
         $.ajax({
             url: 'admin_filter_categ.php',
@@ -270,6 +416,70 @@ function searchUser() {
             $('.each_user_categ').remove();
 
             not_owned.forEach(function (result) {
+                console.log(result);
+
+
+                $('.grid-container').append(
+                    "<div class='each_not_owned each_user_categ'>" +
+                    "<div>" + result.userID + "</div>" +
+                    "<div>" + result.username + "</div>" +
+                    "<div>" + result.fname + "</div>" +
+                    "<div>" + result.lname + "</div>" +
+                    "<div>" + result.muni_name + "</div>" +
+                    "</div>"
+                );
+
+            })
+        })
+    }
+
+
+    if (um === "unverified") {
+        $.ajax({
+            url: 'admin_filter_categ.php',
+            method: 'post',
+            data: { unverified_LS: ts }
+        }).done(function (unverified) {
+
+            unverified = JSON.parse(unverified);
+
+            // remove the each_user_categ class if it exists already, to not duplicate the output table
+            $('.each_user_categ').remove();
+
+            unverified.forEach(function (result) {
+                console.log(result);
+
+
+                $('.grid-container').append(
+                    "<div class='each_not_owned each_user_categ'>" +
+                    "<div>" + result.userID + "</div>" +
+                    "<div>" + result.username + "</div>" +
+                    "<div>" + result.fname + "</div>" +
+                    "<div>" + result.lname + "</div>" +
+                    "<div>" + result.muni_name + "</div>" +
+                    "</div>"
+                );
+
+            })
+        })
+    }
+
+
+
+    
+    if (um === "verified") {
+        $.ajax({
+            url: 'admin_filter_categ.php',
+            method: 'post',
+            data: { verified_LS: ts }
+        }).done(function (verified) {
+
+            verified = JSON.parse(verified);
+
+            // remove the each_user_categ class if it exists already, to not duplicate the output table
+            $('.each_user_categ').remove();
+
+            verified.forEach(function (result) {
                 console.log(result);
 
 

@@ -123,7 +123,7 @@ if (!isset($_SESSION['adminID'])) {
                     <div>Fname</div>
                     <div>Lname</div>
                     <div>Municipality</div>
-                    <div>Verified</div>
+                   
                 </div>
             </div>
         </div>
