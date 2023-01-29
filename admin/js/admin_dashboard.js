@@ -1,3 +1,8 @@
+// import statements
+// import statement for the pet report
+import * as pet_report from "./admin_reports_pets.js";
+
+
 // if the users category is selected
 $(document).ready(function () {
 
@@ -9,6 +14,9 @@ $(document).ready(function () {
             case "user":
                 filterUser();
                 break;
+            case "pet":
+                pet_report.filterPets();
+                break
             default:
                 clearAll();
         }
@@ -26,17 +34,27 @@ $(document).ready(function () {
 })
 
 
+
 // remove all filters and display nothing
-function clearAll() {
+ export function clearAll() {
+    //users
     $(".user_category").css("display", "none");
     $(".municipality").css("display", "none");
     $(".middle-search").css("display", "none");
     $('.each_user_categ').css("display", "none");
+    //pets
+    $(".pet_menu").css("display", "none");
+    $(".pet_type").css("display", "none");
+    $(".breed").css("display", "none");
+    $(".birthyear").css("display", "none");
+    $(".sex").css("display", "none");
+    $(".vaccinated").css("display", "none");
+    //clear the column headers
     clearTitles();
 }
 
 // clear up all column titles so that only one corresponding col title will display
-function clearTitles() {
+export function clearTitles() {
     // column titles
     $(".col_users").css("display", "none");
     $(".not_owned").css("display", "none");
@@ -44,9 +62,14 @@ function clearTitles() {
     // num of resulting rows
     $(".count").css("display", "none");
 }
+// export all to generate a namespace import because it is cooler
+export * from "./admin_dashboard.js";
 
 // filter the user
 function filterUser() {
+    // clear the sub menu dropdowns first to make sure that at any event, only the submenus of the user report will appear
+    clearAll();
+
     $(".middle-search").css("display", "block");
     $(".user_category").css("display", "block");
     $(".municipality").css("display", "block");
@@ -326,8 +349,8 @@ function filterUser() {
 
 
 
-          // check if the users category is verified
-          if (um === "verified") {
+        // check if the users category is verified
+        if (um === "verified") {
             // display the column titles, but first, clear the all column titles
             clearTitles();
             $(".unver_ver").css("display", "grid");
@@ -466,7 +489,7 @@ function searchUser() {
 
 
 
-    
+
     if (um === "verified") {
         $.ajax({
             url: 'admin_filter_categ.php',

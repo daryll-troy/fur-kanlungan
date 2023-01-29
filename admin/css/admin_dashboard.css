@@ -30,6 +30,8 @@
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+    row-gap: 1em;
+    column-gap: 0.5em;
 }
 
 .entity_category,
@@ -42,7 +44,7 @@
 
 }
 
-/* municipality */
+/* MUNICIPALITY */
 
 .get_muni_name {
     color: aliceblue;
@@ -54,9 +56,25 @@
     display: none;
 }
 
-/* user */
+/* USER CATEGORY */
 
 .user_category {
+    display: none;
+    width: 15%;
+    background-color: rgb(110, 18, 18);
+    color: aliceblue;
+    text-transform: capitalize;
+    border-radius: 5%;
+}
+
+/* PET CATEGORY */
+
+.pet_menu,
+.pet_type,
+.breed,
+.birthyear,
+.sex,
+.vaccinated {
     display: none;
     width: 15%;
     background-color: rgb(110, 18, 18);
@@ -76,7 +94,7 @@
 
 }
 
-/* search bar */
+/* SEARCH BAR */
 .middle-search {
     width: 20%;
     /* justify-self: end; */

@@ -47,6 +47,7 @@ if (!isset($_SESSION['adminID'])) {
                     <option value="shop" class='entity'> Shops</option>
                 </select>
 
+
                 <!-- when Users is selected -->
                 <div class="user_category">
                     <select class="form-select btn  user_menu" aria-label="Default select example" id="user_category" name="user_category">
@@ -57,7 +58,69 @@ if (!isset($_SESSION['adminID'])) {
                     </select>
                 </div>
 
+                <!-- WHEN PETS IS SELECTED -->
 
+                <select class="form-select btn  pet_menu" aria-label="Default select example" id="pet_menu" name="pet_menu">
+                    <option value="pet_type" class='entity'> Pet Category</option>
+                    <option value="birthyear" class='entity'> Birthyear</option>
+                    <option value="sex" class='entity'> Sex</option>
+                    <option value="vaccinated" class='entity'>Vaccinated</option>
+                </select>
+
+                <!-- animal_type -->
+                <select class="form-select btn  pet_type" aria-label="Default select example" id="pet_type" name="pet_type">
+                    <option value="all_pets" class='entity'>All Pets</option>
+                    <?php
+                    $sql = "SELECT * FROM pet_category";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+
+                    ?>
+                            <option value="<?php echo $row['animal_type']; ?>" class='entity'><?php echo $row['animal_type']; ?></option>
+                    <?php
+
+                        }
+                    }
+                    ?>
+
+                </select>
+
+                <!-- breed -->
+                <select class="form-select btn  breed" aria-label="Default select example" id="breed" name="breed">
+                    <option value="all_breeds" class='entity'>All Breeds</option>
+                </select>
+
+                <!-- birthyear -->
+                <select class="form-select btn  birthyear" aria-label="Default select example" id="birthyear" name="birthyear">
+
+                    <?php
+                    $year = (int) date("Y");
+                    while ($year >= 2005) {
+
+                    ?>
+                        <option value="<?php echo $year; ?>" class='entity'><?php echo $year; ?></option>
+                    <?php
+                        $year--;
+                    }
+
+                    ?>
+
+                </select>
+
+                <!-- sex -->
+                <select class="form-select btn  sex" aria-label="Default select example" id="sex" name="sex">
+                    <option value="male" class='entity'>Male</option>
+                    <option value="female" class='entity'>Female</option>
+                </select>
+
+                 <!-- vaccinated-->
+                 <select class="form-select btn  vaccinated" aria-label="Default select example" id="vaccinated" name="vaccinated">
+                    <option value="yes" class='entity'>Yes</option>
+                    <option value="no" class='entity'>No</option>
+                </select>
 
                 <!-- municipality category  -->
                 <select class="form-select btn municipality" aria-label="Default select example" id="municipality" name="municipality">
@@ -82,14 +145,13 @@ if (!isset($_SESSION['adminID'])) {
 
 
                 <!-- Search the name of the animal -->
-                <!-- <nav class="navbar navbar-light bg-light search-nav"> -->
                 <div class="middle-search">
                     <div class="d-flex flex-wrap justify-content-center pet-list">
                         <input class="form-control  type-search " type="search" placeholder="Search" aria-label="Search" id="type-search">
                         <!-- <button class="btn btn-outline-success press-search" type="submit">Search</button> -->
                     </div>
                 </div>
-                <!-- </nav> -->
+
 
             </div>
 
@@ -123,8 +185,12 @@ if (!isset($_SESSION['adminID'])) {
                     <div>Fname</div>
                     <div>Lname</div>
                     <div>Municipality</div>
-                   
                 </div>
+
+
+                <!-- PET ENTITY DISPLAY -->
+
+                <!--  -->
             </div>
         </div>
     </div>
@@ -137,7 +203,12 @@ if (!isset($_SESSION['adminID'])) {
     </script>
 
     <!-- JS for the filtering -->
-    <script src="../js/admin_dashboard.js"></script>
+    <script src="../js/admin_dashboard.js" type="module"></script>
+    <script src="../js/admin_reports_pets.js" type="module"></script>
 </body>
 
 </html>
+
+<?php
+$conn->close();
+?>

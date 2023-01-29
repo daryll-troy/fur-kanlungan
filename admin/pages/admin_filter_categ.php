@@ -135,5 +135,12 @@ if (isset($_POST['verified_LS'])) {
     echo  json_encode($user_cat_res);
 }
 
+/**PETS */
+
+//display the breeds based from the pet_type selected
+if(isset($_POST['pet_type'])){
+    $sql = "SELECT breed";
+}
+
 // close connection
 $conn->close();
