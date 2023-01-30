@@ -1,6 +1,6 @@
 // import statement for the pet report
 import * as pet_report from "./admin_reports_pets.js";
-
+import * as shop_prod_report from "./admin_reports_shop_prod.js";
 
 // if the users category is selected
 $(document).ready(function () {
@@ -16,6 +16,10 @@ $(document).ready(function () {
             case "pet":
                 pet_report.filterPets();
                 break;
+            case "shop_prod":
+                shop_prod_report.filterShopProd();
+                break;
+            // "SELECT ENTITY" option
             default:
                 clearAll();
         }
@@ -30,6 +34,9 @@ $(document).ready(function () {
                 break;
             case "pet":
                 pet_report.searchPet();
+                break;
+            case "shop_prod":
+                shop_prod_report.searchShopProd();
                 break;
         }
     })
@@ -53,6 +60,9 @@ export function clearAll() {
     $(".sex").css("display", "none");
     $(".vaccinated").css("display", "none");
 
+    // shop_prod
+    $(".shop_name").css("display", "none");
+
     //clear the column headers
     clearTitles();
 }
@@ -70,9 +80,12 @@ export function clearTitles() {
     $('.sex_title').css('display', 'none');
     $('.vaccinated_title').css('display', 'none');
     $('.owner_title').css('display', 'none');
+    // SHOP_PROD
+    $('.shop_prod_title').css('display', 'none');
     // num of resulting rows
     $(".count").css("display", "none");
 }
+
 // export all to generate a namespace import only until at this point
 export * from "./admin_dashboard.js";
 

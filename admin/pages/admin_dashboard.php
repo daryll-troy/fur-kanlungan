@@ -42,9 +42,9 @@ if (!isset($_SESSION['adminID'])) {
                     <option value="none" class='entity'> Select Entity</option>
                     <option value="user" class='entity'> Users</option>
                     <option value="pet" class='entity'> Pets</option>
-                    <option value="product" class='entity'> Products</option>
-                    <option value="clinic" class='entity'> Clinics</option>
-                    <option value="shop" class='entity'> Shops</option>
+                    <option value="shop_prod" class='entity'> Shops/Products</option>
+                    <!-- <option value="clinic" class='entity'> Clinics</option> -->
+                    <option value="deledopted" class='entity'> Deledopted</option>
                 </select>
 
 
@@ -122,6 +122,30 @@ if (!isset($_SESSION['adminID'])) {
                     <option value="no" class='entity'>No</option>
                 </select>
 
+
+
+                <!-- shop names  -->
+                <select class="form-select btn shop_name" aria-label="Default select example" id="shop_name" name="shop_name">
+                    <!-- just used .get_muni_name for the css -->
+                    <option value="all_shops" class='get_muni_name'>All Shops</option>
+                    <?php
+                    // select all municipality
+                    $sql = "SELECT shop_name FROM shop;";
+                    $result = mysqli_query($conn, $sql);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $get_shop_name = $row["shop_name"];
+                            echo "<option value='$get_shop_name' class='get_muni_name'>$get_shop_name</option>";
+                        }
+                    } else {
+                        // echo "0 results";
+                    }
+
+                    ?>
+                </select>
+
                 <!-- municipality category  -->
                 <select class="form-select btn municipality" aria-label="Default select example" id="municipality" name="municipality">
                     <option value="all_muni" class='get_muni_name'>All Municipalites</option>
@@ -142,6 +166,8 @@ if (!isset($_SESSION['adminID'])) {
 
                     ?>
                 </select>
+
+
 
 
                 <!-- Search the name of the animal -->
@@ -215,22 +241,33 @@ if (!isset($_SESSION['adminID'])) {
                     <div>Municipality</div>
                 </div>
 
-                 <!-- vaccinated -->
-                 <div class="vaccinated_title">
+                <!-- vaccinated -->
+                <div class="vaccinated_title">
                     <div>Pet ID</div>
                     <div>Pet Name</div>
                     <div>Vaccinated</div>
                     <div>Municipality</div>
                 </div>
 
-                   <!-- owner -->
-                   <div class="owner_title">
+                <!-- owner -->
+                <div class="owner_title">
                     <div>Pet ID</div>
                     <div>Pet Name</div>
                     <div>Owner Username</div>
                     <div>Owner Fname</div>
                     <div>Owner Lname</div>
                     <div>Municipality</div>
+                </div>
+
+                <!-- SHOP_PROD -->
+                <div class="shop_prod_title">
+                    <div>Product ID</div>
+                    <div>Product Name</div>
+                    <div>Price</div>
+                    <div>Shop ID</div>
+                    <div>Shop Name</div>
+                    <div>Municipality</div>
+                    <div>Pet Type</div>
                 </div>
             </div>
         </div>
@@ -246,6 +283,7 @@ if (!isset($_SESSION['adminID'])) {
     <!-- JS for the filtering -->
     <script src="../js/admin_dashboard.js" type="module"></script>
     <script src="../js/admin_reports_pets.js" type="module"></script>
+    <script src="../js/admin_reports_shop_prod.js" type="module"></script>
 </body>
 
 </html>

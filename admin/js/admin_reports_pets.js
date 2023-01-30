@@ -11,7 +11,7 @@ export function filterPets() {
     let muni = $(".municipality").val();
     let pm = $('.pet_menu').val();
 
-    // detect if there is a change in pet type, then display the appropriate breeds
+    // detect if there is a change in pet type, then display the appropriate breeds as value of the select tag
     $("#pet_type").change(function () {
         // store selected animal_type
         let pt = $(".pet_type").val();
@@ -195,7 +195,7 @@ export function filterPets() {
 
             let pt = $(".pet_type").val();
             let breed = $(".breed").val();
-            let muni = $('.municipality').val();
+            // let muni = $('.municipality').val();
             // check if animal_type is specified
             if (pt !== "all_pets") {
                 // check if breed is not specified

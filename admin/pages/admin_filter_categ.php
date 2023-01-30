@@ -434,5 +434,87 @@ if (isset($_POST['owner_LS'])) {
     echo  json_encode($user_cat_res);
 }
 
+/** SHOP_PROD */
+//all_muni & all_pet_type
+if(isset($_POST['am_ap'])){
+    $sql = "SELECT * FROM shop_prod_report  ORDER BY prodID";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($row);
+}
+
+
+//all_muni & specific_pet_type
+if(isset($_POST['am_sp'])){
+    $sql = "SELECT * FROM shop_prod_report WHERE animal_type = ? ORDER BY prod_name";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $_POST['am_sp']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($row);
+}
+
+
+//specific_muni & all_pet_type
+if(isset($_POST['sp_muni'])){
+    $sql = "SELECT * FROM shop_prod_report WHERE muni_name = ? ORDER BY prod_name";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $_POST['sp_muni']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($row);
+}
+
+
+//specific_muni & specific_pet_type
+if(isset($_POST['sm_sp']) && isset($_POST['sp_muni2'])){
+    $sql = "SELECT * FROM shop_prod_report WHERE animal_type = ? AND muni_name = ? ORDER BY prod_name";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $_POST['sm_sp'], $_POST['sp_muni2']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($row);
+}
+
+
+// all_pet_type & specific_shop_name
+if( isset($_POST['ss1'])){
+    $sql = "SELECT * FROM shop_prod_report WHERE shop_name = ? ORDER BY prod_name";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $_POST['ss1']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($row);
+}
+
+
+// specific_pet_type & specific_shop_name
+if(isset($_POST['sp_ss']) && isset($_POST['ss2'])){
+    $sql = "SELECT * FROM shop_prod_report WHERE animal_type = ? AND shop_name = ? ORDER BY prod_name";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $_POST['sp_ss'], $_POST['ss2']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($row);
+}
+
+
+// shop_prod through the live search 
+if (isset($_POST['shop_prod_LS'])) {
+    $search = htmlspecialchars(trim($_POST['shop_prod_LS']));
+    $sql = "SELECT * FROM shop_prod_report WHERE  prodID LIKE '$search%' OR prod_name LIKE '$search%' OR price LIKE '$search%' OR shopID LIKE '$search%' OR shop_name LIKE '$search%' OR muni_name LIKE '$search%' OR animal_type LIKE '$search%' ORDER BY prodID";
+    $result = $conn->query($sql);
+    $user_cat_res = $result->fetch_all(MYSQLI_ASSOC);
+    echo  json_encode($user_cat_res);
+}
+
+
 // close connection
 $conn->close();
