@@ -120,7 +120,8 @@
 }
 
 /* container of the column headers */
-.col_users {
+
+.col_users{
     display: none;
     /* justify-content: center;
     align-content: center; */
@@ -128,9 +129,17 @@
     color: aliceblue;
 }
 
+.owner_title{
+    display: none;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr;
+    color: aliceblue;
+}
+
+
 .not_owned,
 .unver_ver,
-.pet_category {
+.pet_category
+ {
     display: none;
     /* justify-content: center;
     align-content: center; */
@@ -138,11 +147,23 @@
     color: aliceblue;
 }
 
+/* birthyear separate because it only has 4 cols */
+.birthyear_title,
+.sex_title,
+.vaccinated_title{
+    display: none;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr ;
+    color: aliceblue;
+}
 
 .col_users div,
 .unver_ver div,
 .not_owned div,
-.pet_category div {
+.pet_category div,
+.birthyear_title div,
+.sex_title div,
+.vaccinated_title div,
+.owner_title div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -160,10 +181,28 @@
     column-gap: 2px;
 }
 
+/* each owner custom column widths (last column)*/
+.each_owner {
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr;
+}
+
 /* each not_owned row */
 .each_not_owned {
     display: grid;
     grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    column-gap: 2px;
+}
+
+/*each pet via birthyear row */
+.each_birthyear,
+.each_sex{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr ;
     grid-template-rows: auto;
 
     border: 1px;

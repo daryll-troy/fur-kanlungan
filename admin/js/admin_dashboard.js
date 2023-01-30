@@ -44,6 +44,7 @@ export function clearAll() {
     $(".municipality").css("display", "none");
     $(".middle-search").css("display", "none");
     $('.each_user_categ').css("display", "none");
+
     //pets
     $(".pet_menu").css("display", "none");
     $(".pet_type").css("display", "none");
@@ -51,6 +52,7 @@ export function clearAll() {
     $(".birthyear").css("display", "none");
     $(".sex").css("display", "none");
     $(".vaccinated").css("display", "none");
+
     //clear the column headers
     clearTitles();
 }
@@ -64,10 +66,14 @@ export function clearTitles() {
     $(".unver_ver").css("display", "none");
     // PET
     $(".pet_category").css("display", "none");
+    $('.birthyear_title').css('display', 'none');
+    $('.sex_title').css('display', 'none');
+    $('.vaccinated_title').css('display', 'none');
+    $('.owner_title').css('display', 'none');
     // num of resulting rows
     $(".count").css("display", "none");
 }
-// export all to generate a namespace import because it is cooler
+// export all to generate a namespace import only until at this point
 export * from "./admin_dashboard.js";
 
 // filter the user

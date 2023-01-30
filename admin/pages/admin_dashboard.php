@@ -65,6 +65,7 @@ if (!isset($_SESSION['adminID'])) {
                     <option value="birthyear" class='entity'> Birthyear</option>
                     <option value="sex" class='entity'> Sex</option>
                     <option value="vaccinated" class='entity'>Vaccinated</option>
+                    <option value="owner" class='entity'>Owner</option>
                 </select>
 
                 <!-- animal_type -->
@@ -95,6 +96,7 @@ if (!isset($_SESSION['adminID'])) {
 
                 <!-- birthyear -->
                 <select class="form-select btn  birthyear" aria-label="Default select example" id="birthyear" name="birthyear">
+                    <option value="all_years" class='entity'>All Years</option>
                     <?php
                     $year = (int) date("Y");
                     while ($year >= 2005) {
@@ -108,12 +110,14 @@ if (!isset($_SESSION['adminID'])) {
 
                 <!-- sex -->
                 <select class="form-select btn  sex" aria-label="Default select example" id="sex" name="sex">
+                    <option value="both" class='entity'>Both</option>
                     <option value="male" class='entity'>Male</option>
                     <option value="female" class='entity'>Female</option>
                 </select>
 
                 <!-- vaccinated-->
                 <select class="form-select btn  vaccinated" aria-label="Default select example" id="vaccinated" name="vaccinated">
+                    <option value="both" class='entity'>Both</option>
                     <option value="yes" class='entity'>Yes</option>
                     <option value="no" class='entity'>No</option>
                 </select>
@@ -185,7 +189,8 @@ if (!isset($_SESSION['adminID'])) {
 
 
                 <!-- PET ENTITY DISPLAY -->
-                
+
+                <!-- pet category -->
                 <div class="pet_category">
                     <div>Pet ID</div>
                     <div>Pet Name</div>
@@ -193,7 +198,40 @@ if (!isset($_SESSION['adminID'])) {
                     <div>Breed</div>
                     <div>Municipality</div>
                 </div>
-                <!--  -->
+
+                <!-- birthyear -->
+                <div class="birthyear_title">
+                    <div>Pet ID</div>
+                    <div>Pet Name</div>
+                    <div>Birthyear</div>
+                    <div>Municipality</div>
+                </div>
+
+                <!-- sex -->
+                <div class="sex_title">
+                    <div>Pet ID</div>
+                    <div>Pet Name</div>
+                    <div>Sex</div>
+                    <div>Municipality</div>
+                </div>
+
+                 <!-- vaccinated -->
+                 <div class="vaccinated_title">
+                    <div>Pet ID</div>
+                    <div>Pet Name</div>
+                    <div>Vaccinated</div>
+                    <div>Municipality</div>
+                </div>
+
+                   <!-- owner -->
+                   <div class="owner_title">
+                    <div>Pet ID</div>
+                    <div>Pet Name</div>
+                    <div>Owner Username</div>
+                    <div>Owner Fname</div>
+                    <div>Owner Lname</div>
+                    <div>Municipality</div>
+                </div>
             </div>
         </div>
     </div>

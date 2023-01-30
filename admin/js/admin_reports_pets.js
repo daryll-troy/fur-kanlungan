@@ -158,20 +158,29 @@ export function filterPets() {
         if (pm === "birthyear") {
             clearers.clearTitles();
             $(".birthyear").css("display", "block");
+            birthyear();
         }
 
         // check if sex is selected
         if (pm === "sex") {
             clearers.clearTitles();
             $(".sex").css("display", "block");
+            sex();
         }
 
         // check if vaccinated is selected
         if (pm === "vaccinated") {
             clearers.clearTitles();
             $(".vaccinated").css("display", "block");
+            vaccinated();
         }
 
+        // check if owner is selected
+        if (pm === "owner") {
+            clearers.clearTitles();
+            $(".owner").css("display", "block");
+            owner();
+        }
 
         // if the municipality is specific
     } else {
@@ -302,20 +311,30 @@ export function filterPets() {
         if (pm === "birthyear") {
             clearers.clearTitles();
             $(".birthyear").css("display", "block");
+            // call birthyear filter for pet
+            birthyear();
         }
 
         // check if sex is selected
         if (pm === "sex") {
             clearers.clearTitles();
             $(".sex").css("display", "block");
+            sex();
         }
 
         // check if vaccinated is selected
         if (pm === "vaccinated") {
             clearers.clearTitles();
             $(".vaccinated").css("display", "block");
+            vaccinated();
         }
 
+        // check if owner is selected
+        if (pm === "owner") {
+            clearers.clearTitles();
+            $(".owner").css("display", "block");
+            owner();
+        }
     }
 
 
@@ -327,6 +346,9 @@ export function searchPet() {
     // reset the values of the sub categories dropdowns to all's
     $('.pet_type').val('all_pets');
     $('.breed').val('all_breeds');
+    $('.birthyear').val('all_years');
+    $('.sex').val('both');
+    $('.vaccinated').val('both');
     $('.municipality').val('all_muni');
 
     let pm = $('.pet_menu').val();
@@ -340,7 +362,7 @@ export function searchPet() {
         }).done(function (pet_type) {
 
             pet_type = JSON.parse(pet_type);
-            console.log(pet_type);
+            // console.log(pet_type);
             // remove the each_user_categ class if it exists already, to not duplicate the output table
             $('.each_user_categ').remove();
             // used for the num of resulting rows
@@ -363,8 +385,631 @@ export function searchPet() {
             $(".count").html("<h4>" + count + " Result(s)</h4>");
         })
     }
+
+    if (pm === "birthyear") {
+        $.ajax({
+            url: 'admin_filter_categ.php',
+            method: 'post',
+            data: { birthyear_LS: ts }
+        }).done(function (output) {
+            output = JSON.parse(output);
+
+            $('.each_user_categ').remove();
+            // used for the num of resulting rows
+            let count = 0;
+            output.forEach(function (result) {
+                $('.grid-container').append(
+                    "<div class='each_birthyear each_user_categ'>" +
+                    "<div>" + result.petID + "</div>" +
+                    "<div>" + result.name + "</div>" +
+                    "<div>" + result.age + "</div>" +
+                    "<div>" + result.muni_name + "</div>" +
+                    "</div>"
+                );
+                count++;
+            })
+            $(".count").html("<h4>" + count + " Result(s)</h4>");
+        })
+    }
+
+    if (pm === "sex") {
+        $.ajax({
+            url: 'admin_filter_categ.php',
+            method: 'post',
+            data: { sex_LS: ts }
+        }).done(function (output) {
+            output = JSON.parse(output);
+
+            $('.each_user_categ').remove();
+            // used for the num of resulting rows
+            let count = 0;
+            output.forEach(function (result) {
+                $('.grid-container').append(
+                    "<div class='each_birthyear each_user_categ'>" +
+                    "<div>" + result.petID + "</div>" +
+                    "<div>" + result.name + "</div>" +
+                    "<div>" + result.sex + "</div>" +
+                    "<div>" + result.muni_name + "</div>" +
+                    "</div>"
+                );
+                count++;
+            })
+            $(".count").html("<h4>" + count + " Result(s)</h4>");
+        })
+    }
+
+
+    if (pm === "vaccinated") {
+        $.ajax({
+            url: 'admin_filter_categ.php',
+            method: 'post',
+            data: { vaccinated_LS: ts }
+        }).done(function (output) {
+            output = JSON.parse(output);
+
+            $('.each_user_categ').remove();
+            // used for the num of resulting rows
+            let count = 0;
+            output.forEach(function (result) {
+                $('.grid-container').append(
+                    "<div class='each_birthyear each_user_categ'>" +
+                    "<div>" + result.petID + "</div>" +
+                    "<div>" + result.name + "</div>" +
+                    "<div>" + result.vaccinated + "</div>" +
+                    "<div>" + result.muni_name + "</div>" +
+                    "</div>"
+                );
+                count++;
+            })
+            $(".count").html("<h4>" + count + " Result(s)</h4>");
+        })
+    }
+
+
+    if (pm === "owner") {
+        $.ajax({
+            url: 'admin_filter_categ.php',
+            method: 'post',
+            data: { owner_LS: ts }
+        }).done(function (output) {
+            output = JSON.parse(output);
+
+            $('.each_user_categ').remove();
+            // used for the num of resulting rows
+            let count = 0;
+            output.forEach(function (result) {
+                $('.grid-container').append(
+                    "<div class='each_owner each_user_categ'>" +
+                    "<div>" + result.petID + "</div>" +
+                    "<div>" + result.name + "</div>" +
+                    "<div>" + result.username + "</div>" +
+                    "<div>" + result.fname + "</div>" +
+                    "<div>" + result.lname + "</div>" +
+                    "<div>" + result.muni_name + "</div>" +
+                    "</div>"
+                );
+                count++;
+            })
+            $(".count").html("<h4>" + count + " Result(s)</h4>");
+        })
+    }
 }
 
+
+function birthyear() {
+    // make birthyear col title visible
+    $('.birthyear_title').css('display', 'grid');
+
+    let muni = $(".municipality").val();
+    let by = $('.birthyear').val();
+
+    if (by === "all_years") {
+        if (muni === "all_muni") {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: {
+                    by_all_years: by
+                }
+            }).done(function (by_all_years) {
+                by_all_years = JSON.parse(by_all_years);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                // used for the num of resulting rows
+                let count = 0;
+                by_all_years.forEach(function (result) {
+                    // console.log(result);
+
+
+                    $('.grid-container').append(
+                        "<div class='each_birthyear each_user_categ'>" +
+                        "<div>" + result.petID + "</div>" +
+                        "<div>" + result.name + "</div>" +
+                        "<div>" + result.age + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "</div>"
+                    );
+                    count++;
+                })
+                // console.log(count);
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+            //if municipality is specified for all years
+        } else {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: {
+                    bay_muni: by,
+                    muni_ay: muni
+                }
+            }).done(function (bay_muni) {
+                bay_muni = JSON.parse(bay_muni);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                // used for the num of resulting rows
+                let count = 0;
+                bay_muni.forEach(function (result) {
+                    // console.log(result);
+
+
+                    $('.grid-container').append(
+                        "<div class='each_birthyear each_user_categ'>" +
+                        "<div>" + result.petID + "</div>" +
+                        "<div>" + result.name + "</div>" +
+                        "<div>" + result.age + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "</div>"
+                    );
+                    count++;
+                })
+                // console.log(count);
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+        }
+        // WHEN YEAR IS SPECIFIED
+    } else {
+        if (muni === "all_muni") {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: {
+                    by_a_year: by
+                }
+            }).done(function (by_a_year) {
+                by_a_year = JSON.parse(by_a_year);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                // used for the num of resulting rows
+                let count = 0;
+                by_a_year.forEach(function (result) {
+                    // console.log(result);
+
+
+                    $('.grid-container').append(
+                        "<div class='each_birthyear each_user_categ'>" +
+                        "<div>" + result.petID + "</div>" +
+                        "<div>" + result.name + "</div>" +
+                        "<div>" + result.age + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "</div>"
+                    );
+                    count++;
+                })
+                // console.log(count);
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+            // WHEN THE YEAR AND MUNICIPALITY IS SPECIFIED
+        } else {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: {
+                    bay_muni2: by,
+                    muni_ay2: muni
+                }
+            }).done(function (bay_muni) {
+                bay_muni = JSON.parse(bay_muni);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                // used for the num of resulting rows
+                let count = 0;
+                bay_muni.forEach(function (result) {
+                    // console.log(result);
+
+
+                    $('.grid-container').append(
+                        "<div class='each_birthyear each_user_categ'>" +
+                        "<div>" + result.petID + "</div>" +
+                        "<div>" + result.name + "</div>" +
+                        "<div>" + result.age + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "</div>"
+                    );
+                    count++;
+                })
+                // console.log(count);
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+        }
+    }
+}
+
+// filter the pet by sex
+function sex() {
+    // make sex col title visible
+    $('.sex_title').css('display', 'grid');
+
+    let muni = $(".municipality").val();
+    let sex = $('.sex').val();
+
+    if (sex === "both") {
+        if (muni === "all_muni") {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: {
+                    both_sex: sex
+                }
+            }).done(function (both_sex) {
+                both_sex = JSON.parse(both_sex);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                // used for the num of resulting rows
+                let count = 0;
+                both_sex.forEach(function (result) {
+                    // console.log(result);
+
+
+                    $('.grid-container').append(
+                        // each_birthyear class is used because they have the number of columns anyway
+                        "<div class='each_birthyear each_user_categ'>" +
+                        "<div>" + result.petID + "</div>" +
+                        "<div>" + result.name + "</div>" +
+                        "<div>" + result.sex + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "</div>"
+                    );
+                    count++;
+                })
+                // console.log(count);
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+            //if municipality is specified for both sexes
+        } else {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: {
+                    both_sex_muni: sex,
+                    muni_sex: muni
+                }
+            }).done(function (both_sex_muni) {
+                both_sex_muni = JSON.parse(both_sex_muni);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                // used for the num of resulting rows
+                let count = 0;
+                both_sex_muni.forEach(function (result) {
+                    // console.log(result);
+
+
+                    $('.grid-container').append(
+                        "<div class='each_birthyear each_user_categ'>" +
+                        "<div>" + result.petID + "</div>" +
+                        "<div>" + result.name + "</div>" +
+                        "<div>" + result.sex + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "</div>"
+                    );
+                    count++;
+                })
+                // console.log(count);
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+        }
+        // WHEN SEX IS SPECIFIED
+    } else {
+        if (muni === "all_muni") {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: {
+                    per_sex: sex
+                }
+            }).done(function (per_sex) {
+                per_sex = JSON.parse(per_sex);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                // used for the num of resulting rows
+                let count = 0;
+                per_sex.forEach(function (result) {
+                    // console.log(result);
+
+
+                    $('.grid-container').append(
+                        "<div class='each_birthyear each_user_categ'>" +
+                        "<div>" + result.petID + "</div>" +
+                        "<div>" + result.name + "</div>" +
+                        "<div>" + result.sex + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "</div>"
+                    );
+                    count++;
+                })
+                // console.log(count);
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+            // WHEN THE SEX AND MUNICIPALITY IS SPECIFIED
+        } else {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: {
+                    per_sex_muni: sex,
+                    muni_sex2: muni
+                }
+            }).done(function (per_sex_muni) {
+                per_sex_muni = JSON.parse(per_sex_muni);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                // used for the num of resulting rows
+                let count = 0;
+                per_sex_muni.forEach(function (result) {
+                    // console.log(result);
+
+
+                    $('.grid-container').append(
+                        "<div class='each_birthyear each_user_categ'>" +
+                        "<div>" + result.petID + "</div>" +
+                        "<div>" + result.name + "</div>" +
+                        "<div>" + result.sex + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "</div>"
+                    );
+                    count++;
+                })
+                // console.log(count);
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+        }
+    }
+}
+
+
+
+// filter the pet by vaccine status
+function vaccinated() {
+    // make vaccinated col title visible
+    $('.vaccinated_title').css('display', 'grid');
+
+    let muni = $(".municipality").val();
+    let vaccinated = $('.vaccinated').val();
+
+    if (vaccinated === "both") {
+        if (muni === "all_muni") {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: {
+                    both_vaccinated: vaccinated
+                }
+            }).done(function (both_vaccinated) {
+                both_vaccinated = JSON.parse(both_vaccinated);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                // used for the num of resulting rows
+                let count = 0;
+                both_vaccinated.forEach(function (result) {
+                    // console.log(result);
+
+
+                    $('.grid-container').append(
+                        // each_birthyear class is used because they have the number of columns anyway
+                        "<div class='each_birthyear each_user_categ'>" +
+                        "<div>" + result.petID + "</div>" +
+                        "<div>" + result.name + "</div>" +
+                        "<div>" + result.vaccinated + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "</div>"
+                    );
+                    count++;
+                })
+                // console.log(count);
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+            //if municipality is specified for both vaccine status
+        } else {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: {
+                    both_vaccinated_muni: vaccinated,
+                    muni_vaccinated: muni
+                }
+            }).done(function (both_vaccinated_muni) {
+                both_vaccinated_muni = JSON.parse(both_vaccinated_muni);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                // used for the num of resulting rows
+                let count = 0;
+                both_vaccinated_muni.forEach(function (result) {
+                    // console.log(result);
+
+
+                    $('.grid-container').append(
+                        "<div class='each_birthyear each_user_categ'>" +
+                        "<div>" + result.petID + "</div>" +
+                        "<div>" + result.name + "</div>" +
+                        "<div>" + result.vaccinated + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "</div>"
+                    );
+                    count++;
+                })
+                // console.log(count);
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+        }
+        // WHEN vaccine status IS SPECIFIED
+    } else {
+        if (muni === "all_muni") {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: {
+                    per_vaccinated: vaccinated
+                }
+            }).done(function (per_vaccinated) {
+                per_vaccinated = JSON.parse(per_vaccinated);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                // used for the num of resulting rows
+                let count = 0;
+                per_vaccinated.forEach(function (result) {
+                    // console.log(result);
+
+
+                    $('.grid-container').append(
+                        "<div class='each_birthyear each_user_categ'>" +
+                        "<div>" + result.petID + "</div>" +
+                        "<div>" + result.name + "</div>" +
+                        "<div>" + result.vaccinated + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "</div>"
+                    );
+                    count++;
+                })
+                // console.log(count);
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+            // WHEN THE SEX AND MUNICIPALITY are SPECIFIED
+        } else {
+            $.ajax({
+                url: 'admin_filter_categ.php',
+                method: 'post',
+                data: {
+                    per_vaccinated_muni: vaccinated,
+                    muni_vaccinated2: muni
+                }
+            }).done(function (per_vaccinated_muni) {
+                per_vaccinated_muni = JSON.parse(per_vaccinated_muni);
+                // remove the each_user_categ class if it exists already, to not duplicate the output table
+                $('.each_user_categ').remove();
+
+                // used for the num of resulting rows
+                let count = 0;
+                per_vaccinated_muni.forEach(function (result) {
+                    // console.log(result);
+
+
+                    $('.grid-container').append(
+                        "<div class='each_birthyear each_user_categ'>" +
+                        "<div>" + result.petID + "</div>" +
+                        "<div>" + result.name + "</div>" +
+                        "<div>" + result.vaccinated + "</div>" +
+                        "<div>" + result.muni_name + "</div>" +
+                        "</div>"
+                    );
+                    count++;
+                })
+                // console.log(count);
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+            })
+        }
+    }
+}
+
+
+function owner() {
+    // make vaccinated col title visible
+    $('.owner_title').css('display', 'grid');
+
+    let muni = $(".municipality").val();
+
+    if (muni === 'all_muni') {
+        $.ajax({
+            url: 'admin_filter_categ.php',
+            method: 'post',
+            data: {
+                owner: "just set the this post variable"
+            }
+        }).done(function (owner) {
+            owner = JSON.parse(owner);
+            // remove the each_user_categ class if it exists already, to not duplicate the output table
+            $('.each_user_categ').remove();
+
+            // used for the num of resulting rows
+            let count = 0;
+            owner.forEach(function (result) {
+                // console.log(result);
+
+
+                $('.grid-container').append(
+                    "<div class='each_owner each_user_categ'>" +
+                    "<div>" + result.petID + "</div>" +
+                    "<div>" + result.name + "</div>" +
+                    "<div>" + result.username + "</div>" +
+                    "<div>" + result.fname + "</div>" +
+                    "<div>" + result.lname + "</div>" +
+                    "<div>" + result.muni_name + "</div>" +
+                    "</div>"
+                );
+                count++;
+            })
+            // console.log(count);
+            $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+        })
+
+
+        //if muni is specified
+    } else {
+        $.ajax({
+            url: 'admin_filter_categ.php',
+            method: 'post',
+            data: {
+                muni_owner: muni
+            }
+        }).done(function (owner) {
+            owner = JSON.parse(owner);
+            // remove the each_user_categ class if it exists already, to not duplicate the output table
+            $('.each_user_categ').remove();
+
+            // used for the num of resulting rows
+            let count = 0;
+            owner.forEach(function (result) {
+                // console.log(result);
+
+
+                $('.grid-container').append(
+                    "<div class='each_owner each_user_categ'>" +
+                    "<div>" + result.petID + "</div>" +
+                    "<div>" + result.name + "</div>" +
+                    "<div>" + result.username + "</div>" +
+                    "<div>" + result.fname + "</div>" +
+                    "<div>" + result.lname + "</div>" +
+                    "<div>" + result.muni_name + "</div>" +
+                    "</div>"
+                );
+                count++;
+            })
+            // console.log(count);
+            $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
+        })
+
+    }
+}
 
 // export all to create a namespace import because it is cooler
 export * from "./admin_reports_pets.js";
