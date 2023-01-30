@@ -29,7 +29,7 @@ $(document).ready(function () {
                 searchUser();
                 break;
             case "pet":
-                pet_report.searchPetCategory();
+                pet_report.searchPet();
                 break;
         }
     })

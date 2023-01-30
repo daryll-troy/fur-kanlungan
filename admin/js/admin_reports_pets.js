@@ -322,7 +322,8 @@ export function filterPets() {
 }
 
 
-export function searchPetCategory() {
+
+export function searchPet() {
     // reset the values of the sub categories dropdowns to all's
     $('.pet_type').val('all_pets');
     $('.breed').val('all_breeds');

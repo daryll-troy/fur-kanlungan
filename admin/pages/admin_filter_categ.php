@@ -29,7 +29,7 @@ if (isset($_POST['pets_owned_muni'])) {
 if (isset($_POST['pets_owned_LS'])) {
     $search = htmlspecialchars(trim($_POST['pets_owned_LS']));
 
-    $sql = "SELECT * FROM pets_owned WHERE userID LIKE '%$search%' OR username LIKE '%$search%' OR fname LIKE '%$search%' OR lname LIKE '%$search%'  OR muni_name LIKE '%$search%'";
+    $sql = "SELECT * FROM pets_owned WHERE userID LIKE '$search%' OR username LIKE '$search%' OR fname LIKE '$search%' OR lname LIKE '$search%'  OR muni_name LIKE '$search%'";
     $result = $conn->query($sql);
     $user_cat_res = $result->fetch_all(MYSQLI_ASSOC);
     echo  json_encode($user_cat_res);
@@ -63,7 +63,7 @@ if (isset($_POST['not_owned_muni'])) {
 if (isset($_POST['not_owned_LS'])) {
     $search = htmlspecialchars(trim($_POST['not_owned_LS']));
 
-    $sql = "SELECT * FROM not_owned WHERE userID LIKE '%$search%' OR username LIKE '%$search%' OR fname LIKE '%$search%' OR lname LIKE '%$search%'  OR muni_name LIKE '%$search%'";
+    $sql = "SELECT * FROM not_owned WHERE userID LIKE '$search%' OR username LIKE '$search%' OR fname LIKE '$search%' OR lname LIKE '$search%'  OR muni_name LIKE '$search%'";
     $result = $conn->query($sql);
     $user_cat_res = $result->fetch_all(MYSQLI_ASSOC);
     echo  json_encode($user_cat_res);
@@ -96,7 +96,7 @@ if (isset($_POST['unverified_muni'])) {
 if (isset($_POST['unverified_LS'])) {
     $search = htmlspecialchars(trim($_POST['unverified_LS']));
 
-    $sql = "SELECT * FROM unver_ver WHERE (verified_id = 'no') AND (userID LIKE '%$search%' OR username LIKE '%$search%' OR fname LIKE '%$search%' OR lname LIKE '%$search%'  OR muni_name LIKE '%$search%') ";
+    $sql = "SELECT * FROM unver_ver WHERE (verified_id = 'no') AND (userID LIKE '$search%' OR username LIKE '$search%' OR fname LIKE '$search%' OR lname LIKE '$search%'  OR muni_name LIKE '$search%') ";
     $result = $conn->query($sql);
     $user_cat_res = $result->fetch_all(MYSQLI_ASSOC);
     echo  json_encode($user_cat_res);
@@ -129,7 +129,7 @@ if (isset($_POST['verified_muni'])) {
 if (isset($_POST['verified_LS'])) {
     $search = htmlspecialchars(trim($_POST['verified_LS']));
 
-    $sql = "SELECT * FROM unver_ver WHERE (verified_id = 'yes') AND (userID LIKE '%$search%' OR username LIKE '%$search%' OR fname LIKE '%$search%' OR lname LIKE '%$search%'  OR muni_name LIKE '%$search%') ";
+    $sql = "SELECT * FROM unver_ver WHERE (verified_id = 'yes') AND (userID LIKE '$search%' OR username LIKE '$search%' OR fname LIKE '$search%' OR lname LIKE '$search%'  OR muni_name LIKE '$search%') ";
     $result = $conn->query($sql);
     $user_cat_res = $result->fetch_all(MYSQLI_ASSOC);
     echo  json_encode($user_cat_res);
@@ -234,7 +234,7 @@ if (isset($_POST['breed_muni']) && isset($_POST['muni2'])) {
 if (isset($_POST['pet_type_LS'])) {
     $search = htmlspecialchars(trim($_POST['pet_type_LS']));
 
-    $sql = "SELECT * FROM pet_category_report WHERE  petID LIKE '%$search%' OR name LIKE '%$search%' OR animal_type LIKE '%$search%' OR breed LIKE '%$search%' OR muni_name LIKE '%$search%' ";
+    $sql = "SELECT * FROM pet_category_report WHERE  petID LIKE '$search%' OR name LIKE '$search%' OR animal_type LIKE '$search%' OR breed LIKE '$search%' OR muni_name LIKE '$search%' ";
     $result = $conn->query($sql);
     $user_cat_res = $result->fetch_all(MYSQLI_ASSOC);
     echo  json_encode($user_cat_res);
