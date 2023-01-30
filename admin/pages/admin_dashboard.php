@@ -95,19 +95,15 @@ if (!isset($_SESSION['adminID'])) {
 
                 <!-- birthyear -->
                 <select class="form-select btn  birthyear" aria-label="Default select example" id="birthyear" name="birthyear">
-
                     <?php
                     $year = (int) date("Y");
                     while ($year >= 2005) {
-
                     ?>
                         <option value="<?php echo $year; ?>" class='entity'><?php echo $year; ?></option>
                     <?php
                         $year--;
                     }
-
                     ?>
-
                 </select>
 
                 <!-- sex -->
@@ -116,8 +112,8 @@ if (!isset($_SESSION['adminID'])) {
                     <option value="female" class='entity'>Female</option>
                 </select>
 
-                 <!-- vaccinated-->
-                 <select class="form-select btn  vaccinated" aria-label="Default select example" id="vaccinated" name="vaccinated">
+                <!-- vaccinated-->
+                <select class="form-select btn  vaccinated" aria-label="Default select example" id="vaccinated" name="vaccinated">
                     <option value="yes" class='entity'>Yes</option>
                     <option value="no" class='entity'>No</option>
                 </select>
@@ -189,7 +185,14 @@ if (!isset($_SESSION['adminID'])) {
 
 
                 <!-- PET ENTITY DISPLAY -->
-
+                
+                <div class="pet_category">
+                    <div>Pet ID</div>
+                    <div>Pet Name</div>
+                    <div>Pet Type</div>
+                    <div>Breed</div>
+                    <div>Municipality</div>
+                </div>
                 <!--  -->
             </div>
         </div>

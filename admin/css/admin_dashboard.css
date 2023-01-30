@@ -129,7 +129,8 @@
 }
 
 .not_owned,
-.unver_ver {
+.unver_ver,
+.pet_category {
     display: none;
     /* justify-content: center;
     align-content: center; */
@@ -140,7 +141,8 @@
 
 .col_users div,
 .unver_ver div,
-.not_owned div {
+.not_owned div,
+.pet_category div {
     display: flex;
     justify-content: center;
     align-items: center;

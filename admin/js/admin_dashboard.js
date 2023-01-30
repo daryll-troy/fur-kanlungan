@@ -1,4 +1,3 @@
-// import statements
 // import statement for the pet report
 import * as pet_report from "./admin_reports_pets.js";
 
@@ -16,7 +15,7 @@ $(document).ready(function () {
                 break;
             case "pet":
                 pet_report.filterPets();
-                break
+                break;
             default:
                 clearAll();
         }
@@ -29,6 +28,9 @@ $(document).ready(function () {
             case "user":
                 searchUser();
                 break;
+            case "pet":
+                pet_report.searchPetCategory();
+                break;
         }
     })
 })
@@ -36,7 +38,7 @@ $(document).ready(function () {
 
 
 // remove all filters and display nothing
- export function clearAll() {
+export function clearAll() {
     //users
     $(".user_category").css("display", "none");
     $(".municipality").css("display", "none");
@@ -56,9 +58,12 @@ $(document).ready(function () {
 // clear up all column titles so that only one corresponding col title will display
 export function clearTitles() {
     // column titles
+    //USER
     $(".col_users").css("display", "none");
     $(".not_owned").css("display", "none");
     $(".unver_ver").css("display", "none");
+    // PET
+    $(".pet_category").css("display", "none");
     // num of resulting rows
     $(".count").css("display", "none");
 }
@@ -366,7 +371,7 @@ function filterUser() {
                 // used for the num of resulting rows
                 let count = 0;
                 verified.forEach(function (result) {
-                    console.log(result);
+                    // console.log(result);
 
 
                     $('.grid-container').append(
@@ -389,8 +394,11 @@ function filterUser() {
 }
 
 function searchUser() {
+
+
     let um = $('.user_menu').val();
     let ts = $('.type-search').val();
+
     // reset the value of municipality to all municipalities when live searching
     $(".municipality").val('all_muni');
 
@@ -405,9 +413,10 @@ function searchUser() {
 
             // remove the each_user_categ class if it exists already, to not duplicate the output table
             $('.each_user_categ').remove();
-
+            // used for the num of resulting rows
+            let count = 0;
             pets_owned.forEach(function (result) {
-                console.log(result);
+                // console.log(result);
 
 
                 $('.grid-container').append(
@@ -420,8 +429,9 @@ function searchUser() {
                     "<div>" + result.pets_owned + "</div>" +
                     "</div>"
                 );
-
+                count++;
             })
+            $(".count").html("<h4>" + count + " Result(s)</h4>");
         })
     }
 
@@ -437,11 +447,9 @@ function searchUser() {
 
             // remove the each_user_categ class if it exists already, to not duplicate the output table
             $('.each_user_categ').remove();
-
+            // used for the num of resulting rows
+            let count = 0;
             not_owned.forEach(function (result) {
-                console.log(result);
-
-
                 $('.grid-container').append(
                     "<div class='each_not_owned each_user_categ'>" +
                     "<div>" + result.userID + "</div>" +
@@ -451,8 +459,9 @@ function searchUser() {
                     "<div>" + result.muni_name + "</div>" +
                     "</div>"
                 );
-
+                count++;
             })
+            $(".count").html("<h4>" + count + " Result(s)</h4>");
         })
     }
 
@@ -468,7 +477,8 @@ function searchUser() {
 
             // remove the each_user_categ class if it exists already, to not duplicate the output table
             $('.each_user_categ').remove();
-
+            // used for the num of resulting rows
+            let count = 0;
             unverified.forEach(function (result) {
                 console.log(result);
 
@@ -482,8 +492,9 @@ function searchUser() {
                     "<div>" + result.muni_name + "</div>" +
                     "</div>"
                 );
-
+                count++;
             })
+            $(".count").html("<h4>" + count + " Result(s)</h4>");
         })
     }
 
@@ -501,7 +512,8 @@ function searchUser() {
 
             // remove the each_user_categ class if it exists already, to not duplicate the output table
             $('.each_user_categ').remove();
-
+            // used for the num of resulting rows
+            let count = 0;
             verified.forEach(function (result) {
                 console.log(result);
 
@@ -515,8 +527,11 @@ function searchUser() {
                     "<div>" + result.muni_name + "</div>" +
                     "</div>"
                 );
-
+                count++;
             })
+            $(".count").html("<h4>" + count + " Result(s)</h4>");
         })
     }
+
+
 }

@@ -15,7 +15,7 @@ $(document).ready(function () {
             $('#breed').empty();
             $('#breed').append("<option value='none' class='each_breed'> All Breeds</option>");
             breeds.forEach(function (breed) {
-
+                // I noticed, there is no value attr here, but the dropdown filter still works
                 $('#breed').append('<option class = each_breed' + '>' + breed.breed + '</option>');
             })
         })
@@ -263,10 +263,13 @@ $(document).ready(function () {
 
 // LIVE SEARCH OF PET NAMES
 $(document).ready(function () {
+
     $("#type-search").keyup(function () {
+        // reset the dropdowns to all's when live searching
+        $('#pet_category').val('none');
+        $('#breed').val('none');
 
         var search = $("#type-search").val();
-
 
         $.ajax({
             url: 'pet_list_filter.php',
