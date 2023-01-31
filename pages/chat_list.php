@@ -41,7 +41,31 @@ if (!isset($_SESSION['userID'])) {
     <?php include "header.php" ?>
     <div class="chat_list">
         <div class="color_container">
-            
+            <div class="chats_with">Chat Conversations</div>
+            <?php
+            // get the chat convos if the user is in chat_log
+            $userID = $_SESSION['userID'];
+            $sql = "SELECT userID, fname, lname, prof_pic FROM users WHERE userID = ANY(
+                SELECT sender FROM chat_log WHERE sender = $userID or reciever = $userID
+                UNION
+                    SELECT reciever FROM chat_log WHERE sender = $userID OR reciever = $userID
+                )";
+
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    // check if the user is not the logged in user
+                    if ($row['userID'] != $userID) {
+            ?>
+                        <div class="each_userchat">
+                            <a href="chat_box.php?pet_user=<?php echo $row['userID']; ?>"><img class="prof_pic" src="../images/prof_pics/<?php echo $row['prof_pic']; ?>" alt=""></a>
+                            <a href="chat_box.php?pet_user=<?php echo $row['userID'];?>" class="atag_name"><div class="fullname"><?php echo $row['fname']." ".$row['lname']; ?></div></a>
+                        </div>
+            <?php
+                    }
+                }
+            }
+            ?>
         </div>
     </div>
     <?php include "footer.php" ?>
@@ -53,6 +77,9 @@ if (!isset($_SESSION['userID'])) {
         }
         navbarColor();
     </script>
+
+    <!-- JAVASCRIPT FOR AJAX -->
+    <script src="../js/chat_list.js"></script>
 </body>
 
 </html>

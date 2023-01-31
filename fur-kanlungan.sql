@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2023 at 08:07 AM
+-- Generation Time: Jan 31, 2023 at 11:06 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -44,6 +44,19 @@ INSERT INTO `admin` (`adminID`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `birthyear_report`
+-- (See below for the actual view)
+--
+CREATE TABLE `birthyear_report` (
+`petID` int(100)
+,`name` varchar(255)
+,`age` int(100)
+,`muni_name` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `breed_category`
 --
 
@@ -73,12 +86,178 @@ INSERT INTO `breed_category` (`bcID`, `breed`, `pcID`) VALUES
 
 CREATE TABLE `chat_log` (
   `cLID` int(100) NOT NULL,
-  `user1` int(100) NOT NULL,
-  `user2` int(100) NOT NULL,
-  `text_message` varchar(255) DEFAULT NULL,
+  `sender` int(100) NOT NULL,
+  `reciever` int(100) NOT NULL,
+  `message` varchar(255) DEFAULT NULL,
   `photo` varchar(255) DEFAULT NULL,
   `date_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chat_log`
+--
+
+INSERT INTO `chat_log` (`cLID`, `sender`, `reciever`, `message`, `photo`, `date_time`) VALUES
+(1, 2, 3, 'Hi', NULL, '2023-02-01 01:09:18'),
+(2, 3, 2, 'Hello', NULL, '2023-02-01 01:09:28'),
+(3, 2, 3, 'Pwede Po ba iadopt ung pet nio na si Ben?', NULL, '2023-02-01 01:09:53'),
+(4, 3, 2, 'Sige po', NULL, '2023-02-01 01:10:04'),
+(5, 3, 2, 'assad', NULL, '2023-02-01 01:19:04'),
+(6, 3, 2, 'dsf', NULL, '2023-02-01 01:19:05'),
+(7, 3, 2, 'fg', NULL, '2023-02-01 01:19:05'),
+(8, 3, 2, 'df', NULL, '2023-02-01 01:19:05'),
+(9, 3, 2, 'sdf', NULL, '2023-02-01 01:19:06'),
+(10, 3, 2, 'sdf', NULL, '2023-02-01 01:19:07'),
+(11, 3, 2, 'sdf', NULL, '2023-02-01 01:19:15'),
+(12, 3, 2, 'sdfjsdfijgs', NULL, '2023-02-01 01:19:18'),
+(13, 3, 2, 'sdf', NULL, '2023-02-01 01:19:19'),
+(14, 3, 2, 'sdf', NULL, '2023-02-01 01:19:24'),
+(15, 3, 2, 'daryll troy', NULL, '2023-02-01 01:19:39'),
+(16, 3, 2, 'pfg', NULL, '2023-02-01 01:19:48'),
+(17, 3, 2, 'hi', NULL, '2023-02-01 01:46:50'),
+(18, 3, 2, 'ehelaldlad', NULL, '2023-02-01 01:47:02'),
+(19, 3, 2, 'yo', NULL, '2023-02-01 02:09:30'),
+(20, 3, 2, 'bulog', NULL, '2023-02-01 02:11:45'),
+(21, 3, 2, 'bea', NULL, '2023-02-01 02:17:07'),
+(22, 3, 2, 'haha', NULL, '2023-02-01 02:17:16'),
+(23, 3, 2, 'bakit', NULL, '2023-02-01 02:17:52'),
+(24, 2, 3, 'ewan ko', NULL, '2023-02-01 02:18:04'),
+(25, 3, 2, 'why\'', NULL, '2023-02-01 02:21:31'),
+(26, 3, 2, 'hey', NULL, '2023-02-01 02:22:28'),
+(27, 3, 2, 'Hey', NULL, '2023-02-01 02:23:12'),
+(28, 3, 2, 'When', NULL, '2023-02-01 02:23:21'),
+(29, 3, 2, 'what\'s up', NULL, '2023-02-01 02:23:44'),
+(30, 3, 2, 'hallo', NULL, '2023-02-01 02:23:58'),
+(31, 3, 2, '5 seconds', NULL, '2023-02-01 02:24:10'),
+(32, 3, 2, 'why mabilis', NULL, '2023-02-01 02:25:21'),
+(33, 3, 2, 'hahaha', NULL, '2023-02-01 02:25:33'),
+(34, 3, 2, 'hey', NULL, '2023-02-01 02:25:46'),
+(35, 2, 3, 'why are you talking to me', NULL, '2023-02-01 02:26:53'),
+(36, 2, 3, 'huh?', NULL, '2023-02-01 02:27:05'),
+(37, 3, 2, 'hy', NULL, '2023-02-01 02:46:48'),
+(38, 3, 2, 'WHen', NULL, '2023-02-01 02:46:53'),
+(39, 2, 3, 'hey', NULL, '2023-02-01 02:49:06'),
+(40, 2, 3, 'why are you still awake?', NULL, '2023-02-01 02:49:16'),
+(41, 3, 2, 'o because i am awake ano pake mo?', NULL, '2023-02-01 02:49:30'),
+(42, 3, 2, 'okay', NULL, '2023-02-01 02:57:52'),
+(43, 3, 2, 'why', NULL, '2023-02-01 02:58:29'),
+(44, 3, 2, 'hey', NULL, '2023-02-01 03:01:20'),
+(45, 3, 3, 'yo', NULL, '2023-02-01 03:01:40'),
+(46, 3, 3, 'hey', NULL, '2023-02-01 03:01:52'),
+(47, 3, 3, 'why', NULL, '2023-02-01 03:01:56'),
+(48, 3, 2, 'uyo', NULL, '2023-02-01 03:02:07'),
+(49, 3, 2, 'hi', NULL, '2023-02-01 03:10:59'),
+(50, 3, 2, 'why', NULL, '2023-02-01 03:11:02'),
+(51, 3, 2, 'why', NULL, '2023-02-01 03:11:30'),
+(52, 3, 2, 'hehe', NULL, '2023-02-01 03:11:32'),
+(53, 3, 2, 'when', NULL, '2023-02-01 03:11:58'),
+(54, 3, 2, 'hi', NULL, '2023-02-01 03:20:07'),
+(55, 3, 2, 'Why???', NULL, '2023-02-01 03:20:17'),
+(56, 3, 2, 'wow', NULL, '2023-02-01 03:20:53'),
+(57, 3, 2, 'why', NULL, '2023-02-01 03:28:19'),
+(58, 3, 2, 'stop', NULL, '2023-02-01 03:29:21'),
+(59, 3, 2, 'hi', NULL, '2023-02-01 03:30:58'),
+(60, 3, 2, 'why', NULL, '2023-02-01 03:31:10'),
+(61, 3, 2, 'do not', NULL, '2023-02-01 03:31:17'),
+(62, 3, 2, 'Hey man', NULL, '2023-02-01 03:33:01'),
+(63, 2, 3, 'What?', NULL, '2023-02-01 03:33:08'),
+(64, 2, 3, 'Why are you not talking to me?', NULL, '2023-02-01 03:33:15'),
+(65, 3, 2, 'Because i just don\'t want to\nMind your own business', NULL, '2023-02-01 03:33:41'),
+(66, 3, 2, 'hahahaha', NULL, '2023-02-01 03:33:47'),
+(67, 3, 2, 'haha', NULL, '2023-02-01 03:35:26'),
+(68, 2, 3, 'what?', NULL, '2023-02-01 03:35:34'),
+(69, 3, 2, 'haha', NULL, '2023-02-01 03:36:10'),
+(70, 3, 2, 'am i right?', NULL, '2023-02-01 03:37:15'),
+(71, 3, 2, 'huh?', NULL, '2023-02-01 03:37:25'),
+(72, 3, 2, 'why?', NULL, '2023-02-01 03:37:31'),
+(73, 3, 2, 'so?', NULL, '2023-02-01 03:37:51'),
+(74, 3, 2, 'huh?', NULL, '2023-02-01 03:38:51'),
+(75, 3, 2, 'why?', NULL, '2023-02-01 03:38:55'),
+(76, 3, 2, 'hey', NULL, '2023-02-01 03:39:08'),
+(77, 3, 2, 'hello', NULL, '2023-02-01 03:39:26'),
+(78, 3, 2, 'ha', NULL, '2023-02-01 03:39:37'),
+(79, 2, 3, 'I don\'t know what you are talking about bruh', NULL, '2023-02-01 03:39:50'),
+(80, 3, 2, 'hi', NULL, '2023-02-01 03:45:49'),
+(81, 3, 2, 'when are you going to stop it', NULL, '2023-02-01 03:46:03'),
+(82, 3, 2, 'hehe', NULL, '2023-02-01 03:46:30'),
+(83, 3, 2, 'so fast', NULL, '2023-02-01 03:46:38'),
+(84, 3, 2, 'not so fast', NULL, '2023-02-01 03:46:49'),
+(85, 3, 2, 'old as fu', NULL, '2023-02-01 03:47:00'),
+(86, 3, 2, 'hala', NULL, '2023-02-01 03:49:54'),
+(87, 3, 2, 'hay', NULL, '2023-02-01 03:50:32'),
+(88, 2, 3, 'huh?', NULL, '2023-02-01 03:53:04'),
+(89, 3, 2, 'why?', NULL, '2023-02-01 03:53:11'),
+(90, 2, 3, 'why', NULL, '2023-02-01 03:53:47'),
+(91, 3, 2, 'i dont know', NULL, '2023-02-01 03:57:48'),
+(92, 2, 3, 'I don\'t know too', NULL, '2023-02-01 03:58:24'),
+(93, 2, 3, 'Hello There', NULL, '2023-02-01 04:01:30'),
+(94, 3, 2, 'What is the problem?', NULL, '2023-02-01 04:01:37'),
+(95, 2, 3, 'I dont know you tell me', NULL, '2023-02-01 04:01:45'),
+(96, 3, 2, 'Huh? what are tou saying', NULL, '2023-02-01 04:01:58'),
+(97, 2, 3, 'Hey man i know what you did!', NULL, '2023-02-01 04:02:13'),
+(98, 3, 2, 'I don\'t quite follow my young padawab\nis it because you are not the chose \nONE!!!!', NULL, '2023-02-01 04:02:37'),
+(99, 2, 3, 'I dont know tooo', NULL, '2023-02-01 04:02:44'),
+(100, 2, 3, 'Hyhe', NULL, '2023-02-01 04:03:41'),
+(101, 3, 2, 'Goodnight', NULL, '2023-02-01 04:03:45'),
+(102, 3, 2, 'Lol', NULL, '2023-02-01 04:03:55'),
+(103, 2, 3, 'Huh???', NULL, '2023-02-01 04:03:59'),
+(104, 2, 3, 'k', NULL, '2023-02-01 04:04:09'),
+(105, 2, 3, 'k', NULL, '2023-02-01 04:04:09'),
+(106, 2, 3, 'k', NULL, '2023-02-01 04:04:09'),
+(107, 2, 3, 'k', NULL, '2023-02-01 04:04:09'),
+(108, 2, 3, 'k', NULL, '2023-02-01 04:04:09'),
+(109, 2, 3, 'k', NULL, '2023-02-01 04:04:10'),
+(110, 2, 3, 'k', NULL, '2023-02-01 04:04:10'),
+(111, 2, 3, 'k', NULL, '2023-02-01 04:04:10'),
+(112, 2, 3, 'k', NULL, '2023-02-01 04:04:10'),
+(113, 2, 3, 'k', NULL, '2023-02-01 04:04:11'),
+(114, 2, 3, 'k', NULL, '2023-02-01 04:04:11'),
+(115, 2, 3, 'Hello Lods', NULL, '2023-02-01 04:04:46'),
+(116, 3, 2, 'Hello', NULL, '2023-02-01 04:04:50'),
+(117, 2, 3, 'Ampunin ko na tuta mo', NULL, '2023-02-01 04:04:57'),
+(118, 3, 2, 'Ngekngek mo\nAyaw ibigay ni kenneth eh', NULL, '2023-02-01 04:05:08'),
+(119, 2, 3, 'Sino ba si kenneth ? HMmmmmm!!', NULL, '2023-02-01 04:05:16'),
+(120, 3, 2, 'Yung kapit bahay hehehehe', NULL, '2023-02-01 04:05:25'),
+(121, 2, 3, 'Bakit ikaw nagpapa ampon?', NULL, '2023-02-01 04:05:34'),
+(122, 3, 2, 'Huh? Akin naman yon', NULL, '2023-02-01 04:05:44'),
+(123, 2, 3, 'Weh', NULL, '2023-02-01 04:05:48'),
+(124, 2, 3, 'Hala', NULL, '2023-02-01 04:06:50'),
+(125, 3, 2, 'Bobo', NULL, '2023-02-01 04:06:53'),
+(126, 3, 2, 'Hey nigga', NULL, '2023-02-01 04:10:13'),
+(127, 2, 3, 'What up homie?', NULL, '2023-02-01 04:10:26'),
+(128, 3, 2, 'are u G?', NULL, '2023-02-01 04:10:36'),
+(129, 2, 3, 'saan?', NULL, '2023-02-01 04:10:41'),
+(130, 3, 2, 'Sleep', NULL, '2023-02-01 04:10:44'),
+(131, 3, 2, 'hehe tama', NULL, '2023-02-01 04:11:21'),
+(132, 3, 5, 'Yo', NULL, '2023-02-01 04:11:29'),
+(133, 7, 3, 'hi', NULL, '2023-02-01 05:26:47'),
+(134, 7, 1, 'YO wanawan', NULL, '2023-02-01 05:27:13'),
+(135, 3, 7, 'Helo', NULL, '2023-02-01 05:32:40'),
+(136, 7, 3, 'Bakit\'', NULL, '2023-02-01 05:32:47'),
+(137, 3, 7, 'Wala lng', NULL, '2023-02-01 05:32:59'),
+(138, 3, 7, 'Hello', NULL, '2023-02-01 05:33:10'),
+(139, 7, 3, 'Yo', NULL, '2023-02-01 05:33:15'),
+(140, 3, 7, 'Bakit', NULL, '2023-02-01 05:33:21'),
+(141, 7, 3, 'Heyy', NULL, '2023-02-01 05:33:24'),
+(142, 7, 3, 'hahaha', NULL, '2023-02-01 05:33:29'),
+(143, 7, 1, 'Hi', NULL, '2023-02-01 05:35:34'),
+(144, 7, 1, 'Hi', NULL, '2023-02-01 05:35:50'),
+(145, 7, 1, 'Why', NULL, '2023-02-01 05:35:58'),
+(146, 7, 1, 'What\'s Up', NULL, '2023-02-01 05:36:12'),
+(147, 3, 7, 'Hey man', NULL, '2023-02-01 05:37:48'),
+(148, 3, 7, 'Oh what up', NULL, '2023-02-01 05:38:07'),
+(149, 7, 3, 'Uhm Nothing', NULL, '2023-02-01 05:38:14'),
+(150, 7, 3, 'Hahahaha', NULL, '2023-02-01 05:38:19'),
+(151, 3, 7, 'Hey', NULL, '2023-02-01 05:38:22'),
+(152, 7, 3, 'Hahahaha', NULL, '2023-02-01 05:38:31'),
+(153, 3, 7, 'hahahaha', NULL, '2023-02-01 05:38:35'),
+(154, 7, 3, 'sup', NULL, '2023-02-01 05:38:40'),
+(155, 7, 3, 'Hey man', NULL, '2023-02-01 05:40:10'),
+(156, 7, 3, 'hahahaha', NULL, '2023-02-01 05:42:11'),
+(157, 3, 7, 'why', NULL, '2023-02-01 05:42:38'),
+(158, 3, 7, 'hehehe', NULL, '2023-02-01 05:43:16'),
+(159, 3, 7, 'Musta', NULL, '2023-02-01 06:02:23'),
+(160, 7, 3, 'Fine', NULL, '2023-02-01 06:02:29');
 
 -- --------------------------------------------------------
 
@@ -286,7 +465,8 @@ INSERT INTO `deledopted` (`petID`, `name`, `age`, `sex`, `vacinnated`, `descript
 (10, 'manypic', 2021, 'male', 'yes', 'Why do stars fall down from the sky?', 3, 6, 3, '2023-01-15 18:09:09'),
 (11, 'sdfdsf', 2009, 'male', 'yes', 'dfgdsdsfasdfsada', 1, 1, 3, '2023-01-15 21:33:01'),
 (12, 'ghdfgd', 2009, 'female', 'yes', 'dgfhgjdgfdgf', 3, 6, 3, '2023-01-15 22:02:32'),
-(13, 'xcvdfbfgn', 2020, 'male', 'no', 'ukhjjgfhfgh', 1, 3, 3, '2023-01-15 22:03:51');
+(13, 'xcvdfbfgn', 2020, 'male', 'no', 'ukhjjgfhfgh', 1, 3, 3, '2023-01-15 22:03:51'),
+(18, 'husky', 2019, 'male', 'no', 'Ako si awaw aking', 1, 1, 6, '2023-01-28 22:53:38');
 
 -- --------------------------------------------------------
 
@@ -354,7 +534,29 @@ INSERT INTO `deledopted_photo` (`petphoID`, `petID`, `photo`, `date_time`) VALUE
 (103, 10, 'stix3.jpg', '2023-01-15 18:09:09'),
 (104, 11, 'germanshepherd.jpg', '2023-01-15 21:33:01'),
 (105, 12, 'hamster1.jpg', '2023-01-15 22:02:32'),
-(106, 13, 'stix.jpg', '2023-01-15 22:03:51');
+(106, 13, 'stix.jpg', '2023-01-15 22:03:51'),
+(129, 18, 'stix3.jpg', '2023-01-28 22:53:38');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `deledopted_report`
+-- (See below for the actual view)
+--
+CREATE TABLE `deledopted_report` (
+`petID` int(100)
+,`name` varchar(255)
+,`age` int(100)
+,`sex` varchar(255)
+,`vaccinated` varchar(255)
+,`animal_type` varchar(255)
+,`breed` varchar(255)
+,`username` varchar(255)
+,`fname` varchar(255)
+,`lname` varchar(255)
+,`muni_name` varchar(255)
+,`date_time` datetime
+);
 
 -- --------------------------------------------------------
 
@@ -424,6 +626,35 @@ INSERT INTO `municipality` (`muniID`, `muni_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `not_owned`
+-- (See below for the actual view)
+--
+CREATE TABLE `not_owned` (
+`userID` int(100)
+,`username` varchar(255)
+,`fname` varchar(255)
+,`lname` varchar(255)
+,`muni_name` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `owner_report`
+-- (See below for the actual view)
+--
+CREATE TABLE `owner_report` (
+`petID` int(100)
+,`name` varchar(255)
+,`username` varchar(255)
+,`fname` varchar(255)
+,`lname` varchar(255)
+,`muni_name` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pet`
 --
 
@@ -445,10 +676,13 @@ CREATE TABLE `pet` (
 --
 
 INSERT INTO `pet` (`petID`, `name`, `age`, `sex`, `vaccinated`, `description`, `pcID`, `bcID`, `userID`, `date_time`) VALUES
-(1, 'browny', 2020, 'male', NULL, 'browny\r\n', 2, 2, 1, NULL),
-(2, 'akosidogie', 2019, 'male', NULL, 'Ako si dogie', 1, 1, 2, NULL),
+(1, 'browny', 2020, 'male', 'no', 'browny\r\n', 2, 2, 1, '2023-01-16 20:52:27'),
+(2, 'akosidogie', 2019, 'male', 'no', 'Ako si dogie', 1, 1, 2, '2023-01-16 20:52:27'),
 (14, 'ben', 2020, 'male', 'yes', 'asdasdasd', 1, 1, 3, '2023-01-16 20:52:27'),
-(15, 'mino', 2016, 'male', 'yes', 'Ako si Mino', 1, 3, 3, '2023-01-26 22:04:19');
+(15, 'mino', 2016, 'male', 'yes', 'Ako si Mino', 1, 3, 3, '2023-01-26 22:04:19'),
+(16, 'timothy', 2019, 'female', 'yes', 'Ako si TImothy', 3, 5, 1, '2023-01-28 16:56:33'),
+(17, 'christina', 2020, 'female', 'yes', 'Hello', 2, 4, 5, '2023-01-28 22:39:13'),
+(19, 'simon', 2020, 'male', 'yes', 'sdgdfhdh', 2, 4, 7, '2023-02-01 05:26:04');
 
 -- --------------------------------------------------------
 
@@ -462,7 +696,6 @@ CREATE TABLE `pets_owned` (
 ,`fname` varchar(255)
 ,`lname` varchar(255)
 ,`muni_name` varchar(255)
-,`muniID` int(100)
 ,`pets_owned` bigint(21)
 );
 
@@ -485,6 +718,20 @@ INSERT INTO `pet_category` (`pcID`, `animal_type`) VALUES
 (1, 'dog'),
 (2, 'cat'),
 (3, 'hamster');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `pet_category_report`
+-- (See below for the actual view)
+--
+CREATE TABLE `pet_category_report` (
+`petID` int(100)
+,`name` varchar(255)
+,`animal_type` varchar(255)
+,`breed` varchar(255)
+,`muni_name` varchar(255)
+);
 
 -- --------------------------------------------------------
 
@@ -554,7 +801,11 @@ INSERT INTO `pet_photo` (`petphoID`, `petID`, `photo`, `date_time`) VALUES
 (122, 14, 'stix3.jpg', '2023-01-17 21:18:19'),
 (123, 15, 'germanshepherd.jpg', '2023-01-26 22:04:19'),
 (124, 15, 'stix.jpg', '2023-01-26 22:04:19'),
-(125, 15, 'stix3.jpg', '2023-01-26 22:04:19');
+(125, 15, 'stix3.jpg', '2023-01-26 22:04:19'),
+(126, 16, 'hamster1.jpg', '2023-01-28 16:56:33'),
+(127, 16, 'hamster2.jpg', '2023-01-28 16:56:33'),
+(128, 17, 'istockphoto-1217828258-170667a.jpg', '2023-01-28 22:39:13'),
+(130, 19, 'Khaomanee_cat.jpg', '2023-02-01 05:26:04');
 
 -- --------------------------------------------------------
 
@@ -579,7 +830,9 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`prodID`, `shopID`, `pcID`, `prod_name`, `description`, `price`, `date_time`) VALUES
 (28, 46, 1, 'fgdfg', 'beauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want, yeah\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\ni know where you hide, alone in your car\r\nknow all of the things that make you who you are\r\ni know that goodbye means nothing at all\r\ncomes back and begs me to catch her every time she falls, yeah\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain, oh\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nyeah, yeah\r\ni don&#039;t mind spending every day (ooh, ooh)\r\nout on your corner in the pouring rain\r\n(please don&#039;t try so hard to say goodbye)', 789, '2023-01-17 01:27:56'),
 (33, 46, 1, 'afyut', 'dfgdfgsdfsdf miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want', 46, '2023-01-17 08:21:00'),
-(37, 61, 2, 'man', 'manasd', 231, '2023-01-17 23:16:40');
+(37, 61, 2, 'man', 'manasd', 231, '2023-01-17 23:16:40'),
+(41, 77, 1, 'kraken', 'this is an energy booster feeds', 250, '2023-01-31 00:42:20'),
+(42, 52, 3, 'gigamouse', 'pampalakas ng daga', 125, '2023-01-31 01:43:26');
 
 -- --------------------------------------------------------
 
@@ -678,7 +931,22 @@ INSERT INTO `product_photo` (`prodphoID`, `prodID`, `photo`, `date_time`) VALUES
 (203, 37, 'samantha.jpg', '2023-01-17 23:16:40'),
 (204, 37, 'stix.jpg', '2023-01-17 23:16:41'),
 (205, 37, 'stix2.jpg', '2023-01-17 23:16:41'),
-(206, 37, 'stix3.jpg', '2023-01-17 23:16:41');
+(206, 37, 'stix3.jpg', '2023-01-17 23:16:41'),
+(207, 41, 'stix.jpg', '2023-01-31 00:42:20'),
+(208, 42, 'Campbells_dwarf.jpg', '2023-01-31 01:43:26');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `sex_report`
+-- (See below for the actual view)
+--
+CREATE TABLE `sex_report` (
+`petID` int(100)
+,`name` varchar(255)
+,`sex` varchar(255)
+,`muni_name` varchar(255)
+);
 
 -- --------------------------------------------------------
 
@@ -713,7 +981,8 @@ INSERT INTO `shop` (`shopID`, `shop_name`, `email`, `owner`, `muniID`, `location
 (68, 'fkjhk', 'jhlkghj', 'fgjfghf', 19, '', 'hgjghjdf', 'dfgdfg', 'hjghkg', 'hgkjtyjdfgdfg', '2023-01-17 21:13:08'),
 (70, 'fdgdfg', 'fghgj', 'dfgdfg', 19, '', 'fdfhfgj', 'ryrtyrjtyj', 'sdfs miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\na', 'miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want', '2023-01-17 21:19:49'),
 (74, 'fgdfg', 'sdfsdf', 'fhdfh', 20, '', 'dfgd', 'dfhfdhd', 'xcvx', 'dvd', '2023-01-17 21:20:45'),
-(77, 'imee denise', 'imee@yahoo.com', 'imme', 1, '', '09457896512', '1uhaud', 'gfgsjhdada', 'sdfsfg', '2023-01-18 12:12:42');
+(77, 'imee denise', 'imee@yahoo.com', 'imme', 1, '', '09457896512', '1uhaud', 'gfgsjhdada', 'sdfsfg', '2023-01-18 12:12:42'),
+(78, 'pet express', 'petexpress@gmail.com', 'kenneth salamanca', 16, '', '09301542365', 'mon-fri | 9:00 am - 6:00 pm', 'pet toys:\r\nballs,\r\nstuff toy.,\r\nedible bone toy', 'a pet shop or pet store is a retail business which sells animals and pet care resources to the public. a variety of animal supplies and pet accessories are also sold in pet shops. the products sold include: food, treats, toys, collars, leashes, cat litter, cages and aquariums.', '2023-01-31 17:54:26');
 
 -- --------------------------------------------------------
 
@@ -832,7 +1101,41 @@ INSERT INTO `shop_photo` (`shopphoID`, `shopID`, `photo`, `date_time`) VALUES
 (229, 77, 'samantha.jpg', '2023-01-18 12:13:11'),
 (230, 77, 'stix.jpg', '2023-01-18 12:13:11'),
 (231, 77, 'stix2.jpg', '2023-01-18 12:13:11'),
-(232, 77, 'stix3.jpg', '2023-01-18 12:13:11');
+(232, 77, 'stix3.jpg', '2023-01-18 12:13:11'),
+(233, 78, 'hqdefault.jpg', '2023-01-31 17:54:26'),
+(234, 78, 'petlovers-14.jpg', '2023-01-31 17:54:26'),
+(235, 78, 'PetSupplyStores-Featured.jpg', '2023-01-31 17:54:26');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `shop_prod_report`
+-- (See below for the actual view)
+--
+CREATE TABLE `shop_prod_report` (
+`prodID` int(100)
+,`prod_name` varchar(255)
+,`price` int(100)
+,`shopID` int(100)
+,`shop_name` varchar(255)
+,`muni_name` varchar(255)
+,`animal_type` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `unver_ver`
+-- (See below for the actual view)
+--
+CREATE TABLE `unver_ver` (
+`userID` int(100)
+,`username` varchar(255)
+,`fname` varchar(255)
+,`lname` varchar(255)
+,`muni_name` varchar(255)
+,`verified_id` varchar(255)
+);
 
 -- --------------------------------------------------------
 
@@ -849,7 +1152,7 @@ CREATE TABLE `users` (
   `lname` varchar(255) NOT NULL,
   `birthdate` date DEFAULT NULL,
   `photo_id` varchar(255) NOT NULL,
-  `prof_pic` varchar(255) DEFAULT NULL,
+  `prof_pic` varchar(255) DEFAULT 'admin.png',
   `location` varchar(255) DEFAULT NULL,
   `muniID` int(100) NOT NULL,
   `verified_id` varchar(255) DEFAULT 'no',
@@ -861,10 +1164,62 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `username`, `email`, `password`, `fname`, `lname`, `birthdate`, `photo_id`, `prof_pic`, `location`, `muniID`, `verified_id`, `date_time`) VALUES
-(1, 'wan', 'wan@yahoo.com', '$2y$10$0To9.RRBGJ6RzTM0Ni7QgO0YPsC44WpFGtTVG7cOzZYuqqoc5dSWm', 'wan', 'wan', NULL, 'hehe.jpeg', NULL, NULL, 10, 'no', NULL),
-(2, 'two', 'two@yahoo.com', '$2y$10$DiJbEIRecndAT.IK4TKF.eCREo81jMbS.0vyShyFlv.w.2xekFDcq', 'two', 'two', NULL, 'pic-na-retoke.jpg', NULL, NULL, 6, 'no', NULL),
-(3, 'jw', 'jw@yahoo.com', '$2y$10$pyDEsSs9TYYtHAASvBaoRO1oQBVpm5Y4iwbzF/mhX0tufgRI6a2Ku', 'john', 'wall', NULL, 'hehe.jpeg', NULL, NULL, 17, 'no', NULL),
-(4, 'ako', 'ako@gmail.com', '$2y$10$VtAFNTm.LXnVNjveW6hlxenvk.V.v/2EJ8UzPieD7rQyvBB5aPqZC', 'ako ay', 'bakit ', NULL, 'pic-na-retoke.jpg', NULL, NULL, 44, 'no', '2023-01-14 22:14:47');
+(1, 'wan', 'wan@yahoo.com', '$2y$10$0To9.RRBGJ6RzTM0Ni7QgO0YPsC44WpFGtTVG7cOzZYuqqoc5dSWm', 'wan', 'wan', NULL, 'hehe.jpeg', 'admin.png', NULL, 10, 'no', NULL),
+(2, 'two', 'two@yahoo.com', '$2y$10$DiJbEIRecndAT.IK4TKF.eCREo81jMbS.0vyShyFlv.w.2xekFDcq', 'two', 'two', NULL, 'pic-na-retoke.jpg', 'admin.png', NULL, 6, 'yes', NULL),
+(3, 'jw', 'jw@yahoo.com', '$2y$10$pyDEsSs9TYYtHAASvBaoRO1oQBVpm5Y4iwbzF/mhX0tufgRI6a2Ku', 'john', 'wall', NULL, 'hehe.jpeg', 'admin.png', NULL, 17, 'yes', NULL),
+(4, 'ako', 'ako@gmail.com', '$2y$10$VtAFNTm.LXnVNjveW6hlxenvk.V.v/2EJ8UzPieD7rQyvBB5aPqZC', 'ako ay', 'bakit ', NULL, 'pic-na-retoke.jpg', NULL, NULL, 44, 'no', '2023-01-14 22:14:47'),
+(5, 'mickey', 'mickeymouse@gmail.com', '$2y$10$5tQvztPCc5lsdBfAwPrVYu/up3n7hgk8rHwGkjsKrAGabyzaK6pFq', 'mickey', 'mouse', NULL, 'pic-na-retoke.jpg', NULL, NULL, 14, 'yes', '2023-01-28 22:25:31'),
+(6, 'imee', 'imee@yahoo.com', '$2y$10$gfh/evqx0EBKIAcP6uRhU.wjgF2gb2ePYhsZVmzB.UdkD9VmuEngC', 'imee', 'denise', NULL, 'kobe.jpg', NULL, NULL, 18, 'no', '2023-01-28 22:37:55'),
+(7, 'jk', 'jk@yahoo.com', '$2y$10$ncchJh9/OJqPIWUC8/wQ9uvSMrdiKWjzhAoGhm.3Pbr7R5S0PDrwy', 'jk', 'jk', NULL, 'hehe.jpeg', 'admin.png', NULL, 20, 'no', '2023-02-01 05:25:30');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vaccinated_report`
+-- (See below for the actual view)
+--
+CREATE TABLE `vaccinated_report` (
+`petID` int(100)
+,`name` varchar(255)
+,`vaccinated` varchar(255)
+,`muni_name` varchar(255)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `birthyear_report`
+--
+DROP TABLE IF EXISTS `birthyear_report`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `birthyear_report`  AS SELECT `p`.`petID` AS `petID`, `p`.`name` AS `name`, `p`.`age` AS `age`, `m`.`muni_name` AS `muni_name` FROM ((`pet` `p` join `users` `u` on(`u`.`userID` = `p`.`userID`)) join `municipality` `m` on(`m`.`muniID` = `u`.`muniID`))  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `deledopted_report`
+--
+DROP TABLE IF EXISTS `deledopted_report`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `deledopted_report`  AS SELECT `p`.`petID` AS `petID`, `p`.`name` AS `name`, `p`.`age` AS `age`, `p`.`sex` AS `sex`, `p`.`vaccinated` AS `vaccinated`, `pc`.`animal_type` AS `animal_type`, `bc`.`breed` AS `breed`, `u`.`username` AS `username`, `u`.`fname` AS `fname`, `u`.`lname` AS `lname`, `m`.`muni_name` AS `muni_name`, `p`.`date_time` AS `date_time` FROM ((((`pet` `p` join `pet_category` `pc` on(`pc`.`pcID` = `p`.`pcID`)) join `breed_category` `bc` on(`bc`.`bcID` = `p`.`bcID`)) join `users` `u` on(`u`.`userID` = `p`.`userID`)) join `municipality` `m` on(`m`.`muniID` = `u`.`muniID`)) ORDER BY `p`.`petID` ASC  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `not_owned`
+--
+DROP TABLE IF EXISTS `not_owned`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `not_owned`  AS SELECT `u`.`userID` AS `userID`, `u`.`username` AS `username`, `u`.`fname` AS `fname`, `u`.`lname` AS `lname`, `m`.`muni_name` AS `muni_name` FROM (`users` `u` join `municipality` `m` on(`m`.`muniID` = `u`.`muniID`)) WHERE !(`u`.`userID` in (select `pets_owned`.`userID` from `pets_owned`))  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `owner_report`
+--
+DROP TABLE IF EXISTS `owner_report`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `owner_report`  AS SELECT `p`.`petID` AS `petID`, `p`.`name` AS `name`, `u`.`username` AS `username`, `u`.`fname` AS `fname`, `u`.`lname` AS `lname`, `m`.`muni_name` AS `muni_name` FROM ((`pet` `p` join `users` `u` on(`u`.`userID` = `p`.`userID`)) join `municipality` `m` on(`m`.`muniID` = `u`.`muniID`)) ORDER BY `p`.`petID` ASC  ;
 
 -- --------------------------------------------------------
 
@@ -873,7 +1228,52 @@ INSERT INTO `users` (`userID`, `username`, `email`, `password`, `fname`, `lname`
 --
 DROP TABLE IF EXISTS `pets_owned`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `pets_owned`  AS SELECT `u`.`userID` AS `userID`, `u`.`username` AS `username`, `u`.`fname` AS `fname`, `u`.`lname` AS `lname`, `m`.`muni_name` AS `muni_name`, `m`.`muniID` AS `muniID`, count(`p`.`petID`) AS `pets_owned` FROM ((`users` `u` join `pet` `p` on(`u`.`userID` = `p`.`userID`)) join `municipality` `m` on(`m`.`muniID` = `u`.`muniID`)) GROUP BY `u`.`fname``fname`  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `pets_owned`  AS SELECT `u`.`userID` AS `userID`, `u`.`username` AS `username`, `u`.`fname` AS `fname`, `u`.`lname` AS `lname`, `m`.`muni_name` AS `muni_name`, count(`p`.`petID`) AS `pets_owned` FROM ((`users` `u` join `pet` `p` on(`u`.`userID` = `p`.`userID`)) join `municipality` `m` on(`m`.`muniID` = `u`.`muniID`)) GROUP BY `u`.`userID` ORDER BY `u`.`userID` ASC  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `pet_category_report`
+--
+DROP TABLE IF EXISTS `pet_category_report`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `pet_category_report`  AS SELECT `p`.`petID` AS `petID`, `p`.`name` AS `name`, `pc`.`animal_type` AS `animal_type`, `bc`.`breed` AS `breed`, `m`.`muni_name` AS `muni_name` FROM ((((`pet` `p` join `pet_category` `pc` on(`pc`.`pcID` = `p`.`pcID`)) join `breed_category` `bc` on(`bc`.`bcID` = `p`.`bcID`)) join `users` `u` on(`u`.`userID` = `p`.`userID`)) join `municipality` `m` on(`m`.`muniID` = `u`.`muniID`))  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `sex_report`
+--
+DROP TABLE IF EXISTS `sex_report`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `sex_report`  AS SELECT `p`.`petID` AS `petID`, `p`.`name` AS `name`, `p`.`sex` AS `sex`, `m`.`muni_name` AS `muni_name` FROM ((`pet` `p` join `users` `u` on(`u`.`userID` = `p`.`userID`)) join `municipality` `m` on(`m`.`muniID` = `u`.`muniID`)) ORDER BY `p`.`petID` ASC  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `shop_prod_report`
+--
+DROP TABLE IF EXISTS `shop_prod_report`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `shop_prod_report`  AS SELECT `p`.`prodID` AS `prodID`, `p`.`prod_name` AS `prod_name`, `p`.`price` AS `price`, `s`.`shopID` AS `shopID`, `s`.`shop_name` AS `shop_name`, `m`.`muni_name` AS `muni_name`, `pc`.`animal_type` AS `animal_type` FROM (((`product` `p` join `shop` `s` on(`s`.`shopID` = `p`.`shopID`)) join `municipality` `m` on(`m`.`muniID` = `s`.`muniID`)) join `pet_category` `pc` on(`pc`.`pcID` = `p`.`pcID`))  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `unver_ver`
+--
+DROP TABLE IF EXISTS `unver_ver`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `unver_ver`  AS SELECT `u`.`userID` AS `userID`, `u`.`username` AS `username`, `u`.`fname` AS `fname`, `u`.`lname` AS `lname`, `m`.`muni_name` AS `muni_name`, `u`.`verified_id` AS `verified_id` FROM (`users` `u` join `municipality` `m` on(`m`.`muniID` = `u`.`muniID`)) ORDER BY `u`.`userID` ASC  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vaccinated_report`
+--
+DROP TABLE IF EXISTS `vaccinated_report`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vaccinated_report`  AS SELECT `p`.`petID` AS `petID`, `p`.`name` AS `name`, `p`.`vaccinated` AS `vaccinated`, `m`.`muni_name` AS `muni_name` FROM ((`pet` `p` join `users` `u` on(`u`.`userID` = `p`.`userID`)) join `municipality` `m` on(`m`.`muniID` = `u`.`muniID`)) ORDER BY `p`.`petID` ASC  ;
 
 --
 -- Indexes for dumped tables
@@ -898,8 +1298,8 @@ ALTER TABLE `breed_category`
 --
 ALTER TABLE `chat_log`
   ADD PRIMARY KEY (`cLID`),
-  ADD KEY `user1` (`user1`),
-  ADD KEY `user2` (`user2`);
+  ADD KEY `user1` (`sender`),
+  ADD KEY `user2` (`reciever`);
 
 --
 -- Indexes for table `clinic`
@@ -921,13 +1321,17 @@ ALTER TABLE `clinic_photo`
 -- Indexes for table `deledopted`
 --
 ALTER TABLE `deledopted`
-  ADD PRIMARY KEY (`petID`);
+  ADD PRIMARY KEY (`petID`),
+  ADD KEY `pcID` (`pcID`),
+  ADD KEY `bcID` (`bcID`),
+  ADD KEY `userID` (`userID`);
 
 --
 -- Indexes for table `deledopted_photo`
 --
 ALTER TABLE `deledopted_photo`
-  ADD PRIMARY KEY (`petphoID`);
+  ADD PRIMARY KEY (`petphoID`),
+  ADD KEY `petID` (`petID`);
 
 --
 -- Indexes for table `municipality`
@@ -1019,7 +1423,7 @@ ALTER TABLE `breed_category`
 -- AUTO_INCREMENT for table `chat_log`
 --
 ALTER TABLE `chat_log`
-  MODIFY `cLID` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `cLID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 
 --
 -- AUTO_INCREMENT for table `clinic`
@@ -1037,7 +1441,7 @@ ALTER TABLE `clinic_photo`
 -- AUTO_INCREMENT for table `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `petID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `petID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `pet_category`
@@ -1049,37 +1453,37 @@ ALTER TABLE `pet_category`
 -- AUTO_INCREMENT for table `pet_photo`
 --
 ALTER TABLE `pet_photo`
-  MODIFY `petphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `petphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prodID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `prodID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `product_photo`
 --
 ALTER TABLE `product_photo`
-  MODIFY `prodphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
+  MODIFY `prodphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
 
 --
 -- AUTO_INCREMENT for table `shop`
 --
 ALTER TABLE `shop`
-  MODIFY `shopID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `shopID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `shop_photo`
 --
 ALTER TABLE `shop_photo`
-  MODIFY `shopphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=233;
+  MODIFY `shopphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=236;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `userID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -1095,8 +1499,8 @@ ALTER TABLE `breed_category`
 -- Constraints for table `chat_log`
 --
 ALTER TABLE `chat_log`
-  ADD CONSTRAINT `chat_log_ibfk_1` FOREIGN KEY (`user1`) REFERENCES `users` (`userID`),
-  ADD CONSTRAINT `chat_log_ibfk_2` FOREIGN KEY (`user2`) REFERENCES `users` (`userID`);
+  ADD CONSTRAINT `chat_log_ibfk_1` FOREIGN KEY (`sender`) REFERENCES `users` (`userID`),
+  ADD CONSTRAINT `chat_log_ibfk_2` FOREIGN KEY (`reciever`) REFERENCES `users` (`userID`);
 
 --
 -- Constraints for table `clinic`
@@ -1109,6 +1513,20 @@ ALTER TABLE `clinic`
 --
 ALTER TABLE `clinic_photo`
   ADD CONSTRAINT `clinic_photo_ibfk_1` FOREIGN KEY (`clinicID`) REFERENCES `clinic` (`clinicID`);
+
+--
+-- Constraints for table `deledopted`
+--
+ALTER TABLE `deledopted`
+  ADD CONSTRAINT `deledopted_ibfk_1` FOREIGN KEY (`pcID`) REFERENCES `pet_category` (`pcID`),
+  ADD CONSTRAINT `deledopted_ibfk_2` FOREIGN KEY (`bcID`) REFERENCES `breed_category` (`bcID`),
+  ADD CONSTRAINT `deledopted_ibfk_3` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`);
+
+--
+-- Constraints for table `deledopted_photo`
+--
+ALTER TABLE `deledopted_photo`
+  ADD CONSTRAINT `deledopted_photo_ibfk_1` FOREIGN KEY (`petID`) REFERENCES `deledopted` (`petID`);
 
 --
 -- Constraints for table `pet`

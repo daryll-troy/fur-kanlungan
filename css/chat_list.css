@@ -18,4 +18,31 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    row-gap: 2em;
+}
+/* chat convo title */
+.chats_with{
+color: aliceblue;
+}
+
+/* each user convo container */
+.each_userchat{
+    display: flex;
+    column-gap: 1em;
+}
+
+/* profile picture */
+.prof_pic{
+    object-fit: cover;
+    width: 5em;
+    height: 5em;
+}
+
+/* full name */
+.fullname{
+   text-transform: capitalize;
+    color: aliceblue;
+}
+.atag_name{
+    text-decoration: none;
 }
