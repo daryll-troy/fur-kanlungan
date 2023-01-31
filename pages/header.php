@@ -25,7 +25,7 @@
                 </button>
                 <div class="collapse navbar-collapse isagad-hover" id="navbarScroll">
                     <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll">
-                        <li class="nav-item">
+                        <li class="nav-item" id="chats">
                             <a class="nav-link" aria-current="page" href="chat_list.php"> <span class="puti-header">Chats</span></a></a>
                         </li>
 
@@ -51,21 +51,21 @@
                                     <?php
                                   
                                     $getID = $_SESSION['userID'];
-                                   $photo_id = "";
+                                   $prof_pic = "";
                                    $fname = "";
-                                    $getPhoto = "SELECT photo_id, fname FROM users WHERE userID = '$getID'";
+                                    $getPhoto = "SELECT prof_pic, fname FROM users WHERE userID = '$getID'";
                                     $result = $conn->query($getPhoto);
                                     if ($result->num_rows > 0) {
                                         // fetch the image file name 
                                         while ($row = $result->fetch_assoc()) {
-                                            $photo_id = $row['photo_id'];
+                                            $prof_pic = $row['prof_pic'];
                                             $fname = $row['fname'];
                                         }
                                         
                                     }
                                     ?>
                                     
-                                   <img src="../images/valid_id/<?php echo $photo_id; ?>" alt="" srcset="" id="profPic">
+                                   <img src="../images/prof_pics/<?php echo $prof_pic; ?>" alt="" srcset="" id="profPic">
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">

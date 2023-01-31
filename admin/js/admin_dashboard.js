@@ -7,7 +7,7 @@ import * as deledopted_report from "./admin_reports_deledopted.js";
 $(document).ready(function () {
 
     // check if the dropdown menus' value changed
-    $(".categories").change(function () {
+    $(".categories").change(()=> {
         var encat = $('.entity_category').val();
 
         switch (encat) {

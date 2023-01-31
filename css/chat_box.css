@@ -5,37 +5,130 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    align-items: flex-start;
     flex-wrap: wrap;
+
 }
 
-.chat_box{
-    width: 60%;
+/* container for background color */
+.color_container {
+    width: 80%;
+    min-height: inherit;
+    padding-top: 2em;
+    background-color: rgba(87, 73, 33, 0.397);
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+}
+
+.chatbox_header {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .back button div*/
+.back {
+    display: flex;
+    align-items: center;
+}
+
+/* group the prof pic and the name together */
+.pic_name {
+    display: flex;
+}
+
+/* message display box div*/
+.messages_display {
+    /* width: 100%;
+    display: flex;
+    justify-content: center; */
+    width: 90%;
+    height: 60vh;
+    border: 0;
+    background-color: rgba(218, 226, 226, 0.747);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.chat_box {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 2em;
 }
 
-.chat_field{
-    width: 100%;
-    min-height: 40vh;
-    margin: 2em 0 1em 0;
+.chat_field {
+    width: 75%;
+    min-height: 10vh;
+    height: 10vh;
+    max-height: 15vh;
+    background-color: rgba(218, 226, 226, 0.603);
+    border: 0;
+    /* border-radius: 5%; */
 }
 
-.name_of_message{
-    font-size:xx-large;
+/* upload field */
+.upload {
+    width: 10%;
+}
+
+/* send button */
+.send {
+    width: 10%;
+}
+
+.name_of_message {
+    font-size: xx-large;
+    display: flex;
+    align-items: center;
 }
 
 
 
-#photo_id{
+#photo_id {
     /* display: none; */
     border: 10px solid transparent;
     border-radius: 50%;
     border-image: 50 round;
-    width: 8em;
-    height: 8em;
+    width: 5em;
+    height: 5em;
+}
+
+/* left container div for use of flexbox */
+.left_container{
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* right container div for use of flexbox */
+.right_container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* right message display */
+.display_message_right{
+    background-color: lightblue;
+    /* display: inline-block; */
+    padding: 5px;
+    border-radius: 10px;
+    min-width: 10%;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+/* left message display */
+.display_message_left{
+    background-color: rgba(255, 255, 0, 0.514);
+    /* display: inline-block; */
+    padding: 5px;
+    border-radius: 10px;
+    min-width: 10%;
+    width:auto;
+    max-width: 70%;
+    word-wrap: break-word;
 }

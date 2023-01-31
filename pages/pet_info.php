@@ -41,8 +41,6 @@ if (isset($_GET['pet_id'])) {
             $pet_description = $row['description'];
             $pet_breed = $row['breed'];
             $pet_user = $row['userID'];
-
-            
         }
     } else {
         echo "<script>alert('No such Pet ID!!')</script>";
@@ -101,21 +99,25 @@ $_SESSION['coverPetPic'] = $pet_photo;
                 <div class="back_img">
                     <img src="../images/backTo.png" alt="" id="backTo" onclick="history.back()">
                 </div>
-                <div class="name">Name: <span><?php echo $pet_name ?></span></div>
-                <div class="name">Age: <span><?php echo date("Y") - $pet_age ?></span></div>
-                <div class="name">Gender: <span><?php echo $pet_sex ?></span></div>
-                <div class="name">Owner: <span><?php echo $pet_user ?></span></div>
-                <div class="name">Description:
-                    <span><?php echo $pet_description ?></span>
+                <div id="not_desc">
+                    <div class="name">Name: <span><?php echo $pet_name ?></span></div>
+                    <div class="name">Age: <span><?php echo date("Y") - $pet_age ?></span></div>
+                    <div class="name">Gender: <span><?php echo $pet_sex ?></span></div>
+                    <div class="name">Owner: <span><?php echo $pet_user ?></span></div>
+                    <div class="name">Breed: <span><?php echo $pet_breed ?></span></div>
                 </div>
-                <div class="name">Breed: <span><?php echo $pet_breed ?></span></div>
+                <div id="desc">
+                    <div class="name">Description:
+                        <span><?php echo $pet_description ?></span>
+                    </div>
+                </div>
                 <?php
                 if ($_SESSION['userID'] === $pet_user) {
                 ?>
                     <div class="go_back">
                         <div style="color: red;">This is your pet.</div>
                         <a href="my_pets.php"><input type="button" value="Posted" class="btn btn-primary back_button"></a>
-                        
+
                     </div>
                 <?php
                 } else {

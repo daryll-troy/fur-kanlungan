@@ -1,0 +1,21 @@
+.chat_list{
+    background-image: url("../admin/images/furAdmin.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* container for background color */
+.color_container {
+    width: 80%;
+    min-height: inherit;
+    padding-top: 2em;
+    background-color: rgba(87, 73, 33, 0.397);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

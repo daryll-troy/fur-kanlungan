@@ -1,12 +1,15 @@
 /* The whole my pet info section */
 .pet_info {
-    background-color: rgba(236, 232, 228, 0.99);
+    background-image: url("../admin/images/furAdmin.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-color: rgba(236, 232, 228, 0.99); */
     display: flex;
     align-items: center;
 
 }
 
-.pet_pics{
+.pet_pics {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,39 +19,49 @@
     position: relative;
 }
 
-.pet_pics img{
-   height: 100%;
-   width: 100%;
-   object-fit:contain;
+.pet_pics img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
-.pet_details{
-    background-color:inherit;
+.pet_details {
+    background-image: inherit;
     flex: 1;
-   height: 100vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 }
 
-.details_container{
-    background-color: rgba(255, 196, 0, 0.11);
-    height: 90vh;
-    width: 70vh;
+.details_container {
+    background-color: rgba(87, 73, 33, 0.726);
+    border-radius: 5%;
+    height: 99vh;
+    width: 90vh;
+    padding: 2em;
 }
+
+/* color of the text */
+.details_container .name {
+    color: aliceblue;
+}
+
 /* adjust the previous button and next button */
 .previous_pic img,
-.next_pic img{
-   height: clamp(35px, 15vw, 80px);
-   /*why not working */
-   border-radius: 50%;
+.next_pic img {
+    height: clamp(35px, 15vw, 80px);
+    /*why not working */
+    border-radius: 50%;
 }
+
 .previous_pic {
     margin: 0 0 0 0.5em;
     position: absolute;
     left: 0;
 }
-.next_pic{
+
+.next_pic {
     margin: 0 0.8em 0 0;
     position: absolute;
     right: 0;
@@ -59,9 +72,10 @@
     height: 3em;
     width: 3em;
 }
+
 /* ===================== MEDIA QUERIES ======================== */
-@media screen and (max-width: 991px){
-    .pet_info{
+@media screen and (max-width: 991px) {
+    .pet_info {
         flex-direction: column;
     }
 }

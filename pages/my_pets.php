@@ -131,12 +131,7 @@ if (!isset($_SESSION['userID'])) {
                                         
                                     </div>
                              </div>
-                            ";
-
-                    // plan failed for ajax on delete pet
-                    //    echo "
-                    //    <div class='getPetID' id='getPetID'>". $pet_id ."</div> 
-                    //                 ";     
+                            "; 
                     echo "</div>";
                 }
             } else {
