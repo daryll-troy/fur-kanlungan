@@ -515,6 +515,56 @@ if (isset($_POST['shop_prod_LS'])) {
     echo  json_encode($user_cat_res);
 }
 
+// DELEDOPTED
+
+//pet_details
+if(isset($_POST['pet_det'])){
+    $sql = "SELECT petID, name, age, sex, vaccinated, animal_type, breed FROM deledopted_report  ORDER BY petID";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($row);
+}
+
+// pet_details through the live search 
+if (isset($_POST['pet_det_LS'])) {
+    $search = htmlspecialchars(trim($_POST['pet_det_LS']));
+    $sql = "SELECT * FROM deledopted_report WHERE  petID LIKE '$search%' OR name LIKE '$search%' OR age LIKE '$search%' OR sex LIKE '$search%' OR vaccinated LIKE '$search%' OR animal_type LIKE '$search%' OR breed LIKE '$search%' ORDER BY petID";
+    $result = $conn->query($sql);
+    $user_cat_res = $result->fetch_all(MYSQLI_ASSOC);
+    echo  json_encode($user_cat_res);
+}
+
+// dele_owner
+if(isset($_POST['dele_owner'])){
+    $sql = "SELECT petID, name, username, fname, lname, muni_name, date_time FROM deledopted_report  ORDER BY petID";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($row);
+}
+
+// dele_owner
+if(isset($_POST['dele_owner_muni'])){
+    $sql = "SELECT petID, name, username, fname, lname, muni_name, date_time FROM deledopted_report WHERE muni_name = ? ORDER BY petID";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $_POST['dele_owner_muni']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($row);
+}
+
+// dele_owner through the live search 
+if (isset($_POST['dele_owner_LS'])) {
+    $search = htmlspecialchars(trim($_POST['dele_owner_LS']));
+    $sql = "SELECT * FROM deledopted_report WHERE  petID LIKE '$search%' OR name LIKE '$search%' OR username LIKE '$search%' OR fname LIKE '$search%' OR lname LIKE '$search%' OR muni_name LIKE '$search%' OR date_time LIKE '$search%' ORDER BY petID";
+    $result = $conn->query($sql);
+    $user_cat_res = $result->fetch_all(MYSQLI_ASSOC);
+    echo  json_encode($user_cat_res);
+}
 
 // close connection
 $conn->close();

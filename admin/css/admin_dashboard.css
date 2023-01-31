@@ -75,7 +75,8 @@
 .birthyear,
 .sex,
 .vaccinated,
-.shop_name {
+.shop_name,
+.deledopted {
     display: none;
     width: 15%;
     background-color: rgb(110, 18, 18);
@@ -136,6 +137,19 @@
     color: aliceblue;
 }
 
+/* deledopted col titles */
+
+.pet_det_title {
+    display: none;
+    grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
+    color: aliceblue;
+}
+
+.dele_owner_title {
+    display: none;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    color: aliceblue;
+}
 
 .not_owned,
 .unver_ver,
@@ -158,7 +172,7 @@
 
 
 /* shop_prod title (7 cols) */
-.shop_prod_title{
+.shop_prod_title {
     display: none;
     grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 1fr 1fr 1fr;
     color: aliceblue;
@@ -172,8 +186,10 @@
 .birthyear_title div,
 .sex_title div,
 .vaccinated_title div,
-.owner_title div ,
-.shop_prod_title div{
+.owner_title div,
+.shop_prod_title div,
+.pet_det_title div,
+.dele_owner_title div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -198,6 +214,15 @@
 
 .each_shop_prod {
     grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 1fr 1fr 1fr;
+}
+
+/* each deledopted pet_details row */
+.each_pet_det {
+    grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr 0.5fr 1fr 1fr;
+}
+/* each deledopted dele_owner row */
+.each_dele_owner {
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 /* each not_owned row */

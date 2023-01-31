@@ -146,6 +146,12 @@ if (!isset($_SESSION['adminID'])) {
                     ?>
                 </select>
 
+                <!-- deledopted-->
+                <select class="form-select btn  deledopted" aria-label="Default select example" id="deledopted" name="deledopted">
+                    <option value="pet_details" class='entity'>Pet Details</option>
+                    <option value="owner" class='entity'>Owner</option>
+                </select>
+
                 <!-- municipality category  -->
                 <select class="form-select btn municipality" aria-label="Default select example" id="municipality" name="municipality">
                     <option value="all_muni" class='get_muni_name'>All Municipalites</option>
@@ -269,6 +275,29 @@ if (!isset($_SESSION['adminID'])) {
                     <div>Municipality</div>
                     <div>Pet Type</div>
                 </div>
+
+                <!-- DELEDOPTED -->
+
+                <!-- pet details -->
+                <div class="pet_det_title">
+                    <div>Pet ID</div>
+                    <div>Pet Name</div>
+                    <div>Birthyear</div>
+                    <div>Sex</div>
+                    <div>Vaccinated</div>
+                    <div>Pet Type</div>
+                    <div>Breed</div>
+                </div>
+                <!-- pet owner -->
+                <div class="dele_owner_title">
+                    <div>Pet ID</div>
+                    <div>Pet Name</div>
+                    <div>Owner Username</div>
+                    <div>Owner Fname</div>
+                    <div>Owner Lname</div>
+                    <div>Municipality</div>
+                    <div>Created At</div>
+                </div>
             </div>
         </div>
     </div>
@@ -284,6 +313,7 @@ if (!isset($_SESSION['adminID'])) {
     <script src="../js/admin_dashboard.js" type="module"></script>
     <script src="../js/admin_reports_pets.js" type="module"></script>
     <script src="../js/admin_reports_shop_prod.js" type="module"></script>
+    <script src="../js/admin_reports_deledopted.js" type="module"></script>
 </body>
 
 </html>

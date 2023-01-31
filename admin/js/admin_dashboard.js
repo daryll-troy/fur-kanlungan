@@ -1,6 +1,7 @@
 // import statement for the pet report
 import * as pet_report from "./admin_reports_pets.js";
 import * as shop_prod_report from "./admin_reports_shop_prod.js";
+import * as deledopted_report from "./admin_reports_deledopted.js";
 
 // if the users category is selected
 $(document).ready(function () {
@@ -18,6 +19,9 @@ $(document).ready(function () {
                 break;
             case "shop_prod":
                 shop_prod_report.filterShopProd();
+                break;
+            case "deledopted":
+                deledopted_report.filterDeledopted();
                 break;
             // "SELECT ENTITY" option
             default:
@@ -37,6 +41,9 @@ $(document).ready(function () {
                 break;
             case "shop_prod":
                 shop_prod_report.searchShopProd();
+                break;
+            case "deledopted":
+                deledopted_report.searchDeledopted();
                 break;
         }
     })
@@ -63,6 +70,9 @@ export function clearAll() {
     // shop_prod
     $(".shop_name").css("display", "none");
 
+    //deledopted
+    $(".deledopted").css("display", "none");
+
     //clear the column headers
     clearTitles();
 }
@@ -82,6 +92,11 @@ export function clearTitles() {
     $('.owner_title').css('display', 'none');
     // SHOP_PROD
     $('.shop_prod_title').css('display', 'none');
+
+    // DELEDOPTED
+    $('.pet_det_title').css('display', 'none');
+    $('.dele_owner_title').css('display', 'none');
+
     // num of resulting rows
     $(".count").css("display", "none");
 }
@@ -413,8 +428,6 @@ function filterUser() {
 }
 
 function searchUser() {
-
-
     let um = $('.user_menu').val();
     let ts = $('.type-search').val();
 

@@ -48,7 +48,8 @@ export function filterShopProd() {
                         );
                         count++;
                     })
-                    $(".count").html("<h4>" + count + " Result(s)</h4>");
+                   
+                    $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
                 })
 
                 // specific pet type is selected
@@ -78,7 +79,7 @@ export function filterShopProd() {
                         );
                         count++;
                     })
-                    $(".count").html("<h4>" + count + " Result(s)</h4>");
+                    $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
                 })
             }
             // specific municipality is selected
@@ -114,7 +115,7 @@ export function filterShopProd() {
                         );
                         count++;
                     })
-                    $(".count").html("<h4>" + count + " Result(s)</h4>");
+                    $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
                 })
 
                 // specific pet type and municipality are selected
@@ -147,7 +148,7 @@ export function filterShopProd() {
                         );
                         count++;
                     })
-                    $(".count").html("<h4>" + count + " Result(s)</h4>");
+                    $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
                 })
             }
         }
@@ -186,7 +187,7 @@ export function filterShopProd() {
                     );
                     count++;
                 })
-                $(".count").html("<h4>" + count + " Result(s)</h4>");
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
             })
 
             // specific pet type is selected
@@ -220,7 +221,7 @@ export function filterShopProd() {
                     );
                     count++;
                 })
-                $(".count").html("<h4>" + count + " Result(s)</h4>");
+                $(".grid-container").before("<div class='count' style='margin-left: 2em;'><h4>" + count + " Result(s)</h4> </div>");
             })
         }
 
