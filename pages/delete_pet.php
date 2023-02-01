@@ -1,7 +1,4 @@
 <?php
-
-// connect db
-
 // connect to database
 include 'connect.php';
 // start a session
@@ -121,8 +118,8 @@ if (isset($_POST['btn_delete_pet'])) {
                                         $conn->close();
                                         echo "<script>alert('Oops! Technical Error')</script>";
                                         echo "<script>
-                                                                                                window.location.href='my_pets.php';
-                                                                                                </script>";
+                                          window.location.href='my_pets.php';
+                                         </script>";
                                         exit();
                                     }
 
@@ -136,7 +133,8 @@ if (isset($_POST['btn_delete_pet'])) {
                                             if ($row['userID'] != $_SESSION['userID']) {
 
 
-                                                echo ' <script>alert("You cannot do that here boy..tsk tsk");</script>';
+                                                // echo ' <script>alert("You cannot do that here boy..tsk tsk");</script>';
+                                                echo "<script>alert('Oops! Technical Error')</script>";
                                                 echo '<script>window.location.href = "my_pets.php"</script>';
                                                 // header("location: my_pets.php");
                                                 exit();

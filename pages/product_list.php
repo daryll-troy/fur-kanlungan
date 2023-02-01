@@ -16,6 +16,7 @@ if (!isset($_SESSION['userID'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product | Fur-Kanlungan</title>
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -42,7 +43,7 @@ if (!isset($_SESSION['userID'])) {
                 <nav class="navbar navbar-light bg-light mt-5 search-nav">
                     <div class="container-fluid search-nav middle-search">
                         <div class="d-flex flex-wrap justify-content-center pet-list">
-                            <input class="form-control  type-search " type="search" placeholder="Search Name" aria-label="Search" id="type-search">
+                            <input class="form-control  type-search " type="search" placeholder="Search" aria-label="Search" id="type-search">
                             <!-- <button class="btn btn-outline-success press-search" type="submit">Search</button> -->
                         </div>
 
@@ -125,7 +126,7 @@ if (!isset($_SESSION['userID'])) {
                             $photo = $photo_result->fetch_assoc();
                     ?>
                             <div class='col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border'>
-                                <a href='pet_info.php?pet_id=<?php echo $petID ?>' style='text-decoration: none; color:black;' class="col_a_tag">
+                                <a href='product_info.php?product_id=<?php echo $petID ?>' style='text-decoration: none; color:black;' class="col_a_tag">
                                     <div class='card' style='width: 18rem; '>
                                         <div class='d-flex justify-content-center ipa-grey'>
                                             <img src='../images/pet_pics/<?php echo $photo['photo']; ?>' class='card-img-top img-fluid' alt='image'>

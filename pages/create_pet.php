@@ -8,7 +8,17 @@ if (!isset($_SESSION['userID'])) {
     $conn->close();
     header("location: ../index.php");
     exit();
-}
+} else {
+    // check if verified_id != yes, then do not allow to access the chat feature
+     $sql = "SELECT verified_id FROM users WHERE userID =" .  $_SESSION['userID'];
+     $result = $conn->query($sql);
+     $verify = $result->fetch_assoc();
+     if ($verify['verified_id'] != "yes") {
+         echo "<script>alert('Your account is being verified')</script>";
+         echo "<script>window.location.href = 'dashboard.php'</script>";
+         exit();
+     }
+ }
 ?>
 
 <?php

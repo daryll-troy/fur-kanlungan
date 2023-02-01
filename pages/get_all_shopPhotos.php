@@ -4,10 +4,11 @@ include 'connect.php';
 
 // start a session
 session_start();
-$first_pic = $_SESSION['coverPetPic'];
-$pet_id = $_SESSION['pet_id'];
 
-$sql2 = "SELECT photo FROM pet_photo WHERE petID = '$pet_id'";
+$first_pic = $_SESSION['coverPetPic'];
+$pet_id = $_SESSION['shop_id'];
+
+$sql2 = "SELECT photo FROM shop_photo WHERE shopID = '$pet_id'";
 
 $pet_photo = "";
 $result = $conn->query($sql2);

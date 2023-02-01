@@ -4,13 +4,13 @@ window.onload = function () {
     var firstPic = $("#pet_pic").val();
 
     $.ajax({
-        url: 'get_all_petPhotos.php',
+        url: 'get_all_clinicPhotos.php',
         method: 'post',
         data: 'firstPic=' + firstPic
     }).done(function (firstPic) {
 
         // set the first pic
-        $("#pet_pic").attr("src", "../images/pet_pics/" + firstPic);
+        $("#pet_pic").attr("src", "../images/clinic_pics/" + firstPic);
         getCurrentPic = firstPic;
     })
 
@@ -27,7 +27,7 @@ function forward() {
     var page = $("#pet_pic").val();
 
     $.ajax({
-        url: 'get_all_petPhotos.php',
+        url: 'get_all_clinicPhotos.php',
         method: 'post',
         data: 'page=' + page
     }).done(function (page) {
@@ -52,7 +52,7 @@ function forward() {
                     if (cou < currentIndexForward)
                         continue;
 
-                    $("#pet_pic").attr("src", "../images/pet_pics/" + arrPhotos[cou]);
+                    $("#pet_pic").attr("src", "../images/clinic_pics/" + arrPhotos[cou]);
                     getCurrentPic = arrPhotos[cou];
 
                     break;
@@ -73,7 +73,7 @@ var currentIndexBackward = 0;
 var page = $("#pet_pic").val();
 
 $.ajax({
-    url: 'get_all_petPhotos.php',
+    url: 'get_all_clinicPhotos.php',
     method: 'post',
     data: 'page=' + page
 }).done(function (page) {
@@ -94,7 +94,7 @@ function backward() {
     var page = $("#pet_pic").val();
 
     $.ajax({
-        url: 'get_all_petPhotos.php',
+        url: 'get_all_clinicPhotos.php',
         method: 'post',
         data: 'page=' + page
     }).done(function (page) {
@@ -120,7 +120,7 @@ function backward() {
                     if (cou > currentIndexBackward)
                         continue;
 
-                    $("#pet_pic").attr("src", "../images/pet_pics/" + arrPhotos[cou]);
+                    $("#pet_pic").attr("src", "../images/clinic_pics/" + arrPhotos[cou]);
                     getCurrentPic = arrPhotos[cou];
                     break;
                 } else {

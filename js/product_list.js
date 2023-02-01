@@ -42,7 +42,7 @@ $(document).ready(function () {
 
 
                                 $('.row_of_col').append(" <div class='col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border'>" +
-                                    " <a href='pet_info.php?pet_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
+                                    " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
                                     " <div class='card' style='width: 18rem; '>" +
                                     "<div class='d-flex justify-content-center ipa-grey'>" +
                                     "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
@@ -107,7 +107,7 @@ $(document).ready(function () {
                                 // let getAge = new Date().getFullYear() - value.age;
 
                                 $('.row_of_col').append(" <div class='col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border'>" +
-                                    " <a href='pet_info.php?pet_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
+                                    " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
                                     " <div class='card' style='width: 18rem; '>" +
                                     "<div class='d-flex justify-content-center ipa-grey'>" +
                                     "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
@@ -168,7 +168,7 @@ $(document).ready(function () {
                                 // let getAge = new Date().getFullYear() - value.age;
 
                                 $('.row_of_col').append(" <div class='col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border'>" +
-                                    " <a href='pet_info.php?pet_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
+                                    " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
                                     " <div class='card' style='width: 18rem; '>" +
                                     "<div class='d-flex justify-content-center ipa-grey'>" +
                                     "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
@@ -235,7 +235,7 @@ $(document).ready(function () {
                                 // let getAge = new Date().getFullYear() - value.age;
 
                                 $('.row_of_col').append(" <div class='col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border'>" +
-                                    " <a href='pet_info.php?pet_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
+                                    " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
                                     " <div class='card' style='width: 18rem; '>" +
                                     "<div class='d-flex justify-content-center ipa-grey'>" +
                                     "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
@@ -291,7 +291,7 @@ $(document).ready(function () {
                                 // let getAge = new Date().getFullYear() - value.age;
 
                                 $('.row_of_col').append(" <div class='col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border'>" +
-                                    " <a href='pet_info.php?pet_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
+                                    " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
                                     " <div class='card' style='width: 18rem; '>" +
                                     "<div class='d-flex justify-content-center ipa-grey'>" +
                                     "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
@@ -354,7 +354,7 @@ $(document).ready(function () {
                                 // let getAge = new Date().getFullYear() - value.age;
 
                                 $('.row_of_col').append(" <div class='col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border'>" +
-                                    " <a href='pet_info.php?pet_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
+                                    " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
                                     " <div class='card' style='width: 18rem; '>" +
                                     "<div class='d-flex justify-content-center ipa-grey'>" +
                                     "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
@@ -406,7 +406,7 @@ $(document).ready(function () {
             // change the list of pets
             search.forEach(function (value) {
                 var get1photo = "";
-               
+
                 // get 1 photo from each pet
                 $.ajax({
                     url: 'product_list_filter.php',
@@ -417,46 +417,32 @@ $(document).ready(function () {
                     console.log(photo);
                     // display the pet card
                     photo.forEach(function (pho_value) {
-                        // var getBreedName = "";
-                        // // get breed name
-                        // $.ajax({
-                        //     url: 'pet_list_filter.php',
-                        //     method: 'post',
-                        //     data: 'breedName=' + value.bcID
-                        // }).done(function (breedName) {
-                        //     breedName = JSON.parse(breedName);
 
-                        //     breedName.forEach(function (breedName) {
-                        //         getBreedName = breedName.breed;
-                                get1photo = pho_value.photo;
-                                // console.log(get1photo);
-                                // let getAge = new Date().getFullYear() - value.age;
+                        get1photo = pho_value.photo;
 
-                                $('.row_of_col').append(" <div class='col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border'>" +
-                                " <a href='pet_info.php?pet_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
-                                " <div class='card' style='width: 18rem; '>" +
-                                "<div class='d-flex justify-content-center ipa-grey'>" +
-                                "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
-                                + "</div>" +
+                        $('.row_of_col').append(" <div class='col-12 col-md-6 col-lg-3 d-flex justify-content-center black-border'>" +
+                            " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
+                            " <div class='card' style='width: 18rem; '>" +
+                            "<div class='d-flex justify-content-center ipa-grey'>" +
+                            "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
+                            + "</div>" +
 
-                                "<div class='card-body white-box'>" +
-                                " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Name: </span>" + value.prod_name + "</p>" +
-                                " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: </span>" + value.price + "</p>" +
-                                " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop Name: </span>" + value.shop_name + "</p>" +
-                                " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Pet Type: </span>" + value.animal_type + "</p>"
-                                + "</div>"
-                                + "</div>"
-                                + "</a>"
-                                + "</div>");
+                            "<div class='card-body white-box'>" +
+                            " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Name: </span>" + value.prod_name + "</p>" +
+                            " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: </span>" + value.price + "</p>" +
+                            " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop Name: </span>" + value.shop_name + "</p>" +
+                            " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Pet Type: </span>" + value.animal_type + "</p>"
+                            + "</div>"
+                            + "</div>"
+                            + "</a>"
+                            + "</div>");
 
-                            })
-                        })
                     })
-
                 })
+            })
 
-        //     })
-        // })
+        })
+
 
     })
 

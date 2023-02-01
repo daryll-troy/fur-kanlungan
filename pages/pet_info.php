@@ -23,11 +23,12 @@ if (isset($_GET['pet_id'])) {
 
     // get the all photos of the pet
     $sql = "
-                        SELECT  pet.userID, pet_photo.photo, pet.name, pet.age, pet.sex, pet.description,  breed_category.breed
+                        SELECT  u.fname, u.lname, pet.userID, pet_photo.photo, pet.name, pet.age, pet.sex, pet.description,  breed_category.breed
                         FROM pet 
                         INNER JOIN pet_photo ON pet.petID = pet_photo.petID
                         INNER JOIN pet_category ON pet.pcID = pet_category.pcID
                         INNER JOIN breed_category ON pet.bcID = breed_category.bcID
+                        INNER JOIN users AS u ON u.userID = pet.userID
                         WHERE pet.petID = '$pet_id';
                         ";
     $query = $conn->query($sql);
@@ -41,10 +42,12 @@ if (isset($_GET['pet_id'])) {
             $pet_description = $row['description'];
             $pet_breed = $row['breed'];
             $pet_user = $row['userID'];
+            $GLOBALS['fname'] = $row['fname'];
+            $GLOBALS['lname'] = $row['lname'];
         }
     } else {
         echo "<script>alert('No such Pet ID!!')</script>";
-        echo "<script>window.location.href = 'dashboard.php'</script>";
+        echo "<script>window.location.href = 'pet_list.php'</script>";
         exit();
     }
 }
@@ -98,17 +101,18 @@ $_SESSION['coverPetPic'] = $pet_photo;
             <div class="details_container">
                 <div class="back_img">
                     <img src="../images/backTo.png" alt="" id="backTo" onclick="history.back()">
+                    <div class="name prodName">Pet <span><?php echo $pet_name ?></span></div>
                 </div>
                 <div id="not_desc">
-                    <div class="name">Name: <span><?php echo $pet_name ?></span></div>
+                  
                     <div class="name">Age: <span><?php echo date("Y") - $pet_age ?></span></div>
                     <div class="name">Gender: <span><?php echo $pet_sex ?></span></div>
-                    <div class="name">Owner: <span><?php echo $pet_user ?></span></div>
+                    <div class="name">Owner: <span><?php echo   $GLOBALS['lname'] . " " . $GLOBALS['lname'] ?></span></div>
                     <div class="name">Breed: <span><?php echo $pet_breed ?></span></div>
                 </div>
                 <div id="desc">
-                    <div class="name">Description:
-                        <span><?php echo $pet_description ?></span>
+                    <div class="name">Description: <br>
+                        <div><?php echo $pet_description ?></div>
                     </div>
                 </div>
                 <?php

@@ -1,0 +1,189 @@
+/* Does this cause the white text of pet-list card-text @ index.php? */
+body {
+    background-color: rgba(236, 232, 228, 0.99);
+}
+
+/* Browse Pets part */
+.pet-list {
+    background-color: rgba(236, 232, 228, 0.99);
+    background-image: url("../admin/images/furAdmin.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+/* all-wraper for that back ground  color*/
+.all-wrapper {
+    width: 80%;
+    min-height: 100vh;
+    background-color: rgba(87, 73, 33, 0.397);
+
+}
+
+/* set max-height of animal type and set it to overflow: auto */
+.get_animal_type,
+.eah_breed {
+    max-height: 20rem;
+    overflow: auto;
+    color: aliceblue;
+    text-transform: capitalize;
+}
+
+.type-search {
+    width: 20em;
+    height: 2.5em;
+    border: 2px;
+    border-color: rgb(54, 10, 10);
+    border-style: solid;
+}
+
+.press-search {
+    width: 10em;
+    border: 0px;
+}
+
+/* paddings */
+.pet_category {
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+}
+
+.breed {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+
+/* color and capitalize */
+.pet_category,
+.press-search,
+.breed {
+    background-color: rgb(110, 18, 18);
+    color: aliceblue;
+    text-transform: capitalize;
+}
+
+.search-nav {
+    padding: 0;
+}
+
+.pet_category:hover,
+.press-search:hover,
+.breed:hover {
+    background-color: rgb(54, 10, 10);
+    color: aliceblue;
+}
+
+.pet_category:focus,
+.breed:focus {
+    background-color: rgb(54, 10, 10);
+}
+
+
+/* set to justify-content: between the .wrap-search div */
+.wrap-search {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+/* uniform size for dog pics in card display */
+.card img {
+    height: 15em;
+    width: 18em;
+    object-fit: cover;
+}
+
+
+
+.ipa-grey {
+    background-color: rgb(58, 57, 57);
+    border: 3px;
+    border-color: black;
+    border-style: solid;
+}
+
+/* add background color to card when filter is clicked */
+.white-box {
+    background-color: aliceblue;
+}
+
+/********** Media Queries *************/
+
+/* Adjust the category and search button */
+@media screen and (max-width: 991px) {
+    .type-search {
+        width: 15em;
+
+    }
+
+    .pet_category,
+    .breed {
+        width: 10em;
+    }
+
+    .filter {
+        overflow: auto;
+    }
+
+    /* make the dropdown content appear */
+    .wrap-search {
+        overflow: visible;
+    }
+}
+
+@media screen and (max-height: 650px) {
+    /* .no-margin-bottom {
+        margin-bottom: 0;
+    } */
+
+    /* .page-number {
+        padding-bottom: 2em;
+    } */
+}
+
+
+/* center the animal type and search form once they flex-wrap together */
+@media screen and (max-width: 768px) {
+    .wrap-search {
+        display: flex;
+        justify-content: center;
+        /* flex-direction: column; */
+    }
+
+    /* .middle-search{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    } */
+
+}
+
+@media screen and (max-width: 539px) {
+    form.pet-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+
+    }
+
+    .press-search {
+        margin-bottom: 3em;
+    }
+
+}
+
+/* no margin to align the search button and textbox */
+@media screen and (min-width: 432px) and (max-width: 480px) {
+    .press-search {
+        margin-top: 0;
+    }
+}
+
+/* bring the margin top back @ < 432px */
+@media screen and (max-width: 431px) {
+    .press-search {
+        margin-top: 1em;
+    }
+}

@@ -8,7 +8,18 @@ if (!isset($_SESSION['userID'])) {
     $conn->close();
     header("location: ../index.php");
     exit();
+}else {
+    // check if verified_id != yes, then do not allow to access the chat feature
+    $sql = "SELECT verified_id FROM users WHERE userID =" .  $_SESSION['userID'];
+    $result = $conn->query($sql);
+    $verify = $result->fetch_assoc();
+    if ($verify['verified_id'] != "yes") {
+        echo "<script>alert('Your account is being verified')</script>";
+        echo "<script>window.location.href = 'dashboard.php'</script>";
+        exit();
+    }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -100,14 +111,14 @@ if (!isset($_SESSION['userID'])) {
                             if ($row['sender'] === $userID) {
                 ?>
                                 <div class="right_container">
-                                    <div class="display_message_right me-2 mb-2"><?php echo $row['message']; ?></div>
+                                    <div class="display_message_right me-2 mb-3"><?php echo $row['message']; ?></div>
                                 </div>
                             <?php
                                 // if sender is the last_contacted, then display the message to the left of the screen
                             } else {
                             ?>
                                 <div class="left_container">
-                                    <div class="display_message_left ms-2 mb-2"><?php echo $row['message']; ?></div>
+                                    <div class="display_message_left ms-2 mb-3"><?php echo $row['message']; ?></div>
                                 </div>
                             <?php
                             }
@@ -126,12 +137,12 @@ if (!isset($_SESSION['userID'])) {
                             if ($row['sender'] === $userID) {
                             ?>
                                 <div class="right_container">
-                                    <div class="display_message_right me-2 mb-2"><?php echo $row['message']; ?></div>
+                                    <div class="display_message_right me-2 mb-3"><?php echo $row['message']; ?></div>
                                 </div>
                             <?php
                             } else {
                             ?>
-                                <div class="display_message_left ms-2 mb-2"><?php echo $row['message']; ?></div>
+                                <div class="display_message_left ms-2 mb-3"><?php echo $row['message']; ?></div>
                 <?php
                             }
                         }

@@ -8,6 +8,16 @@ if (!isset($_SESSION['userID'])) {
     $conn->close();
     header("location: ../index.php");
     exit();
+} else {
+   // check if verified_id != yes, then do not allow to access the chat feature
+    $sql = "SELECT verified_id FROM users WHERE userID =" .  $_SESSION['userID'];
+    $result = $conn->query($sql);
+    $verify = $result->fetch_assoc();
+    if ($verify['verified_id'] != "yes") {
+        echo "<script>alert('Your account is being verified')</script>";
+        echo "<script>window.location.href = 'dashboard.php'</script>";
+        exit();
+    }
 }
 ?>
 
@@ -59,7 +69,9 @@ if (!isset($_SESSION['userID'])) {
             ?>
                         <div class="each_userchat">
                             <a href="chat_box.php?pet_user=<?php echo $row['userID']; ?>"><img class="prof_pic" src="../images/prof_pics/<?php echo $row['prof_pic']; ?>" alt=""></a>
-                            <a href="chat_box.php?pet_user=<?php echo $row['userID'];?>" class="atag_name"><div class="fullname"><?php echo $row['fname']." ".$row['lname']; ?></div></a>
+                            <a href="chat_box.php?pet_user=<?php echo $row['userID']; ?>" class="atag_name">
+                                <div class="fullname"><?php echo $row['fname'] . " " . $row['lname']; ?></div>
+                            </a>
                         </div>
             <?php
                     }

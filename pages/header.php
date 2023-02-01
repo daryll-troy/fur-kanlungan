@@ -32,11 +32,11 @@
                         <li class="nav-item" id="product_list">
                             <a class="nav-link" href="product_list.php"><span class="puti-header">Products</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><span class="puti-header">Shops</span></a>
+                        <li class="nav-item" id="shop_list">
+                            <a class="nav-link" href="shop_list.php"><span class="puti-header">Shops</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><span class="puti-header">Clinics</span></a>
+                        <li class="nav-item" id="clinic_list">
+                            <a class="nav-link" href="clinic_list.php"><span class="puti-header">Clinics</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><span class="puti-header">Donate</span></a>
