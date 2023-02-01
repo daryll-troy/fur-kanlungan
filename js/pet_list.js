@@ -133,7 +133,7 @@ $(document).ready(function () {
             }).done(function (breeds) {
 
                 breeds = JSON.parse(breeds);
-                console.log(breeds);
+                // console.log(breeds);
                 $('.black-border').remove();
 
                 // change the list of pets
@@ -269,7 +269,7 @@ $(document).ready(function () {
         $('#pet_category').val('none');
         $('#breed').val('none');
 
-        var search = $("#type-search").val();
+       let search = $("#type-search").val();
 
         $.ajax({
             url: 'pet_list_filter.php',
@@ -277,7 +277,7 @@ $(document).ready(function () {
             data: 'search=' + search
         }).done(function (search) {
             search = JSON.parse(search);
-            console.log(search);
+            // console.log(search);
             $('.black-border').remove();
 
             // change the list of pets
@@ -291,7 +291,7 @@ $(document).ready(function () {
                     data: 'petID=' + value.petID
                 }).done(function (photo) {
                     photo = JSON.parse(photo);
-
+                   
                     // display the pet card
                     photo.forEach(function (pho_value) {
                         var getBreedName = "";

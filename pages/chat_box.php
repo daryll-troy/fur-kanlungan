@@ -103,12 +103,12 @@ if (!isset($_SESSION['userID'])) {
                                     <div class="display_message_right me-2 mb-2"><?php echo $row['message']; ?></div>
                                 </div>
                             <?php
-                             // if sender is the last_contacted, then display the message to the left of the screen
+                                // if sender is the last_contacted, then display the message to the left of the screen
                             } else {
                             ?>
-                              <div class="left_container">
-                                <div class="display_message_left ms-2 mb-2"><?php echo $row['message']; ?></div>
-                              </div>
+                                <div class="left_container">
+                                    <div class="display_message_left ms-2 mb-2"><?php echo $row['message']; ?></div>
+                                </div>
                             <?php
                             }
                         }
@@ -142,7 +142,7 @@ if (!isset($_SESSION['userID'])) {
             <div class="chat_box">
                 <!-- <input type="text" class="chat_field"> -->
                 <textarea name="chat_field" class="chat_field" cols="30" rows="10"></textarea>
-                <input class="form-control-sm upload" type="file" name="upload">
+                <!-- <input class="form-control-sm upload" type="file" name="upload"> -->
                 <input type="button" class="btn btn-primary send" value="send">
             </div>
 
@@ -153,6 +153,15 @@ if (!isset($_SESSION['userID'])) {
     <!-- footer -->
     <?php include "footer.php";
     ?>
+
+
+    <!-- add color to link item of this page on the header -->
+    <script>
+        function navbarColor() {
+            document.getElementById('chats').style.backgroundColor = 'rgb(' + 85 + ',' + 48 + ',' + 8 + ',' + 0.918 + ')';
+        }
+        navbarColor();
+    </script>
 
     <!-- JAVASCRIPT FOR AJAX -->
     <script src="../js/chat_box.js"></script>

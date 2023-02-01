@@ -29,8 +29,8 @@
                             <a class="nav-link" aria-current="page" href="chat_list.php"> <span class="puti-header">Chats</span></a></a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><span class="puti-header">Products</span></a>
+                        <li class="nav-item" id="product_list">
+                            <a class="nav-link" href="product_list.php"><span class="puti-header">Products</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><span class="puti-header">Shops</span></a>

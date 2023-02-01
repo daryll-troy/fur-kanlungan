@@ -63,7 +63,7 @@ if (isset($_POST['bc'])) {
     $get_bcID = "";
     $getAllPets = "";
 
-    // get the id of the pet category selected
+    // get the id of the breed category selected
     $sql = "SELECT bcID from breed_category WHERE breed = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $_POST['bc']);
@@ -90,12 +90,18 @@ if (isset($_POST['search'])) {
     // protect search against cross site scripting
     $search = htmlspecialchars(trim($_POST['search']));
 
-    $sql = "SELECT * FROM pet WHERE name LIKE '" . $search . "%'";
-
+    // $sql = "SELECT * FROM pet WHERE name LIKE '$search%'";
+    $sql = "SELECT p.*, bc.breed
+FROM pet AS p
+INNER JOIN breed_category AS bc ON bc.bcID = p.bcID 
+WHERE p.name LIKE '$search%' OR p.sex LIKE '$search%' OR p.age LIKE '$search%' OR bc.breed LIKE '$search%'
+ORDER BY p.name";
     $result = $conn->query($sql);
 
     $row = $result->fetch_all(MYSQLI_ASSOC);
     echo json_encode($row);
 }
+
+
 // close connection
 $conn->close();
