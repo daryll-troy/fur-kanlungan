@@ -35,7 +35,12 @@
                         <li class="nav-item" id="clinic">
                             <a class="nav-link" href="admin_clinic.php"><span class="puti-header">Clinics</span></a>
                         </li>
-
+                        <li class="nav-item" id="pet">
+                            <a class="nav-link" href="admin_pet.php"><span class="puti-header">Pets</span></a>
+                        </li>
+                        <li class="nav-item" id="user">
+                            <a class="nav-link" href="admin_user.php"><span class="puti-header">Users</span></a>
+                        </li>
                         <li class="nav-item " id="reports">
                             <a class="nav-link" href="admin_dashboard.php"><span class="puti-header ">Reports</span></a>
                         </li>

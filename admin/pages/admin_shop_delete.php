@@ -24,13 +24,17 @@ if (isset($_POST['btn_delete_shop'])) {
             $GLOBALS['prodID'] = $row['prodID'];
         }
     }
-    // and then delete the prodID from product_photo
-    $sql = "DELETE FROM product_photo WHERE prodID = ?";
-    $result = $conn->prepare($sql);
-    $result->bind_param("i",  $GLOBALS['prodID']);
-    $result->execute();
 
-    
+// DO NOT DELETE THIS YET, FOR NOW, I HAVE REMOVED THE FK OF product_photo to product
+    //  delete the phototo of the prodID from product_photo
+    // $sql = "DELETE FROM product_photo WHERE prodID = ?";
+    // $result2 = $conn->prepare($sql);
+    // $result2->bind_param("i",   $GLOBALS['prodID']);
+    // $result2->execute();
+
+
+
+
     // delete product with this shopID from product
     $sql = "
  DELETE  FROM product WHERE shopID = ?

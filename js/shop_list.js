@@ -2,7 +2,7 @@
 $(document).ready(function () {
     $("#pet_category").change(function () {
         let pc = $("#pet_category").val();
-
+        $("#type-search").val("");
         // console.log(pc);
 
         if (pc === "none") {

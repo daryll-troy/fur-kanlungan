@@ -38,8 +38,8 @@
                         <li class="nav-item" id="clinic_list">
                             <a class="nav-link" href="clinic_list.php"><span class="puti-header">Clinics</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><span class="puti-header">Donate</span></a>
+                        <li class="nav-item" id="donation">
+                            <a class="nav-link" href="donation.php"><span class="puti-header">Donate</span></a>
                         </li>
                         <li class="nav-item " id="my_pets">
                             <a class="nav-link" href="my_pets.php"><span class="puti-header ">Posted</span></a>

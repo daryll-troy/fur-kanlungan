@@ -189,7 +189,7 @@ if (isset($_POST['btn_create_product'])) {
                             <option value="none">Select pet_category</option>
                             <?php
                             // select all pet_category
-                            $sql = "SELECT animal_type FROM pet_category;";
+                            $sql = "SELECT animal_type FROM pet_category ORDER BY animal_type;";
                             $result = mysqli_query($conn, $sql);
 
                             if (mysqli_num_rows($result) > 0) {
@@ -211,7 +211,7 @@ if (isset($_POST['btn_create_product'])) {
                             <option value="none">Select Shop Name</option>
                             <?php
                             // select all shop_name
-                            $sql = "SELECT shop_name FROM shop;";
+                            $sql = "SELECT shop_name FROM shop ORDER BY shop_name;";
                             $result = mysqli_query($conn, $sql);
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {

@@ -1,0 +1,44 @@
+.message_who {
+    background-image: url("../admin/images/furAdmin.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+}
+
+/* container for background color */
+.color_container {
+    width: 80%;
+    min-height: inherit;
+   
+    background-color: rgba(87, 73, 33, 0.397);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 70vh;
+    background-image: url("../images/gcash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 5px 5px 15px;
+}
+
+ .img div{
+    display: flex;
+    justify-content: center;
+    /* height: inherit; */
+    background-color: rgba(87, 73, 33, 0.397);
+    width: inherit;
+    color: aliceblue;
+    font-weight: bolder;
+}

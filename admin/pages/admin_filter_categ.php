@@ -560,7 +560,7 @@ if(isset($_POST['dele_owner_muni'])){
 // dele_owner through the live search 
 if (isset($_POST['dele_owner_LS'])) {
     $search = htmlspecialchars(trim($_POST['dele_owner_LS']));
-    $sql = "SELECT * FROM deledopted_report WHERE  petID LIKE '$search%' OR name LIKE '$search%' OR username LIKE '$search%' OR fname LIKE '$search%' OR lname LIKE '$search%' OR muni_name LIKE '$search%' OR date_time LIKE '$search%' ORDER BY petID";
+    $sql = "SELECT * FROM deledopted_report WHERE   fname LIKE '$search%' OR lname LIKE '$search%' ORDER BY petID";
     $result = $conn->query($sql);
     $user_cat_res = $result->fetch_all(MYSQLI_ASSOC);
     echo  json_encode($user_cat_res);

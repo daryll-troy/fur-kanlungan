@@ -42,7 +42,7 @@ if (!isset($_SESSION['adminID'])) {
                     <option value="none" class='entity'> Select Entity</option>
                     <option value="user" class='entity'> Users</option>
                     <option value="pet" class='entity'> Pets</option>
-                    <option value="shop_prod" class='entity'> Shops/Products</option>
+                    <option value="shop_prod" class='entity'> Shops-Products</option>
                     <!-- <option value="clinic" class='entity'> Clinics</option> -->
                     <option value="deledopted" class='entity'> Deledopted</option>
                 </select>

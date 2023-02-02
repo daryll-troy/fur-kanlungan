@@ -3,7 +3,7 @@ $(document).ready(function () {
     $("#pet_category").change(function () {
         let pc = $("#pet_category").val();
         let bc = $("#breed").val();
-
+        $("#type-search").val("");
 
         if (pc !== "none") {
             if (bc === "none") {
@@ -45,7 +45,7 @@ $(document).ready(function () {
                                     " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
                                     " <div class='card' style='width: 18rem; '>" +
                                     "<div class='d-flex justify-content-center ipa-grey'>" +
-                                    "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
+                                    "<img src='../images/product_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
                                     + "</div>" +
 
                                     "<div class='card-body white-box'>" +
@@ -110,7 +110,7 @@ $(document).ready(function () {
                                     " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
                                     " <div class='card' style='width: 18rem; '>" +
                                     "<div class='d-flex justify-content-center ipa-grey'>" +
-                                    "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
+                                    "<img src='../images/product_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
                                     + "</div>" +
 
                                     "<div class='card-body white-box'>" +
@@ -171,7 +171,7 @@ $(document).ready(function () {
                                     " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
                                     " <div class='card' style='width: 18rem; '>" +
                                     "<div class='d-flex justify-content-center ipa-grey'>" +
-                                    "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
+                                    "<img src='../images/product_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
                                     + "</div>" +
 
                                     "<div class='card-body white-box'>" +
@@ -201,6 +201,7 @@ $(document).ready(function () {
     $("#breed").change(function () {
         let pc = $("#pet_category").val();
         let bc = $("#breed").val();
+        $("#type-search").val("");
         // console.log(bc);
         // IF  SHOP IS SPECIFIC AND PC IS ALL
         if (bc !== "none") {
@@ -238,7 +239,7 @@ $(document).ready(function () {
                                     " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
                                     " <div class='card' style='width: 18rem; '>" +
                                     "<div class='d-flex justify-content-center ipa-grey'>" +
-                                    "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
+                                    "<img src='../images/product_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
                                     + "</div>" +
 
                                     "<div class='card-body white-box'>" +
@@ -294,7 +295,7 @@ $(document).ready(function () {
                                     " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
                                     " <div class='card' style='width: 18rem; '>" +
                                     "<div class='d-flex justify-content-center ipa-grey'>" +
-                                    "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
+                                    "<img src='../images/product_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
                                     + "</div>" +
 
                                     "<div class='card-body white-box'>" +
@@ -357,7 +358,7 @@ $(document).ready(function () {
                                     " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
                                     " <div class='card' style='width: 18rem; '>" +
                                     "<div class='d-flex justify-content-center ipa-grey'>" +
-                                    "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
+                                    "<img src='../images/product_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
                                     + "</div>" +
 
                                     "<div class='card-body white-box'>" +
@@ -424,7 +425,7 @@ $(document).ready(function () {
                             " <a href='product_info.php?product_id=" + value.prodID + "' style='text-decoration: none; color:black;' class='col_a_tag'>" +
                             " <div class='card' style='width: 18rem; '>" +
                             "<div class='d-flex justify-content-center ipa-grey'>" +
-                            "<img src='../images/pet_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
+                            "<img src='../images/product_pics/" + get1photo + "' class='card-img-top img-fluid' alt='image'>"
                             + "</div>" +
 
                             "<div class='card-body white-box'>" +

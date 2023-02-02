@@ -1,0 +1,148 @@
+/* The whole my clinic section */
+.clinic {
+    background-image: url("../images/furAdmin.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(200, 196, 192, 0.99);
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+}
+
+/* create button  container*/
+.create_clinic {
+    width: 10%;
+    border-radius: 5%;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(218, 147, 76, 0.99);
+    cursor: pointer;
+}
+
+.create_clinic:hover {
+    box-shadow: 5px 5px 10px;
+}
+
+/* The inner div horizontally center the clinic list */
+.list_clinic {
+    width: 90%;
+    min-height: 100vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5em 0 0 0;
+    background-color: rgba(87, 73, 33, 0.397);
+
+}
+
+/* div that contains the grid */
+.grid-container {
+    width: 100%;
+    display: grid;
+    /* justify-content: center;
+    align-content: center; */
+    row-gap: 0.5em;
+    /* column-gap: 0.5em; */
+    margin-top: 2em;
+    padding: 0.5em;
+    background-color: rgb(99, 63, 34);
+    border-color: black;
+    border-style: solid;
+    border-width: 0 3px;
+    /* grid-row-gap: 50px; */
+    margin-bottom: 5em;
+}
+
+/* container of the column headers */
+.col_title {
+    display: grid;
+    /* justify-content: center;
+    align-content: center; */
+    grid-template-columns: 0.5fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr 0.5fr;
+    color: aliceblue;
+}
+
+.col_title div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* #a_whole {
+    display: grid;
+    row-gap: 10px;
+    text-decoration: none;
+    color: black;
+} */
+
+/* each clinic row */
+.each_clinic {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr  1fr 1fr 1fr 0.5fr;
+    grid-template-rows: auto;
+
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    column-gap: 2px;
+}
+
+/* each clinic grid item */
+.each_clinic>div:nth-child(even) {
+    background-color: rgba(200, 196, 192, 0.99);
+
+}
+
+.each_clinic>div:nth-child(odd) {
+    background-color: rgba(193, 125, 56, 0.99);
+
+}
+
+.each_clinic div {
+    text-transform: capitalize;
+    grid-row: 1;
+    padding: 0.2em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(0.4rem, 1vw, 1rem);
+
+    border-color: black;
+    border-style: solid;
+    border-width: 0 1px;
+
+font-weight:500;
+    word-wrap: break-word;
+}
+
+.each_clinic div:hover:not(.btn_delete) {
+    box-shadow: 5px 5px 15px 5px;
+}
+
+/* margin bottom for update icon */
+.update_pet_img{
+    margin-bottom: 0.5em;
+}
+/* btn_delete */
+.btn_delete {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn_delete svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-top: 1rem;
+}
+
+.btn_delete svg:hover,
+.btn_delete span:hover {
+    box-shadow: 5px 5px 10px;
+    cursor: pointer;
+}

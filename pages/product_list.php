@@ -129,7 +129,7 @@ if (!isset($_SESSION['userID'])) {
                                 <a href='product_info.php?product_id=<?php echo $petID ?>' style='text-decoration: none; color:black;' class="col_a_tag">
                                     <div class='card' style='width: 18rem; '>
                                         <div class='d-flex justify-content-center ipa-grey'>
-                                            <img src='../images/pet_pics/<?php echo $photo['photo']; ?>' class='card-img-top img-fluid' alt='image'>
+                                            <img src='../images/product_pics/<?php echo $photo['photo']; ?>' class='card-img-top img-fluid' alt='image'>
                                         </div>
                                         <div class='card-body'>
                                             <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Name: </span><?php echo $row['prod_name']; ?></p>

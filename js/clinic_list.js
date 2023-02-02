@@ -2,7 +2,7 @@
 $(document).ready(function () {
     $("#pet_category").change(function () {
         let pc = $("#pet_category").val();
-
+        $("#type-search").val("");
         // console.log(pc);
 
         if (pc === "none") {
@@ -34,7 +34,7 @@ $(document).ready(function () {
                         data: 'petID=' + value.clinicID
                     }).done(function (photo) {
                         photo = JSON.parse(photo);
-                        console.log(value.clinicID);
+                        // console.log(value.clinicID);
 
                         // display the pet card
                         photo.forEach(function (pho_value) {

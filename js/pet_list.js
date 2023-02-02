@@ -29,7 +29,7 @@ $(document).ready(function () {
 
     $("#pet_category").change(function () {
         var pc = $("#pet_category").val();
-
+        $("#type-search").val("");
         if (pc !== "none") {
             // alert(pc);
             $.ajax({
@@ -121,7 +121,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#breed").change(function () {
         var bc = $("#breed").val();
-
+        $("#type-search").val("");
         if (bc !== "none") {
 
             $.ajax({
