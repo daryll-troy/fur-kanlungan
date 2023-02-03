@@ -40,6 +40,7 @@
     height: 99vh;
     width: 45vw;
     padding: 2em;
+    overflow-y:auto;
 }
 
 /* color of the text */
@@ -123,7 +124,7 @@
 }
 
 #desc {
-    height: 28em;
+    height: 55vh;
     /* max-height: 32em; */
     overflow-x: hidden;
     overflow-y: scroll;

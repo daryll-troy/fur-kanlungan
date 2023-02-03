@@ -12,7 +12,7 @@
     display: flex;
     /* align-items: center; */
     background-color: rgba(31, 20, 12, 0.904);
-    flex: 1;
+    flex: 2;
     height: 100vh;
     position: relative;
 
@@ -31,24 +31,25 @@
     height: clamp(10em, 10vw, 20em);
     width: 10em;
     object-fit: cover
- 
 }
 
-.each_img:active{
+.each_img:active {
     width: clamp(20em, 10vw, 20em);
     height: 20em;
-     transform: scale(1.1);
-     transition: transform 0.25s;
+    transform: scale(1.1);
+    transition: transform 0.25s;
 }
 
 .each_photo {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-.each_photo img{
- cursor: pointer;
- box-shadow: 5px 5px 10px 3px #888888;
+.each_photo img {
+    cursor: pointer;
+    box-shadow: 5px 5px 10px 3px #888888;
 }
 
 
@@ -61,12 +62,12 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-   
+
     flex: 0.7;
 }
 
 /* pinakatitle */
-.pinakaTitle{
+.pinakaTitle {
     display: flex;
     justify-content: center;
     font-weight: bold;
@@ -80,29 +81,53 @@
 }
 
 
-
+/* this is for the container of both back button and validate button */
 .back_img {
     /* width: 100%; */
     margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* This is the container of back button only */
+.back_img_inner {
+    flex: 1;
+}
+
+.btn_validate {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.filler{
+    flex: 1;
+}
+
+/* ========================================= MEDIA QUERIES ==================================== */
+
+@media screen and (max-width: 848px) {
+    .pinakaTitle{
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    .back_img{
+        flex-direction: column;
+        row-gap: 2em;
+    }
 }
 
 
-.description {
-    overflow-y: auto;
+@media screen and (max-width: 480px) {
+.clinic_info{
+    flex-direction: column;
 }
-
-/* description title */
-
-.bold_desc {
-    font-weight: bold;
-    font-size: 2em;
-    margin-bottom: 1em;
-
+.clinic_pics{
+    width: 100vw;
 }
-
-
-.desc_para {
-    font-weight: 500;
-    /* font-size: 1em; */
-    margin-bottom: 1em;
 }

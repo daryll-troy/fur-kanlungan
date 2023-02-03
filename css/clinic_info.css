@@ -40,6 +40,7 @@
     height: 99vh;
     width: 45vw;
     padding: 2em;
+    overflow-y: auto;
 }
 
 /* color of the text */
@@ -103,7 +104,7 @@
 
 .prodName span {
     font-weight: bolder;
-    color:rgb(201, 183, 168);
+    color: rgb(201, 183, 168);
 }
 
 /* shop, price and pet type container */
@@ -114,16 +115,16 @@
     border-color: rgb(87, 73, 33);
 }
 
-#not_desc  div span{
+#not_desc div span {
     margin-left: 1em;
     text-transform: capitalize;
     font-weight: bold;
     font-size: 1.2em;
-    color:rgb(201, 183, 168);
+    color: rgb(201, 183, 168);
 }
 
 #desc {
-    height: 28em;
+    height: 55vh;
     /* max-height: 32em; */
     overflow-x: hidden;
     overflow-y: scroll;
@@ -132,15 +133,16 @@
     padding-left: 5px;
 }
 
-#desc .name div{
+#desc .name div {
     text-indent: 3em;
     font-size: large;
     /* text-align: justify; */
     /* text-justify: inter-word; */
 }
-#desc .name div:first-letter{
+
+#desc .name div:first-letter {
     text-transform: capitalize
-  }
+}
 
 /* ===================== MEDIA QUERIES ======================== */
 @media screen and (max-width: 991px) {

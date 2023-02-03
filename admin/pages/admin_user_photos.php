@@ -9,12 +9,6 @@ if (!isset($_SESSION['adminID'])) {
 
 ?>
 
-
-<?php
-//check if the id of the photo in the $_GET variable belongs to the logged in user
-
-?>
-
 <html lang="en">
 
 <head>
@@ -26,19 +20,14 @@ if (!isset($_SESSION['adminID'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- css reset -->
-    <link rel="stylesheet" href="../css/css-resets.css">
+    <link rel="stylesheet" href="../../css/css-resets.css">
     <!-- css for admin_clinic.php.php -->
-    <!-- <link rel="stylesheet" href="../css/admin_clinic.css"> -->
-    <link rel="stylesheet" href="../css/admin_clinic_photos.css">
+    <link rel="stylesheet" href="../css/admin_user_photos.css">
 
     <!-- update icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <!-- map -->
-    <!-- <link rel="stylesheet" type="text/css" href="../css/map.css" /> -->
-    <!-- map js -->
-    <!-- <script type="module" src="../js/map.js"></script> -->
 </head>
 
 <body>
@@ -47,16 +36,28 @@ if (!isset($_SESSION['adminID'])) {
         <div class='clinic_pics'>
             <!-- Get all the photos of this clinicID -->
             <?php
-            $getclinicID = $_GET['clinicID'];
-            // query all photos of this clinicID
-            $sql = "SELECT photo FROM clinic_photo WHERE clinicID = $getclinicID ";
+            $getuserID = $_GET['userID'];
+            // query all photos of this userID
+            $sql = "SELECT prof_pic, photo_id FROM users WHERE userID = $getuserID ";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
             ?>
+
                     <div class="each_photo">
-                        <img src="../../images/clinic_pics/<?php echo $row['photo'] ?>" alt="" class="each_img">
+                        <img src="../../images/valid_id/<?php echo $row['photo_id'] ?>" alt="" class="each_img">
+                        <div class="photo_id_title" style="color: aliceblue;">
+                            Valid ID
+                        </div>
                     </div>
+
+                    <div class="each_photo">
+                        <img src="../../images/prof_pics/<?php echo $row['prof_pic'] ?>" alt="" class="each_img">
+                        <div class="prof_pic_title" style="color: aliceblue;">
+                            Profile Picture
+                        </div>
+                    </div>
+
                 <?php
                 }
             } else {
@@ -74,63 +75,34 @@ if (!isset($_SESSION['adminID'])) {
         <div class="serv_desc">
 
             <div class="pinakaTitle">
-                <p> clinic
+                 User
                     <?php
                     // get clinic name again
-                    $clinicID = $_GET['clinicID'];
-                    $sql = "SELECT clinic_name FROM clinic WHERE clinicID = $clinicID";
+                    $userID = $_GET['userID'];
+                    $sql = "SELECT username, fname, lname FROM users WHERE userID = $userID";
                     $result = $conn->query($sql);
                     if ($result->num_rows >  0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo $row['clinic_name'];
+                            echo $row['username'];
                         }
                     }
                     ?>
-                </p>
+              
             </div>
 
             <div class="back_img">
-                <img src="../../images/backTo.png" alt="" id="backTo" onclick="history.back()">
-            </div>
-            <div class="services">
-                <!-- Services Title -->
-                <div class="bold_serv">
-                    Services
+                <div class="back_img_inner">
+                    <img src="../../images/backTo.png" alt="" id="backTo" onclick="history.back()">
                 </div>
-                <!-- Get the services -->
-                <div class="serv_para">
-                    <?php
-                    $clinicID = $_GET['clinicID'];
-                    $sql = "SELECT services FROM clinic WHERE clinicID = $clinicID";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows >  0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo $row['services'];
-                        }
-                    }
-                    ?>
+                <div class="btn_validate">
+                    <input type="button" value="Validate" class="btn btn-primary" style="background-color:forestgreen; border:none;">
+                </div>
+                <!-- the only purpose of this div is to center the validate button since the justify-self in flexbox does not work -->
+                <div class="filler">
 
                 </div>
-                <div class="description">
-                    <div class="bold_desc">
-                        Description
-                    </div>
-                    <div class="desc_para">
-                        <?php
-                        $clinicID = $_GET['clinicID'];
-                        $sql = "SELECT  description FROM clinic WHERE clinicID = $clinicID";
-                        $result = $conn->query($sql);
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                echo $row['description'];
-                            }
-                        } else {
-                            echo "No pics available";
-                        }
-                        ?>
-                    </div>
-                </div>
             </div>
+
         </div>
 
 

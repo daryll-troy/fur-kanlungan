@@ -9,12 +9,6 @@ if (!isset($_SESSION['adminID'])) {
 
 ?>
 
-
-<?php
-//check if the id of the photo in the $_GET variable belongs to the logged in user
-
-?>
-
 <html lang="en">
 
 <head>
@@ -47,15 +41,15 @@ if (!isset($_SESSION['adminID'])) {
         <div class='clinic_pics'>
             <!-- Get all the photos of this clinicID -->
             <?php
-            $getclinicID = $_GET['clinicID'];
+            $getPetID = $_GET['petID'];
             // query all photos of this clinicID
-            $sql = "SELECT photo FROM clinic_photo WHERE clinicID = $getclinicID ";
+            $sql = "SELECT photo FROM pet_photo WHERE petID = $getPetID ";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
             ?>
                     <div class="each_photo">
-                        <img src="../../images/clinic_pics/<?php echo $row['photo'] ?>" alt="" class="each_img">
+                        <img src="../../images/pet_pics/<?php echo $row['photo'] ?>" alt="" class="each_img">
                     </div>
                 <?php
                 }
@@ -73,65 +67,51 @@ if (!isset($_SESSION['adminID'])) {
         <!-- SERVICES AND DESCRIPTION OF THE clinic -->
         <div class="serv_desc">
 
+            <!-- Name of the pet -->
             <div class="pinakaTitle">
-                <p> clinic
+                <p> Pet
                     <?php
                     // get clinic name again
-                    $clinicID = $_GET['clinicID'];
-                    $sql = "SELECT clinic_name FROM clinic WHERE clinicID = $clinicID";
+                    $petID = $_GET['petID'];
+                    $sql = "SELECT name FROM pet WHERE petID = $petID";
                     $result = $conn->query($sql);
                     if ($result->num_rows >  0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo $row['clinic_name'];
+                            echo $row['name'];
                         }
                     }
                     ?>
                 </p>
             </div>
 
+            <!-- back button -->
             <div class="back_img">
                 <img src="../../images/backTo.png" alt="" id="backTo" onclick="history.back()">
             </div>
-            <div class="services">
-                <!-- Services Title -->
-                <div class="bold_serv">
-                    Services
+
+            <!-- description -->
+            <div class="description">
+                <div class="bold_desc">
+                    Description
                 </div>
-                <!-- Get the services -->
-                <div class="serv_para">
+                <div class="desc_para">
                     <?php
-                    $clinicID = $_GET['clinicID'];
-                    $sql = "SELECT services FROM clinic WHERE clinicID = $clinicID";
+                    $petID = $_GET['petID'];
+                    $sql = "SELECT  description FROM pet WHERE petID = $petID";
                     $result = $conn->query($sql);
-                    if ($result->num_rows >  0) {
+                    if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo $row['services'];
+                            echo $row['description'];
                         }
+                    } else {
+                        echo "No pics available";
                     }
                     ?>
-
-                </div>
-                <div class="description">
-                    <div class="bold_desc">
-                        Description
-                    </div>
-                    <div class="desc_para">
-                        <?php
-                        $clinicID = $_GET['clinicID'];
-                        $sql = "SELECT  description FROM clinic WHERE clinicID = $clinicID";
-                        $result = $conn->query($sql);
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                echo $row['description'];
-                            }
-                        } else {
-                            echo "No pics available";
-                        }
-                        ?>
-                    </div>
                 </div>
             </div>
+
         </div>
+    </div>
 
 
 </body>

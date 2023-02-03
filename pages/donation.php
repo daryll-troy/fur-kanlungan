@@ -47,28 +47,9 @@ if (!isset($_SESSION['userID'])) {
 
 <body>
 
-    <?php
-    // echo $_GET['pet_user'];
-    ?>
     <?php include "header.php"
     ?>
-    <?php
-    // pass the get variable to a session variable for error fixes
-    if (isset($_GET['pet_user']))
-        $_SESSION['last_contacted'] = $_GET['pet_user'];
-
-    $owner_id = $_SESSION['last_contacted'];
-    $owner_fname = $owner_lname = "";
-    $sql = "SELECT fname, lname from users WHERE userID = $owner_id";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        while ($get_name = $result->fetch_assoc()) {
-            $owner_fname = $get_name['fname'];
-            $owner_lname = $get_name['lname'];
-        }
-    }
-    ?>
+   
 
     <div class="message_who">
         <div class="color_container">
