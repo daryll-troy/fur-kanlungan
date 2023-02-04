@@ -10,8 +10,54 @@
     flex-direction: column;
 }
 
+
+/* container for the create button, search bar, and municipality dropdown */
+.menu_container {
+    display: flex;
+  
+    flex: 1;
+    width: 100%;
+    max-height: 2.5em;
+    column-gap: 1em;
+}
+
+/* container for the search and municipality */
+.middle-search {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    column-gap: 1em;
+}
+
+.get_muni_name {
+    color: aliceblue;
+    background-color: rgba(200, 196, 192, 0.99);
+    text-transform: capitalize;
+}
+
+/* search bar */
+.type-search{
+    width: 45%;
+}
+
+/* municipality dropdown */
+.municipality{
+    background-color: rgb(110, 18, 18);
+    color: aliceblue;
+    text-transform: capitalize;
+    width: 30%;
+    margin-right: 2em;
+}
+
+
+.filler {
+    flex: 1;
+}
+
+
 /* create button  container*/
 .create_shop {
+    min-width: 60px;
     width: 10%;
     border-radius: 5%;
     border-color: black;

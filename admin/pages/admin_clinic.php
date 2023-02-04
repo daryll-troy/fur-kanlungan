@@ -43,8 +43,45 @@ if (!isset($_SESSION['adminID'])) {
     <div class="clinic min-vh-100">
         <div class="list_clinic">
 
-            <div class="create_clinic" onclick="goToCreate()">
-                <img src="../../images/add_button.png" alt="">
+            <div class="menu_container">
+                <!-- This is just to center the create button -->
+                <div class="filler">
+
+                </div>
+
+                <div class="create_clinic" onclick="goToCreate()">
+                    <img src="../../images/add_button.png" alt="">
+                </div>
+
+                <!-- search bar and municipality-->
+                <div class="middle-search">
+                    <!-- <div class="d-flex flex-wrap justify-content-center pet-list"> -->
+                    <input class="form-control  type-search " type="search" placeholder="Search" aria-label="Search" id="type-search">
+
+                    <!-- </div> -->
+
+                    <!-- municipality category  -->
+                    <select class="form-select btn municipality" aria-label="Default select example" id="municipality" name="municipality">
+                        <option value="all_muni" class='get_muni_name'>All Municipalites</option>
+                        <?php
+                        // select all municipality
+                        $sql = "SELECT muni_name FROM municipality;";
+                        $result = mysqli_query($conn, $sql);
+
+                        if (mysqli_num_rows($result) > 0) {
+                            // output data of each row
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $get_muni_name = $row["muni_name"];
+                                echo "<option value='$get_muni_name' class='get_muni_name'>$get_muni_name</option>";
+                            }
+                        } else {
+                            // echo "0 results";
+                        }
+
+                        ?>
+                    </select>
+                </div>
+
             </div>
 
             <div id="count_clinics" style="font-weight: bolder; font-size: 1.5em; margin-top: 1em; color: aliceblue;">

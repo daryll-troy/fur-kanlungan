@@ -43,7 +43,10 @@ if (!isset($_SESSION['adminID'])) {
     <div class="clinic min-vh-100">
         <div class="list_clinic">
 
-           
+            <!-- search bar and municipality-->
+            <div class="middle-search">
+                <input class="form-control  type-search " type="search" placeholder="Search" aria-label="Search" id="type-search">
+            </div>
 
             <div id="count_clinics" style="font-weight: bolder; font-size: 1.5em; margin-top: 1em; color: aliceblue;">
                 <?php

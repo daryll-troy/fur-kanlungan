@@ -10,6 +10,39 @@
     flex-direction: column;
 }
 
+/* container for the search and municipality */
+.middle-search {
+    width: 100%;
+    max-height: 2.5em;
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    column-gap: 1em;
+}
+
+.get_muni_name {
+    color: aliceblue;
+    background-color: rgba(200, 196, 192, 0.99);
+    text-transform: capitalize;
+}
+
+/* search bar */
+.type-search {
+    width: 20%;
+}
+
+/* municipality dropdown */
+.municipality {
+    background-color: rgb(110, 18, 18);
+    color: aliceblue;
+    text-transform: capitalize;
+    width: 13%;
+    margin-right: 2em;
+}
+
+
+
+
 /* create button  container*/
 .create_clinic {
     width: 10%;

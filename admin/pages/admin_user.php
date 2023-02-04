@@ -43,9 +43,38 @@ if (!isset($_SESSION['adminID'])) {
     <div class="clinic min-vh-100">
         <div class="list_clinic">
 
-          
 
-            <div id="count_clinics" style="font-weight: bolder; font-size: 1.5em; margin-top: 1em; color: aliceblue;">
+            <!-- search bar and municipality-->
+            <div class="middle-search">
+                <!-- <div class="d-flex flex-wrap justify-content-center pet-list"> -->
+                <input class="form-control  type-search " type="search" placeholder="Search" aria-label="Search" id="type-search">
+
+                <!-- </div> -->
+
+                <!-- municipality category  -->
+                <select class="form-select btn municipality" aria-label="Default select example" id="municipality" name="municipality">
+                    <option value="all_muni" class='get_muni_name'>All Municipalites</option>
+                    <?php
+                    // select all municipality
+                    $sql = "SELECT muni_name FROM municipality;";
+                    $result = mysqli_query($conn, $sql);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $get_muni_name = $row["muni_name"];
+                            echo "<option value='$get_muni_name' class='get_muni_name'>$get_muni_name</option>";
+                        }
+                    } else {
+                        // echo "0 results";
+                    }
+
+                    ?>
+                </select>
+            </div>
+
+
+            <div class="count" style="font-weight: bolder; font-size: 1.5em; margin-top: 1em; color: aliceblue;">
                 <?php
                 $count = "SELECT COUNT(userID) AS count FROM users";
                 $res = $conn->query($count);
@@ -61,11 +90,11 @@ if (!isset($_SESSION['adminID'])) {
                     <div>Email</div>
                     <div>Fname</div>
                     <div>Lname</div>
-                  
+
                     <div>Municipality</div>
                     <div>Verified</div>
                     <div>Created At</div>
-                  
+
                 </div>
                 <?php
                 // get all clinics
@@ -77,29 +106,30 @@ if (!isset($_SESSION['adminID'])) {
                 if ($query->num_rows > 0) {
                     while ($row = $query->fetch_assoc()) {
                 ?>
-                       
+
                         <div class="each_clinic">
                             <div class="userID"><?php echo $row['userID']; ?></div>
                             <div class="username"><?php echo $row['username']; ?></div>
                             <div class="email" style="text-transform: none;"><?php echo $row['email']; ?></div>
                             <div class="fname"><?php echo $row['fname']; ?></div>
                             <div class="lname"><?php echo $row['lname']; ?></div>
-                          
-                          
-                            <div class="municipality"><?php echo $row['muni_name']; ?></div>
-                        
+
+
+                            <div class="muni_name"><?php echo $row['muni_name']; ?></div>
+
                             <div class="verified"><?php echo $row['verified_id']; ?></div>
                             <div class="date_time"><?php echo $row['date_time']; ?></div>
                             <div class="btn_delete">
-                              
+
                                 <span onclick="goToClinicPic(<?php echo $row['userID']; ?>)">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                         <path d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z" />
                                     </svg>
                                 </span>
                             </div>
+                    
                         </div>
-                      
+
                 <?php
                     }
                 }
@@ -116,15 +146,14 @@ if (!isset($_SESSION['adminID'])) {
         }
         navbarColor();
 
-     
+
 
         function goToClinicPic(userID) {
             window.location.href = "admin_user_photos.php?userID=" + userID;
         }
-
     </script>
 
-
+    <script src="../js/admin_users_filter.js"></script>
 
 </body>
 

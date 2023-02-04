@@ -10,6 +10,26 @@
     flex-direction: column;
 }
 
+
+/* container for the search and municipality */
+.middle-search {
+    width: 100%;
+    max-height: 2.5em;
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    column-gap: 1em;
+}
+
+
+/* search bar */
+.type-search {
+    width: 20%;
+    margin-right: 2em;
+}
+
+
+
 /* create button  container*/
 .create_clinic {
     width: 10%;
@@ -63,7 +83,7 @@
     display: grid;
     /* justify-content: center;
     align-content: center; */
-    grid-template-columns: 0.5fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr 0.5fr;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
     color: aliceblue;
 }
 
@@ -83,7 +103,7 @@
 /* each clinic row */
 .each_clinic {
     display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr  1fr 1fr 1fr 0.5fr;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
     grid-template-rows: auto;
 
     border: 1px;
@@ -117,7 +137,7 @@
     border-style: solid;
     border-width: 0 1px;
 
-font-weight:500;
+    font-weight: 500;
     word-wrap: break-word;
 }
 
@@ -126,9 +146,10 @@ font-weight:500;
 }
 
 /* margin bottom for update icon */
-.update_pet_img{
+.update_pet_img {
     margin-bottom: 0.5em;
 }
+
 /* btn_delete */
 .btn_delete {
     display: flex;

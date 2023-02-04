@@ -41,11 +41,26 @@ if (!isset($_SESSION['adminID'])) {
 <body>
     <?php include_once 'admin_header.php'; ?>
     <div class="product min-vh-100">
-        <div class="list_product">
 
-            <div class="create_product" onclick="goToCreate()">
-                <img src="../../images/add_button.png" alt="">
+        <div class="list_product">
+            <div class="menu_container">
+                <!-- This is just to center the create button -->
+                <div class="filler">
+
+                </div>
+
+                <div class="create_product" onclick="goToCreate()">
+                    <img src="../../images/add_button.png" alt="">
+                </div>
+
+                <!-- search bar and municipality-->
+                <div class="middle-search">
+
+                    <input class="form-control  type-search " type="search" placeholder="Search" aria-label="Search" id="type-search">
+                </div>
+
             </div>
+
 
             <div id="count_products " style="font-weight: bolder; font-size: 1.5em; margin-top: 1em; color: aliceblue;">
                 <?php
@@ -55,7 +70,7 @@ if (!isset($_SESSION['adminID'])) {
                 echo $num['count'] . " Product(s) Created";
                 ?>
             </div>
-            
+
             <div class="grid-container">
 
                 <div class="col_title">
