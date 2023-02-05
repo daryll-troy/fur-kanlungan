@@ -27,7 +27,7 @@
 .puti-header {
     color: rgb(249, 249, 249);
     font-size: 1.3rem;
-    padding-right: 1rem;
+    /* padding-right: 1rem; */
 
 }
 
@@ -54,6 +54,10 @@ li:hover {
     display: flex;
     justify-content: end;
   
+}
+
+.isagad-hover ul{
+    column-gap: 1em;
 }
 
 /* profile picture */

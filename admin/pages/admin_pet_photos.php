@@ -86,7 +86,7 @@ if (!isset($_SESSION['adminID'])) {
 
             <!-- back button -->
             <div class="back_img">
-                <img src="../../images/backTo.png" alt="" id="backTo" onclick="history.back()">
+                <img src="../../images/backTo.png" alt="" id="backTo" onclick="window.location.href = 'admin_pet.php'">
             </div>
 
             <!-- description -->

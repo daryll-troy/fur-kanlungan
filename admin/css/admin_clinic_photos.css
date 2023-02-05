@@ -28,17 +28,17 @@
 
 /* the images */
 .each_img {
-    height: clamp(10em, 10vw, 20em);
-    width: 10em;
+    width: clamp(10em, 10vw, 20em);
+    /* width: 10em; */
+    height: 10em;
     object-fit: cover
- 
 }
 
-.each_img:active{
+.each_img:active {
     width: clamp(20em, 10vw, 20em);
     height: 20em;
-     transform: scale(1.1);
-     transition: transform 0.25s;
+    transform: scale(1.1);
+    transition: transform 0.25s;
 }
 
 .each_photo {
@@ -46,9 +46,9 @@
     justify-content: center;
 }
 
-.each_photo img{
- cursor: pointer;
- box-shadow: 5px 5px 10px 3px #888888;
+.each_photo img {
+    cursor: pointer;
+    box-shadow: 5px 5px 10px 3px #888888;
 }
 
 
@@ -61,12 +61,12 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-   
+
     flex: 0.7;
 }
 
 /* pinakatitle */
-.pinakaTitle{
+.pinakaTitle {
     display: flex;
     justify-content: center;
     font-weight: bold;

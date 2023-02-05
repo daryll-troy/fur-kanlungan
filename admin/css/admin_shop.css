@@ -14,7 +14,7 @@
 /* container for the create button, search bar, and municipality dropdown */
 .menu_container {
     display: flex;
-  
+
     flex: 1;
     width: 100%;
     max-height: 2.5em;
@@ -36,12 +36,12 @@
 }
 
 /* search bar */
-.type-search{
+.type-search {
     width: 45%;
 }
 
 /* municipality dropdown */
-.municipality{
+.municipality {
     background-color: rgb(110, 18, 18);
     color: aliceblue;
     text-transform: capitalize;
@@ -109,7 +109,7 @@
     display: grid;
     /* justify-content: center;
     align-content: center; */
-    grid-template-columns: 0.5fr 1fr 1fr 1fr  1fr 1fr 1fr 1fr 0.5fr;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
     color: aliceblue;
 }
 
@@ -129,7 +129,7 @@
 /* each shop row */
 .each_shop {
     display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr  1fr 1fr 1fr 0.5fr;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
     grid-template-rows: auto;
 
     border: 1px;
@@ -153,7 +153,6 @@
     text-transform: capitalize;
     grid-row: 1;
     padding: 0.2em;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,8 +162,8 @@
     border-style: solid;
     border-width: 0 1px;
 
-font-weight:500;
-    word-wrap: break-word;
+    font-weight: 500;
+    word-break: break-all;
 }
 
 .each_shop div:hover:not(.btn_delete) {
@@ -179,9 +178,10 @@ font-weight:500;
 }
 
 /* update icon */
-.update_pet_img{
+.update_pet_img {
     margin-bottom: 0.5em;
 }
+
 /* delete icon */
 .btn_delete svg {
     height: 1.5rem;

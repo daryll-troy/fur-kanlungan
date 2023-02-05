@@ -48,7 +48,7 @@ if (!isset($_SESSION['adminID'])) {
                 <input class="form-control  type-search " type="search" placeholder="Search" aria-label="Search" id="type-search">
             </div>
 
-            <div id="count_clinics" style="font-weight: bolder; font-size: 1.5em; margin-top: 1em; color: aliceblue;">
+            <div class="count" style="font-weight: bolder; font-size: 1.5em; margin-top: 1em; color: aliceblue;">
                 <?php
                 $count = "SELECT COUNT(petID) AS count FROM pet";
                 $res = $conn->query($count);
@@ -67,7 +67,7 @@ if (!isset($_SESSION['adminID'])) {
                     <div>Breed</div>
                     <div>Vaccinated</div>
                     <div>Owner</div>
-
+                    <div>Created At</div>
                 </div>
                 <?php
                 // get all clinics
@@ -89,7 +89,9 @@ ORDER BY p.petID";
                             <div class="pet_type"><?php echo $row['animal_type']; ?></div>
                             <div class="breed"><?php echo $row['breed']; ?></div>
                             <div class="vaccinated"><?php echo $row['vaccinated']; ?></div>
+                           
                             <div class="fname"><?php echo $row['fname'] . " " . $row['lname']; ?></div>
+                            <div class="date_time"><?php echo $row['date_time']; ?></div>
 
                             <div class="btn_delete">
 
@@ -123,7 +125,8 @@ ORDER BY p.petID";
     </script>
 
 
-
+ <!-- FOR FILTERING -->
+ <script src="../js/admin_pet_filter.js"></script>
 </body>
 
 </html>

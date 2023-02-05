@@ -85,7 +85,7 @@ if (!isset($_SESSION['adminID'])) {
             </div>
 
             <div class="back_img">
-                <img src="../../images/backTo.png" alt="" id="backTo" onclick="history.back()">
+                <img src="../../images/backTo.png" alt="" id="backTo" onclick="location.href = 'admin_product.php';">
             </div>
 
             <div class="description">
@@ -108,7 +108,6 @@ if (!isset($_SESSION['adminID'])) {
             </div>
         </div>
     </div>
-
 
 </body>
 

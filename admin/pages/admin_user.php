@@ -127,7 +127,7 @@ if (!isset($_SESSION['adminID'])) {
                                     </svg>
                                 </span>
                             </div>
-                    
+
                         </div>
 
                 <?php
@@ -152,7 +152,7 @@ if (!isset($_SESSION['adminID'])) {
             window.location.href = "admin_user_photos.php?userID=" + userID;
         }
     </script>
-
+    <!-- FOR FILTERING -->
     <script src="../js/admin_users_filter.js"></script>
 
 </body>

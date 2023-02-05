@@ -84,7 +84,7 @@ if (!isset($_SESSION['adminID'])) {
 
             </div>
 
-            <div id="count_clinics" style="font-weight: bolder; font-size: 1.5em; margin-top: 1em; color: aliceblue;">
+            <div class="count" style="font-weight: bolder; font-size: 1.5em; margin-top: 1em; color: aliceblue;">
                 <?php
                 $count = "SELECT COUNT(clinicID) AS count FROM clinic";
                 $res = $conn->query($count);
@@ -193,7 +193,8 @@ if (!isset($_SESSION['adminID'])) {
     </script>
 
 
-
+ <!-- FOR FILTERING -->
+ <script src="../js/admin_clinic_filter.js"></script>
 </body>
 
 </html>

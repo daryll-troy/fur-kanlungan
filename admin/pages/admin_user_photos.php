@@ -92,7 +92,7 @@ if (!isset($_SESSION['adminID'])) {
 
             <div class="back_img">
                 <div class="back_img_inner">
-                    <img src="../../images/backTo.png" alt="" id="backTo" onclick="history.back()">
+                    <img src="../../images/backTo.png" alt="" id="backTo" onclick="window.location.href = 'admin_user.php'">
                 </div>
                 <div class="btn_validate">
                     <input type="button" value="Validate" class="btn btn-primary" style="background-color:forestgreen; border:none;">

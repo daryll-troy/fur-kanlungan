@@ -18,6 +18,7 @@
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+  
     row-gap: 1em;
     /* grid-template-rows: repeat(auto-fit, minmax(10em, 1fr)); */
     max-height: 100vh;
@@ -29,9 +30,11 @@
 
 /* the images */
 .each_img {
+    /* width: 10em; */
     height: 10em;
     width: clamp(10em, 10vw, 20em);
     object-fit: cover
+    
 }
 
 .each_img:active {

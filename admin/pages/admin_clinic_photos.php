@@ -90,7 +90,7 @@ if (!isset($_SESSION['adminID'])) {
             </div>
 
             <div class="back_img">
-                <img src="../../images/backTo.png" alt="" id="backTo" onclick="history.back()">
+                <img src="../../images/backTo.png" alt="" id="backTo" onclick="window.location.href = 'admin_clinic.php'">
             </div>
             <div class="services">
                 <!-- Services Title -->

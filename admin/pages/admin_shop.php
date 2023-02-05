@@ -25,7 +25,7 @@ if (!isset($_SESSION['adminID'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- css reset -->
-    <link rel="stylesheet" href="../css/css-resets.css">
+    <link rel="stylesheet" href="../../css/css-resets.css">
     <!-- css for admin_shop.php.php -->
     <link rel="stylesheet" href="../css/admin_shop.css">
 
@@ -86,7 +86,7 @@ if (!isset($_SESSION['adminID'])) {
 
             </div>
 
-            <div id="count_shops" style="font-weight: bolder; font-size: 1.5em; margin-top: 1em; color: aliceblue;">
+            <div class="count" style="font-weight: bolder; font-size: 1.5em; margin-top: 1em; color: aliceblue;">
                 <?php
                 $count = "SELECT COUNT(shopID) AS count FROM shop";
                 $res = $conn->query($count);
@@ -112,7 +112,7 @@ if (!isset($_SESSION['adminID'])) {
                 </div>
                 <?php
                 // get all shops
-                $sql = "SELECT * FROM shop ORDER BY shop_name";
+                $sql = "SELECT * FROM shop ORDER BY shopID";
                 $query = $conn->query($sql);
                 if ($query->num_rows > 0) {
                     while ($row = $query->fetch_assoc()) {
@@ -197,7 +197,8 @@ if (!isset($_SESSION['adminID'])) {
     </script>
 
 
-
+ <!-- FOR FILTERING -->
+ <script src="../js/admin_shop_filter.js"></script>
 </body>
 
 </html>
