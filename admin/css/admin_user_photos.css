@@ -101,14 +101,14 @@
     justify-content: center;
 }
 
-.filler{
+.filler {
     flex: 1;
 }
 
 /* ========================================= MEDIA QUERIES ==================================== */
 
 @media screen and (max-width: 848px) {
-    .pinakaTitle{
+    .pinakaTitle {
         /* display: flex;
         justify-content: center;
         align-items: center; */
@@ -116,7 +116,7 @@
         margin-bottom: 1em;
     }
 
-    .back_img{
+    .back_img {
         flex-direction: column;
         row-gap: 2em;
     }
@@ -124,10 +124,11 @@
 
 
 @media screen and (max-width: 480px) {
-.clinic_info{
-    flex-direction: column;
-}
-.clinic_pics{
-    width: 100vw;
-}
+    .clinic_info {
+        flex-direction: column;
+    }
+
+    .clinic_pics {
+        width: 100vw;
+    }
 }
