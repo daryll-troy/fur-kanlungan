@@ -50,7 +50,7 @@ if (!isset($_SESSION['userID'])) {
 
 <body>
     <?php include "header.php" ?>
-    
+
     <div class="chat_list">
         <div class="color_container">
             <div class="kulay1">
@@ -65,7 +65,7 @@ if (!isset($_SESSION['userID'])) {
             // get the chat convos if the user is in chat_log
             $userID = $_SESSION['userID'];
             $sql = "SELECT userID, fname, lname, prof_pic FROM users WHERE userID = ANY(
-                SELECT sender FROM chat_log WHERE sender = $userID or reciever = $userID
+                SELECT sender FROM chat_log WHERE sender = $userID OR reciever = $userID
                 UNION
                     SELECT reciever FROM chat_log WHERE sender = $userID OR reciever = $userID
                 )";
@@ -81,14 +81,26 @@ if (!isset($_SESSION['userID'])) {
                             <a href="chat_box.php?pet_user=<?php echo $row['userID']; ?>" class="atag_name">
                                 <div class="fullname"><?php echo $row['fname'] . " " . $row['lname']; ?></div>
                             </a>
+                            <?php
+                            // get the last convo sent between the two users
+                            $getLastConvo = "SELECT * FROM chat_log WHERE (sender = ? AND reciever = ?) OR (sender = ? AND reciever = ?)  ORDER BY cLID DESC LIMIT 1";
+                            $stmt = $conn->prepare($getLastConvo);
+                            $stmt->bind_param("iiii", $row['userID'], $_SESSION['userID'], $_SESSION['userID'], $row['userID']);
+                            $stmt->execute();
+                            $resLastConvo = $stmt->get_result();
+                            $rowLC = $resLastConvo->fetch_assoc();
+                            ?>
+                            <div class="lastConvo"><?php echo $rowLC['message']; ?></div>
                         </div>
             <?php
-                        // get the last convo sent between the two users
-                        // $getLastConvo = "SELECT ";
+
                     }
                 }
             }
             ?>
+
+
+
         </div>
     </div>
     <?php include "footer.php" ?>

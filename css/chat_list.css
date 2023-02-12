@@ -45,7 +45,8 @@
 .each_userchat {
     display: flex;
     column-gap: 1em;
-    min-width: 40%;
+    /* min-width: 40%; */
+    width: 40%;
     background-color: rgb(249, 217, 184);
     box-shadow: 5px 5px 15px;
 
@@ -68,7 +69,18 @@
 .atag_name {
     text-decoration: none;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+}
+
+.lastConvo{
+    display: flex;
+  /* align-items: center; */
+  margin-left: auto;
+  margin-right: 2em;
+  max-width: 10em;
+  max-height: 80px;
+  overflow: hidden;
+  /* word-break: break-all; */
 }
 
 /* ============================= MEDIA QUERIES ==============================*/
