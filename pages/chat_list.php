@@ -50,6 +50,7 @@ if (!isset($_SESSION['userID'])) {
 
 <body>
     <?php include "header.php" ?>
+    
     <div class="chat_list">
         <div class="color_container">
             <div class="kulay1">
