@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2023 at 06:46 AM
+-- Generation Time: Feb 12, 2023 at 06:45 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -286,7 +286,42 @@ INSERT INTO `chat_log` (`cLID`, `sender`, `reciever`, `message`, `photo`, `date_
 (186, 3, 5, 'Hi', NULL, '2023-02-01 22:28:37'),
 (187, 3, 5, 'Hello', NULL, '2023-02-02 09:16:32'),
 (188, 3, 2, 'hello', NULL, '2023-02-02 11:50:01'),
-(189, 3, 7, 'Hello', NULL, '2023-02-02 11:52:08');
+(189, 3, 7, 'Hello', NULL, '2023-02-02 11:52:08'),
+(190, 3, 1, 'Hello', NULL, '2023-02-02 15:52:02'),
+(191, 10, 3, 'hello', NULL, '2023-02-02 15:55:07'),
+(192, 10, 1, 'Hello', NULL, '2023-02-02 15:57:08'),
+(193, 10, 1, 'hey', NULL, '2023-02-02 15:57:41'),
+(194, 3, 10, 'hello\'', NULL, '2023-02-02 15:58:00'),
+(195, 10, 1, 'hello', NULL, '2023-02-02 15:58:37'),
+(196, 10, 1, 'hi', NULL, '2023-02-02 15:58:57'),
+(197, 3, 10, 'hello', NULL, '2023-02-02 15:59:17'),
+(198, 10, 1, 'hi aiosdhiasofhioadsfnas', NULL, '2023-02-02 15:59:39'),
+(199, 10, 1, 'hello', NULL, '2023-02-02 16:00:13'),
+(200, 3, 10, 'hello', NULL, '2023-02-02 16:00:18'),
+(201, 3, 10, 'bakit', NULL, '2023-02-02 16:00:22'),
+(202, 10, 3, 'baoninam', NULL, '2023-02-02 16:00:48'),
+(203, 10, 3, 'tanga ka', NULL, '2023-02-02 16:01:02'),
+(204, 3, 2, 'iasjidjsid', NULL, '2023-02-02 16:06:03'),
+(205, 3, 10, 'ahdhasd', NULL, '2023-02-02 16:06:28'),
+(206, 10, 3, 'uhesoifjsodf', NULL, '2023-02-02 16:06:46'),
+(207, 3, 7, 'huy', NULL, '2023-02-03 21:29:03'),
+(208, 3, 5, 'uhm', NULL, '2023-02-03 21:57:51'),
+(209, 3, 1, 'ui taba', NULL, '2023-02-03 23:57:42'),
+(210, 3, 1, 'bakit\nka pa nandiyan ah?\nAtot ka hahahaha', NULL, '2023-02-03 23:57:53'),
+(211, 3, 1, 'hahahaha', NULL, '2023-02-03 23:57:56'),
+(212, 3, 1, 'Anong sinabi\nsiduahsd\naksdhaisd\naksdhsd', NULL, '2023-02-03 23:58:05'),
+(213, 10, 2, 'Hello', NULL, '2023-02-04 00:27:09'),
+(214, 3, 5, 'gey', NULL, '2023-02-04 20:27:04'),
+(215, 3, 10, 'wassup', NULL, '2023-02-04 20:28:23'),
+(216, 3, 10, 'hahaha why', NULL, '2023-02-04 20:28:31'),
+(217, 10, 1, 'my friend', NULL, '2023-02-05 17:22:18'),
+(218, 10, 3, 'nothing much', NULL, '2023-02-05 17:25:30'),
+(219, 10, 3, 'HI', NULL, '2023-02-09 22:33:38'),
+(220, 10, 3, 'Hello', NULL, '2023-02-09 22:33:46'),
+(221, 3, 10, 'Bakit', NULL, '2023-02-09 22:33:50'),
+(222, 3, 7, 'HAHAHAH\nWHAT are you up to?', NULL, '2023-02-12 13:03:52'),
+(223, 3, 5, 'Hello', NULL, '2023-02-12 13:25:42'),
+(224, 3, 1, 'hey', NULL, '2023-02-12 13:37:18');
 
 -- --------------------------------------------------------
 
@@ -317,8 +352,7 @@ INSERT INTO `clinic` (`clinicID`, `clinic_name`, `email`, `muniID`, `owner`, `co
 (12, 'mima', 'dfgd', 1, 'dfgdfgdfg', 'dfgdfg', 'ghfgh', 'dfgdf', 'sdfs', '2023-01-17 01:33:28'),
 (13, 'po', 'ui', 20, 'po', 'po', 'po', 'po', 'po', '2023-01-17 08:13:37'),
 (14, 'yoyo', 'sdf', 18, 'gfgh', 'dfghj', 'hjh', 'hgjjbeauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni', 'fdgsdfd', '2023-01-17 08:21:24'),
-(15, 'aarobbs', 'hhjg', 20, 'ghf', 'thtrh', 'dgsdg', 'gsdgsbeauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more', 'sdfsdfbeauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want, yeah\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\ni know where you hide, alone in your car\r\nknow all of the things that make you who you are\r\ni know that goodbye means nothing at all\r\ncomes back and begs me to catch her every time she falls, yeah\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain, oh\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nyeah, yeah\r\ni don&#039;t mind spending every day (ooh, ooh)\r\nout on your corner in the pouring rain\r\n(please don&#039;t try so hard to say goodbye)', '2023-01-17 08:27:19'),
-(16, 'haha', 'haha', 17, 'haha', 'haha', 'haha', 'dfgdfg\r\nbeauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want mor', 'dfgdfg\r\nbeauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want, yeah\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\ni know where you hide, alone in your car\r\nknow all of the things that make you who you are\r\ni know that goodbye means nothing at all\r\ncomes back and begs me to catch her every time she falls, yeah\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain, oh\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nyeah, yeah\r\ni don&#039;t mind spending every day (ooh, ooh)\r\nout on your corner in the pouring rain\r\n(please don&#039;t try so hard to say goodbye)', '2023-01-17 08:48:00');
+(16, 'haha', 'haha', 1, 'haha', 'haha', 'haha', 'dfgdfg\r\nbeauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\nsafaoisfasfa', 'dfgdfg\r\nbeauty queen of only eighteen, she had some trouble with herself\r\nhe was always there to help her, she always belonged to someone else\r\ni drove for miles and miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want, yeah\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\ni know where you hide, alone in your car\r\nknow all of the things that make you who you are\r\ni know that goodbye means nothing at all\r\ncomes back and begs me to catch her every time she falls, yeah\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain, oh\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nand she will be loved\r\nyeah, yeah\r\ni don&#039;t mind spending every day (ooh, ooh)\r\nout on your corner in the pouring rain\r\n(please don&#039;t try so hard to say goodbye)', '2023-01-17 08:48:00');
 
 -- --------------------------------------------------------
 
@@ -430,18 +464,10 @@ INSERT INTO `clinic_photo` (`clinicphoID`, `clinicID`, `photo`, `date_time`) VAL
 (117, 13, 'stix.jpg', '2023-01-17 08:13:37'),
 (118, 13, 'stix2.jpg', '2023-01-17 08:13:37'),
 (119, 13, 'stix3.jpg', '2023-01-17 08:13:37'),
-(121, 15, 'samantha.jpg', '2023-01-17 08:27:19'),
-(122, 15, 'stix.jpg', '2023-01-17 08:27:19'),
-(123, 15, 'stix2.jpg', '2023-01-17 08:27:19'),
-(124, 15, 'stix3.jpg', '2023-01-17 08:27:19'),
 (125, 16, 'samantha.jpg', '2023-01-17 08:48:00'),
 (126, 16, 'stix.jpg', '2023-01-17 08:48:00'),
 (127, 16, 'stix2.jpg', '2023-01-17 08:48:00'),
-(128, 16, 'stix3.jpg', '2023-01-17 08:48:00'),
-(129, 15, 'samantha.jpg', '2023-01-17 21:26:49'),
-(130, 15, 'stix.jpg', '2023-01-17 21:26:49'),
-(131, 15, 'stix2.jpg', '2023-01-17 21:26:49'),
-(132, 15, 'stix3.jpg', '2023-01-17 21:26:49');
+(128, 16, 'stix3.jpg', '2023-01-17 08:48:00');
 
 -- --------------------------------------------------------
 
@@ -711,7 +737,8 @@ INSERT INTO `pet` (`petID`, `name`, `age`, `sex`, `vaccinated`, `description`, `
 (14, 'ben', 2020, 'male', 'no', 'Wassabi HAHAHA', 1, 1, 3, '2023-01-16 20:52:27'),
 (16, 'timothy', 2019, 'female', 'yes', 'Ako si TImothy', 3, 5, 1, '2023-01-28 16:56:33'),
 (17, 'christina', 2020, 'female', 'yes', 'Hello', 2, 4, 5, '2023-01-28 22:39:13'),
-(19, 'simon', 2020, 'male', 'yes', 'sdgdfhdh', 2, 4, 7, '2023-02-01 05:26:04');
+(19, 'simon', 2020, 'male', 'yes', 'sdgdfhdh', 2, 4, 7, '2023-02-01 05:26:04'),
+(22, 'bing chilling', 2013, 'female', 'no', 'Am Xan SIna Ayoko sana\r\n\r\nna ikaw ay mawawa la', 3, 6, 10, '2023-02-04 00:06:32');
 
 -- --------------------------------------------------------
 
@@ -832,7 +859,10 @@ INSERT INTO `pet_photo` (`petphoID`, `petID`, `photo`, `date_time`) VALUES
 (126, 16, 'hamster1.jpg', '2023-01-28 16:56:33'),
 (127, 16, 'hamster2.jpg', '2023-01-28 16:56:33'),
 (128, 17, 'istockphoto-1217828258-170667a.jpg', '2023-01-28 22:39:13'),
-(130, 19, 'Khaomanee_cat.jpg', '2023-02-01 05:26:04');
+(130, 19, 'Khaomanee_cat.jpg', '2023-02-01 05:26:04'),
+(143, 22, 'hamster2.jpg', '2023-02-04 00:06:32'),
+(144, 22, 'hamster1.jpg', '2023-02-05 17:21:40'),
+(145, 22, 'puspin2.jpg', '2023-02-05 17:21:40');
 
 -- --------------------------------------------------------
 
@@ -849,6 +879,13 @@ CREATE TABLE `product` (
   `price` int(100) NOT NULL,
   `date_time` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`prodID`, `shopID`, `pcID`, `prod_name`, `description`, `price`, `date_time`) VALUES
+(56, 70, 1, 'jezzy', 'ako si jezy', 36, '2023-02-05 16:55:00');
 
 -- --------------------------------------------------------
 
@@ -873,7 +910,25 @@ INSERT INTO `product_photo` (`prodphoID`, `prodID`, `photo`, `date_time`) VALUES
 (217, 51, 'Untitled-design-4.jpg', '2023-02-02 11:26:06'),
 (219, 53, 'istockphoto-1248454290-612x612.jpg', '2023-02-02 11:44:20'),
 (220, 53, 'pet-one-pet-food-8995-9433461-1.jpg', '2023-02-02 11:44:20'),
-(221, 53, 'Untitled-design-4.jpg', '2023-02-02 11:44:20');
+(221, 53, 'Untitled-design-4.jpg', '2023-02-02 11:44:20'),
+(224, 56, 'hamster2.jpg', '2023-02-05 16:55:00'),
+(225, 56, 'Brown_Aspin.jpg', '2023-02-05 22:37:14'),
+(226, 56, 'Campbells_dwarf.jpg', '2023-02-05 22:37:14'),
+(227, 56, 'germanshepherd.jpg', '2023-02-05 22:37:14'),
+(228, 56, 'hamster1.jpg', '2023-02-05 22:37:14'),
+(229, 56, 'hamster2 - Copy.jpg', '2023-02-05 22:37:14'),
+(230, 56, 'hamster2.jpg', '2023-02-05 22:37:14'),
+(231, 56, 'hehe.jpeg', '2023-02-05 22:37:14'),
+(232, 56, 'istockphoto-1217828258-170667a.jpg', '2023-02-05 22:37:14'),
+(233, 56, 'jorji1.jpg', '2023-02-05 22:37:14'),
+(234, 56, 'Khaomanee_cat.jpg', '2023-02-05 22:37:14'),
+(235, 56, 'pexels-pixabay-45201.jpg', '2023-02-05 22:37:14'),
+(236, 56, 'puspin2.jpg', '2023-02-05 22:37:14'),
+(237, 56, 'samantha.jpg', '2023-02-05 22:37:14'),
+(238, 56, 'stix - Copy.jpg', '2023-02-05 22:37:14'),
+(239, 56, 'stix.jpg', '2023-02-05 22:37:14'),
+(240, 56, 'stix2.jpg', '2023-02-05 22:37:14'),
+(241, 56, 'stix3.jpg', '2023-02-05 22:37:14');
 
 -- --------------------------------------------------------
 
@@ -912,7 +967,7 @@ CREATE TABLE `shop` (
 --
 
 INSERT INTO `shop` (`shopID`, `shop_name`, `email`, `owner`, `muniID`, `contact_no`, `open_hours`, `services`, `description`, `date_time`) VALUES
-(68, 'fkjhk', 'jhlkghj', 'fgjfghf', 19, 'hgjghjdf', 'dfgdfg', 'hjghkg', 'hgkjtyjdfgdfg', '2023-01-17 21:13:08'),
+(68, 'fkjhk', 'jhlkghj', 'fgjfghf', 1, 'hgjghjdf', 'dfgdfg', 'hjghkg', 'hgkjtyjdfgdfg', '2023-01-17 21:13:08'),
 (70, 'fdgdfg', 'fghgj', 'dfgdfg', 19, 'fdfhfgj', 'ryrtyrjtyj', 'sdfs miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\na', 'miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want miles, and wound up at your door\r\ni&#039;ve had you so many times, but somehow i want more\r\ni don&#039;t mind spending every day\r\nout on your corner in the pouring rain\r\nlook for the girl with the broken smile\r\nask her if she wants to stay a while\r\nand she will be loved\r\nand she will be loved\r\ntap on my window, knock on my door, i want to make you feel beautiful\r\ni know i tend to get so insecure, it doesn&#039;t matter anymore\r\nit&#039;s not always rainbows and butterflies, it&#039;s compromise that moves us along, yeah\r\nmy heart is full and my door&#039;s always open, you come anytime you want', '2023-01-17 21:19:49');
 
 -- --------------------------------------------------------
@@ -962,7 +1017,24 @@ INSERT INTO `shop_photo` (`shopphoID`, `shopID`, `photo`, `date_time`) VALUES
 (210, 70, 'samantha.jpg', '2023-01-17 21:19:49'),
 (211, 70, 'stix.jpg', '2023-01-17 21:19:49'),
 (212, 70, 'stix2.jpg', '2023-01-17 21:19:49'),
-(213, 70, 'stix3.jpg', '2023-01-17 21:19:49');
+(213, 70, 'stix3.jpg', '2023-01-17 21:19:49'),
+(237, 68, 'Brown_Aspin.jpg', '2023-02-05 22:36:43'),
+(238, 68, 'Campbells_dwarf.jpg', '2023-02-05 22:36:43'),
+(239, 68, 'germanshepherd.jpg', '2023-02-05 22:36:43'),
+(240, 68, 'hamster1.jpg', '2023-02-05 22:36:43'),
+(241, 68, 'hamster2 - Copy.jpg', '2023-02-05 22:36:43'),
+(242, 68, 'hamster2.jpg', '2023-02-05 22:36:43'),
+(243, 68, 'hehe.jpeg', '2023-02-05 22:36:43'),
+(244, 68, 'istockphoto-1217828258-170667a.jpg', '2023-02-05 22:36:43'),
+(245, 68, 'jorji1.jpg', '2023-02-05 22:36:43'),
+(246, 68, 'Khaomanee_cat.jpg', '2023-02-05 22:36:43'),
+(247, 68, 'pexels-pixabay-45201.jpg', '2023-02-05 22:36:43'),
+(248, 68, 'puspin2.jpg', '2023-02-05 22:36:43'),
+(249, 68, 'samantha.jpg', '2023-02-05 22:36:43'),
+(250, 68, 'stix - Copy.jpg', '2023-02-05 22:36:43'),
+(251, 68, 'stix.jpg', '2023-02-05 22:36:43'),
+(252, 68, 'stix2.jpg', '2023-02-05 22:36:43'),
+(253, 68, 'stix3.jpg', '2023-02-05 22:36:43');
 
 -- --------------------------------------------------------
 
@@ -1023,11 +1095,13 @@ INSERT INTO `users` (`userID`, `username`, `email`, `password`, `fname`, `lname`
 (1, 'wan', 'wan@yahoo.com', '$2y$10$0To9.RRBGJ6RzTM0Ni7QgO0YPsC44WpFGtTVG7cOzZYuqqoc5dSWm', 'wan', 'wan', 'hehe.jpeg', 'admin.png', 10, 'yes', NULL),
 (2, 'two', 'two@yahoo.com', '$2y$10$DiJbEIRecndAT.IK4TKF.eCREo81jMbS.0vyShyFlv.w.2xekFDcq', 'two', 'two', 'pic-na-retoke.jpg', 'admin.png', 6, 'yes', NULL),
 (3, 'jw', 'jw@yahoo.com', '$2y$10$pyDEsSs9TYYtHAASvBaoRO1oQBVpm5Y4iwbzF/mhX0tufgRI6a2Ku', 'john', 'wall', 'hehe.jpeg', 'admin.png', 17, 'yes', NULL),
-(4, 'ako', 'ako@gmail.com', '$2y$10$VtAFNTm.LXnVNjveW6hlxenvk.V.v/2EJ8UzPieD7rQyvBB5aPqZC', 'ako ay', 'bakit ', 'pic-na-retoke.jpg', NULL, 44, 'no', '2023-01-14 22:14:47'),
-(5, 'mickey', 'mickeymouse@gmail.com', '$2y$10$5tQvztPCc5lsdBfAwPrVYu/up3n7hgk8rHwGkjsKrAGabyzaK6pFq', 'mickey', 'mouse', 'pic-na-retoke.jpg', NULL, 14, 'yes', '2023-01-28 22:25:31'),
-(6, 'imee', 'imee@yahoo.com', '$2y$10$gfh/evqx0EBKIAcP6uRhU.wjgF2gb2ePYhsZVmzB.UdkD9VmuEngC', 'imee', 'denise', 'kobe.jpg', NULL, 18, 'no', '2023-01-28 22:37:55'),
+(4, 'ako', 'ako@gmail.com', '$2y$10$VtAFNTm.LXnVNjveW6hlxenvk.V.v/2EJ8UzPieD7rQyvBB5aPqZC', 'ako ay', 'bakit ', 'pic-na-retoke.jpg', 'admin.png', 44, 'yes', '2023-01-14 22:14:47'),
+(5, 'mickey', 'mickeymouse@gmail.com', '$2y$10$5tQvztPCc5lsdBfAwPrVYu/up3n7hgk8rHwGkjsKrAGabyzaK6pFq', 'mickey', 'mouse', 'pic-na-retoke.jpg', 'admin.png', 14, 'yes', '2023-01-28 22:25:31'),
+(6, 'imee', 'imee@yahoo.com', '$2y$10$gfh/evqx0EBKIAcP6uRhU.wjgF2gb2ePYhsZVmzB.UdkD9VmuEngC', 'imee', 'denise', 'kobe.jpg', 'admin.png', 18, 'yes', '2023-01-28 22:37:55'),
 (7, 'jk', 'jk@yahoo.com', '$2y$10$ncchJh9/OJqPIWUC8/wQ9uvSMrdiKWjzhAoGhm.3Pbr7R5S0PDrwy', 'jk', 'jk', 'hehe.jpeg', 'admin.png', 20, 'yes', '2023-02-01 05:25:30'),
-(9, 'lop', 'lopdo@gmail.com', '$2y$10$3ikEZ7dFMgr4ALus18DNKuWkHyYiOrfCgIYCFU1gG3rikln4/ri5S', 'lo', 'lo', 'hehe.jpeg', 'admin.png', 13, 'no', '2023-02-01 21:21:05');
+(9, 'lop', 'lopdo@gmail.com', '$2y$10$3ikEZ7dFMgr4ALus18DNKuWkHyYiOrfCgIYCFU1gG3rikln4/ri5S', 'lo', 'lo', 'hehe.jpeg', 'admin.png', 13, 'yes', '2023-02-01 21:21:05'),
+(10, 'troy123', 'troy@gmail.com', '$2y$10$MRz15WIWXOfCVW32hSwUNOOlMnsxsacPWQ2fuelKRTayrr0ji9g8G', 'troy', 'de vera', 'hehe.jpeg', 'admin.png', 13, 'yes', '2023-02-02 15:53:06'),
+(11, 'ken', 'ken@yahoo.com', '$2y$10$.5pWusqBAIsR0L/.jduIhefyJzFix63a08StmSlUIRcLwbK9SRJ9a', 'ken', 'ken', 'Campbells_dwarf.jpg', 'admin.png', 46, 'yes', '2023-02-06 12:41:53');
 
 -- --------------------------------------------------------
 
@@ -1279,7 +1353,7 @@ ALTER TABLE `breed_category`
 -- AUTO_INCREMENT for table `chat_log`
 --
 ALTER TABLE `chat_log`
-  MODIFY `cLID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
+  MODIFY `cLID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
 
 --
 -- AUTO_INCREMENT for table `clinic`
@@ -1297,7 +1371,7 @@ ALTER TABLE `clinic_photo`
 -- AUTO_INCREMENT for table `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `petID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `petID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `pet_category`
@@ -1309,37 +1383,37 @@ ALTER TABLE `pet_category`
 -- AUTO_INCREMENT for table `pet_photo`
 --
 ALTER TABLE `pet_photo`
-  MODIFY `petphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
+  MODIFY `petphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `prodID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `prodID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `product_photo`
 --
 ALTER TABLE `product_photo`
-  MODIFY `prodphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=223;
+  MODIFY `prodphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242;
 
 --
 -- AUTO_INCREMENT for table `shop`
 --
 ALTER TABLE `shop`
-  MODIFY `shopID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `shopID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `shop_photo`
 --
 ALTER TABLE `shop_photo`
-  MODIFY `shopphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=236;
+  MODIFY `shopphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `userID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

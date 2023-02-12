@@ -9,7 +9,7 @@ if (!isset($_SESSION['userID'])) {
     header("location: ../index.php");
     exit();
 } else {
-   // check if verified_id != yes, then do not allow to access the chat feature
+    // check if verified_id != yes, then do not allow to access the chat feature
     $sql = "SELECT verified_id FROM users WHERE userID =" .  $_SESSION['userID'];
     $result = $conn->query($sql);
     $verify = $result->fetch_assoc();
@@ -29,6 +29,7 @@ if (!isset($_SESSION['userID'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chats | Fur-Kanlungan</title>
+    <link rel="icon" href="../images/logo.gif" type="image/gif">
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -51,7 +52,14 @@ if (!isset($_SESSION['userID'])) {
     <?php include "header.php" ?>
     <div class="chat_list">
         <div class="color_container">
-            <div class="chats_with">Chat Conversations</div>
+            <div class="kulay1">
+                <div class="chats_with">Chat Conversations</div>
+
+                <div class="d-flex flex-wrap justify-content-center pet-list">
+                    <input class="form-control  type-search " type="search" placeholder="Search" aria-label="Search" id="type-search">
+                </div>
+            </div>
+
             <?php
             // get the chat convos if the user is in chat_log
             $userID = $_SESSION['userID'];
@@ -74,6 +82,8 @@ if (!isset($_SESSION['userID'])) {
                             </a>
                         </div>
             <?php
+                        // get the last convo sent between the two users
+                        // $getLastConvo = "SELECT ";
                     }
                 }
             }

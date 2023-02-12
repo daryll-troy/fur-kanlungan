@@ -1,4 +1,3 @@
-
 <html lang="en">
 
 <head>
@@ -25,10 +24,6 @@
                 </button>
                 <div class="collapse navbar-collapse isagad-hover" id="navbarScroll">
                     <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll">
-                        <li class="nav-item" id="chats">
-                            <a class="nav-link" aria-current="page" href="chat_list.php"> <span class="puti-header">Chats</span></a></a>
-                        </li>
-
                         <li class="nav-item" id="product_list">
                             <a class="nav-link" href="product_list.php"><span class="puti-header">Products</span></a>
                         </li>
@@ -41,6 +36,9 @@
                         <li class="nav-item" id="donation">
                             <a class="nav-link" href="donation.php"><span class="puti-header">Donate</span></a>
                         </li>
+                        <li class="nav-item" id="chats">
+                            <a class="nav-link" aria-current="page" href="chat_list.php"> <span class="puti-header">Chats</span></a></a>
+                        </li>
                         <li class="nav-item " id="my_pets">
                             <a class="nav-link" href="my_pets.php"><span class="puti-header ">Posted</span></a>
                         </li>
@@ -49,10 +47,10 @@
                                 <div class="puti-header igitna-pic">
                                     <!-- Get profile picture -->
                                     <?php
-                                  
+
                                     $getID = $_SESSION['userID'];
-                                   $prof_pic = "";
-                                   $fname = "";
+                                    $prof_pic = "";
+                                    $fname = "";
                                     $getPhoto = "SELECT prof_pic, fname FROM users WHERE userID = '$getID'";
                                     $result = $conn->query($getPhoto);
                                     if ($result->num_rows > 0) {
@@ -61,18 +59,18 @@
                                             $prof_pic = $row['prof_pic'];
                                             $fname = $row['fname'];
                                         }
-                                        
                                     }
                                     ?>
-                                    
-                                   <img src="../images/prof_pics/<?php echo $prof_pic; ?>" alt="" srcset="" id="profPic">
+
+                                    <img src="../images/prof_pics/<?php echo $prof_pic; ?>" alt="" srcset="" id="profPic">
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
 
-                                
-                                <li><a class="dropdown-item" href="#" style="margin-left: 0; text-transform: capitalize; font-weight:bold; font-size: 1.1em;"><?php echo $fname;?></a></li>
-                                <li><a class="dropdown-item" href="#" style="margin-left: 0;">Profile</a></li>
+
+                                <li><a class="dropdown-item" href="#" style="margin-left: 0; text-transform: capitalize; font-weight:bold; font-size: 1.1em;"><?php echo $fname; ?></a></li>
+                                <li><a class="dropdown-item" href="#" style="margin-left: 0;">History</a></li>
+                                <!-- <li><a class="dropdown-item" href="#" style="margin-left: 0;">Profile</a></li> -->
                                 <li>
                                     <hr class="dropdown-divider" style="color: black;">
                                 </li>
@@ -85,7 +83,7 @@
         </nav>
     </section>
 
-   
+
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-.chat_list{
+.chat_list {
     background-image: url("../admin/images/furAdmin.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -13,36 +13,109 @@
 .color_container {
     width: 80%;
     min-height: inherit;
-    padding-top: 2em;
+    padding-top: 5em;
     background-color: rgba(87, 73, 33, 0.397);
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 2em;
+    row-gap: 1em;
 }
+
+/* container of title and search bar */
+.kulay1 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    min-width: 40%;
+    min-height: 15vh;
+    background-color: rgb(236, 160, 85);
+    box-shadow: 5px 5px 15px;
+    padding: 1em 2em;
+}
+
 /* chat convo title */
-.chats_with{
-color: aliceblue;
+.chats_with {
+    color: black;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
 }
 
 /* each user convo container */
-.each_userchat{
+.each_userchat {
     display: flex;
     column-gap: 1em;
+    min-width: 40%;
+    background-color: rgb(249, 217, 184);
+    box-shadow: 5px 5px 15px;
+
 }
 
 /* profile picture */
-.prof_pic{
+.prof_pic {
     object-fit: cover;
     width: 5em;
     height: 5em;
 }
 
 /* full name */
-.fullname{
-   text-transform: capitalize;
-    color: aliceblue;
+.fullname {
+    text-transform: capitalize;
+    color: black;
+    font-weight: bold;
 }
-.atag_name{
+
+.atag_name {
     text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* ============================= MEDIA QUERIES ==============================*/
+
+
+@media screen and (max-width: 992px) {
+
+    .each_userchat {
+        width: 45%;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .each_userchat {
+        width: 60%;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .each_userchat {
+        width: 70%;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    .each_userchat {
+        width: 90%;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+    .color_container {
+        width: 100%;
+    }
+
+    .kulay1 {
+        width: 100%;
+    }
+
+    .each_userchat {
+        width: 100%;
+    }
 }
