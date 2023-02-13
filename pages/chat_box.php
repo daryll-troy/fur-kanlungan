@@ -8,7 +8,7 @@ if (!isset($_SESSION['userID'])) {
     $conn->close();
     header("location: ../index.php");
     exit();
-}else {
+} else {
     // check if verified_id != yes, then do not allow to access the chat feature
     $sql = "SELECT verified_id FROM users WHERE userID =" .  $_SESSION['userID'];
     $result = $conn->query($sql);
@@ -44,6 +44,8 @@ if (!isset($_SESSION['userID'])) {
     <link rel="stylesheet" href="../css/header.css">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <!-- font awesome for giving pet icon -->
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 
 <body>
@@ -78,7 +80,8 @@ if (!isset($_SESSION['userID'])) {
                     <img onclick="history.back()" style="height: 3em; width: 3em" src="../images/backTo.png">
                 </div>
                 <div class="pic_name">
-                    <div class="name_of_message"><span class="ms-2" id="changeColor" style="font-weight:bolder; text-transform:capitalize;"><?php echo  "$owner_fname $owner_lname"; ?></span> </div>
+
+                    <div class="name_of_message"><span class="ms-2" id="changeColor" style="font-weight:bolder; text-transform:capitalize;" data-bs-toggle="tooltip" data-bs-placement="top" title="Give a Pet"><?php echo  "$owner_fname $owner_lname"; ?></span> </div>
                     <div class="display_validid">
                         <?php
                         $sql = "SELECT prof_pic FROM users WHERE userID = $owner_id";
@@ -87,7 +90,7 @@ if (!isset($_SESSION['userID'])) {
                         if ($result->num_rows > 0) {
                             while ($getPhoto = $result->fetch_assoc()) {
                         ?>
-                                <img src="../images/prof_pics/<?php echo $getPhoto['prof_pic']; ?>" alt="" id="photo_id">
+                                <img src="../images/prof_pics/<?php echo $getPhoto['prof_pic']; ?>" alt="" id="photo_id" data-bs-toggle="tooltip" data-bs-placement="top" title="View Profile">
                         <?php
                             }
                         }
@@ -97,6 +100,7 @@ if (!isset($_SESSION['userID'])) {
                     </div>
                 </div>
             </div>
+            <!-- The messages display container -->
             <div class="messages_display" id="messages_display">
                 <?php
                 // check if the get variable of the contacted user still exists
@@ -112,14 +116,14 @@ if (!isset($_SESSION['userID'])) {
                             if ($row['sender'] === $userID) {
                 ?>
                                 <div class="right_container">
-                                    <div class="display_message_right me-2 mb-3"><?php echo $row['message']; ?></div>
+                                    <div class="display_message_right me-2 mb-2"><?php echo $row['message']; ?></div>
                                 </div>
                             <?php
                                 // if sender is the last_contacted, then display the message to the left of the screen
                             } else {
                             ?>
                                 <div class="left_container">
-                                    <div class="display_message_left ms-2 mb-3"><?php echo $row['message']; ?></div>
+                                    <div class="display_message_left ms-2 mb-2"><?php echo $row['message']; ?></div>
                                 </div>
                             <?php
                             }
@@ -138,12 +142,12 @@ if (!isset($_SESSION['userID'])) {
                             if ($row['sender'] === $userID) {
                             ?>
                                 <div class="right_container">
-                                    <div class="display_message_right me-2 mb-3"><?php echo $row['message']; ?></div>
+                                    <div class="display_message_right me-2 mb-2"><?php echo $row['message']; ?></div>
                                 </div>
                             <?php
                             } else {
                             ?>
-                                <div class="display_message_left ms-2 mb-3"><?php echo $row['message']; ?></div>
+                                <div class="display_message_left ms-2 mb-2"><?php echo $row['message']; ?></div>
                 <?php
                             }
                         }
@@ -151,16 +155,65 @@ if (!isset($_SESSION['userID'])) {
                 }
                 ?>
             </div>
+
+            <!-- The input chat container -->
             <div class="chat_box">
                 <!-- <input type="text" class="chat_field"> -->
                 <textarea name="chat_field" class="chat_field" cols="30" rows="10"></textarea>
-                <!-- <input class="form-control-sm upload" type="file" name="upload"> -->
-                <input type="button" class="btn btn-primary send" value="send">
+                <div>
+                    <input class=" form-control upload" type="file" id="upload_pics" name="upload_pics[]" multiple accept=".jpg, .png, .jpeg">
+                    <input type="button" class="btn btn-primary send" value="send">
+                </div>
             </div>
 
 
         </div>
     </div>
+
+    <!-- div to hide give_pet when this is clicked, it spans the entire viewport -->
+    <div class="blurry">
+    </div>
+
+    <!-- div for the selection of the pet to be given -->
+    <div class="give_pet">
+        <div class="inner_give">
+            <div class="title_give">Give Pet</div>
+            <div class="each_pet_cont">
+                <?php
+                $sql = "SELECT petID, name FROM pet WHERE userID = " . $_SESSION['userID'] . " ORDER BY name";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+
+                        // get 1 photo of the pet
+                        $sql_photo = "SELECT photo FROM pet_photo WHERE petID = " . $row['petID'] . " ORDER BY petPhoID DESC LIMIT 1";
+                        $resPho = $conn->query($sql_photo);
+                        if ($resPho->num_rows > 0) {
+                            while ($rowPho = $resPho->fetch_assoc()) {
+                                $GLOBALS['rowPho'] = $rowPho['photo'];
+                ?>
+
+                                <div class="each_pet">
+                                    <div class="onePhoto"><img src="../images/pet_pics/<?php echo $GLOBALS['rowPho']; ?>" alt="1 photo"></div>
+
+                                    <div class="the_pet"><?php echo $row['name']; ?></div>
+                                    <div class="btnGive">
+                                        <!-- check icon for giving -->
+                                        <i style='font-size:24px' class='fas' data-bs-toggle="tooltip" data-bs-placement="top" title="Give this Pet">&#xf2b5;</i>
+                                    </div>
+                                </div>
+                <?php
+                            }
+                        }
+                    }
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+
 
     <!-- footer -->
     <?php include "footer.php";
@@ -177,6 +230,7 @@ if (!isset($_SESSION['userID'])) {
 
     <!-- JAVASCRIPT FOR AJAX -->
     <script src="../js/chat_box.js"></script>
+    <script src="../js/give_pet.js"></script>
 </body>
 
 </html>

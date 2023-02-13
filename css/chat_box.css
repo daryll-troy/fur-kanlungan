@@ -31,6 +31,7 @@
 .back {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 /* group the prof pic and the name together */
@@ -55,10 +56,17 @@
     width: 90%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
     flex-direction: row;
-    flex-wrap: wrap;
+    column-gap: 1em;
     margin-top: 2em;
+}
+
+/* container of upload and send */
+.chat_box div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 0.5em;
 }
 
 .chat_field {
@@ -73,21 +81,115 @@
 
 /* upload field */
 .upload {
-    width: 10%;
+    width: 80%;
 }
 
 /* send button */
 .send {
-    width: 10%;
+    width: 40%;
 }
 
+/* name of the user */
 .name_of_message {
     font-size: xx-large;
     display: flex;
     align-items: center;
 }
 
+.name_of_message:hover {
+    color: rgba(102, 59, 13, 0.918);
+    cursor: pointer;
+}
 
+/* blurry for cancelling give_pet container */
+.blurry {
+    width: 100vw;
+    height: 100vh;
+    /* background-color: blueviolet; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+
+}
+
+
+/* give a pet div*/
+.give_pet {
+    width: 30vw;
+    height: 75vh;
+    background-color: rgb(138, 84, 14);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: 5px 5px 15px;
+}
+
+.inner_give {
+    width: 100%;
+    max-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+.title_give {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-size: 2em;
+    color: aliceblue;
+    text-align: center;
+    border-bottom: 2px solid black;
+    background-color: rgb(138, 84, 14);
+    position: sticky;
+    top: 0;
+}
+
+.each_pet_cont {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+  
+    row-gap: 0.4em;
+
+}
+
+.each_pet {
+    /* width: 80%; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(249, 217, 184);
+    padding: 0.5em 1em 0.5em 0.5em;
+    box-shadow: 2px 2px 5px;
+    column-gap: 0.3em;
+}
+
+.the_pet {
+    color: black;
+    font-size: 1.5em;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+}
+
+.btnGive {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.onePhoto img {
+    width: 5em;
+    height: 5em;
+    object-fit: cover;
+}
 
 #photo_id {
     /* display: none; */
@@ -96,22 +198,23 @@
     border-image: 50 round;
     width: 5em;
     height: 5em;
+    cursor: pointer;
 }
 
 /* left container div for use of flexbox */
-.left_container{
+.left_container {
     display: flex;
     justify-content: flex-start;
 }
 
 /* right container div for use of flexbox */
-.right_container{
+.right_container {
     display: flex;
     justify-content: flex-end;
 }
 
 /* right message display */
-.display_message_right{
+.display_message_right {
     background-color: lightblue;
     /* display: inline-block; */
     padding: 5px;
@@ -122,13 +225,97 @@
 }
 
 /* left message display */
-.display_message_left{
+.display_message_left {
     background-color: rgba(255, 255, 0, 0.514);
     /* display: inline-block; */
     padding: 5px;
     border-radius: 10px;
     min-width: 10%;
-    width:auto;
+    width: auto;
     max-width: 70%;
     word-wrap: break-word;
+}
+
+/* ========================== MEDIA QUERIES ======================== */
+
+@media screen and (max-width: 992px) {
+    .give_pet {
+        width: 50vw;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .color_container {
+        width: 90%;
+    }
+
+    .chat_field {
+        flex: 2;
+    }
+
+    .chat_box div {
+        flex: 1;
+    }
+
+    .give_pet {
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .color_container {
+        width: 100%;
+    }
+
+    .chat_box div {
+        flex-direction: column;
+        row-gap: 0.5em;
+    }
+
+    .send {
+        width: 50%;
+    }
+
+    .give_pet {
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .messages_display,
+    .chatbox_header,
+    .chat_box {
+        width: 95%;
+    }
+
+    .chat_field {
+        flex: 2.5;
+    }
+
+    .send {
+        width: 70%;
+    }
+
+    .give_pet {
+        width: 90vw;
+    }
+
+}
+
+@media screen and (max-width: 360px) {
+    .each_pet_cont {
+        padding: 0;
+        align-items: center;
+    }
+
+    .give_pet {
+        width: 97vw;
+    }
+
+    .each_pet {
+        width: 95%;
+    }
+
 }

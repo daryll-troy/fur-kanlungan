@@ -90,7 +90,8 @@ if (!isset($_SESSION['userID'])) {
                             $resLastConvo = $stmt->get_result();
                             $rowLC = $resLastConvo->fetch_assoc();
                             ?>
-                            <div class="lastConvo"><?php echo $rowLC['message']; ?></div>
+                            <!-- I have temporarily removed the last message display due to difficulty of figuring out how to display them, respectively with each user, on the live search  -->
+                            <!-- <div class="lastConvo"><?php //echo $rowLC['message']; ?></div> -->
                         </div>
             <?php
 

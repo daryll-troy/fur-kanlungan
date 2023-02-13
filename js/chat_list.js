@@ -22,6 +22,7 @@ $(document).ready(function () {
                         '</a>' +
 
                         // get the last convo sent between the two users
+                        
                         // $.ajax({
                         //     url: 'chat_list_filter.php',
                         //     method: 'post',
@@ -42,30 +43,33 @@ $(document).ready(function () {
                         // }) +
                         ' </div>'
                     );
-                    other_user = result.userID;
-                    // // get the last convo sent between the two users
-                    if (search != "") {
-                        $.ajax({
-                            url: 'chat_list_filter.php',
-                            method: 'post',
-                            data: { other_user: other_user },
-                            success: (output2) => {
-                                output2 = JSON.parse(output2);
-                                console.log(output2);
-                                $('.lastConvo').remove();
-                                output2.forEach(function (result2) {
-                                    //   message = result2.message;
-                                    // console.log(result2.message);
-                                    $('.each_userchat').append(
-                                        '<div class="lastConvo">' + result2.message + '</div>'
-                                    );
-                                })
 
-                            }
-                        })
-                    }else{
-                        location.reload()
-                    }
+                    // I have temporarily removed the last message display due to difficulty of figuring out how to display them, respectively with each user, on the live search
+
+                    // other_user = result.userID;
+                    // // // get the last convo sent between the two users
+                    // if (search != "") {
+                    //     $.ajax({
+                    //         url: 'chat_list_filter.php',
+                    //         method: 'post',
+                    //         data: { other_user: other_user },
+                    //         success: (output2) => {
+                    //             output2 = JSON.parse(output2);
+                    //             console.log(output2);
+                    //             $('.lastConvo').remove();
+                    //             output2.forEach(function (result2) {
+                    //                 //   message = result2.message;
+                    //                 // console.log(result2.message);
+                    //                 $('.each_userchat').append(
+                    //                     '<div class="lastConvo">' + result2.message + '</div>'
+                    //                 );
+                    //             })
+
+                    //         }
+                    //     })
+                    // }else{
+                    //     location.reload()
+                    // }
                 })
 
             }
