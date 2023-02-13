@@ -118,7 +118,7 @@
 .give_pet {
     width: 30vw;
     height: 75vh;
-    background-color: rgb(138, 84, 14);
+    background-color: rgb(155, 96, 18);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -146,7 +146,7 @@
     color: aliceblue;
     text-align: center;
     border-bottom: 2px solid black;
-    background-color: rgb(138, 84, 14);
+    background-color: rgb(107, 67, 14);
     position: sticky;
     top: 0;
 }

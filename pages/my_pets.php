@@ -58,7 +58,7 @@ if (!isset($_SESSION['userID'])) {
             $pet_name = "";
 
             $sql = "
-                    SELECT pet.petID, pet.name
+                    SELECT pet.petID, pet.name, pet.status
                     FROM pet 
                     INNER JOIN users ON pet.userID = users.userID
                    
@@ -70,7 +70,7 @@ if (!isset($_SESSION['userID'])) {
 
                     $pet_name = $row['name'];
                     $pet_id = $row['petID'];
-
+                    $pet_status = $row['status'];
 
                     // display the current pets of the user 
                     echo "<div class='each_pet'>";
@@ -106,9 +106,23 @@ if (!isset($_SESSION['userID'])) {
                                     <a href='pet_info.php?pet_id=$pet_id'>
                                         <div> $pet_name</div>
                                     </a>
+                                    <div class='status'> $pet_status</div>
                                 </div>
                            
                                 ";
+
+
+                    // display the status of the pet 
+
+                    // echo "  
+                    //             <div class='pet_status'>
+                                    
+                                        
+                                    
+                    //             </div>
+                           
+                    //             ";
+
                     // update pets
                     echo "  <div class='pang-row'>
                                     <div class='update_pets'>
@@ -132,7 +146,7 @@ if (!isset($_SESSION['userID'])) {
                                         
                                     </div>
                              </div>
-                            "; 
+                            ";
                     echo "</div>";
                 }
             } else {

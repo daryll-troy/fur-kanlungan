@@ -81,7 +81,7 @@ if (!isset($_SESSION['userID'])) {
                 </div>
                 <div class="pic_name">
 
-                    <div class="name_of_message"><span class="ms-2" id="changeColor" style="font-weight:bolder; text-transform:capitalize;" data-bs-toggle="tooltip" data-bs-placement="top" title="Give a Pet"><?php echo  "$owner_fname $owner_lname"; ?></span> </div>
+                    <div class="name_of_message"><span class="ms-2 other_user" id="changeColor" style="font-weight:bolder; text-transform:capitalize;" data-bs-toggle="tooltip" data-bs-placement="top" title="Give a Pet"><?php echo  "$owner_fname $owner_lname"; ?></span> </div>
                     <div class="display_validid">
                         <?php
                         $sql = "SELECT prof_pic FROM users WHERE userID = $owner_id";
@@ -180,7 +180,8 @@ if (!isset($_SESSION['userID'])) {
             <div class="title_give">Give Pet</div>
             <div class="each_pet_cont">
                 <?php
-                $sql = "SELECT petID, name FROM pet WHERE userID = " . $_SESSION['userID'] . " ORDER BY name";
+                // the sql query string below only displays pets that are not pending, thus, still posted
+                $sql = "SELECT petID, name FROM pet WHERE userID = " . $_SESSION['userID'] . " AND status = 'posted' ORDER BY name";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();
                 $result = $stmt->get_result();

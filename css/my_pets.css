@@ -78,9 +78,15 @@
 /* pet name container */
 .pet_name {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex: 3;
+    column-gap: 2em;
+}
+
+.status{
+    font-size: 0.7em;
+    color: red;
 }
 
 .pet_name div {
