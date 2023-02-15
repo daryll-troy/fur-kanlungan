@@ -190,7 +190,8 @@ if (!isset($_SESSION['userID'])) {
 
                         // pass to global variable the petID
                         $GLOBALS['petID'] = $row['petID'];
-                        $_SESSION['petID'] =  $row['petID'];
+                        // $_SESSION['petID'] =  $row['petID'];
+
                         // get 1 photo of the pet
                         $sql_photo = "SELECT photo FROM pet_photo WHERE petID = " . $row['petID'] . " ORDER BY petPhoID DESC LIMIT 1";
                         $resPho = $conn->query($sql_photo);
@@ -202,9 +203,13 @@ if (!isset($_SESSION['userID'])) {
                                     <div class="onePhoto"><img src="../images/pet_pics/<?php echo $GLOBALS['rowPho']; ?>" alt="1 photo"></div>
 
                                     <div class="the_pet"><?php echo $row['name']; ?></div>
+
                                     <div class="btnGive">
                                         <!-- check icon for giving -->
-                                        <i style='font-size:24px' class='fas' data-bs-toggle="tooltip" data-bs-placement="top" title="Give this Pet">&#xf2b5;</i>
+
+                                        <i style='font-size:24px' class='fas' data-bs-toggle="tooltip" data-bs-placement="top" title="Give this Pet"><a href="give_pet.php?pet_user=<?php echo $_SESSION['last_contacted'] ?>&petID=<?php echo $row['petID'] ?>" style="text-decoration:none; color:black;">&#xf2b5;</a></i>
+
+                                        <!-- <i style='font-size:24px' class='fas' data-bs-toggle="tooltip" data-bs-placement="top" title="Give this Pet">&#xf2b5;</i> -->
                                     </div>
                                 </div>
                 <?php

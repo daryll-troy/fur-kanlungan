@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2023 at 06:45 AM
+-- Generation Time: Feb 15, 2023 at 05:52 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -321,7 +321,27 @@ INSERT INTO `chat_log` (`cLID`, `sender`, `reciever`, `message`, `photo`, `date_
 (221, 3, 10, 'Bakit', NULL, '2023-02-09 22:33:50'),
 (222, 3, 7, 'HAHAHAH\nWHAT are you up to?', NULL, '2023-02-12 13:03:52'),
 (223, 3, 5, 'Hello', NULL, '2023-02-12 13:25:42'),
-(224, 3, 1, 'hey', NULL, '2023-02-12 13:37:18');
+(224, 3, 1, 'hey', NULL, '2023-02-12 13:37:18'),
+(225, 10, 2, 'hey', NULL, '2023-02-12 14:01:08'),
+(226, 3, 2, 'daryll', NULL, '2023-02-12 20:01:17'),
+(227, 3, 2, 'troy', NULL, '2023-02-12 20:03:01'),
+(228, 3, 7, 'i don\'t know now', NULL, '2023-02-12 20:25:15'),
+(229, 3, 10, 'no\nbakit', NULL, '2023-02-12 20:51:58'),
+(230, 3, 5, 'Zi', NULL, '2023-02-13 17:12:53'),
+(231, 3, 1, 'what r you doing', NULL, '2023-02-13 17:16:57'),
+(232, 3, 1, 'bakit daw', NULL, '2023-02-13 17:46:33'),
+(233, 3, 5, 'Never', NULL, '2023-02-13 17:48:48'),
+(234, 3, 1, 'hello', NULL, '2023-02-13 19:17:39'),
+(235, 3, 2, 'hey', NULL, '2023-02-13 20:10:11'),
+(236, 3, 2, 'boston celtics', NULL, '2023-02-13 20:10:17'),
+(237, 3, 1, 'hhe', NULL, '2023-02-13 20:27:51'),
+(238, 3, 5, 'what up', NULL, '2023-02-13 20:33:51'),
+(240, 1, 3, 'wala lng', NULL, '2023-02-13 22:42:02'),
+(241, 3, 1, 'ows', NULL, '2023-02-14 00:03:16'),
+(242, 10, 3, 'wala naman\nhahaha', NULL, '2023-02-15 11:34:18'),
+(243, 10, 1, 'Hello', NULL, '2023-02-15 11:36:51'),
+(244, 10, 3, 'bakit', NULL, '2023-02-15 11:37:00'),
+(245, 10, 3, 'hahahaha', NULL, '2023-02-15 11:37:52');
 
 -- --------------------------------------------------------
 
@@ -485,6 +505,8 @@ CREATE TABLE `deledopted` (
   `pcID` int(100) NOT NULL,
   `bcID` int(100) NOT NULL,
   `userID` int(100) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'posted',
+  `given_to` int(100) NOT NULL DEFAULT 999999,
   `date_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -492,22 +514,11 @@ CREATE TABLE `deledopted` (
 -- Dumping data for table `deledopted`
 --
 
-INSERT INTO `deledopted` (`petID`, `name`, `age`, `sex`, `vaccinated`, `description`, `pcID`, `bcID`, `userID`, `date_time`) VALUES
-(3, 'pusa na puti', 2020, 'female', 'no', 'pusa na puti', 2, 2, 3, '0000-00-00 00:00:00'),
-(4, 'ben', 2020, 'male', 'no', 'Ako si BEn 10 na mag pagka pusa', 1, 3, 3, '2023-01-15 16:08:28'),
-(5, 'tom', 2006, 'male', 'no', 'Ako si tommy   heinsen', 2, 4, 3, '2023-01-15 16:23:06'),
-(6, 'j', 2009, 'male', 'yes', 'ertertertert', 2, 2, 3, '2023-01-15 17:05:52'),
-(7, 'jkljk', 2009, 'male', 'yes', 'dfgdhgh', 2, 4, 3, '2023-01-15 17:19:25'),
-(8, 'jejas', 2009, 'male', 'no', 'ergdfgdfgdf', 1, 1, 3, '2023-01-15 17:20:56'),
-(9, 'tang', 2008, 'female', 'yes', 'fhdfh', 2, 4, 3, '2023-01-15 17:34:45'),
-(10, 'manypic', 2021, 'male', 'yes', 'Why do stars fall down from the sky?', 3, 6, 3, '2023-01-15 18:09:09'),
-(11, 'sdfdsf', 2009, 'male', 'yes', 'dfgdsdsfasdfsada', 1, 1, 3, '2023-01-15 21:33:01'),
-(12, 'ghdfgd', 2009, 'female', 'yes', 'dgfhgjdgfdgf', 3, 6, 3, '2023-01-15 22:02:32'),
-(13, 'xcvdfbfgn', 2020, 'male', 'no', 'ukhjjgfhfgh', 1, 3, 3, '2023-01-15 22:03:51'),
-(15, 'mino', 2016, 'male', 'yes', 'Ako si Mino', 1, 3, 3, '2023-01-26 22:04:19'),
-(18, 'husky', 2019, 'male', 'no', 'Ako si awaw aking', 1, 1, 6, '2023-01-28 22:53:38'),
-(20, 'anna', 2020, 'female', 'yes', 'Here I am, Playing with those memories again', 3, 6, 3, '2023-02-01 16:39:06'),
-(21, 'lop', 2021, 'female', 'no', 'hehehe', 2, 2, 3, '2023-02-01 17:17:05');
+INSERT INTO `deledopted` (`petID`, `name`, `age`, `sex`, `vaccinated`, `description`, `pcID`, `bcID`, `userID`, `status`, `given_to`, `date_time`) VALUES
+(3, 'pusa na puti', 2020, 'female', 'no', 'pusa na puti', 2, 2, 3, 'posted', 999999, '0000-00-00 00:00:00'),
+(4, 'ben', 2020, 'male', 'no', 'Ako si BEn 10 na mag pagka pusa', 1, 3, 3, 'posted', 999999, '2023-01-15 16:08:28'),
+(5, 'tom', 2006, 'male', 'no', 'Ako si tommy   heinsen', 2, 4, 3, 'posted', 999999, '2023-01-15 16:23:06'),
+(6, 'j', 2009, 'male', 'yes', 'ertertertert', 2, 2, 3, 'posted', 999999, '2023-01-15 17:05:52');
 
 -- --------------------------------------------------------
 
@@ -724,6 +735,8 @@ CREATE TABLE `pet` (
   `pcID` int(100) NOT NULL,
   `bcID` int(100) NOT NULL,
   `userID` int(100) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'posted',
+  `given_to` int(100) NOT NULL DEFAULT 999999,
   `date_time` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -731,14 +744,15 @@ CREATE TABLE `pet` (
 -- Dumping data for table `pet`
 --
 
-INSERT INTO `pet` (`petID`, `name`, `age`, `sex`, `vaccinated`, `description`, `pcID`, `bcID`, `userID`, `date_time`) VALUES
-(1, 'browny', 2020, 'male', 'no', 'browny\r\n', 2, 2, 1, '2023-01-16 20:52:27'),
-(2, 'akosidogie', 2019, 'male', 'no', 'Ako si dogie', 1, 1, 2, '2023-01-16 20:52:27'),
-(14, 'ben', 2020, 'male', 'no', 'Wassabi HAHAHA', 1, 1, 3, '2023-01-16 20:52:27'),
-(16, 'timothy', 2019, 'female', 'yes', 'Ako si TImothy', 3, 5, 1, '2023-01-28 16:56:33'),
-(17, 'christina', 2020, 'female', 'yes', 'Hello', 2, 4, 5, '2023-01-28 22:39:13'),
-(19, 'simon', 2020, 'male', 'yes', 'sdgdfhdh', 2, 4, 7, '2023-02-01 05:26:04'),
-(22, 'bing chilling', 2013, 'female', 'no', 'Am Xan SIna Ayoko sana\r\n\r\nna ikaw ay mawawa la', 3, 6, 10, '2023-02-04 00:06:32');
+INSERT INTO `pet` (`petID`, `name`, `age`, `sex`, `vaccinated`, `description`, `pcID`, `bcID`, `userID`, `status`, `given_to`, `date_time`) VALUES
+(1, 'browny', 2020, 'male', 'no', 'browny\r\n', 2, 2, 1, 'posted', 999999, '2023-01-16 20:52:27'),
+(2, 'akosidogie', 2019, 'male', 'no', 'Ako si dogie', 1, 1, 2, 'posted', 999999, '2023-01-16 20:52:27'),
+(14, 'ben', 2020, 'male', 'no', 'Wassabi HAHAHA', 1, 1, 3, 'posted', 999999, '2023-01-16 20:52:27'),
+(16, 'timothy', 2019, 'female', 'yes', 'Ako si TImothy', 3, 5, 1, 'posted', 999999, '2023-01-28 16:56:33'),
+(17, 'christina', 2020, 'female', 'yes', 'Hello', 2, 4, 5, 'posted', 999999, '2023-01-28 22:39:13'),
+(19, 'simon', 2020, 'male', 'yes', 'sdgdfhdh', 2, 4, 7, 'posted', 999999, '2023-02-01 05:26:04'),
+(22, 'bing chilling', 2013, 'female', 'no', 'Am Xan SIna Ayoko sana\r\n\r\nna ikaw ay mawawa la', 3, 6, 10, 'pending', 1, '2023-02-04 00:06:32'),
+(23, 'cliff', 2020, 'male', 'no', 'ako si cliff', 2, 4, 3, 'posted', 999999, '2023-02-13 19:35:49');
 
 -- --------------------------------------------------------
 
@@ -862,7 +876,10 @@ INSERT INTO `pet_photo` (`petphoID`, `petID`, `photo`, `date_time`) VALUES
 (130, 19, 'Khaomanee_cat.jpg', '2023-02-01 05:26:04'),
 (143, 22, 'hamster2.jpg', '2023-02-04 00:06:32'),
 (144, 22, 'hamster1.jpg', '2023-02-05 17:21:40'),
-(145, 22, 'puspin2.jpg', '2023-02-05 17:21:40');
+(145, 22, 'puspin2.jpg', '2023-02-05 17:21:40'),
+(146, 23, 'istockphoto-1217828258-170667a.jpg', '2023-02-13 19:35:49'),
+(147, 23, 'Khaomanee_cat.jpg', '2023-02-13 19:36:04'),
+(148, 23, 'pexels-pixabay-45201.jpg', '2023-02-13 19:36:04');
 
 -- --------------------------------------------------------
 
@@ -1092,16 +1109,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `username`, `email`, `password`, `fname`, `lname`, `photo_id`, `prof_pic`, `muniID`, `verified_id`, `date_time`) VALUES
-(1, 'wan', 'wan@yahoo.com', '$2y$10$0To9.RRBGJ6RzTM0Ni7QgO0YPsC44WpFGtTVG7cOzZYuqqoc5dSWm', 'wan', 'wan', 'hehe.jpeg', 'admin.png', 10, 'yes', NULL),
-(2, 'two', 'two@yahoo.com', '$2y$10$DiJbEIRecndAT.IK4TKF.eCREo81jMbS.0vyShyFlv.w.2xekFDcq', 'two', 'two', 'pic-na-retoke.jpg', 'admin.png', 6, 'yes', NULL),
-(3, 'jw', 'jw@yahoo.com', '$2y$10$pyDEsSs9TYYtHAASvBaoRO1oQBVpm5Y4iwbzF/mhX0tufgRI6a2Ku', 'john', 'wall', 'hehe.jpeg', 'admin.png', 17, 'yes', NULL),
+(1, 'wan', 'wan@yahoo.com', '$2y$10$0To9.RRBGJ6RzTM0Ni7QgO0YPsC44WpFGtTVG7cOzZYuqqoc5dSWm', 'wan', 'wan', 'hehe.jpeg', 'admin.png', 10, 'yes', '2023-01-14 22:14:47'),
+(2, 'two', 'two@yahoo.com', '$2y$10$DiJbEIRecndAT.IK4TKF.eCREo81jMbS.0vyShyFlv.w.2xekFDcq', 'two', 'two', 'pic-na-retoke.jpg', 'admin.png', 6, 'yes', '2023-01-14 22:14:47'),
+(3, 'jw', 'jw@yahoo.com', '$2y$10$pyDEsSs9TYYtHAASvBaoRO1oQBVpm5Y4iwbzF/mhX0tufgRI6a2Ku', 'john', 'wall', 'hehe.jpeg', 'admin.png', 17, 'yes', '2023-01-14 22:14:47'),
 (4, 'ako', 'ako@gmail.com', '$2y$10$VtAFNTm.LXnVNjveW6hlxenvk.V.v/2EJ8UzPieD7rQyvBB5aPqZC', 'ako ay', 'bakit ', 'pic-na-retoke.jpg', 'admin.png', 44, 'yes', '2023-01-14 22:14:47'),
 (5, 'mickey', 'mickeymouse@gmail.com', '$2y$10$5tQvztPCc5lsdBfAwPrVYu/up3n7hgk8rHwGkjsKrAGabyzaK6pFq', 'mickey', 'mouse', 'pic-na-retoke.jpg', 'admin.png', 14, 'yes', '2023-01-28 22:25:31'),
 (6, 'imee', 'imee@yahoo.com', '$2y$10$gfh/evqx0EBKIAcP6uRhU.wjgF2gb2ePYhsZVmzB.UdkD9VmuEngC', 'imee', 'denise', 'kobe.jpg', 'admin.png', 18, 'yes', '2023-01-28 22:37:55'),
 (7, 'jk', 'jk@yahoo.com', '$2y$10$ncchJh9/OJqPIWUC8/wQ9uvSMrdiKWjzhAoGhm.3Pbr7R5S0PDrwy', 'jk', 'jk', 'hehe.jpeg', 'admin.png', 20, 'yes', '2023-02-01 05:25:30'),
 (9, 'lop', 'lopdo@gmail.com', '$2y$10$3ikEZ7dFMgr4ALus18DNKuWkHyYiOrfCgIYCFU1gG3rikln4/ri5S', 'lo', 'lo', 'hehe.jpeg', 'admin.png', 13, 'yes', '2023-02-01 21:21:05'),
 (10, 'troy123', 'troy@gmail.com', '$2y$10$MRz15WIWXOfCVW32hSwUNOOlMnsxsacPWQ2fuelKRTayrr0ji9g8G', 'troy', 'de vera', 'hehe.jpeg', 'admin.png', 13, 'yes', '2023-02-02 15:53:06'),
-(11, 'ken', 'ken@yahoo.com', '$2y$10$.5pWusqBAIsR0L/.jduIhefyJzFix63a08StmSlUIRcLwbK9SRJ9a', 'ken', 'ken', 'Campbells_dwarf.jpg', 'admin.png', 46, 'yes', '2023-02-06 12:41:53');
+(11, 'ken', 'ken@yahoo.com', '$2y$10$.5pWusqBAIsR0L/.jduIhefyJzFix63a08StmSlUIRcLwbK9SRJ9a', 'ken', 'ken', 'Campbells_dwarf.jpg', 'admin.png', 46, 'yes', '2023-02-06 12:41:53'),
+(999999, 'noone', '', '', '', '', '', 'admin.png', 18, 'no', '2023-02-15 12:30:11');
 
 -- --------------------------------------------------------
 
@@ -1255,7 +1273,8 @@ ALTER TABLE `deledopted`
   ADD PRIMARY KEY (`petID`),
   ADD KEY `pcID` (`pcID`),
   ADD KEY `bcID` (`bcID`),
-  ADD KEY `userID` (`userID`);
+  ADD KEY `userID` (`userID`),
+  ADD KEY `given_to` (`given_to`);
 
 --
 -- Indexes for table `deledopted_photo`
@@ -1277,7 +1296,8 @@ ALTER TABLE `pet`
   ADD KEY `userID` (`userID`),
   ADD KEY `pcID` (`pcID`),
   ADD KEY `bcID` (`bcID`),
-  ADD KEY `name` (`name`);
+  ADD KEY `name` (`name`),
+  ADD KEY `given_to` (`given_to`);
 
 --
 -- Indexes for table `pet_category`
@@ -1353,7 +1373,7 @@ ALTER TABLE `breed_category`
 -- AUTO_INCREMENT for table `chat_log`
 --
 ALTER TABLE `chat_log`
-  MODIFY `cLID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
+  MODIFY `cLID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
 
 --
 -- AUTO_INCREMENT for table `clinic`
@@ -1371,7 +1391,7 @@ ALTER TABLE `clinic_photo`
 -- AUTO_INCREMENT for table `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `petID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `petID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `pet_category`
@@ -1383,7 +1403,7 @@ ALTER TABLE `pet_category`
 -- AUTO_INCREMENT for table `pet_photo`
 --
 ALTER TABLE `pet_photo`
-  MODIFY `petphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `petphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -1413,7 +1433,7 @@ ALTER TABLE `shop_photo`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `userID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000000;
 
 --
 -- Constraints for dumped tables
@@ -1450,7 +1470,8 @@ ALTER TABLE `clinic_photo`
 ALTER TABLE `deledopted`
   ADD CONSTRAINT `deledopted_ibfk_1` FOREIGN KEY (`pcID`) REFERENCES `pet_category` (`pcID`),
   ADD CONSTRAINT `deledopted_ibfk_2` FOREIGN KEY (`bcID`) REFERENCES `breed_category` (`bcID`),
-  ADD CONSTRAINT `deledopted_ibfk_3` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`);
+  ADD CONSTRAINT `deledopted_ibfk_3` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`),
+  ADD CONSTRAINT `deledopted_ibfk_4` FOREIGN KEY (`given_to`) REFERENCES `users` (`userID`);
 
 --
 -- Constraints for table `pet`
@@ -1458,13 +1479,8 @@ ALTER TABLE `deledopted`
 ALTER TABLE `pet`
   ADD CONSTRAINT `pet_ibfk_3` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`),
   ADD CONSTRAINT `pet_ibfk_4` FOREIGN KEY (`pcID`) REFERENCES `pet_category` (`pcID`),
-  ADD CONSTRAINT `pet_ibfk_5` FOREIGN KEY (`bcID`) REFERENCES `breed_category` (`bcID`);
-
---
--- Constraints for table `pet_photo`
---
-ALTER TABLE `pet_photo`
-  ADD CONSTRAINT `pet_photo_ibfk_1` FOREIGN KEY (`petID`) REFERENCES `pet` (`petID`);
+  ADD CONSTRAINT `pet_ibfk_5` FOREIGN KEY (`bcID`) REFERENCES `breed_category` (`bcID`),
+  ADD CONSTRAINT `pet_ibfk_6` FOREIGN KEY (`given_to`) REFERENCES `users` (`userID`);
 
 --
 -- Constraints for table `product`
@@ -1472,18 +1488,6 @@ ALTER TABLE `pet_photo`
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`shopID`) REFERENCES `shop` (`shopID`),
   ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`pcID`) REFERENCES `pet_category` (`pcID`);
-
---
--- Constraints for table `shop`
---
-ALTER TABLE `shop`
-  ADD CONSTRAINT `shop_ibfk_1` FOREIGN KEY (`muniID`) REFERENCES `municipality` (`muniID`);
-
---
--- Constraints for table `shop_photo`
---
-ALTER TABLE `shop_photo`
-  ADD CONSTRAINT `shop_photo_ibfk_1` FOREIGN KEY (`shopID`) REFERENCES `shop` (`shopID`);
 
 --
 -- Constraints for table `users`
