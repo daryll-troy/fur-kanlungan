@@ -1,0 +1,180 @@
+.message_who {
+    background-image: url("../admin/images/furAdmin.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+}
+
+/* container for background color */
+.color_container {
+    width: 80%;
+    min-height: inherit;
+    padding-top: 5em;
+    background-color: rgba(87, 73, 33, 0.397);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* container of titler */
+.kulay1 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    min-width: 100%;
+    min-height: 10vh;
+    background-color: rgb(236, 160, 85);
+    box-shadow: 2px 2px 5px;
+    padding: 1em 2em;
+    z-index: 1;
+}
+
+/* container of given and recieved history */
+.both_cont {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* given history */
+.pet_given {
+    background-color: rgba(87, 73, 33, 0.397);
+    width: 50%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.5em;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: 5px 5px 15px;
+}
+
+.pet_received {
+    background-color: rgba(87, 73, 33, 0.397);
+    width: 50%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.5em;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-left: 4px solid rgb(236, 160, 85);
+    box-shadow: 5px 5px 15px;
+}
+
+.given_title {
+    display: flex;
+    column-gap: 1em;
+    justify-content: center;
+    /* min-width: 40%; */
+    width: 100%;
+    background-color: rgb(24, 185, 59);
+    box-shadow: 5px 5px 15px;
+    padding: 1em;
+    font-weight: bold;
+    font-size: 1.3em;
+    position: sticky;
+    top: 0;
+}
+
+.received_title {
+    display: flex;
+    column-gap: 1em;
+    justify-content: center;
+    /* min-width: 40%; */
+    width: 100%;
+    background-color: rgb(185, 62, 24);
+    box-shadow: 5px 5px 15px;
+    padding: 1em;
+    font-weight: bold;
+    font-size: 1.3em;
+    position: sticky;
+    top: 0;
+}
+
+.given_content {
+    width: 100%;
+    padding: 0 2em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5em;
+}
+
+.received_content {
+    width: 100%;
+    padding: 0 2em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5em;
+}
+
+/* chat convo title */
+.chats_with {
+    color: black;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.each_userchat {
+    display: flex;
+    column-gap: 1em;
+    /* min-width: 40%; */
+    width: 100%;
+    /* background-color: rgba(236, 160, 85, 0.438); */
+    box-shadow: 5px 5px 15px;
+    padding: 1em;
+}
+
+.each_given{
+    background-color: rgba(92, 212, 118, 0.507);
+}
+
+.each_received{
+    background-color: rgba(201, 111, 84, 0.555);
+}
+
+.fullname {
+    text-transform: capitalize;
+    color: black;
+    font-weight: bold;
+}
+
+/* =================== MEDIA QUERIES ================= */
+
+
+@media screen and (max-width: 600px) {
+
+    .both_cont {
+        flex-direction: column;
+    }
+
+    .pet_given,
+    .pet_received {
+        width: 100%;
+    }
+
+/* remove the border left when flex direction is now column */
+    .pet_received{
+        border-left: 0;
+        
+    }
+}
+
+@media screen and (max-width: 360px) {
+.message_who{
+    justify-content: flex-start;
+}
+
+    .color_container {
+        width: 90%;
+    }
+}

@@ -50,21 +50,27 @@ if (!isset($_SESSION['userID'])) {
 
     <?php include "header.php"
     ?>
-   
+
 
     <div class="message_who">
         <div class="color_container">
 
             <div class="img">
+                <!-- <div> -->
                 <div style="font-size: 2em; text-align: justify;
   text-justify: inter-word;">
-                DONATE TO HELP IN MAINTAINING THIS WEBSITE 
-               </div>
-                <div>
-                Gcash Number: <span style="color:red; font-size:4em;">09301696212</span> 
+                    DONATE TO HELP IN MAINTAINING THIS WEBSITE
                 </div>
-                
+                <!-- <div>
+                        Gcash Number: <span style="color:red; font-size:4em;">09301696212</span>
+                    </div> -->
+                <!-- </div> -->
+                <div class="qrcode">
+                    <img src="../images/gcashQR.jpg" alt="">
+                </div>
             </div>
+
+
         </div>
     </div>
 

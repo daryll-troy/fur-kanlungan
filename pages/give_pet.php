@@ -4,7 +4,7 @@ include 'connect.php';
 // start a session
 session_start();
 
-// This post variable is not used as ajax is not used for giving pets
+// This post variable is not used as ajax is not used for giving pets, just leave this alone until you figure out how to make it work right with ajax
 if (isset($_POST['uid'])) {
 
     // Update the pet table

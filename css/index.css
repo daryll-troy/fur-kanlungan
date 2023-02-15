@@ -115,12 +115,12 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    
 }
 
 /* adjust the font-sizes of forget password and sign up links*/
 .signup p {
     font-size: clamp(0.7em, 0.8vw, 1em);
-
     margin-top: 1em;
 }
 
@@ -130,7 +130,7 @@
 }
 
 .signup p:nth-child(1) {
-    margin-right: 2em;
+    /* margin-right: 2em; */
 }
 
 .signup p:nth-child(2) {

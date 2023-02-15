@@ -79,7 +79,12 @@ li:hover {
     
 }
 
-
+/* history link */
+#history_atag:hover,
+#profile_atag:hover,
+#pet_receive_atag:hover{
+    background-color: rgb(156, 95, 34);
+}
 
 /********** Media Queries *************/
 

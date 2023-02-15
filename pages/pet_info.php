@@ -23,7 +23,7 @@ if (isset($_GET['pet_id'])) {
 
     // get the all photos of the pet
     $sql = "
-                        SELECT  u.fname, u.lname, pet.userID, pet_photo.photo, pet.name, pet.age, pet.sex, pet.description,  breed_category.breed
+                        SELECT  u.fname, u.lname, pet.userID, pet_photo.photo, pet.name, pet.age, pet.sex, pet.description, pet.vaccinated, breed_category.breed
                         FROM pet 
                         INNER JOIN pet_photo ON pet.petID = pet_photo.petID
                         INNER JOIN pet_category ON pet.pcID = pet_category.pcID
@@ -44,6 +44,7 @@ if (isset($_GET['pet_id'])) {
             $pet_user = $row['userID'];
             $GLOBALS['fname'] = $row['fname'];
             $GLOBALS['lname'] = $row['lname'];
+            $GLOBALS['vaccinated'] = $row['vaccinated'];
         }
     } else {
         echo "<script>alert('No such Pet ID!!')</script>";
@@ -110,6 +111,7 @@ $_SESSION['coverPetPic'] = $pet_photo;
                     <div class="name">Gender: <span><?php echo $pet_sex ?></span></div>
                     <div class="name">Owner: <span><?php echo   $GLOBALS['fname'] . " " . $GLOBALS['lname'] ?></span></div>
                     <div class="name">Breed: <span><?php echo $pet_breed ?></span></div>
+                    <div class="name">Vaccinated: <span><?php echo  $GLOBALS['vaccinated'] ?></span></div>
                 </div>
                 <div id="desc">
                     <div class="name">Description: <br>

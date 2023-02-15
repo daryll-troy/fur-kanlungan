@@ -58,11 +58,11 @@ if (!isset($_SESSION['userID'])) {
             $pet_name = "";
 
             $sql = "
-                    SELECT pet.petID, pet.name, pet.status
+                    SELECT pet.petID, pet.name, pet.status, us2.fname, us2.lname
                     FROM pet 
-                    INNER JOIN users ON pet.userID = users.userID
-                   
-                    WHERE users.userID = '$user';
+                    INNER JOIN users AS us1 ON pet.userID = us1.userID
+                    INNER JOIN users AS us2 ON pet.given_to = us2.userID
+                    WHERE us1.userID = '$user' ORDER BY pet.name
                     ";
             $query = $conn->query($sql);
             if ($query->num_rows > 0) {
@@ -71,6 +71,8 @@ if (!isset($_SESSION['userID'])) {
                     $pet_name = $row['name'];
                     $pet_id = $row['petID'];
                     $pet_status = $row['status'];
+                    $us2_fname =  $row['fname'];
+                    $us2_lname =  $row['lname'];
 
                     // display the current pets of the user 
                     echo "<div class='each_pet'>";
@@ -106,22 +108,13 @@ if (!isset($_SESSION['userID'])) {
                                     <a href='pet_info.php?pet_id=$pet_id'>
                                         <div> $pet_name</div>
                                     </a>
-                                    <div class='status'> $pet_status</div>
+                                    <div class='status'> $pet_status : $us2_fname $us2_lname </div>
                                 </div>
                            
                                 ";
 
 
-                    // display the status of the pet 
-
-                    // echo "  
-                    //             <div class='pet_status'>
-                                    
-                                        
-                                    
-                    //             </div>
-                           
-                    //             ";
+                
 
                     // update pets
                     echo "  <div class='pang-row'>

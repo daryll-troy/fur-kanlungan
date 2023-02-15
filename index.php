@@ -204,7 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <button class="btn btn-primary submit-login">Sign in</button>
                                     </div>
                                     <div class="signup">
-                                        <p><a href="">Forgot Password&nbsp</a></p>
+                                        <!-- <p><a href="">Forgot Password&nbsp</a></p> -->
                                         <p>Don't have an account? <span onclick="openForm()" id="link-signup">Sign Up </span></p>
                                     </div>
                                 </div>

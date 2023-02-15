@@ -82,15 +82,20 @@
     align-items: center;
     flex: 3;
     column-gap: 2em;
+ 
 }
 
 .status{
     font-size: 0.7em;
     color: red;
+    max-width: 10em;
+    word-break: break-all;
 }
 
 .pet_name div {
     text-transform: capitalize;
+    max-width: 25em;
+    word-break: break-all;
 }
 
 /* adjust the font size and font style */

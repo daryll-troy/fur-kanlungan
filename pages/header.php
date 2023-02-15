@@ -68,8 +68,9 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
 
 
-                                <li><a class="dropdown-item" href="#" style="margin-left: 0; text-transform: capitalize; font-weight:bold; font-size: 1.1em;"><?php echo $fname; ?></a></li>
-                                <li><a class="dropdown-item" href="#" style="margin-left: 0;">History</a></li>
+                                <li id="profile"><a id="profile_atag" class="dropdown-item" href="#" style="margin-left: 0; text-transform: capitalize; font-weight:bold; font-size: 1.1em;"><?php echo $fname; ?></a></li>
+                                <li id="pet_receive"><a id="pet_receive_atag" class="dropdown-item" href="pet_receive.php" style="margin-left: 0;">Receive Pets</a></li>
+                                <li id="history"><a id="history_atag" class="dropdown-item" href="history.php" style="margin-left: 0;">History</a></li>
                                 <!-- <li><a class="dropdown-item" href="#" style="margin-left: 0;">Profile</a></li> -->
                                 <li>
                                     <hr class="dropdown-divider" style="color: black;">
