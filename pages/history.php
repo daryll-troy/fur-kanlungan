@@ -68,7 +68,7 @@ if (!isset($_SESSION['userID'])) {
                         <?php
                         $userID = $_SESSION['userID'];
                         $sql = "SELECT d.*, u.fname, u.lname FROM deledopted AS d 
-                            INNER JOIN users AS u ON u.userID = d.userID
+                            INNER JOIN users AS u ON u.userID = d.given_to
                         WHERE d.userID = " . $userID . " AND status = 'given'";
 
                         $result = $conn->query($sql);

@@ -128,6 +128,29 @@ if (!isset($_SESSION['userID'])) {
                             <?php
                             }
                         }
+
+                        // check that message is  null and photo is not null
+                        if ($row['message'] === null && $row['photo'] !== null) {
+                            // if sender is the userID, then display the message to the right of the screen
+                            if ($row['sender'] === $userID) {
+                            ?>
+                                <div class="right_container">
+                                    <div class="display_message_right me-2 mb-2">
+                                        <img class='phoImage' src='../images/chat_pics/<?php echo $row['photo']; ?>' alt=''>
+                                    </div>
+                                </div>
+                            <?php
+                                // if sender is the last_contacted, then display the message to the left of the screen
+                            } else {
+                            ?>
+                                <div class="left_container">
+                                    <div class="display_message_left ms-2 mb-2">
+                                        <img class='phoImage' src='../images/chat_pics/<?php echo $row['photo']; ?>' alt=''>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                        }
                     }
                     // if get variable $_GET['pet_user'] is not available, use the session variable $_SESSION['last_contacted']
                 } else {
@@ -148,6 +171,29 @@ if (!isset($_SESSION['userID'])) {
                             } else {
                             ?>
                                 <div class="display_message_left ms-2 mb-2"><?php echo $row['message']; ?></div>
+                            <?php
+                            }
+                        }
+
+                        // check that message is  null and photo is not null
+                        if ($row['message'] === null && $row['photo'] !== null) {
+                            // if sender is the userID, then display the message to the right of the screen
+                            if ($row['sender'] === $userID) {
+                            ?>
+                                <div class="right_container">
+                                    <div class="display_message_right me-2 mb-2">
+                                        <img class='phoImage' src='../images/chat_pics/<?php echo $row['photo']; ?>' alt=''>
+                                    </div>
+                                </div>
+                            <?php
+                                // if sender is the last_contacted, then display the message to the left of the screen
+                            } else {
+                            ?>
+                                <div class="left_container">
+                                    <div class="display_message_left ms-2 mb-2">
+                                        <img class='phoImage' src='../images/chat_pics/<?php echo $row['photo']; ?>' alt=''>
+                                    </div>
+                                </div>
                 <?php
                             }
                         }
@@ -161,7 +207,7 @@ if (!isset($_SESSION['userID'])) {
                 <!-- <input type="text" class="chat_field"> -->
                 <textarea name="chat_field" class="chat_field" cols="30" rows="10"></textarea>
                 <div>
-                    <input class=" form-control upload" type="file" id="upload_pics" name="upload_pics[]" multiple accept=".jpg, .png, .jpeg">
+                    <input class=" form-control upload" type="file" id="upload_pics" name="upload_pics" accept=".jpg, .png, .jpeg">
                     <input type="button" class="btn btn-primary send" value="send">
                 </div>
             </div>
@@ -234,6 +280,38 @@ if (!isset($_SESSION['userID'])) {
             document.getElementById('chats').style.backgroundColor = 'rgb(' + 85 + ',' + 48 + ',' + 8 + ',' + 0.918 + ')';
         }
         navbarColor();
+    </script>
+
+    <!-- internal script for sending photos -->
+    <script>
+        $(document).ready(function() {
+            $('.send').click(function() {
+                var fd = new FormData();
+                var upload_pics = $('#upload_pics')[0].files[0];
+                // console.log(upload_pics);
+                fd.append('upload_pics', upload_pics);
+                // console.log(fd);
+                $.ajax({
+                    url: 'chat_photo_upload.php',
+                    type: 'post',
+                    data: fd,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        // alert(response);
+                    }
+                })
+            })
+        })
+    </script>
+
+    <!-- internal script for full screen image on double click -->
+    <script>
+        // $(document).ready(function() {
+        //     $('.send').hover(function() {
+        //         alert('i am double clicked!');
+        //     })
+        // })
     </script>
 
     <!-- JAVASCRIPT FOR AJAX -->

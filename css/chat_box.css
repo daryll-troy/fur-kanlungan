@@ -52,6 +52,13 @@
     overflow-y: scroll;
 }
 
+/* resize the photo displayed in the chat*/
+.phoImage{
+    width: 15em;
+    height: 15em;
+    object-fit: contain;
+}
+
 .chat_box {
     width: 90%;
     display: flex;

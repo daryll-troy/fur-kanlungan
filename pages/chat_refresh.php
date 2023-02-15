@@ -11,6 +11,7 @@ if (isset($_POST['chat_refresh'])) {
     $result = $stmt->get_result();
     $output = "";
     while ($row = $result->fetch_assoc()) {
+        // display text
         if ($row['message'] !== null && $row['photo'] === null) {
             if ($row['sender'] == $userID) {
                 // if sender is the userID, then display the message to the right of the screen
@@ -23,6 +24,20 @@ if (isset($_POST['chat_refresh'])) {
                 $output .=  "<div class='left_container'>
             <div class='display_message_left ms-2 mb-2'>" . $row['message'] .
                     "</div>
+        </div>";
+            }
+        }
+        // display photo
+        if ($row['message'] === null && $row['photo'] !== null) {
+            if ($row['sender'] == $userID) {
+                // if sender is the userID, then display the message to the right of the screen
+                $output .=  "<div class='right_container'>
+                <div class='display_message_right me-2 mb-2'><img class='phoImage' src='../images/chat_pics/" . $row['photo'] . "' alt='".  $row['photo'] ."'></div>
+            </div>";
+            } else {
+                // if sender is the last_contacted, then display the message to the left of the screen
+                $output .=  "<div class='left_container'>
+            <div class='display_message_left ms-2 mb-2'><img class='phoImage' src='../images/chat_pics/" . $row['photo'] . "' alt='".  $row['photo'] ."'></div>
         </div>";
             }
         }
