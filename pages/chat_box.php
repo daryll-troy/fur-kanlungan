@@ -188,6 +188,9 @@ if (!isset($_SESSION['userID'])) {
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
 
+                        // pass to global variable the petID
+                        $GLOBALS['petID'] = $row['petID'];
+                        $_SESSION['petID'] =  $row['petID'];
                         // get 1 photo of the pet
                         $sql_photo = "SELECT photo FROM pet_photo WHERE petID = " . $row['petID'] . " ORDER BY petPhoID DESC LIMIT 1";
                         $resPho = $conn->query($sql_photo);
@@ -195,7 +198,6 @@ if (!isset($_SESSION['userID'])) {
                             while ($rowPho = $resPho->fetch_assoc()) {
                                 $GLOBALS['rowPho'] = $rowPho['photo'];
                 ?>
-
                                 <div class="each_pet">
                                     <div class="onePhoto"><img src="../images/pet_pics/<?php echo $GLOBALS['rowPho']; ?>" alt="1 photo"></div>
 

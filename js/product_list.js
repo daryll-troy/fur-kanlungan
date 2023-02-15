@@ -50,8 +50,8 @@ $(document).ready(function () {
 
                                     "<div class='card-body white-box'>" +
                                     " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Name: </span>" + value.prod_name + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: ₱ </span>" + value.price + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop Name: </span>" + value.shop_name + "</p>" +
+                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: ₱</span>" + value.price + "</p>" +
+                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop: </span>" + value.shop_name + "</p>" +
                                     " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Pet Type: </span>" + value.animal_type + "</p>"
                                     + "</div>"
                                     + "</div>"
@@ -115,8 +115,8 @@ $(document).ready(function () {
 
                                     "<div class='card-body white-box'>" +
                                     " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Name: </span>" + value.prod_name + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: </span>" + value.price + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop Name: </span>" + value.shop_name + "</p>" +
+                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: ₱</span>" + value.price + "</p>" +
+                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop: </span>" + value.shop_name + "</p>" +
                                     " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Pet Type: </span>" + value.animal_type + "</p>"
                                     + "</div>"
                                     + "</div>"
@@ -135,7 +135,7 @@ $(document).ready(function () {
                 // reload the page to load all pets 
                 location.reload();
 
-                // IF PC IS ALL BUT SHOP NAME IS SPECIFIC
+                // IF PC IS ALL BUT Shop IS SPECIFIC
             } else {
 
                 $.ajax({
@@ -176,8 +176,8 @@ $(document).ready(function () {
 
                                     "<div class='card-body white-box'>" +
                                     " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Name: </span>" + value.prod_name + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: </span>" + value.price + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop Name: </span>" + value.shop_name + "</p>" +
+                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: ₱</span>" + value.price + "</p>" +
+                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop: </span>" + value.shop_name + "</p>" +
                                     " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Pet Type: </span>" + value.animal_type + "</p>"
                                     + "</div>"
                                     + "</div>"
@@ -196,7 +196,7 @@ $(document).ready(function () {
 
 
 
-// // For displaying the RESUlt with a specified shop name
+// // For displaying the RESUlt with a specified Shop
 $(document).ready(function () {
     $("#breed").change(function () {
         let pc = $("#pet_category").val();
@@ -244,8 +244,8 @@ $(document).ready(function () {
 
                                     "<div class='card-body white-box'>" +
                                     " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Name: </span>" + value.prod_name + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: </span>" + value.price + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop Name: </span>" + value.shop_name + "</p>" +
+                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: ₱</span>" + value.price + "</p>" +
+                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop: </span>" + value.shop_name + "</p>" +
                                     " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Pet Type: </span>" + value.animal_type + "</p>"
                                     + "</div>"
                                     + "</div>"
@@ -300,8 +300,8 @@ $(document).ready(function () {
 
                                     "<div class='card-body white-box'>" +
                                     " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Name: </span>" + value.prod_name + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: </span>" + value.price + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop Name: </span>" + value.shop_name + "</p>" +
+                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: ₱</span>" + value.price + "</p>" +
+                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop: </span>" + value.shop_name + "</p>" +
                                     " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Pet Type: </span>" + value.animal_type + "</p>"
                                     + "</div>"
                                     + "</div>"
@@ -323,7 +323,7 @@ $(document).ready(function () {
                 // reload the page to load all pets 
                 location.reload();
 
-                // IF PC IS ALL BUT SHOP NAME IS SPECIFIC
+                // IF PC IS ALL BUT Shop IS SPECIFIC
             } else {
                 $.ajax({
 
@@ -363,8 +363,8 @@ $(document).ready(function () {
 
                                     "<div class='card-body white-box'>" +
                                     " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Name: </span>" + value.prod_name + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: </span>" + value.price + "</p>" +
-                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop Name: </span>" + value.shop_name + "</p>" +
+                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: ₱</span>" + value.price + "</p>" +
+                                    " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop: </span>" + value.shop_name + "</p>" +
                                     " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Pet Type: </span>" + value.animal_type + "</p>"
                                     + "</div>"
                                     + "</div>"
@@ -430,8 +430,8 @@ $(document).ready(function () {
 
                             "<div class='card-body white-box'>" +
                             " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Name: </span>" + value.prod_name + "</p>" +
-                            " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: </span>" + value.price + "</p>" +
-                            " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop Name: </span>" + value.shop_name + "</p>" +
+                            " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Price: ₱</span>" + value.price + "</p>" +
+                            " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Shop: </span>" + value.shop_name + "</p>" +
                             " <p class='card-text' style='text-transform:capitalize;'><span style='font-weight: bold; '>Pet Type: </span>" + value.animal_type + "</p>"
                             + "</div>"
                             + "</div>"

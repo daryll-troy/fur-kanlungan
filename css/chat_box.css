@@ -318,4 +318,17 @@
         width: 95%;
     }
 
+.chat_box{
+    column-gap: 0.5em;
+}
+
+    .chat_field {
+        flex: 3;
+    }
+
+    .send, 
+    .upload{
+        width: 100%;
+    }
+
 }

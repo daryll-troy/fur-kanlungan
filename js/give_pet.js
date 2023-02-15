@@ -13,11 +13,26 @@ $(document).ready(function () {
     })
 
     $(".fas").click(() => {
-        let the_pet = $('.the_pet').text();
-        let other_user = $('.other_user').text();
-        // console.log(the_pet + " " + other_user);
-        if(confirm("Do you want to give " +  the_pet + " to user " + other_user +"?")){
+        const the_pet = $('.the_pet').text();
+        const other_user = $('.other_user').text();
 
+        // console.log(the_pet + " " + other_user);
+        if (confirm("Do you want to give " + the_pet + " to user " + other_user + "?")) {
+            $.ajax({
+                url: 'give_pet.php',
+                method: 'post',
+                // dataType: "text",
+                data: {
+                    uid: "",
+                    pid: ""
+                },
+                success: (output) => {
+                    // console.log(output);
+                    alert(output);
+                }
+            })
         }
     })
+
+
 })
