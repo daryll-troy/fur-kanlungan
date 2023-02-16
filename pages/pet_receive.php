@@ -85,7 +85,7 @@ if (!isset($_SESSION['userID'])) {
                                     <div class="fullname"><?php echo $row['name'] ?>,</div>
                                 </a>
                                 <!-- owner -->
-                                <a href="" class="atag_name" data-bs-toggle="tooltip" data-bs-placement="top" title="View Profile">
+                                <a href="profile.php?user_id=<?php echo $row['userID'];?>" class="atag_name" data-bs-toggle="tooltip" data-bs-placement="top" title="View Profile">
                                     <div class="fullname">from <?php echo $row['fname'] ?></div>
                                 </a>
                                 <div class="options" >

@@ -1,5 +1,6 @@
 .header {
     min-height: 5vh;
+    /* height: clamp(2vh, 5em, 9vh); */
 }
 
 

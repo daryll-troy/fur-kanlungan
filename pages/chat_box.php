@@ -62,13 +62,14 @@ if (!isset($_SESSION['userID'])) {
 
     $owner_id = $_SESSION['last_contacted'];
     $owner_fname = $owner_lname = "";
-    $sql = "SELECT fname, lname from users WHERE userID = $owner_id";
+    $sql = "SELECT userID, fname, lname from users WHERE userID = $owner_id";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while ($get_name = $result->fetch_assoc()) {
             $owner_fname = $get_name['fname'];
             $owner_lname = $get_name['lname'];
+            $GLOBALS['userID'] = $get_name['userID'];
         }
     }
     ?>
@@ -90,7 +91,7 @@ if (!isset($_SESSION['userID'])) {
                         if ($result->num_rows > 0) {
                             while ($getPhoto = $result->fetch_assoc()) {
                         ?>
-                                <img src="../images/prof_pics/<?php echo $getPhoto['prof_pic']; ?>" alt="" id="photo_id" data-bs-toggle="tooltip" data-bs-placement="top" title="View Profile">
+                                <a href="profile.php?user_id=<?php echo $GLOBALS['userID'];?>"><img src="../images/prof_pics/<?php echo $getPhoto['prof_pic']; ?>" alt="" id="photo_id" data-bs-toggle="tooltip" data-bs-placement="top" title="View Profile"></a>
                         <?php
                             }
                         }

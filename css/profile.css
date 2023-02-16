@@ -1,0 +1,132 @@
+.message_who {
+    background-image: url("../admin/images/furAdmin.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+}
+
+/* container for background color */
+.color_container {
+    width: 80%;
+    min-height: inherit;
+    padding-top: 5em;
+    background-color: rgba(87, 73, 33, 0.397);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* container of titler */
+.kulay1 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    min-width: 100%;
+    min-height: 10vh;
+    background-color: rgb(236, 160, 85);
+    box-shadow: 2px 2px 5px;
+    padding: 1em 2em;
+    z-index: 1;
+}
+
+.chats_with {
+    color: black;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* container of given and recieved history */
+.both_cont {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    column-gap: 1em;
+    padding: 1em;
+    background-color: rgba(87, 73, 33, 0.397);
+    box-shadow: 5px 5px 15px;
+}
+
+.prof_pic{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1em;
+    flex: 0.6;
+}
+
+.prof_pic img {
+    height: 12em;
+    width: 12em;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.prof_pic input{
+    width: 12em;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    row-gap: 2em;
+}
+
+/* firstname and lastname */
+.flname,
+.muni_name {
+    font-weight: bold;
+    /* font-size: clamp(3vw, 1em, 5vw); */
+    font-size: 1.5em;
+    text-transform: capitalize;
+}
+
+.flname span,
+.muni_name span {
+    color: rgb(66, 47, 5);
+    font-size: 1.5em;
+}
+
+/* =================== MEDIA QUERIES ================= */
+@media screen and (max-width: 768px) {
+    .color_container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+
+    .both_cont {
+        flex-direction: column;
+    }
+
+    .pet_given,
+    .pet_received {
+        width: 100%;
+    }
+
+    /* remove the border left when flex direction is now column */
+    .pet_received {
+        border-left: 0;
+
+    }
+}
+
+@media screen and (max-width: 360px) {
+    /* .message_who {
+        justify-content: flex-start;
+    } */
+
+    .color_container {
+        width: 100%;
+    }
+}
