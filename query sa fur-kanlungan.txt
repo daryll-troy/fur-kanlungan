@@ -1,0 +1,92 @@
+1.
+CREATE VIEW  pets_owned AS
+SELECT u.userID, u.username, u.fname, u.lname, m.muni_name, COUNT(p.petID) AS pets_owned
+FROM users AS u INNER JOIN pet AS p ON u.userID = p.userID
+INNER JOIN municipality AS m ON m.muniID = u.muniID
+GROUP BY u.userID
+ORDER BY u.userID
+============================================================
+2.
+CREATE VIEW  not_owned AS
+SELECT u.userID, u.username, u.fname, u.lname, m.muni_name
+FROM users as u INNER JOIN municipality AS m ON m.muniID = u.muniID
+WHERE u.userID NOT IN (SELECT userID FROM pets_owned) ORDER BY u.userID
+=======================================================
+3.
+CREATE VIEW unver_ver AS
+SELECT u.userID, u.username, u.fname, u.lname, m.muni_name, u.verified_id
+FROM users as u INNER JOIN municipality AS m ON m.muniID = u.muniID
+ORDER BY u.userID
+==================================================================
+4.
+ CREATE VIEW pet_category_report AS
+SELECT p.petID, p.name, pc.animal_type, bc.breed, m.muni_name
+FROM pet AS p
+INNER JOIN  pet_category AS pc ON pc.pcID = p.pcID
+INNER JOIN breed_category AS bc ON bc.bcID = p.bcID
+INNER JOIN users AS u ON u.userID = p.userID
+INNER JOIN municipality AS m ON m.muniID = u.muniID
+ORDER BY p.petID
+=============================================================
+5.
+ CREATE VIEW birthyear_report AS
+SELECT p.petID, p.name, p.age, m.muni_name
+FROM pet AS p
+INNER JOIN users AS u ON u.userID = p.userID
+INNER JOIN municipality AS m ON m.muniID = u.muniID
+ORDER BY p.petID
+===================================================================
+6.
+CREATE VIEW sex_report AS
+SELECT p.petID, p.name, p.sex, m.muni_name
+FROM pet AS p
+INNER JOIN users AS u ON u.userID = p.userID
+INNER JOIN municipality AS m ON m.muniID = u.muniID
+ORDER BY p.petID
+==============================================================
+7.
+CREATE VIEW vaccinated_report AS
+SELECT p.petID, p.name, p.vaccinated, m.muni_name
+FROM pet AS p
+INNER JOIN users AS u ON u.userID = p.userID
+INNER JOIN municipality AS m ON m.muniID = u.muniID
+ORDER BY p.petID
+=======================================================
+
+8.
+CREATE VIEW owner_report AS
+SELECT p.petID, p.name, u.username, u.fname, u.lname, m.muni_name
+FROM pet AS p
+INNER JOIN users AS u ON u.userID = p.userID
+INNER JOIN municipality AS m ON m.muniID = u.muniID
+ORDER BY p.petID
+================================================================
+
+9.
+CREATE VIEW shop_prod_report AS
+SELECT p.prodID, p.prod_name, p.price, s.shopID, s.shop_name, m.muni_name, pc.animal_type
+FROM product AS p
+INNER JOIN shop AS s ON s.shopID = p.shopID
+INNER JOIN municipality AS m ON m.muniID = s.muniID
+INNER JOIN pet_category AS pc ON pc.pcID = p.pcID
+ORDER BY p.prodID
+============================================================
+
+10.
+CREATE VIEW deledopted_report AS
+SELECT d.petID, d.name, d.age, d.sex, d.vaccinated, pc.animal_type,
+bc.breed, u.username, u.fname, u.lname, m.muni_name, d.date_time
+FROM deledopted AS d
+INNER JOIN pet_category AS pc ON pc.pcID = d.pcID
+INNER JOIN breed_category AS bc ON bc.bcID = d.bcID
+INNER JOIN users AS u ON u.userID = d.userID
+INNER JOIN municipality AS m ON m.muniID = u.muniID
+ORDER BY d.petID
+======================================================
+// FOR THE CHAT_LIST.PHP
+11.
+SELECT userID, fname, lname FROM users WHERE userID = ANY(
+SELECT sender FROM chat_log WHERE sender = 3 or reciever = 3 
+UNION
+    SELECT reciever FROM chat_log WHERE sender = 3 or reciever = 3 
+)
