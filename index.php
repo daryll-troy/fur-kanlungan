@@ -155,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <!-- terms and conditions -->
                     <div class="back-to-signin igitna">
-                        <p>By clicking sign up, you agree to the <span><a href="" class="terms_and_cond">Terms and Conditions</a> </span></p>
+                        <p>By clicking sign up, you agree to the <span><a href="pages/terms_and_conditions.php" class="terms_and_cond">Terms and Conditions</a> </span></p>
                     </div>
                     <div class="igitna mb-2">
                         <input type="button" class="btn btn-primary submit-reg" id="btn_signup" value="Validate">

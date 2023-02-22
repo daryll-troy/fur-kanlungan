@@ -145,8 +145,20 @@
   }
 
 /* ===================== MEDIA QUERIES ======================== */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 992px) {
     .pet_info {
         flex-direction: column;
     }
+
+    .pet_pics,
+    .pet_details,
+    .details_container{
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 360px) {
+  .prodName{
+    font-size: 30px;
+  }
 }

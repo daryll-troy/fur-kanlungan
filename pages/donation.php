@@ -68,6 +68,9 @@ if (!isset($_SESSION['userID'])) {
                 <div class="qrcode">
                     <img src="../images/gcashQR.jpg" alt="">
                 </div>
+                <div style="color:black; text-shadow:none;">
+                    09301696212
+                </div>
             </div>
 
 

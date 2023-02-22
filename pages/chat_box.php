@@ -300,6 +300,7 @@ if (!isset($_SESSION['userID'])) {
                     processData: false,
                     success: function(response) {
                         // alert(response);
+                        $('.upload_pics').val('');
                     }
                 })
             })

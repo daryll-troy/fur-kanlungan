@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2023 at 05:52 AM
+-- Generation Time: Feb 16, 2023 at 06:25 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -341,7 +341,70 @@ INSERT INTO `chat_log` (`cLID`, `sender`, `reciever`, `message`, `photo`, `date_
 (242, 10, 3, 'wala naman\nhahaha', NULL, '2023-02-15 11:34:18'),
 (243, 10, 1, 'Hello', NULL, '2023-02-15 11:36:51'),
 (244, 10, 3, 'bakit', NULL, '2023-02-15 11:37:00'),
-(245, 10, 3, 'hahahaha', NULL, '2023-02-15 11:37:52');
+(245, 10, 3, 'hahahaha', NULL, '2023-02-15 11:37:52'),
+(246, 3, 1, 'hahahaha', NULL, '2023-02-15 14:31:04'),
+(247, 3, 10, 'wqala po', NULL, '2023-02-15 18:16:38'),
+(248, 10, 1, 'eruhgoiga', NULL, '2023-02-15 20:59:15'),
+(249, 10, 2, 'hahahha', NULL, '2023-02-15 22:30:09'),
+(250, 10, 1, 'hahahaha', NULL, '2023-02-15 22:32:02'),
+(251, 10, 2, 'lasjfa', NULL, '2023-02-15 22:41:17'),
+(252, 10, 5, 'Hellp', NULL, '2023-02-15 22:43:34'),
+(253, 10, 3, 'hello', NULL, '2023-02-15 23:05:20'),
+(254, 3, 10, 'hahaha hi', NULL, '2023-02-15 23:05:25'),
+(255, 10, 3, 'haha thanks for cancelling bea', NULL, '2023-02-15 23:06:06'),
+(256, 3, 10, 'ur welcome', NULL, '2023-02-15 23:06:10'),
+(257, 10, 1, 'I dont want this pet', NULL, '2023-02-16 00:07:03'),
+(258, 1, 10, 'okay, you can cancel it', NULL, '2023-02-16 00:07:12'),
+(259, 1, 10, 'here take this instead', NULL, '2023-02-16 00:07:26'),
+(260, 3, 10, 'hi', NULL, '2023-02-16 02:11:38'),
+(261, 10, 3, 'low', NULL, '2023-02-16 02:11:48'),
+(262, 10, 2, 'helo', NULL, '2023-02-16 02:55:47'),
+(263, 10, 2, 'hey', NULL, '2023-02-16 03:14:22'),
+(264, 10, 2, 'hahaha', NULL, '2023-02-16 03:14:27'),
+(265, 10, 3, 'why', NULL, '2023-02-16 03:14:34'),
+(266, 3, 10, 'nothing', NULL, '2023-02-16 03:14:43'),
+(267, 10, 3, 'haha', NULL, '2023-02-16 03:52:00'),
+(268, 10, 3, 'hahahaha', NULL, '2023-02-16 04:05:31'),
+(269, 10, 3, NULL, 'jorji1.jpg', '2023-02-16 04:27:42'),
+(270, 3, 10, NULL, 'hamster1.jpg', '2023-02-16 04:28:47'),
+(271, 3, 10, 'This is a hamster hahahaha', NULL, '2023-02-16 04:28:47'),
+(272, 10, 3, NULL, 'Khaomanee_cat.jpg', '2023-02-16 04:36:48'),
+(273, 10, 3, 'why', NULL, '2023-02-16 04:52:26'),
+(274, 10, 3, NULL, 'samantha.jpg', '2023-02-16 05:02:35'),
+(275, 3, 10, NULL, 'hamster2.jpg', '2023-02-16 05:04:45'),
+(276, 10, 3, 'that is a brown hamster hahahaha', NULL, '2023-02-16 05:11:56'),
+(277, 3, 10, 'indeed', NULL, '2023-02-16 05:12:01'),
+(278, 10, 1, 'look at stix oh', NULL, '2023-02-16 05:12:21'),
+(279, 10, 1, NULL, 'stix - Copy.jpg', '2023-02-16 05:12:21'),
+(280, 10, 3, 'what up', NULL, '2023-02-16 05:14:13'),
+(281, 10, 3, NULL, 'puspin2.jpg', '2023-02-16 05:14:39'),
+(282, 3, 10, NULL, 'Brown_Aspin.jpg', '2023-02-16 05:15:50'),
+(283, 10, 3, 'hahahahaha', NULL, '2023-02-16 05:15:56'),
+(284, 10, 3, NULL, 'germanshepherd.jpg', '2023-02-16 05:27:42'),
+(285, 10, 5, NULL, 'puspin2.jpg', '2023-02-16 05:33:17'),
+(286, 10, 2, NULL, 'stix3.jpg', '2023-02-16 06:22:14'),
+(287, 10, 5, 'this is not a test', NULL, '2023-02-16 06:24:45'),
+(288, 10, 3, 'hey', NULL, '2023-02-16 06:25:37'),
+(289, 10, 3, NULL, 'stix2.jpg', '2023-02-16 08:12:56'),
+(290, 10, 3, 'hey', NULL, '2023-02-16 09:23:21'),
+(291, 10, 2, 'ui nakita ko ung pet store', NULL, '2023-02-16 09:24:21'),
+(292, 10, 2, NULL, 'petlovers-14.jpg', '2023-02-16 09:24:23'),
+(293, 10, 2, 'iausdhasd', NULL, '2023-02-16 09:24:31'),
+(294, 10, 2, NULL, 'calmona_gcash.jpg', '2023-02-16 09:24:31'),
+(295, 10, 2, 'zjcaoisc\naosidjaosd', NULL, '2023-02-16 09:24:36'),
+(296, 3, 10, 'Hello', NULL, '2023-02-16 09:27:26'),
+(297, 3, 10, 'Hahahahahahaha', NULL, '2023-02-16 09:27:29'),
+(298, 3, 10, NULL, 'stix2.jpg', '2023-02-16 09:27:42'),
+(299, 3, 7, 'asudfhaosfhaisfhaosfh', NULL, '2023-02-16 09:46:56'),
+(300, 3, 7, NULL, 'stix.jpg', '2023-02-16 09:46:56'),
+(301, 3, 2, 'akshdaoisdf', NULL, '2023-02-16 09:47:53'),
+(302, 3, 2, NULL, 'stix3.jpg', '2023-02-16 09:47:54'),
+(303, 10, 3, 'oi abnoy', NULL, '2023-02-16 09:49:30'),
+(304, 10, 3, 'sogo tayo omamaya', NULL, '2023-02-16 09:49:41'),
+(305, 10, 3, NULL, 'calmona_gcash.jpg', '2023-02-16 09:49:43'),
+(306, 3, 10, 'tanga', NULL, '2023-02-16 09:49:51'),
+(307, 3, 10, NULL, 'puspin2.jpg', '2023-02-16 09:49:51'),
+(308, 10, 5, 'oi', NULL, '2023-02-16 09:50:31');
 
 -- --------------------------------------------------------
 
@@ -515,10 +578,24 @@ CREATE TABLE `deledopted` (
 --
 
 INSERT INTO `deledopted` (`petID`, `name`, `age`, `sex`, `vaccinated`, `description`, `pcID`, `bcID`, `userID`, `status`, `given_to`, `date_time`) VALUES
+(1, 'browny', 2020, 'male', 'no', 'browny\r\n', 2, 2, 1, 'given', 10, '2023-02-15 06:29:39'),
 (3, 'pusa na puti', 2020, 'female', 'no', 'pusa na puti', 2, 2, 3, 'posted', 999999, '0000-00-00 00:00:00'),
 (4, 'ben', 2020, 'male', 'no', 'Ako si BEn 10 na mag pagka pusa', 1, 3, 3, 'posted', 999999, '2023-01-15 16:08:28'),
 (5, 'tom', 2006, 'male', 'no', 'Ako si tommy   heinsen', 2, 4, 3, 'posted', 999999, '2023-01-15 16:23:06'),
-(6, 'j', 2009, 'male', 'yes', 'ertertertert', 2, 2, 3, 'posted', 999999, '2023-01-15 17:05:52');
+(6, 'j', 2009, 'male', 'yes', 'ertertertert', 2, 2, 3, 'posted', 999999, '2023-01-15 17:05:52'),
+(14, 'ben', 2020, 'male', 'no', 'Wassabi HAHAHA', 1, 1, 3, 'given', 10, '2023-01-16 20:52:27'),
+(16, 'timothy', 2019, 'female', 'yes', 'Ako si TImothy', 3, 5, 1, 'given', 10, '2023-02-16 02:10:30'),
+(22, 'bing chilling', 2013, 'female', 'no', 'Am Xan SIna Ayoko sana\r\n\r\nna ikaw ay mawawa la', 3, 6, 10, 'given', 1, '2023-02-04 00:06:32'),
+(23, 'cliff', 2020, 'male', 'no', 'ako si cliff  hey', 2, 4, 3, 'given', 10, '2023-02-13 19:35:49'),
+(24, 'bea', 2009, 'female', 'no', 'HEHEHEHE', 1, 3, 10, 'given', 3, '2023-02-15 18:36:53'),
+(25, 'dghdgh', 2009, 'male', 'yes', 'rtjrtjrtj', 1, 1, 10, 'pending', 3, '2023-02-15 22:42:10'),
+(26, 'eric', 2012, 'male', 'yes', 'Ako si Eric De guzman', 2, 4, 3, 'given', 10, '2023-02-16 02:12:09'),
+(27, 'upo', 2019, 'female', 'yes', 'dfhbdfh', 1, 3, 3, 'given', 10, '2023-02-16 02:13:01'),
+(28, 'dora', 2020, 'female', 'no', 'adasd', 1, 1, 3, 'given', 10, '2023-02-16 02:16:41'),
+(29, 'sam', 2013, 'male', 'yes', 'dsfsdf', 2, 4, 3, 'given', 10, '2023-02-16 07:41:41'),
+(30, 'ginger', 2018, 'female', 'no', 'asdasd', 3, 5, 3, 'given', 10, '2023-02-16 08:25:49'),
+(31, 'slkdc', 2009, 'male', 'yes', 'asijfaosfjaposjfpaojsfpoasjf poejfwgp eojg wpeojg wpeojg weasijfaosfjaposjfpaojsfpoasjf poejfwgp eojg wpeojg wpeojg weasijfaosfjaposjfpaojsfpoasjf poejfwgp eojg wpeojg wpeojg weasijfaosfjaposjfpaojsfpoasjf poejfwgp eojg wpeojg wpeojg weasijfaosfjaposjfpaojsfpoasjf poejfwgp eojg wpeojg wpeojg weasijfaosfjaposjfpaojsfpoasjf poejfwgp eojg wpeojg wpeojg weasijfaosfjaposjfpaojsfpoasjf poejfwgp eojg wpeojg wpeojg weasijfaosfjaposjfpaojsfpoasjf poejfwgp eojg wpeojg wpeojg weasijfaosfjaposjfpaojsfpoasjf poejfwgp eojg wpeojg wpeojg weasijfaosfjaposjfpaojsfpoasjf poejfwgp eojg wpeojg wpeojg we', 1, 3, 10, 'given', 3, '2023-02-16 09:26:57'),
+(32, 'oi adoy', 2016, 'male', 'yes', 'oi ako si kenneth delrosario', 2, 2, 10, 'given', 3, '2023-02-16 09:52:35');
 
 -- --------------------------------------------------------
 
@@ -538,6 +615,7 @@ CREATE TABLE `deledopted_photo` (
 --
 
 INSERT INTO `deledopted_photo` (`petphoID`, `petID`, `photo`, `date_time`) VALUES
+(56, 1, 'Khaomanee_cat.jpg', '0000-00-00 00:00:00'),
 (58, 3, 'Khaomanee_cat.jpg', '0000-00-00 00:00:00'),
 (59, 4, 'Brown_Aspin.jpg', '2023-01-15 16:08:28'),
 (60, 4, 'Campbells_dwarf.jpg', '2023-01-15 16:08:28'),
@@ -587,9 +665,27 @@ INSERT INTO `deledopted_photo` (`petphoID`, `petID`, `photo`, `date_time`) VALUE
 (104, 11, 'germanshepherd.jpg', '2023-01-15 21:33:01'),
 (105, 12, 'hamster1.jpg', '2023-01-15 22:02:32'),
 (106, 13, 'stix.jpg', '2023-01-15 22:03:51'),
+(107, 14, 'stix.jpg', '2023-01-16 20:52:27'),
+(108, 14, 'Brown_Aspin.jpg', '2023-01-17 21:18:19'),
+(109, 14, 'Campbells_dwarf.jpg', '2023-01-17 21:18:19'),
+(110, 14, 'germanshepherd.jpg', '2023-01-17 21:18:19'),
+(111, 14, 'hamster1.jpg', '2023-01-17 21:18:19'),
+(112, 14, 'hamster2.jpg', '2023-01-17 21:18:19'),
+(113, 14, 'hehe.jpeg', '2023-01-17 21:18:19'),
+(114, 14, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 21:18:19'),
+(115, 14, 'jorji1.jpg', '2023-01-17 21:18:19'),
+(116, 14, 'Khaomanee_cat.jpg', '2023-01-17 21:18:19'),
+(117, 14, 'pexels-pixabay-45201.jpg', '2023-01-17 21:18:19'),
+(118, 14, 'puspin2.jpg', '2023-01-17 21:18:19'),
+(119, 14, 'samantha.jpg', '2023-01-17 21:18:19'),
+(120, 14, 'stix.jpg', '2023-01-17 21:18:19'),
+(121, 14, 'stix2.jpg', '2023-01-17 21:18:19'),
+(122, 14, 'stix3.jpg', '2023-01-17 21:18:19'),
 (123, 15, 'germanshepherd.jpg', '2023-01-26 22:04:19'),
 (124, 15, 'stix.jpg', '2023-01-26 22:04:19'),
 (125, 15, 'stix3.jpg', '2023-01-26 22:04:19'),
+(126, 16, 'hamster1.jpg', '2023-01-28 16:56:33'),
+(127, 16, 'hamster2.jpg', '2023-01-28 16:56:33'),
 (129, 18, 'stix3.jpg', '2023-01-28 22:53:38'),
 (131, 20, 'istockphoto-1217828258-170667a.jpg', '2023-02-01 16:39:06'),
 (132, 20, 'samantha.jpg', '2023-02-01 16:39:06'),
@@ -602,7 +698,26 @@ INSERT INTO `deledopted_photo` (`petphoID`, `petID`, `photo`, `date_time`) VALUE
 (139, 21, 'puspin2.jpg', '2023-02-01 17:17:05'),
 (140, 21, 'samantha.jpg', '2023-02-01 17:17:05'),
 (141, 21, 'stix - Copy.jpg', '2023-02-01 17:17:05'),
-(142, 21, 'stix2.jpg', '2023-02-01 17:17:05');
+(142, 21, 'stix2.jpg', '2023-02-01 17:17:05'),
+(143, 22, 'hamster2.jpg', '2023-02-04 00:06:32'),
+(144, 22, 'hamster1.jpg', '2023-02-05 17:21:40'),
+(145, 22, 'puspin2.jpg', '2023-02-05 17:21:40'),
+(146, 23, 'istockphoto-1217828258-170667a.jpg', '2023-02-13 19:35:49'),
+(147, 23, 'Khaomanee_cat.jpg', '2023-02-13 19:36:04'),
+(148, 23, 'pexels-pixabay-45201.jpg', '2023-02-13 19:36:04'),
+(149, 24, 'germanshepherd.jpg', '2023-02-15 18:36:53'),
+(150, 25, 'germanshepherd.jpg', '2023-02-15 22:42:10'),
+(151, 26, 'pexels-pixabay-45201.jpg', '2023-02-15 23:36:35'),
+(152, 27, 'germanshepherd.jpg', '2023-02-16 02:12:50'),
+(153, 28, 'germanshepherd.jpg', '2023-02-16 02:16:30'),
+(154, 29, 'Khaomanee_cat.jpg', '2023-02-16 07:39:36'),
+(155, 30, 'hamster2 - Copy.jpg', '2023-02-16 07:42:04'),
+(156, 31, 'jorji1.jpg', '2023-02-16 09:25:28'),
+(157, 31, 'Khaomanee_cat.jpg', '2023-02-16 09:25:28'),
+(158, 31, 'pexels-pixabay-45201.jpg', '2023-02-16 09:25:28'),
+(159, 32, 'hqdefault.jpg', '2023-02-16 09:51:35'),
+(160, 32, 'petlovers-14.jpg', '2023-02-16 09:51:35'),
+(161, 32, 'PetSupplyStores-Featured.jpg', '2023-02-16 09:51:35');
 
 -- --------------------------------------------------------
 
@@ -745,14 +860,9 @@ CREATE TABLE `pet` (
 --
 
 INSERT INTO `pet` (`petID`, `name`, `age`, `sex`, `vaccinated`, `description`, `pcID`, `bcID`, `userID`, `status`, `given_to`, `date_time`) VALUES
-(1, 'browny', 2020, 'male', 'no', 'browny\r\n', 2, 2, 1, 'posted', 999999, '2023-01-16 20:52:27'),
 (2, 'akosidogie', 2019, 'male', 'no', 'Ako si dogie', 1, 1, 2, 'posted', 999999, '2023-01-16 20:52:27'),
-(14, 'ben', 2020, 'male', 'no', 'Wassabi HAHAHA', 1, 1, 3, 'posted', 999999, '2023-01-16 20:52:27'),
-(16, 'timothy', 2019, 'female', 'yes', 'Ako si TImothy', 3, 5, 1, 'posted', 999999, '2023-01-28 16:56:33'),
 (17, 'christina', 2020, 'female', 'yes', 'Hello', 2, 4, 5, 'posted', 999999, '2023-01-28 22:39:13'),
-(19, 'simon', 2020, 'male', 'yes', 'sdgdfhdh', 2, 4, 7, 'posted', 999999, '2023-02-01 05:26:04'),
-(22, 'bing chilling', 2013, 'female', 'no', 'Am Xan SIna Ayoko sana\r\n\r\nna ikaw ay mawawa la', 3, 6, 10, 'pending', 1, '2023-02-04 00:06:32'),
-(23, 'cliff', 2020, 'male', 'no', 'ako si cliff', 2, 4, 3, 'posted', 999999, '2023-02-13 19:35:49');
+(19, 'simon', 2020, 'male', 'yes', 'sdgdfhdh', 2, 4, 7, 'posted', 999999, '2023-02-01 05:26:04');
 
 -- --------------------------------------------------------
 
@@ -852,34 +962,9 @@ INSERT INTO `pet_photo` (`petphoID`, `petID`, `photo`, `date_time`) VALUES
 (53, 55, 'puspin2.jpg', NULL),
 (54, 55, 'stix2.jpg', NULL),
 (55, 55, 'stix3.jpg', NULL),
-(56, 1, 'Khaomanee_cat.jpg', NULL),
 (57, 2, 'germanshepherd.jpg', NULL),
-(107, 14, 'stix.jpg', '2023-01-16 20:52:27'),
-(108, 14, 'Brown_Aspin.jpg', '2023-01-17 21:18:19'),
-(109, 14, 'Campbells_dwarf.jpg', '2023-01-17 21:18:19'),
-(110, 14, 'germanshepherd.jpg', '2023-01-17 21:18:19'),
-(111, 14, 'hamster1.jpg', '2023-01-17 21:18:19'),
-(112, 14, 'hamster2.jpg', '2023-01-17 21:18:19'),
-(113, 14, 'hehe.jpeg', '2023-01-17 21:18:19'),
-(114, 14, 'istockphoto-1217828258-170667a.jpg', '2023-01-17 21:18:19'),
-(115, 14, 'jorji1.jpg', '2023-01-17 21:18:19'),
-(116, 14, 'Khaomanee_cat.jpg', '2023-01-17 21:18:19'),
-(117, 14, 'pexels-pixabay-45201.jpg', '2023-01-17 21:18:19'),
-(118, 14, 'puspin2.jpg', '2023-01-17 21:18:19'),
-(119, 14, 'samantha.jpg', '2023-01-17 21:18:19'),
-(120, 14, 'stix.jpg', '2023-01-17 21:18:19'),
-(121, 14, 'stix2.jpg', '2023-01-17 21:18:19'),
-(122, 14, 'stix3.jpg', '2023-01-17 21:18:19'),
-(126, 16, 'hamster1.jpg', '2023-01-28 16:56:33'),
-(127, 16, 'hamster2.jpg', '2023-01-28 16:56:33'),
 (128, 17, 'istockphoto-1217828258-170667a.jpg', '2023-01-28 22:39:13'),
-(130, 19, 'Khaomanee_cat.jpg', '2023-02-01 05:26:04'),
-(143, 22, 'hamster2.jpg', '2023-02-04 00:06:32'),
-(144, 22, 'hamster1.jpg', '2023-02-05 17:21:40'),
-(145, 22, 'puspin2.jpg', '2023-02-05 17:21:40'),
-(146, 23, 'istockphoto-1217828258-170667a.jpg', '2023-02-13 19:35:49'),
-(147, 23, 'Khaomanee_cat.jpg', '2023-02-13 19:36:04'),
-(148, 23, 'pexels-pixabay-45201.jpg', '2023-02-13 19:36:04');
+(130, 19, 'Khaomanee_cat.jpg', '2023-02-01 05:26:04');
 
 -- --------------------------------------------------------
 
@@ -1111,15 +1196,16 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`userID`, `username`, `email`, `password`, `fname`, `lname`, `photo_id`, `prof_pic`, `muniID`, `verified_id`, `date_time`) VALUES
 (1, 'wan', 'wan@yahoo.com', '$2y$10$0To9.RRBGJ6RzTM0Ni7QgO0YPsC44WpFGtTVG7cOzZYuqqoc5dSWm', 'wan', 'wan', 'hehe.jpeg', 'admin.png', 10, 'yes', '2023-01-14 22:14:47'),
 (2, 'two', 'two@yahoo.com', '$2y$10$DiJbEIRecndAT.IK4TKF.eCREo81jMbS.0vyShyFlv.w.2xekFDcq', 'two', 'two', 'pic-na-retoke.jpg', 'admin.png', 6, 'yes', '2023-01-14 22:14:47'),
-(3, 'jw', 'jw@yahoo.com', '$2y$10$pyDEsSs9TYYtHAASvBaoRO1oQBVpm5Y4iwbzF/mhX0tufgRI6a2Ku', 'john', 'wall', 'hehe.jpeg', 'admin.png', 17, 'yes', '2023-01-14 22:14:47'),
+(3, 'jw', 'jw@yahoo.com', '$2y$10$pyDEsSs9TYYtHAASvBaoRO1oQBVpm5Y4iwbzF/mhX0tufgRI6a2Ku', 'john', 'wall', 'hehe.jpeg', 'hamster1.jpg', 17, 'yes', '2023-01-14 22:14:47'),
 (4, 'ako', 'ako@gmail.com', '$2y$10$VtAFNTm.LXnVNjveW6hlxenvk.V.v/2EJ8UzPieD7rQyvBB5aPqZC', 'ako ay', 'bakit ', 'pic-na-retoke.jpg', 'admin.png', 44, 'yes', '2023-01-14 22:14:47'),
 (5, 'mickey', 'mickeymouse@gmail.com', '$2y$10$5tQvztPCc5lsdBfAwPrVYu/up3n7hgk8rHwGkjsKrAGabyzaK6pFq', 'mickey', 'mouse', 'pic-na-retoke.jpg', 'admin.png', 14, 'yes', '2023-01-28 22:25:31'),
 (6, 'imee', 'imee@yahoo.com', '$2y$10$gfh/evqx0EBKIAcP6uRhU.wjgF2gb2ePYhsZVmzB.UdkD9VmuEngC', 'imee', 'denise', 'kobe.jpg', 'admin.png', 18, 'yes', '2023-01-28 22:37:55'),
 (7, 'jk', 'jk@yahoo.com', '$2y$10$ncchJh9/OJqPIWUC8/wQ9uvSMrdiKWjzhAoGhm.3Pbr7R5S0PDrwy', 'jk', 'jk', 'hehe.jpeg', 'admin.png', 20, 'yes', '2023-02-01 05:25:30'),
 (9, 'lop', 'lopdo@gmail.com', '$2y$10$3ikEZ7dFMgr4ALus18DNKuWkHyYiOrfCgIYCFU1gG3rikln4/ri5S', 'lo', 'lo', 'hehe.jpeg', 'admin.png', 13, 'yes', '2023-02-01 21:21:05'),
-(10, 'troy123', 'troy@gmail.com', '$2y$10$MRz15WIWXOfCVW32hSwUNOOlMnsxsacPWQ2fuelKRTayrr0ji9g8G', 'troy', 'de vera', 'hehe.jpeg', 'admin.png', 13, 'yes', '2023-02-02 15:53:06'),
+(10, 'troy123', 'troy@gmail.com', '$2y$10$MRz15WIWXOfCVW32hSwUNOOlMnsxsacPWQ2fuelKRTayrr0ji9g8G', 'troy', 'de vera', 'hehe.jpeg', 'hamster2 - Copy.jpg', 13, 'yes', '2023-02-02 15:53:06'),
 (11, 'ken', 'ken@yahoo.com', '$2y$10$.5pWusqBAIsR0L/.jduIhefyJzFix63a08StmSlUIRcLwbK9SRJ9a', 'ken', 'ken', 'Campbells_dwarf.jpg', 'admin.png', 46, 'yes', '2023-02-06 12:41:53'),
-(999999, 'noone', '', '', '', '', '', 'admin.png', 18, 'no', '2023-02-15 12:30:11');
+(999999, 'noone', '', '', '', '', '', 'admin.png', 18, 'no', '2023-02-15 12:30:11'),
+(1000001, 'kenkoy', 'kenkoy@gmail.com', '$2y$10$AIiHaPhv8tHelHozwIw1h.Hy3Q1TVY7qC/3NOl11snW.0L5bM.JKS', 'kenkoy', 'salsal', 'hqdefault.jpg', 'admin.png', 14, 'yes', '2023-02-16 09:55:33');
 
 -- --------------------------------------------------------
 
@@ -1248,7 +1334,9 @@ ALTER TABLE `breed_category`
 ALTER TABLE `chat_log`
   ADD PRIMARY KEY (`cLID`),
   ADD KEY `user1` (`sender`),
-  ADD KEY `user2` (`reciever`);
+  ADD KEY `user2` (`reciever`),
+  ADD KEY `message` (`message`),
+  ADD KEY `photo` (`photo`);
 
 --
 -- Indexes for table `clinic`
@@ -1274,7 +1362,8 @@ ALTER TABLE `deledopted`
   ADD KEY `pcID` (`pcID`),
   ADD KEY `bcID` (`bcID`),
   ADD KEY `userID` (`userID`),
-  ADD KEY `given_to` (`given_to`);
+  ADD KEY `given_to` (`given_to`),
+  ADD KEY `name` (`name`);
 
 --
 -- Indexes for table `deledopted_photo`
@@ -1373,7 +1462,7 @@ ALTER TABLE `breed_category`
 -- AUTO_INCREMENT for table `chat_log`
 --
 ALTER TABLE `chat_log`
-  MODIFY `cLID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
+  MODIFY `cLID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=309;
 
 --
 -- AUTO_INCREMENT for table `clinic`
@@ -1391,7 +1480,7 @@ ALTER TABLE `clinic_photo`
 -- AUTO_INCREMENT for table `pet`
 --
 ALTER TABLE `pet`
-  MODIFY `petID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `petID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `pet_category`
@@ -1403,7 +1492,7 @@ ALTER TABLE `pet_category`
 -- AUTO_INCREMENT for table `pet_photo`
 --
 ALTER TABLE `pet_photo`
-  MODIFY `petphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
+  MODIFY `petphoID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -1433,7 +1522,7 @@ ALTER TABLE `shop_photo`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000000;
+  MODIFY `userID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000002;
 
 --
 -- Constraints for dumped tables
